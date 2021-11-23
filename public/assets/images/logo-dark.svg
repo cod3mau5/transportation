@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   version="1.1"
+   id="svg2"
+   width="31.010681"
+   height="21.322451"
+   viewBox="0 0 31.010681 21.322451"
+   sodipodi:docname="logo-dark.svg"
+   inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20)"
+   inkscape:export-filename="C:\laragon\www\HIS\public\assets\images\logo-dark.png"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs6" />
+  <sodipodi:namedview
+     id="namedview4"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     showgrid="false"
+     inkscape:zoom="8.0302127"
+     inkscape:cx="37.85703"
+     inkscape:cy="29.575805"
+     inkscape:window-width="1440"
+     inkscape:window-height="837"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g8" />
+  <g
+     inkscape:groupmode="layer"
+     inkscape:label="Image"
+     id="g8"
+     transform="translate(-0.67069321,-1.8891964)">
+    <rect
+       style="fill:#0bb197;fill-opacity:1;stroke-width:0.73456"
+       id="rect9981"
+       width="16.170578"
+       height="16.170578"
+       x="-8.4755907"
+       y="8.799633"
+       transform="rotate(-43.399974)"
+       ry="1.896367" />
+    <rect
+       style="fill:#0bb197;fill-opacity:1;stroke-width:0.73456"
+       id="rect9981-8"
+       width="16.170578"
+       height="16.170578"
+       x="-1.4352517"
+       y="15.496125"
+       transform="rotate(-43.399974)"
+       ry="1.896367" />
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke-width:0.502806"
+       id="rect9981-8-4"
+       width="11.068753"
+       height="11.068753"
+       x="1.2004445"
+       y="18.233854"
+       transform="rotate(-43.399974)"
+       ry="1.2980622" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none"
+       x="51.804356"
+       y="42.091042"
+       id="text13023"><tspan
+         sodipodi:role="line"
+         id="tspan13021"
+         x="51.804356"
+         y="42.091042" /></text>
+  </g>
+</svg>
