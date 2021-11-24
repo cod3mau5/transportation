@@ -47,7 +47,6 @@ Route::get('/', function () {
     $passengers     = (isset($_GET['passengers'])) ? (int) $_GET['passengers'] : '';
     $date_arrival   = (isset($_GET['arrival'])) ?  $_GET['arrival'] : '';
     $date_departure = (isset($_GET['departure'])) ? $_GET['departure'] : '';
-    $vehicles=json_encode($vehicles);
     
     return view('welcome',compact(
         'resort_options','unit_options','vehicles',
