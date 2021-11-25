@@ -29,6 +29,9 @@
             .hidden{
                 display: none!important;
             }
+            .line{
+                border-bottom: 1px solid #099680;
+            }
         </style>
       {{-- <link rel="stylesheet" href="{{ asset('css/bootstrap4.min.css') }}"> --}}
     </head>
@@ -432,8 +435,11 @@
                     </div>
 
                     <div class="col-md-4">
-                        <div class="widget card text-center">
-                            <h4 class="widget-title">Summary</h4>
+                        <div class="widget card text-center border border-success">
+                            <div class="card-header bg-transparent border-success">
+                                <h1 class="widget-title my-0 text-success"><b>Summary</b></h1>
+                            </div>
+                            <hr class="line">
                             <div class="summary-block">
                                 <div class="summary-content">
                                     <div class="summary-head">
@@ -444,6 +450,7 @@
                                     </div>
                                 </div>
                             </div>
+                            <hr class="line">
                             <div class="summary-block">
                                 <div class="summary-content">
                                     <div class="summary-head">
@@ -454,16 +461,21 @@
                                     </div>
                                 </div>
                             </div>
+                            <hr class="line">
                             <div class="summary-block">
                                 <div class="summary-content">
                                 <div class="summary-head">
-                                    <h5 class="summary-title sm_unit"></h5></div>
+                                    <div class="summary-head"> <h5 class="summary-title">Unit</h5></div>
+                                    <p class="summary-text sm_unit"></p></div>
+                            <hr class="line">
                                     <div class="summary-price">
-                                        <p class="summary-text sm_price"></p>
+                                        <div class="summary-head"> <h5 class="summary-title">Trip Type</h5></div>
+                                        
                                         <span class="summary-small-text pull-right sm_trip"></span>
                                     </div>
                                 </div>
                             </div>
+                            <hr class="line">
                             <div class="summary-block">
                                 <div class="summary-content">
                                 <div class="summary-head"> <h5 class="summary-title">Total</h5></div>
