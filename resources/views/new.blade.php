@@ -26,6 +26,9 @@
             #departure_flight_details{
                 display: none;
             }
+            .hidden{
+                display: none!important;
+            }
         </style>
       {{-- <link rel="stylesheet" href="{{ asset('css/bootstrap4.min.css') }}"> --}}
     </head>
@@ -59,16 +62,24 @@
                                 <div id="basic-pills-wizard" class="twitter-bs-wizard">
                                     <ul class="twitter-bs-wizard-nav">
                                         <li class="nav-item">
-                                            <a href="#step1" class="nav-link" data-toggle="tab">
+                                            <a href="#step1" 
+                                            class="nav-link"  
+                                            data-toggle="tab"
+                                            style="pointer-events: none;cursor: default;">
                                                 <span class="step-number">01</span>
                                                 <span class="step-title">Trip</span>
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="#step2" class="nav-link" data-toggle="tab">
+                                            <a href="#step2" 
+                                                class="nav-link" 
+                                                data-toggle="tab" 
+                                                id="stepTwo" 
+                                                style="pointer-events: none;cursor: default;">
                                                 <span class="step-number">02</span>
                                                 <span class="step-title">Contact</span>
                                             </a>
+                                            
                                         </li>
                                         
                                         {{-- <li class="nav-item">
@@ -78,7 +89,10 @@
                                             </a>
                                         </li> --}}
                                         <li class="nav-item">
-                                            <a href="#step3" class="nav-link" data-toggle="tab">
+                                            <a href="#step3" 
+                                                class="nav-link" 
+                                                data-toggle="tab"
+                                                style="pointer-events: none;cursor: default;">
                                                 <span class="step-number">04</span>
                                                 <span class="step-title">Summary</span>
                                             </a>
@@ -297,51 +311,45 @@
                                         </div>
                                         <div class="tab-pane" id="step2">
                                             <div>
-                                            <form>
+                                            <form id="form_step2">
                                                 <div class="row">
                                                     <div class="col-lg-6">
                                                         <div class="mb-3">
-                                                            <label class="form-label" for="basicpill-pancard-input">PAN Card</label>
-                                                            <input type="text" class="form-control" id="basicpill-pancard-input">
+                                                            <label for="first_name" class="form-label">First Name</label>
+                                                                <input type="text" class="form-control" id="first_name" name="first_name" placeholder="First Name" required>
                                                         </div>
                                                     </div>
         
                                                     <div class="col-lg-6">
                                                         <div class="mb-3">
-                                                            <label class="form-label" for="basicpill-vatno-input">VAT/TIN No.</label>
-                                                            <input type="text" class="form-control" id="basicpill-vatno-input">
+                                                            <label class="form-label" for="last_name">Last Name</label>
+                                                            <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Last Name" required>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-lg-6">
                                                         <div class="mb-3">
-                                                            <label class="form-label" for="basicpill-cstno-input">CST No.</label>
-                                                            <input type="text" class="form-control" id="basicpill-cstno-input">
+                                                            <label for="email1" class="form-label">Email</label>
+                                                                <input type="email" class="form-control" id="email" name="email" placeholder="Email" required="">
                                                         </div>
                                                     </div>
         
                                                     <div class="col-lg-6">
                                                         <div class="mb-3">
-                                                            <label class="form-label" for="basicpill-servicetax-input">Service Tax No.</label>
-                                                            <input type="text" class="form-control" id="basicpill-servicetax-input">
+                                                            <label for="primary_phone" class="form-label">Phone Number</label>
+                                                                <input type="tel" class="form-control" id="primary_phone" placeholder="Primary Phone" required="">
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-lg-6">
+                                                    <div class="col-lg-12">
                                                         <div class="mb-3">
-                                                            <label class="form-label" for="basicpill-companyuin-input">Company UIN</label>
-                                                            <input type="text" class="form-control" id="basicpill-companyuin-input">
+                                                            <label for="request" class="form-label">Comments</label>
+                                                                <textarea name="request" id="request" cols="30" rows="10" class="form-control"></textarea>
                                                         </div>
                                                     </div>
-        
-                                                    <div class="col-lg-6">
-                                                        <div class="mb-3">
-                                                            <label class="form-label" for="basicpill-declaration-input">Declaration</label>
-                                                            <input type="text" class="form-control" id="basicpill-declaration-input">
-                                                        </div>
-                                                    </div>
+    
                                                 </div>
                                             </form>
                                             </div>
@@ -519,7 +527,7 @@
 
 
         </div>
-
+         
         {{-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> --}}
@@ -554,5 +562,6 @@
             var resort_options= '<?php echo $resort_options ?>';
         </script>
         <script src="{{ asset('/assets/form_wizzard.js') }}"></script>
+
     </body>
 </html>
