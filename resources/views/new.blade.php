@@ -32,6 +32,44 @@
             .line{
                 border-bottom: 1px solid #099680;
             }
+            .text-wrap{
+                word-break: break-word!important;
+            }
+
+
+            @-webkit-keyframes pulse {
+                0% {
+                    -webkit-box-shadow: 0 0 0 0 rgba(204, 44, 44, 0.8);
+                }
+                70% {
+                    -webkit-box-shadow: 0 0 0 10px rgba(204, 44, 44, 0);
+                }
+                100% {
+                    -webkit-box-shadow: 0 0 0 0 rgba(204, 44, 44, 0.2);
+                }
+            }
+            @keyframes pulse {
+                0% {
+                    -moz-box-shadow: 0 0 0 0 rgba(204, 44, 44, 0.8);
+                    box-shadow: 0 0 0 0 rgba(204, 44, 44, 0.4);
+                }
+                70% {
+                    -moz-box-shadow: 0 0 0 10px rgba(204, 44, 44, 0.2);
+                    box-shadow: 0 0 0 10px rgba(204, 44, 44, 0);
+                }
+                100% {
+                    -moz-box-shadow: 0 0 0 0 rgba(204, 44, 44, 0);
+                    box-shadow: 0 0 0 0 rgba(204, 44, 44, 0);
+                }
+            }
+
+            .finalButton {
+                display: none;
+            }
+            .pvw-title:after {
+                animation: pulse 1.2s infinite;
+                content: 'whatever it is you want to add';
+            }
         </style>
       {{-- <link rel="stylesheet" href="{{ asset('css/bootstrap4.min.css') }}"> --}}
     </head>
@@ -63,43 +101,20 @@
                                 <h2 class="card-title mb-4 fs-2">Reservation form</h2>
         
                                 <div id="basic-pills-wizard" class="twitter-bs-wizard">
+                                    @php $stepNames= ['Trip','Contact','Confirm Detail']; $i=1; @endphp
                                     <ul class="twitter-bs-wizard-nav">
-                                        <li class="nav-item">
-                                            <a href="#step1" 
-                                            class="nav-link"  
-                                            data-toggle="tab"
-                                            style="pointer-events: none;cursor: default;">
-                                                <span class="step-number">01</span>
-                                                <span class="step-title">Trip</span>
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="#step2" 
-                                                class="nav-link" 
-                                                data-toggle="tab" 
-                                                id="stepTwo" 
-                                                style="pointer-events: none;cursor: default;">
-                                                <span class="step-number">02</span>
-                                                <span class="step-title">Contact</span>
-                                            </a>
-                                            
-                                        </li>
-                                        
-                                        {{-- <li class="nav-item">
-                                            <a href="#bank-detail" class="nav-link" data-toggle="tab">
-                                                <span class="step-number">03</span>
-                                                <span class="step-title">Bank Details</span>
-                                            </a>
-                                        </li> --}}
-                                        <li class="nav-item">
-                                            <a href="#step3" 
-                                                class="nav-link" 
+                                        @foreach ($stepNames as $name)
+                                            <li class="nav-item">
+                                                <a href="#step{{ $i }}" 
+                                                class="nav-link"  
                                                 data-toggle="tab"
-                                                style="pointer-events: none;cursor: default;">
-                                                <span class="step-number">04</span>
-                                                <span class="step-title">Summary</span>
-                                            </a>
-                                        </li>
+                                                style="pointer-events: none;cursor: not-allowed;">
+                                                    <span class="step-number">0{{ $i }}</span>
+                                                    <span class="step-title">{{ $name }}</span>
+                                                </a>
+                                            </li>
+                                            @php $i++ @endphp
+                                        @endforeach
                                     </ul>
                                      <!-- Tab panes -->
                                     <div class="tab-content twitter-bs-wizard-tab-content">
@@ -410,15 +425,54 @@
                                         </div> --}}
                                         <div class="tab-pane" id="step3">
                                             <div class="row justify-content-center">
-                                                <div class="col-lg-6">
+                                                <div class="col-lg-10">
                                                     <div class="text-center">
                                                         <div class="mb-4">
                                                             <i class="mdi mdi-check-circle-outline text-success display-4"></i>
                                                         </div>
-                                                        <div>
+                                                        <form action="{{ route('sendReservation') }}" method="POST">
+                                                            @csrf
                                                             <h5>Confirm Detail</h5>
-                                                            <p class="text-muted">If several languages coalesce, the grammar of the resulting</p>
-                                                        </div>
+                                                            <p class="text-muted">
+                                                                Please confirm your travel details below.
+                                                                Currently you can {{-- payonlineusingyourPayPalaccountoryoucan --}} pay with cash upon arrival.
+                                                                If you wish to get in touch with us please call +52 1 (624) 155 64 55 or email code.bit.mau@gmail.com
+                                                            </p>
+                                                            <div id="summary-details">
+                                                                @include('extras.summary_table')
+                                                                <input type="hidden" name="_trip_type" id="_trip_type" value="">
+                                                                <input type="hidden" name="_location_start" id="_location_start" value="">
+                                                                <input type="hidden" name="_location_end" id="_location_end" value="">
+                                                                <input type="hidden" name="_passengers" id="_passengers" value="">
+                                                                <input type="hidden" name="_unit" id="_unit" value="">
+                                                                <input type="hidden" name="_arrival_date" id="_arrival_date" value="">
+                                                                <input type="hidden" name="_arrival_time" id="_arrival_time" value="">
+                                                                <input type="hidden" name="_arrival_company" id="_arrival_company" value="">
+                                                                <input type="hidden" name="_arrival_flight" id="_arrival_flight" value="">
+                                                                <input type="hidden" name="_departure_date" id="_departure_date" value="">
+                                                                <input type="hidden" name="_departure_time" id="_departure_time" value="">
+                                                                <input type="hidden" name="_departure_company" id="_departure_company" value="">
+                                                                <input type="hidden" name="_departure_flight" id="_departure_flight" value="">
+                                                                <input type="hidden" name="_contact_firstname" id="_contact_firstname" value="">
+                                                                <input type="hidden" name="_contact_lastname" id="_contact_lastname" value="">
+                                                                <input type="hidden" name="_contact_email" id="_contact_email" value="">
+                                                                <input type="hidden" name="_contact_phone" id="_contact_phone" value="">
+                                                                <input type="hidden" name="_contact_mobile" id="_contact_mobile" value="">
+                                                                <input type="hidden" name="_contact_request" id="_contact_request" value="">
+                                                                <input type="hidden" name="_subtotal" id="_subtotal" value="100">
+                                                                <input type="hidden" name="_total" id="_total" value="100">
+            
+                                                                <input type="hidden" name="Paypal[cmd]" value="_xclick" />
+                                                                <input type="hidden" name="Paypal[no_note]" value="1" />
+                                                                <input type="hidden" name="Paypal[lc]" value="en_US" />
+                                                                <input type="hidden" name="Paypal[bn]" value="PP-BuyNowBF:btn_buynow_LG.gif:NonHostedGuest" />
+                                                                <input type="hidden" name="Paypal[first_name]" id="paypal_firstname" value="firstname" />
+                                                                <input type="hidden" name="Paypal[last_name]" id="paypal_lastname" value="lastname" />
+                                                                <input type="hidden" name="Paypal[payer_email]" id="paypal_email" value="email" />
+                                                                <input type="hidden" name="Paypal[item_number]" value="1" / >
+                                                            </div>
+                                                            <button type="submit" id="sendReservation" style="display: none"></button>
+                                                        </form>
                                                     </div>
                                                 </div>
                                             </div>
@@ -488,50 +542,6 @@
                     </div>
                     
                 </div>
-
-                    {{-- <div class="col-md-3">
-                        <div class="widget">
-                            <h4 class="widget-title">Summary</h4>
-                            <div class="summary-block">
-                                <div class="summary-content">
-                                    <div class="summary-head">
-                                        <h5 class="summary-title">Start Location</h5>
-                                    </div>
-                                    <div class="summary-price">
-                                        <p class="summary-text sm_start"></p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="summary-block">
-                                <div class="summary-content">
-                                    <div class="summary-head">
-                                        <h5 class="summary-title">End Location</h5>
-                                    </div>
-                                    <div class="summary-price">
-                                        <p class="summary-text sm_end"></p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="summary-block">
-                                <div class="summary-content">
-                                <div class="summary-head">
-                                    <h5 class="summary-title sm_unit"></h5></div>
-                                    <div class="summary-price">
-                                        <p class="summary-text sm_price"></p>
-                                        <span class="summary-small-text pull-right sm_trip"></span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="summary-block">
-                                <div class="summary-content">
-                                <div class="summary-head"> <h5 class="summary-title">Total</h5></div>
-                                    <div class="summary-price">
-                                        <p class="summary-text sm_price"></p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div> --}}
 
             </div>
             <!-- Reservation form end -->
