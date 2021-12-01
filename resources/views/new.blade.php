@@ -214,7 +214,7 @@
                                                             </select>
                                                         </div>
                                                     </div>
-                                                    <div class="col-lg-6">
+                                                    <div class="col-lg-6 d-none">
                                                         <div class="mb-3">
                                                             <label for="vehicle" class="form-label">
                                                                 Kind of vehicle

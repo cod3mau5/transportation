@@ -20,7 +20,7 @@ class PagesController extends Controller
     
         $resorts = Resort::all()->sortBy("name");
         $units   = Unit::all()->sortBy("name");
-        $rates   = Rate::all()->sortBy('zone_id');
+        $rates   = Rate::where('unit_id','1')->get()->sortBy('zone_id');
         foreach ($resorts as $row) {
             $resort_options .=  '<option value="'.$row->id.'" data-zone="'.$row->zone_id.'">'.
                                     htmlentities($row->name).

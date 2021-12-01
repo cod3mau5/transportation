@@ -23,11 +23,11 @@
     </div>
     <div class="row">
         <div class="col-md-6">
-            {{ Form::label('privateoneway','Precio one way (1-6 pax):',['class'=>'control-label']) }}
+            {{ Form::label('privateoneway','Precio one way (6-10 pax):',['class'=>'control-label']) }}
             {{ Form::number('privateoneway', $zona->price->privateoneway,  ['id'=>'nombre', 'class'=>'form-control','required'=>'required','placeholder'=>'Nombre']) }}
         </div>
         <div class="col-md-6">
-            {{ Form::label('privateroundtrip','Precio round trip (1-6 pax):',['class'=>'control-label']) }}
+            {{ Form::label('privateroundtrip','Precio round trip (6-10 pax):',['class'=>'control-label']) }}
             {{ Form::number('privateroundtrip', $zona->price->privateroundtrip,  ['id'=>'nombre', 'class'=>'form-control','required'=>'required','placeholder'=>'Nombre']) }}
         </div>
     </div>
@@ -44,11 +44,11 @@
     </div>
     <div class="row">
         <div class="col-md-6">
-            {{ Form::label('privateoneway','Precio one way (1-6 pax):',['class'=>'control-label']) }}
+            {{ Form::label('privateoneway','Precio one way (6-10 pax):',['class'=>'control-label']) }}
             {{ Form::number('privateoneway', null,  ['id'=>'nombre', 'class'=>'form-control','required'=>'required','placeholder'=>'Nombre']) }}
         </div>
         <div class="col-md-6">
-            {{ Form::label('privateroundtrip','Precio round trip (1-6 pax):',['class'=>'control-label']) }}
+            {{ Form::label('privateroundtrip','Precio round trip (6-10 pax):',['class'=>'control-label']) }}
             {{ Form::number('privateroundtrip', null,  ['id'=>'nombre', 'class'=>'form-control','required'=>'required','placeholder'=>'Nombre']) }}
         </div>
     </div>

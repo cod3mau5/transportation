@@ -242,13 +242,31 @@ jQuery(document).ready(function($) {
                     options +=  '<option value="'+unit_id+'" data-price="'+price+'" data-name="'+unitName+'">'+
                                     unitName +' from $ '+ price + ' USD '+
                                 '</option>';
+                }else{
+                    var price    = $('#trip_type').val() == 'o' ? rates[i].privateoneway : rates[i].privateroundtrip;
+                    price=price+'.00';
+                    options +=  '<option value="'+1+'" data-price="'+price+'" data-name="'+unitName+'">'+
+                    unitName +' from $ '+ price + ' USD '+
+                '</option>';
                 }
             }
         }
-
+        
         $('#vehicle').html(options);
+        $('#vehicle option:eq(1)').attr('selected','select');
         $('.sm_price').html('');
         $('.sm_unit').html('');
+
+
+        if(price != undefined){
+            var price = $('#vehicle option:selected').data('price');
+            var name  = $('#vehicle option:selected').data('name');
+            $('.sm_price').html('$ ' + price + ' usd');
+            $('.info_price').html('$ ' + price + ' usd');
+            $('#_subtotal').val(price);
+            $('#_total').val(price);
+        }
+        $('.sm_unit').html(name);
     }
 
 });
@@ -278,10 +296,8 @@ jQuery(document).ready(function($) {
                 if (c.onTabShow && "function" === typeof c.onTabShow && !1 === c.onTabShow(f, b, a.currentIndex())) return !1
             };
             this.next = function (h) {
-
                 if (
-                    localStorage.getItem('step') != 2 && 
-                    localStorage.getItem('step') != 3 &&
+                    $('#step1').hasClass('active') &&
                     $('#form_step1').valid() 
                     )
                 {
@@ -351,7 +367,7 @@ jQuery(document).ready(function($) {
                     localStorage.setItem('step',2);
                     console.log('step 1');
                     console.log(localStorage.getItem('step'));
-                }else if(localStorage.getItem('step') == 2 ){
+                }else if($('#step2').hasClass('active') && $('#form_step2').valid() ){
 
                         var first_name      = $('#first_name').val();
                         var last_name       = $('#last_name').val();
@@ -380,13 +396,13 @@ jQuery(document).ready(function($) {
                         $('#nav-step3 a').attr('href', '#step3');
                         $('#bookTabs li:eq(2) a').tab('show');
                         console.log('step 2');
-                        if($('#form_step2').valid()){
+                        if($('#form_step2').valid() || $('#step2').hasClass('active')){
                             localStorage.setItem('step',3);
                             console.log(localStorage.getItem('step'));
                         }
                         
 
-                }else if(localStorage.getItem('step') == 3){
+                }else if(localStorage.getItem('step') == 3 && $('#step3').hasClass('active')){
                     localStorage.setItem('step','final');
                 }else{
                     localStorage.setItem('step',null);
@@ -394,7 +410,11 @@ jQuery(document).ready(function($) {
                 }
 
                 if( (localStorage.getItem('step') == 2 && $('#form_step2').valid()) || (localStorage.getItem('step') == 3 && $('#form_step2').valid()) ){
-                    if(localStorage.getItem('step') == 3 ){
+                    if(localStorage.getItem('step') == 3 && $('#step2').hasClass('active')){
+                        $('.go_step2').addClass('btn-success');
+                        $('.go_step2').removeClass('btn-primary');
+                        $('.go_step2').html('Finish Booking');
+                    }else if($('#step2').hasClass('active') && localStorage.getItem('step') == 2){
                         $('.go_step2').addClass('btn-success');
                         $('.go_step2').removeClass('btn-primary');
                         $('.go_step2').html('Finish Booking');
@@ -408,18 +428,18 @@ jQuery(document).ready(function($) {
                     a.navigationLength() || (g.push(h), b.find('li:has([data-toggle="tab"]):eq(' + $index + ") a").tab("show"))
                     $('#stepTwo').css('pointer-events','none');
                     $('#stepTree').css('pointer-events','none');
-                }else if(localStorage.getItem('step') == 'final'){
+                }else if(localStorage.getItem('step') == 'final' && $('#step3').hasClass('active')){
                     $('#sendReservation').click();
                 }else{
                     localStorage.setItem('step',null);
                 }
             };
             this.previous = function (h) {
-                if(localStorage.getItem('step') == 3 ){
+                if( $('#step2').hasClass('active') || $('#step3').hasClass('active')){
                     $('.go_step2').removeClass('btn-success');
                     $('.go_step2').addClass('btn-primary');
                     $('.go_step2').html('Next');
-                    localStorage.setItem('step',null);
+                    localStorage.setItem('step',2);
                 }
                 if (d.hasClass("first") || c.onPrevious && "function" === typeof c.onPrevious && !1 === c.onPrevious(f, b, a.previousIndex())) return !1;
                 h = a.currentIndex();
