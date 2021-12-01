@@ -78,8 +78,8 @@
                   <i class="fa fa-calendar"></i>&nbsp;&nbsp;RESERVACIONES <span class="caret"></span>
               </a>
               <ul class="dropdown-menu">
-                  <li><a href="/reservacion">Reservaciones</a></li>
-                  <li><a href="/reservacion/create">Crear nueva</a></li>
+                  <li><a href="{{ route('reservacion.index') }}">Reservaciones</a></li>
+                  <li><a href="{{ route('reservacion.create') }}">Crear nueva</a></li>
                  {{--  @if (!Auth::user()->hasRole('representante'))
                   <li><a href="{{route('facturacion.index')}}">Facturación</a></li>
                   @endif --}}
@@ -111,7 +111,15 @@
               </ul>
           </li>
           {{-- @endif --}}
-          <li><a href="/logout"><i class="fa fa-sign-out"></i>&nbsp;&nbsp;SALIR</a></li>
+          <li>
+
+              <a style="cursor: pointer" onclick="$('#logout').click()"><i class="fa fa-sign-out"></i>&nbsp;&nbsp;SALIR</a>
+
+            <form action="{{ route('logout') }}" method="POST" style="display: none">
+              @csrf
+              <button id="logout"></button>
+            </form>
+          </li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <!-- User Account: style can be found in dropdown.less -->
@@ -209,8 +217,8 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="/{{ route('reservacion.index') }}"><i class="fa fa-circle"></i> Reservaciones</a></li>
-            <li><a href="{{ ('reservacion.create') }}"><i class="fa fa-circle"></i> Crear nueva</a></li>
+            <li><a href="{{ route('reservacion.index') }}"><i class="fa fa-circle"></i> Reservaciones</a></li>
+            <li><a href="{{ route('reservacion.create') }}"><i class="fa fa-circle"></i> Crear nueva</a></li>
             {{-- @if (!Auth::user()->hasRole('representante'))
             <li><a href="/facturacion"><i class="fa fa-circle"></i> Facturación</a></li>
             @endif --}}
