@@ -299,12 +299,12 @@
     <div class="pull-right hidden-xs">
        <small>Powered by</small>
       <a href="http://www.codemau5.com" target="_blank">
-        <img src="/img/logo.png" alt="Black Kraken Studio" title="Black Kraken Studio" style="width: 40px; margin-left: 5px;">
+        <img src="{{ asset('img/logo.png') }}" alt="codemau5" title="codemau5" style="width: 40px; margin-left: 5px;">
       </a>
     </div>
     <a href="{{ route('home') }}" target="_blank">
       {{ config('app.name') }}
-    </a> - Sistema de Reservaciones <b><a href="/version">Version 1.0</a></b>
+    </a> - Sistema de Reservaciones <b><a href="{{ route('app.version') }}">Version 1.0</a></b>
   </footer>
 
   <!-- Add the sidebar's background. This div must be placed

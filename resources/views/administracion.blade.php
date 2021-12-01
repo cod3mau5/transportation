@@ -9,7 +9,7 @@
     <div class="box-body">
         <div class="row">
             <!-- HOTELES -->
-            <a href="/administracion/hotel">
+            <a href="{{ route('hotel.index') }}">
                 <div class="col-lg-2">
                     <div class="panel panel-primary">
                         <div class="panel-heading text-center">
@@ -26,7 +26,7 @@
                 </div>
             </a>
             <!-- USUARIOS -->
-            <a href="administracion/user">
+            <a href="{{ route('user.index') }}">
                 <div class="col-lg-2">
                     <div class="panel panel-primary">
                         <div class="panel-heading text-center">
@@ -40,7 +40,7 @@
                 </div>
             </a>
             {{-- ZONAS --}}
-            <a href="administracion/zonas">
+            <a href="{{ route('zonas.index') }}">
                 <div class="col-lg-2">
                     <div class="panel panel-primary">
                         <div class="panel-heading text-center">
