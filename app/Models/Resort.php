@@ -16,7 +16,7 @@ class Resort extends Model
 
     public function zone()
     {
-        return $this->belongsTo('App\Zone');
+        return $this->belongsTo('App\Models\Zone');
     }
 
     public function reservations()

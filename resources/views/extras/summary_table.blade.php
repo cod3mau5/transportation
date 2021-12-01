@@ -85,11 +85,16 @@
                         <strong class="fs-5">Pay Method: </strong><br>
                         <span class="fs-6 text-wrap badge badge-soft-warning">Cash upon arrival</span>
                     </div>
-                        {{-- <label class="pay">
-                            <input type="radio" name="pay_method" id="optionsRadios2" value="cash" checked="checked">
+                        <label class="pay" style="display:none">
+                            <input type="radio" 
+                            ame="pay_method" 
+                            id="optionsRadios2" 
+                            value="cash" 
+                            checked="checked"
+                            style="display:none">
                             Cash upon arrival
                         </label>
-                        <label class="pay">
+                        {{-- <label class="pay">
                             <input type="radio" name="pay_method" id="optionsRadios1" value="paypal">
                             Paypal
                         </label> --}}

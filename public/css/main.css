@@ -1,0 +1,85 @@
+.main-header .navbar-custom-menu {
+    float: initial;
+}
+@media (min-width: 768px) {
+    .navbar-right {
+         margin-right: 15px;
+    }
+}
+@media (max-width: 991px) {
+    .navbar-custom-menu>.navbar-nav {
+        float: left;
+    }
+}
+.actions {
+    margin: 0 1px;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+}
+
+input.error, select.error {
+    border: 1px solid red;
+}
+label.error {
+    color: red;
+}
+.box-header .box-title {
+    line-height: 32px;
+}
+
+/* Utils */
+.d-block {
+    display: block;
+}
+
+/* Formulario de captura */
+#agregar {
+    margin-bottom: 20px;
+}
+#agregar .submit {
+    margin-top: 20px;
+}
+textarea#comments, #special_comments {
+    height: 100px;
+}
+
+#dataConfirmModal .modal-dialog {
+    -webkit-transform: translate(0,-50%);
+    -o-transform: translate(0,-50%);
+    transform: translate(0,-50%);
+    top: 50%;
+    margin: 0 auto;
+}
+.reporte-icon {
+    height: 40px;
+    margin: 0 5px;
+}
+.btn-xs {
+    padding: 1px;
+}
+#sortable1, #sortable2 {
+    border: 1px solid #eee;
+    width: 100%;
+    min-height: 20px;
+    list-style-type: none;
+    margin: 0;
+    padding: 5px 0 0 0;
+    float: left;
+    margin-right: 10px;
+}
+#sortable1 li, #sortable2 li {
+    margin: 0 5px 5px 5px;
+    padding: 5px;
+    font-size: 1.3rem;
+    width: 97%;
+    border: 1px solid #cecece;
+}
+
+.logo-lg img {
+    margin-right: 10px;
+}
+
+#cambiar_asig table.table.table-condensed td:last-child {
+    width: 100px;
+}

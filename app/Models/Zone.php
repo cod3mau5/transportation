@@ -15,7 +15,12 @@ class Zone extends Model
 
     public function resorts()
     {
-        return $this->hasMany('App\Resort');
+        return $this->hasMany('App\Models\Resort');
+    }
+    public function price()
+    {
+        return $this->hasOne('App\Models\Rate');
+        // return $this->hasMany('App\Models\Rate');
     }
 }
-}
+

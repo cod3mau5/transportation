@@ -180,7 +180,7 @@
                                                 </div>
         
                                                 <div class="row">
-                                                    <div class="col-lg-4">
+                                                    <div class="col-lg-6">
                                                         <div class="mb-3">
                                                             <label for="passengers" class="form-label">
                                                                 Number of travelers
@@ -188,6 +188,23 @@
                                                             <select id="passengers" name="passengers" class="form-control" required>
                                                                 <option value="" disabled="" selected="selected" style="display:none">
                                                                     Number of travelers
+                                                                </option>
+                                                                @for ($x = 1; $x<=10; $x++)
+                                                                    <option value="{{$x}}" {{ $x == $passengers ? 'selected="selected"' : '' }}>
+                                                                        {{ $x }}
+                                                                    </option>
+                                                                @endfor
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6">
+                                                        <div class="mb-3">
+                                                            <label for="passengers" class="form-label">
+                                                                Children
+                                                            </label>
+                                                            <select id="passengers" name="passengers" class="form-control" required>
+                                                                <option value="" disabled="" selected="selected" style="display:none">
+                                                                    Number of children
                                                                 </option>
                                                                 @for ($x = 1; $x<=8; $x++)
                                                                     <option value="{{$x}}" {{ $x == $passengers ? 'selected="selected"' : '' }}>
@@ -197,7 +214,7 @@
                                                             </select>
                                                         </div>
                                                     </div>
-                                                    <div class="col-lg-8">
+                                                    <div class="col-lg-6">
                                                         <div class="mb-3">
                                                             <label for="vehicle" class="form-label">
                                                                 Kind of vehicle

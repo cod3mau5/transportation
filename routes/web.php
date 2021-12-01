@@ -3,98 +3,65 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers;
 use App\Http\Controllers\Controller;
-use App\Models\Resort;
-use App\Models\Rate;
-use App\Models\Unit;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
 
-// Route::get('/old', function () {
+Route::get('/', [Controllers\PagesController::class,'home'])->name('home');
+Route::post('/send-reservation',[Controllers\ReservationsController::class,'sendReservation'])->name('sendReservation');
 
-//     $resort_options = '';
-//     $unit_options   = '';
-//     $vehicles = array();
+Auth::routes();
 
-//     // $resorts = $wpdb->get_results('SELECT * FROM resorts ORDER BY name ASC');
-//     // $units   = $wpdb->get_results('SELECT * FROM units ORDER BY name ASC');
-//     // $rates   = $wpdb->get_results('SELECT * FROM rates ORDER BY zone_id, unit_id');
+// Route::get('/home', [Controllers\HomeController::class, 'index'])->name('home');
 
-//     $resorts = Resort::all()->sortBy("name");
-//     $units   = Unit::all()->sortBy("name");
-//     $rates   = Rate::all()->sortBy('zone_id');
-//     foreach ($resorts as $row) {
-//         $resort_options .=  '<option value="'.$row->id.'" data-zone="'.$row->zone_id.'">'.
-//                                 htmlentities($row->name).
-//                             '</option>';
-//     }
+Route::get('/home', [Controllers\HomeController::class, 'index']);
+// Route::get('/logout', 'Auth\LoginController@logout')->name('logout' );
+Route::get('/version', [Controllers\HomeController::class, 'version'])->name('app.version');
 
-//     foreach ($units as $unit) {
-//         $vehicles[$unit->id] = ['name'=> $unit->name, 'capacity'=> $unit->capacity];
-//         $unit_options .=  '<option value="'.$unit->id.'" data-name="'.$unit->id.'">'.
-//                                 htmlentities($unit->name).
-//                             '</option>';
-//     }
+Route::get('/reservacion/data', [Controllers\ReservacionController::class, 'anyData'])->name('reservacion.data');
+// Route::get('/reservacion/{reservacion}/voucher', 'ReservacionController@voucher')->name('reservacion.voucher');
+Route::resource('/reservacion', Controllers\ReservacionController::class);
 
-//     $start_location = (isset($_GET['start_location'])) ? $_GET['start_location'] : '';
-//     $end_location   = (isset($_GET['end_location'])) ? $_GET['end_location'] : '';
-//     $passengers     = (isset($_GET['passengers'])) ? (int) $_GET['passengers'] : '';
-//     $date_arrival   = (isset($_GET['arrival'])) ?  $_GET['arrival'] : '';
-//     $date_departure = (isset($_GET['departure'])) ? $_GET['departure'] : '';
-    
-//     return view('welcome',compact(
-//         'resort_options','unit_options','vehicles',
-//         'resorts','units','rates','start_location',
-//         'end_location','passengers','date_arrival',
-//         'date_departure'
-//     ));
-// });
+Route::get('/user/data',[Controllers\UserController::class, 'anyData'])->name('user.data');
+Route::resource('user', Controllers\UserController::class,);
 
-Route::get('/', function () {
+Route::get('/facturacion',[Controllers\FacturacionController::class, 'index'])->name('facturacion.index');
+Route::get('/facturacion/previo',[Controllers\FacturacionController::class, 'prefacturacion'])->name('facturacion.prefacturacion');
+Route::post('/facturacion/procesar', [Controllers\FacturacionController::class, 'procesar'])->name('facturacion.procesar');
 
-    $resort_options = '';
-    $unit_options   = '';
-    $vehicles = array();
-
-    // $resorts = $wpdb->get_results('SELECT * FROM resorts ORDER BY name ASC');
-    // $units   = $wpdb->get_results('SELECT * FROM units ORDER BY name ASC');
-    // $rates   = $wpdb->get_results('SELECT * FROM rates ORDER BY zone_id, unit_id');
-
-    $resorts = Resort::all()->sortBy("name");
-    $units   = Unit::all()->sortBy("name");
-    $rates   = Rate::all()->sortBy('zone_id');
-    foreach ($resorts as $row) {
-        $resort_options .=  '<option value="'.$row->id.'" data-zone="'.$row->zone_id.'">'.
-                                htmlentities($row->name).
-                            '</option>';
-    }
-
-    foreach ($units as $unit) {
-        $vehicles[$unit->id] = ['name'=> $unit->name, 'capacity'=> $unit->capacity];
-        $unit_options .=  '<option value="'.$unit->id.'" data-name="'.$unit->id.'">'.
-                                htmlentities($unit->name).
-                            '</option>';
-    }
-
-    $start_location = (isset($_GET['start_location'])) ? $_GET['start_location'] : '';
-    $end_location   = (isset($_GET['end_location'])) ? $_GET['end_location'] : '';
-    $passengers     = (isset($_GET['passengers'])) ? (int) $_GET['passengers'] : '';
-    $date_arrival   = (isset($_GET['arrival'])) ?  $_GET['arrival'] : '';
-    $date_departure = (isset($_GET['departure'])) ? $_GET['departure'] : '';
-    return view('new',compact(
-        'resort_options','unit_options','vehicles',
-        'resorts','units','rates','start_location',
-        'end_location','passengers','date_arrival',
-        'date_departure'
-    ));
+Route::post('/reportes/guardarAsig', [Controllers\ReportesController::class, 'guardarAsig'])->name('reportes.guardar-asig');
+Route::prefix('/reportes')->group(function() {
+    Route::get('/', [Controllers\ReportesController::class, 'index'])->name('reporte.index');
+    Route::get('llegadas', [Controllers\ReportesController::class, 'llegadas'])->name('reporte.llegadas');
+    Route::get('llegadas-csv', [Controllers\ReportesController::class, 'llegadasCSV'])->name('reporte.llegadas-csv');
+    Route::get('llegadas-vertical', [Controllers\ReportesController::class, 'llegadasPDFVertical'])->name('reporte.llegadas-vertical');
+    Route::get('llegadas-horizontal', [Controllers\ReportesController::class, 'llegadasPDFHorizontal'])->name('reporte.llegadas-horizontal');
+    Route::get('salidas',[Controllers\ReportesController::class, 'salidas'])->name('reporte.salidas');
+    Route::get('salidas-csv',[Controllers\ReportesController::class, 'salidasCSV'])->name('reporte.salidas-csv');
+    Route::get('salidas-vertical', [Controllers\ReportesController::class, 'salidasPDFVertical'])->name('reporte.salidas-vertical');
+    Route::get('salidas-horizontal', [Controllers\ReportesController::class, 'salidasPDFHorizontal'])->name('reporte.salidas-horizontal');
+    Route::get('vouchers', [Controllers\ReportesController::class, 'voucherSalidas'])->name('reporte.voucher-salidas');
+    Route::get('personalizado', [Controllers\ReportesController::class, 'personalizado'])->name('reporte.personalizado');
+    Route::get('personalizado-horizontal', [Controllers\ReportesController::class, 'personalizadoPDF'])->name('reporte.personalizado-horizontal');
+    Route::get('reservas-facturadas', [Controllers\ReportesController::class, 'reservasFacturadas'])->name('reporte.reservas-facturadas');
 });
 
-Route::post('/send-reservation',[Controllers\ReservationsController::class,'sendReservation'])->name('sendReservation');
+Route::prefix('/administracion')->group(function() {
+    Route::get('/', [Controllers\PanelController::class,'administracion']);
+    //datatable data source
+    Route::get('zonas/data', [Controllers\ZonaController::class, 'anyData'])->name('zonas.data');
+    Route::get('hotel/data', [Controllers\HotelController::class, 'anyData'])->name('hotel.data');
+    Route::get('clase/data', [Controllers\ClaseServicioController::class, 'anyData'])->name('clase.data');
+    Route::get('tipo/data',  [Controllers\TipoServicioController::class, 'anyData'])->name('tipo.data');
+    Route::get('formas/data', [Controllers\FormasPagoController::class, 'anyData'])->name('formas.data');
+    Route::get('moneda/data', [Controllers\MonedaPagoController::class, 'anyData'])->name('moneda.data');
+    Route::get('agencia/data',[Controllers\AgenciaController::class, 'anyData'])->name('agencia.data');
+    Route::get('empleado/data',[Controllers\EmpleadoController::class, 'anyData'])->name('empleado.data');
+    //controllers
+    Route::resource('zonas',    Controllers\ZonaController::class);
+    Route::resource('hotel',    Controllers\HotelController::class);
+    Route::resource('clase',    Controllers\ClaseServicioController::class);
+    Route::resource('tipo',     Controllers\TipoServicioController::class);
+    Route::resource('formas',   Controllers\FormasPagoController::class);
+    Route::resource('moneda',   Controllers\MonedaPagoController::class);
+    Route::resource('agencia',  Controllers\AgenciaController::class);
+    Route::resource('empleado', Controllers\EmpleadoController::class);
+});

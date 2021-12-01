@@ -14,4 +14,8 @@ class Rate extends Model
         'oneway',
         'roundtrip',
     ];
+    public function zone()
+    {
+        return $this->belongsTo('App\Models\Zone');
+    }
 }
