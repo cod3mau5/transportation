@@ -127,16 +127,16 @@ class ZonaController extends Controller
         return Datatables::of(Zone::query())
             ->addColumn('action', function ($row)
             {
-                $html  = "<form class='delete-form' action='/administracion/zonas/{$row->id}' method='post'>";
+                $html  = "<form class='delete-form' action='".route('zonas.destroy',$row->id)."' method='post'>";
                 $html .= csrf_field() . method_field('DELETE');
-                $html .= "<a href='/administracion/zonas/{$row->id}/edit' class='btn btn-xs btn-primary actions'>";
+                $html .= "<a href='".route('zonas.edit',$row->id)."' class='btn btn-xs btn-primary actions'>";
                 $html .= "<i class='glyphicon glyphicon-edit'></i> Editar</a>";
                 $html .= "<button class='btn btn-xs btn-danger actions' type='button'>";
                 $html .= "<i class='glyphicon glyphicon-remove'></i> Borrar</button></form>";
                 return $html;
             })
             ->editColumn('name', function ($row) {
-                return '<a href="/administracion/zonas/'.$row->id.'/edit">'.$row->name.'</a>';
+                return '<a href="'.route('zonas.edit',$row->id).'">'.$row->name.'</a>';
             })
             ->rawColumns(['name', 'action'])
             ->make(true);
