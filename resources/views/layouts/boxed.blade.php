@@ -104,9 +104,9 @@
                   <i class="fa fa-cog"></i>&nbsp;&nbsp;ADMINISTRACIÓN <span class="caret"></span>
               </a>
               <ul class="dropdown-menu">
-                  <li><a href="/administracion">Administracion</a></li>
+                  <li><a href="{{ route('administracion') }}">Administracion</a></li>
                   <li role="separator" class="divider"></li>
-                  <li><a href="/administracion/hotel">Hoteles</a></li>
+                  <li><a href="{{ route('hotel.index') }}">Hoteles</a></li>
                   {{-- <li><a href="/user">Usuarios</a></li> --}}
               </ul>
           </li>
@@ -209,8 +209,8 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="/reservacion"><i class="fa fa-circle"></i> Reservaciones</a></li>
-            <li><a href="/reservacion/create"><i class="fa fa-circle"></i> Crear nueva</a></li>
+            <li><a href="/{{ route('reservacion.index') }}"><i class="fa fa-circle"></i> Reservaciones</a></li>
+            <li><a href="{{ ('reservacion.create') }}"><i class="fa fa-circle"></i> Crear nueva</a></li>
             {{-- @if (!Auth::user()->hasRole('representante'))
             <li><a href="/facturacion"><i class="fa fa-circle"></i> Facturación</a></li>
             @endif --}}
@@ -243,8 +243,8 @@
           </a>
 
           <ul class="treeview-menu">
-            <li><a href="/administracion"><i class="fa fa-circle"></i> Administración</a></li>
-            <li><a href="/administracion/hotel"><i class="fa fa-circle"></i> Hoteles</a></li>
+            <li><a href="{{ route('administracion') }}"><i class="fa fa-circle"></i> Administración</a></li>
+            <li><a href="{{ route('hotel.index') }}"><i class="fa fa-circle"></i> Hoteles</a></li>
             {{-- <li><a href="/user"><i class="fa fa-circle"></i> Usuarios</a></li> --}}
           </ul>
         </li>

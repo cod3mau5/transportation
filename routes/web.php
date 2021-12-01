@@ -45,7 +45,7 @@ Route::prefix('/reportes')->group(function() {
 });
 
 Route::prefix('/administracion')->group(function() {
-    Route::get('/', [Controllers\PanelController::class,'administracion']);
+    Route::get('/', [Controllers\PanelController::class,'administracion'])->name('administracion');
     //datatable data source
     Route::get('zonas/data', [Controllers\ZonaController::class, 'anyData'])->name('zonas.data');
     Route::get('hotel/data', [Controllers\HotelController::class, 'anyData'])->name('hotel.data');
