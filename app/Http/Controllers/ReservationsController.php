@@ -80,7 +80,7 @@ class ReservationsController extends Controller
                "updated_at"         => date('Y-m-d H:m:i')
         ]);
 
-        Mail::to('your_receiver_email@gmail.com')->send(new SendReservation($reservation));
+        // Mail::to('your_receiver_email@gmail.com')->send(new SendReservation($reservation));
         return back();
     }
 }
