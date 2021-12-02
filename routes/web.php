@@ -6,6 +6,10 @@ use App\Http\Controllers\Controller;
 
 
 Route::get('/', [Controllers\PagesController::class,'home'])->name('home');
+Route::get('/gallery', [Controllers\PagesController::class,'gallery'])->name('gallery');
+Route::get('/contact', [Controllers\PagesController::class,'contact'])->name('contact');
+Route::get('/booking', [Controllers\PagesController::class,'booking'])->name('booking');
+
 Route::post('/send-reservation',[Controllers\ReservationsController::class,'sendReservation'])->name('sendReservation');
 
 Auth::routes();

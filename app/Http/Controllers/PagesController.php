@@ -10,14 +10,21 @@ use App\Models\Unit;
 class PagesController extends Controller
 {
     public function home(){
+        return view('pages.home');
+    }
+    public function gallery(){
+        return view('pages.gallery');
+    }
+    public function contact(){
+        return view('pages.contact');
+    }
+    public function booking(){
         $resort_options = '';
         $unit_options   = '';
         $vehicles = array();
-    
         // $resorts = $wpdb->get_results('SELECT * FROM resorts ORDER BY name ASC');
         // $units   = $wpdb->get_results('SELECT * FROM units ORDER BY name ASC');
         // $rates   = $wpdb->get_results('SELECT * FROM rates ORDER BY zone_id, unit_id');
-    
         $resorts = Resort::all()->sortBy("name");
         $units   = Unit::all()->sortBy("name");
         $rates   = Rate::where('unit_id','1')->get()->sortBy('zone_id');
@@ -39,7 +46,7 @@ class PagesController extends Controller
         $passengers     = (isset($_GET['passengers'])) ? (int) $_GET['passengers'] : '';
         $date_arrival   = (isset($_GET['arrival'])) ?  $_GET['arrival'] : '';
         $date_departure = (isset($_GET['departure'])) ? $_GET['departure'] : '';
-        return view('new',compact(
+        return view('pages.booking',compact(
             'resort_options','unit_options','vehicles',
             'resorts','units','rates','start_location',
             'end_location','passengers','date_arrival',
