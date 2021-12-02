@@ -4,22 +4,21 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers;
 use App\Http\Controllers\Controller;
 
-
+/** PAGES */
 Route::get('/', [Controllers\PagesController::class,'home'])->name('home');
 Route::get('/gallery', [Controllers\PagesController::class,'gallery'])->name('gallery');
 Route::get('/contact', [Controllers\PagesController::class,'contact'])->name('contact');
 Route::get('/booking', [Controllers\PagesController::class,'booking'])->name('booking');
-
+Route::get('/form', [Controllers\PagesController::class,'form'])->name('form');
 Route::post('/send-reservation',[Controllers\ReservationsController::class,'sendReservation'])->name('sendReservation');
 
+/** LOGIN */
 Auth::routes();
 
-// Route::get('/home', [Controllers\HomeController::class, 'index'])->name('home');
-
 Route::get('/home', [Controllers\HomeController::class, 'index']);
-// Route::get('/logout', 'Auth\LoginController@logout')->name('logout' );
-Route::get('/version', [Controllers\HomeController::class, 'version'])->name('app.version');
 
+
+Route::get('/version', [Controllers\HomeController::class, 'version'])->name('app.version');
 Route::get('/reservacion/data', [Controllers\ReservacionController::class, 'anyData'])->name('reservacion.data');
 // Route::get('/reservacion/{reservacion}/voucher', 'ReservacionController@voucher')->name('reservacion.voucher');
 Route::resource('/reservacion', Controllers\ReservacionController::class);
@@ -48,6 +47,7 @@ Route::prefix('/reportes')->group(function() {
     Route::get('reservas-facturadas', [Controllers\ReportesController::class, 'reservasFacturadas'])->name('reporte.reservas-facturadas');
 });
 
+/** PANEL */
 Route::prefix('/administracion')->group(function() {
     Route::get('/', [Controllers\PanelController::class,'administracion'])->name('administracion');
     //datatable data source

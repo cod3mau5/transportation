@@ -26,7 +26,7 @@
                 </div>
             </a>
             <!-- USUARIOS -->
-            <a href="{{ route('user.index') }}">
+            {{-- <a href="{{ route('user.index') }}">
                 <div class="col-lg-2">
                     <div class="panel panel-primary">
                         <div class="panel-heading text-center">
@@ -38,7 +38,7 @@
                         </div>
                     </div>
                 </div>
-            </a>
+            </a> --}}
             {{-- ZONAS --}}
             <a href="{{ route('zonas.index') }}">
                 <div class="col-lg-2">

@@ -183,9 +183,9 @@ class ReservacionController extends Controller
         return Datatables::eloquent($model)
             ->addColumn('action', function ($row)
             {
-                $html  = "<form class='delete-form' action='/reservacion/{$row->id}' method='post'>";
+                $html  = "<form class='delete-form' action=".route('reservacion.destroy')." method='post'>";
                 $html .= csrf_field() . method_field('DELETE');
-                $html .= "<a href='/reservacion/{$row->id}/edit' title='Editar reservación' class='btn btn-xs btn-primary actions'>";
+                $html .= "<a href='".route('reservacion.edit',$row->id)."' title='Editar reservación' class='btn btn-xs btn-primary actions'>";
                 $html .= "<i class='fa fa-edit'></i></a>";
                 if (!Auth::user()->hasRole('representante')) {
                     $html .= "<button class='btn btn-xs btn-danger actions' type='button' title='Eliminar'>";
@@ -202,7 +202,7 @@ class ReservacionController extends Controller
             //     return strtoupper($row->resort->name);
             // })
             ->editColumn('voucher', function ($row) {
-                return "<a href='/reservacion/{$row->id}/edit'>{$row->voucher}</a>";
+                return "<a href='".route('reservacion.edit',$row->id)."'>{$row->voucher}</a>";
             })
             ->editColumn('fullname', function ($row) {
                 return strtoupper($row->fullname);

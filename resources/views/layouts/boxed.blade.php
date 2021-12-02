@@ -107,6 +107,7 @@
                   <li><a href="{{ route('administracion') }}">Administracion</a></li>
                   <li role="separator" class="divider"></li>
                   <li><a href="{{ route('hotel.index') }}">Hoteles</a></li>
+                  <li><a href="{{ route('zonas.index') }}">Zonas</a></li>
                   {{-- <li><a href="/user">Usuarios</a></li> --}}
               </ul>
           </li>
