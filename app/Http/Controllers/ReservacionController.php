@@ -183,7 +183,7 @@ class ReservacionController extends Controller
         return Datatables::eloquent($model)
             ->addColumn('action', function ($row)
             {
-                $html  = "<form class='delete-form' action=".route('reservacion.destroy')." method='post'>";
+                $html  = "<form class='delete-form' action=".route('reservacion.destroy',$row->id)." method='post'>";
                 $html .= csrf_field() . method_field('DELETE');
                 $html .= "<a href='".route('reservacion.edit',$row->id)."' title='Editar reservación' class='btn btn-xs btn-primary actions'>";
                 $html .= "<i class='fa fa-edit'></i></a>";
