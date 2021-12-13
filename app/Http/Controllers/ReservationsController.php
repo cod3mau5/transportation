@@ -27,7 +27,7 @@ class ReservationsController extends Controller
             $message_t = 'ROUND TRIP';
         }
     
-        //fetch resort name
+        // //fetch resort name
         $resort = Resort::find($resort_id);
         //fetch unit name
         $unit   = Unit::find($request['_unit']);
@@ -80,7 +80,18 @@ class ReservationsController extends Controller
                "updated_at"         => date('Y-m-d H:m:i')
         ]);
 
-        // Mail::to('your_receiver_email@gmail.com')->send(new SendReservation($reservation));
-        return back();
+
+        $reservation->message_t=$message_t;
+        $reservation->resort=$resort;
+        $reservation->unit=$unit;
+        $reservation->arrivalFlight=$request['_arrival_company']." ".$request['_arrival_flight'];
+        $reservation->arrivalDate= date('m/d/Y', strtotime($request['_arrival_date'])). " ". date('h:i a', strtotime($request['_arrival_time']));
+
+        $reservation->departureFlight=$request['_departure_company']." ".$request['_departure_flight'];
+        $reservation->departureDate= date('m/d/Y', strtotime($request['_departure_date'])). " ". date('h:i a', strtotime($request['_departure_time']));
+
+        Mail::to($reservation->email)->send(new SendReservation($reservation));
+        // return new SendReservation($reservation);
+        dd($reservation);
     }
 }

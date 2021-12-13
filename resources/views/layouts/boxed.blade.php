@@ -53,13 +53,13 @@
 
   <header class="main-header">
     <!-- Logo -->
-    <a href="/" class="logo" style="height: 70px!important;">
+    <a href="/" class="logo" style="height: 70px!important;background-color:#222d32;">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini">
+      <span class="logo-mini p-2">
           <img src="{{ asset('img/logo_mini.png') }}" class="img-responsive" style="padding: 8px;">
       </span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><img src="{{ asset('img/top.png') }}" style="width:100%!important"><b>{{ config('app.name') }}</b></span>
+      <span class="logo-lg"><img src="{{ asset('assets/images/cabo_driver.webp') }}" style="width:90%!important;margin:6px"><b>{{ config('app.name') }}</b></span>
       {{-- <span class="logo-lg">
           <img src="/img/logo.png" alt="Transportación" class="img-responsive" style="margin-top: 10px;">
       </span> --}}

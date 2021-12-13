@@ -69,3 +69,14 @@ Route::prefix('/administracion')->group(function() {
     Route::resource('agencia',  Controllers\AgenciaController::class);
     Route::resource('empleado', Controllers\EmpleadoController::class);
 });
+
+
+Route::get('departure',function(){
+    return view('services.departure');
+});
+Route::get('arrival',function(){
+    return view('services.arrival');
+});
+Route::get('roundtrip',function(){
+    return view('services.roundtrip');
+});
