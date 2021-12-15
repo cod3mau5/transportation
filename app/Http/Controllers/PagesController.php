@@ -2,15 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Models\Resort;
 use App\Models\Rate;
 use App\Models\Unit;
+use App\Mail\sendMail;
+use App\Models\Resort;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class PagesController extends Controller
 {
     public function home(){
         return view('pages.home');
+    }
+    public function contactUs(){
+        return view('pages.contact');
     }
     public function gallery(){
         return view('pages.gallery');
@@ -53,6 +58,12 @@ class PagesController extends Controller
             'date_departure'
         ));
     }
+    public function sendMail(Request $request){
+        Mail::to($request->email)->send(new sendMail($request));
+        return back();
+    }
+
+    /** for testing: */
     public function form(){
         $resort_options = '';
         $unit_options   = '';
@@ -68,14 +79,12 @@ class PagesController extends Controller
                                     htmlentities($row->name).
                                 '</option>';
         }
-    
         foreach ($units as $unit) {
             $vehicles[$unit->id] = ['name'=> $unit->name, 'capacity'=> $unit->capacity];
             $unit_options .=  '<option value="'.$unit->id.'" data-name="'.$unit->id.'">'.
                                     htmlentities($unit->name).
                                 '</option>';
         }
-    
         $start_location = (isset($_GET['start_location'])) ? $_GET['start_location'] : '';
         $end_location   = (isset($_GET['end_location'])) ? $_GET['end_location'] : '';
         $passengers     = (isset($_GET['passengers'])) ? (int) $_GET['passengers'] : '';

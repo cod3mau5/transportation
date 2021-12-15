@@ -8,9 +8,10 @@ use App\Http\Controllers\Controller;
 Route::get('/', [Controllers\PagesController::class,'home'])->name('home');
 Route::get('/gallery', [Controllers\PagesController::class,'gallery'])->name('gallery');
 Route::get('/contact', [Controllers\PagesController::class,'contact'])->name('contact');
-Route::get('/booking', [Controllers\PagesController::class,'booking'])->name('booking');
-Route::get('/form', [Controllers\PagesController::class,'form'])->name('form');
+Route::get('/book-now', [Controllers\PagesController::class,'booking'])->name('book-now');
+Route::get('/contact-us',[Controllers\PagesController::class,'contactUs'])->name('contact-us');
 Route::post('/send-reservation',[Controllers\ReservationsController::class,'sendReservation'])->name('sendReservation');
+Route::post('/send-mail', [Controllers\PagesController::class,'sendMail'])->name('sendMail');
 
 /** LOGIN */
 Auth::routes();
@@ -71,9 +72,7 @@ Route::prefix('/administracion')->group(function() {
 });
 
 
-Route::get('departure',function(){
-    return view('services.departure');
-});
+
 Route::get('arrival',function(){
     return view('services.arrival');
 });
