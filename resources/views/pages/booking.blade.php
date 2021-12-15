@@ -93,8 +93,16 @@
             </div>
         @endif
 
+        
         <!-- Reservation form begin -->
         <div class="container reserve-form-container">
+            @if(session('notification'))
+                <div class="card-body">
+                    <div class="alert alert-warning" role="alert">
+                        {{session('notification')}}
+                    </div>
+                </div>
+            @endif
             
             <div class="row">
 

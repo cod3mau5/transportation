@@ -81,6 +81,21 @@
     }
 </style>
     <main id="PAGES_CONTAINER">
+        @if(session('notification'))
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        
+                            <div class="card-body">
+                                <div class="alert alert-warning" role="alert">
+                                    {{session('notification')}}
+                                </div>
+                            </div>
+                    
+                    </div>
+                </div>
+            </div>
+        @endif
         <div class="container my-4">
             <div class="row">
                 <div class="col-md-12">

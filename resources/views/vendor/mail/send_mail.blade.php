@@ -9,7 +9,14 @@
 @endslot
 
 {{-- Body --}}
-<p>De: {{ $request->email }}</p>
+<p>Correo: {{ $request->email }}</p>
+
+@if($request->phone)
+    Telefono: {{ $request->phone }}
+@endif
+@if($request->name)
+    De: {{ $request->name }}
+@endif
 <p>
     Mensaje: <br>
     {{ $request->msj }}

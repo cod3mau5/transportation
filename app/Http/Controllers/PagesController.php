@@ -59,8 +59,12 @@ class PagesController extends Controller
         ));
     }
     public function sendMail(Request $request){
-        Mail::to($request->email)->send(new sendMail($request));
-        return back();
+        Mail::to('cabodriverloscabos@gmail.com')->cc(['cabodriversservices@gmail.com','maubkpro@hotmail.com'])->send(new sendMail($request));
+
+        
+            $notification="El mensaje se ha enviado correctamente";
+
+        return back()->with(compact('notification'));
     }
 
     /** for testing: */

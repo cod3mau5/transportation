@@ -52,6 +52,7 @@
     .img-uno{background-image: url('{{ asset("assets/images/gallery/pic6.webp") }}')}
 </style>
 <main id="PAGES_CONTAINER">
+
     <div class="container-fluid">
         <div class="row">
             <div class="parallax img-uno" id="m">
@@ -61,6 +62,21 @@
             </div><!-- .parallax -->
         </div>
     </div>
+    @if(session('notification'))
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    
+                        <div class="card-body">
+                            <div class="alert alert-warning" role="alert">
+                                {{session('notification')}}
+                            </div>
+                        </div>
+                
+                </div>
+            </div>
+        </div>
+    @endif
     <div class="container pb-5 mb-3">
 
         <div class="row my-5 pb-5">
@@ -70,11 +86,12 @@
                 <p>San José del Cabo, Baja California Sur, México </p>
             </div>
             <div class="col-md-6">
-                <form action="{{ route('sendMail') }}">
+                <form action="{{ route('sendMail') }}" method="POST">
+                    @csrf
                     <h3 class="s-color">Contact Us</h3>
                     <div class="mb-3">
                       <label for="name" class="form-label">Name:</label>
-                      <input type="password" class="form-control" id="name" name="name">
+                      <input type="text" class="form-control" id="name" name="name">
                     </div>
                     <div class="mb-3">
                         <label for="email" class="form-label">Email address:</label>
@@ -83,6 +100,10 @@
                     <div class="mb-3">
                         <label for="phone" class="form-label">Phone:</label>
                         <input type="phone" class="form-control" id="phone" name="phone">
+                    </div>
+                    <div class="mb-3">
+                        <label for="msj" class="form-label">Message:</label>
+                        <textarea class="form-control mt-2" name="msj" id="msj" cols="30" rows="6"></textarea>
                     </div>
                     <button type="submit" class="btn send-btn float-right">Submit</button>
                 </form>

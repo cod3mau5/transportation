@@ -9,7 +9,21 @@
     }
 </style>
     <main id="PAGES_CONTAINER" tabindex="-1">
-
+        @if(session('notification'))
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        
+                            <div class="card-body">
+                                <div class="alert alert-warning" role="alert">
+                                    {{session('notification')}}
+                                </div>
+                            </div>
+                    
+                    </div>
+                </div>
+            </div>
+        @endif
         <div class="container-fluid bg-arch">
             <div class="row">
                 <div class="col-md-8 offset-md-2 px-0 text-center m-font">
