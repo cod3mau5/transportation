@@ -546,7 +546,7 @@
                                 <div class="summary-price">
                                     <div class="summary-head"> <h5 class="summary-title">Trip Type</h5></div>
                                     
-                                    <span class="summary-small-text pull-right sm_trip"></span>
+                                    <span class="summary-small-text sm_trip"></span>
                                 </div>
                             </div>
                         </div>

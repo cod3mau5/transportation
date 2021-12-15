@@ -22,7 +22,8 @@
 
            </div>
            <div class="col-md-5 px-4 pb-4 footer-form">
-               <form action="{{ route('sendMail') }}">
+               <form action="{{ route('sendMail') }}" method="POST">
+                @csrf
                 <div class="ps-md-5">
                     <p class="fs-2 s-color">Envianos un email</p>
                     <hr class="line">

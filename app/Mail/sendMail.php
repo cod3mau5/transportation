@@ -11,14 +11,11 @@ class sendMail extends Mailable
 {
     use Queueable, SerializesModels;
 
-    /**
-     * Create a new message instance.
-     *
-     * @return void
-     */
-    public function __construct()
+    public $request;
+
+    public function __construct($request)
     {
-        //
+        $this->request=$request;
     }
 
     /**
@@ -28,6 +25,6 @@ class sendMail extends Mailable
      */
     public function build()
     {
-        return $this->view('view.name');
+        return $this->markdown('vendor.mail.send_mail');
     }
 }
