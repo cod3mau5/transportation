@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('content')
+@section('styles')
 <style>
     .slider-for img{
         margin:0 auto;
@@ -80,6 +80,9 @@
         font-size: 14px;
     }
 </style>
+@endsection
+@section('content')
+
     <main id="PAGES_CONTAINER">
         @if(session('notification'))
             <div class="container-fluid">
@@ -130,6 +133,7 @@
 @endsection
 @section('footer-scripts')
     <script>
+        $(document).ready(function(){
             $('.slider-for').slick({
                 slidesToShow: 1,
                 slidesToScroll: 1,
@@ -166,5 +170,6 @@
             });
            $('.slick-next').html('<svg width="23" height="39" viewBox="0 0 23 39" style="transform: scale(1);"><path class="slideshow-arrow" d="M857.005,231.479L858.5,230l18.124,18-18.127,18-1.49-1.48L873.638,248Z" transform="translate(-855 -230)"></path></svg>');
            $('.slick-prev').html('<svg width="23" height="39" viewBox="0 0 23 39" style="transform: scale(1);"><path class="slideshow-arrow" d="M154.994,259.522L153.477,261l-18.471-18,18.473-18,1.519,1.48L138.044,243Z" transform="translate(-133 -225)"></path></svg>');
+        });
     </script>
 @endsection

@@ -90,7 +90,15 @@ class ReservationsController extends Controller
         $reservation->departureFlight=$request['_departure_company']." ".$request['_departure_flight'];
         $reservation->departureDate= date('m/d/Y', strtotime($request['_departure_date'])). " ". date('h:i a', strtotime($request['_departure_time']));
 
-        Mail::to($reservation->email)->cc('cabodriversservices@gmail.com')->bcc(['code.bit.mau@gmail.com','cabodriverloscabos@gmail.com'])->send(new SendReservation($reservation));
+        Mail::to($reservation->email)
+                ->cc([
+                        'cabodriversservices@gmail.com',
+                        'maubkpro@hotmail.com',
+                        'cabodriverloscabos@gmail.com'
+                    ])
+                ->send(new SendReservation($reservation));
+
+
         if($reservation){
             $notification="la reserva se ha guardado correctamente";
         }else{

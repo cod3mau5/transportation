@@ -1,13 +1,16 @@
 @extends('layouts.master')
+@section('styles')
+    <style>
+        .bg-arch{
+            background: linear-gradient(0deg, rgba(255, 255, 255, 0.777), rgba(255, 255, 255, 0.777)),url("{{ asset('assets/images/arch.webp') }}");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position-y: 40%;
+        }
+    </style>
+@endsection
 @section('content')
-<style>
-    .bg-arch{
-        background: linear-gradient(0deg, rgba(255, 255, 255, 0.777), rgba(255, 255, 255, 0.777)),url("{{ asset('assets/images/arch.webp') }}");
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position-y: 40%;
-    }
-</style>
+
     <main id="PAGES_CONTAINER" tabindex="-1">
         @if(session('notification'))
             <div class="container-fluid">

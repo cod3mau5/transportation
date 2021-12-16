@@ -11,17 +11,15 @@
             </div>
             <div class="col-md-6 text-center">
                 <div class="d-flex justify-content-center w-100 h-100 py-2">
-                    <select name="" class="align-middle align-self-center py-2 px-2">
+                    <select class="align-middle align-self-center py-2 px-2" v-model="language" @change="changeLanguage">
+                      <option value="1">eng</option>
                         <option value="0">es</option>
-                        <option value="1">eng</option>
                     </select>
                 </div>
             </div>
         </div>
     </div>
-    <script>
-        document.getElementById('vid').play();
-    </script>
+
 
     <nav class="navbar navbar-expand-lg navbar-light py-0">
         <div class="container-fluid justify-content-end">
@@ -31,19 +29,19 @@
           <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
             <ul class="navbar-nav mx-auto text-center mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link text-white active" aria-current="page" href="{{ route('home') }}">Home</a>
+                <a class="nav-link text-white active" aria-current="page" href="{{ route('home') }}">@{{ text.header.home }}</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link text-white" href="/#about-us">About us</a>
+                <a class="nav-link text-white" href="/#about-us">@{{ text.header.about_us }}</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link text-white" href="{{ route('gallery') }}" tabindex="-1" aria-disabled="true">Gallery</a>
+                <a class="nav-link text-white" href="{{ route('gallery') }}" tabindex="-1" aria-disabled="true">@{{ text.header.gallery }}</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link text-white" href="{{ route('contact-us') }}" tabindex="-1" aria-disabled="true">Contact us</a>
+                <a class="nav-link text-white" href="{{ route('contact-us') }}" tabindex="-1" aria-disabled="true">@{{ text.header.contact_us }}</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link text-white" href="{{ route('book-now') }}" tabindex="-1" aria-disabled="true">Book now</a>
+                <a class="nav-link text-white" href="{{ route('book-now') }}" tabindex="-1" aria-disabled="true">@{{ text.header.book_now }}</a>
               </li>
             </ul>
            

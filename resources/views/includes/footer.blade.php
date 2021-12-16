@@ -13,11 +13,19 @@
                    <li class="mb-1">Móvil 624-161-15-48 / 624-157-80-43</li>
                    <li class="mb-4">info@cabodriver.com </li>
                </ul>
-
                 <ul class="social-icons">
-                    <li class="px-2 fs-3"><i class="fa fa-tripadvisor" aria-hidden="true"></i></li>
-                    <li class="px-2 fs-3"><i class="fa fa-facebook" aria-hidden="true"></i></li>
-                    <li class="px-2 fs-3"><i class="fa fa-instagram" aria-hidden="true"></i></li>
+                    <li class="px-2 fs-3">
+                        <a target="_BLANK" href="https://www.facebook.com/cabo.drivers.1">
+                            <i class="@if(Route::current()->getName() == 'book-now' ) mdi mdi-facebook @else fa fa-facebook @endif" 
+                                aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li class="px-2 fs-3">
+                        <a target="_BLANK" href="https://www.instagram.com/cabodriversservices/">
+                            <i class="@if(Route::current()->getName() == 'book-now' ) mdi mdi-instagram @else fa fa-instagram @endif" 
+                                aria-hidden="true"></i>
+                        </a>
+                    </li>
                 </ul>
 
            </div>

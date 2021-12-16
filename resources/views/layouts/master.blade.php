@@ -150,6 +150,9 @@
             .social-icons li{
                 display: inline-flex;
             }
+            .social-icons li i{
+                color: #999999!important;
+            }
             .footer-form input, .footer-form textarea{
                 background: #e5ebed;
                 border: none;
@@ -164,19 +167,80 @@
                 width: 7%;
             }
         </style>
+        @yield('styles')
     </head>
     <body>
 
         @yield('header-scripts')
 
-        @include('includes.header')
-            @yield('content')
-        @include('includes.footer')
+        <div id="app">
+            @include('includes.header')
+                @yield('content')
+            @include('includes.footer')
+        </div>
 
         <script src="{{ asset('assets/libs/jquery/jquery.min.js') }}"></script>
         <script src="{{ asset('assets/libs/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
         <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
         @yield('footer-scripts')
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
+        <script>
+            var app = new Vue({
+                el: '#app',
+                data: {
+                    language: 1,
+                    text:{
+                        "header": {
+                            "home":"Home",
+                            "about_us":"About Us",
+                            "gallery":"Gallery",
+                            "contact_us":"Contact Us",
+                            "book_now":"Book Now"
+                        },
+                        "footer":{
+                            "contact_info":{
+                                "title":"Contact Us",
+                                "ul":[
+                                    {
+                                        "li":"Ask me what you want ... I'm here for any question you have."
+                                    },                
+                                    {
+                                        "li":"San José del Cabo, Baja California Sur, México."
+                                    },
+                                    {
+                                        "li":"Office 624-110-41-85"
+                                    },
+                                    {
+                                        "li":"Mobile 624-161-15-48 / 624-157-80-43"
+                                    },
+                                    {
+                                        "li":"info@cabodriver.com"
+                                    }
+                                ]
+                            },
+                            "send_mail":{
+                                "title":"Send us an email"
+                            }
+                        }
+                    }
+                },
+                beforeMount(){
+                    this.changeLanguage();
+                },
+                mounted() {
+                    document.getElementById('vid').play();
+                    
+                },
+                methods:{
+                    changeLanguage: function(){
+                        axios.get('{{ route("getLanguages",'') }}/'+this.language).then((r)=>{
+                            this.text = r.data;
+                        });
+                    }
+                }
+            })
+        </script>
     </body>
 </html>

@@ -67,6 +67,21 @@ class PagesController extends Controller
         return back()->with(compact('notification'));
     }
 
+    public function getLanguages($language){
+
+        $options=array(
+            "ssl"=>array(
+                "verify_peer"=>false,
+                "verify_peer_name"=>false,
+            ),
+        ); 
+        if($language == 1){
+            return json_decode(file_get_contents(asset('assets/json/english.json'),false,stream_context_create($options)), true);
+        }else{
+            return json_decode(file_get_contents(asset('assets/json/spanish.json'),false,stream_context_create($options)), true);
+        }
+    }
+
     /** for testing: */
     public function form(){
         $resort_options = '';

@@ -13,6 +13,9 @@ Route::get('/contact-us',[Controllers\PagesController::class,'contactUs'])->name
 Route::post('/send-reservation',[Controllers\ReservationsController::class,'sendReservation'])->name('sendReservation');
 Route::post('/send-mail', [Controllers\PagesController::class,'sendMail'])->name('sendMail');
 
+/**Languages */
+Route::get('/languages/{language}',[Controllers\PagesController::class,'getLanguages'])->name('getLanguages');
+
 /** LOGIN */
 Auth::routes();
 

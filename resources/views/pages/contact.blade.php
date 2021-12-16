@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('content')
+@section('styles')
 <style>
     @import url(https://fonts.googleapis.com/css?family=Poiret+One);
     .parallax{
@@ -7,7 +7,7 @@
         background-position: center;
         background-repeat: no-repeat;
         background-size:  cover;
-        height:15rem;
+        height:9rem;
         max-width: 100%;
         position: relative
     }
@@ -20,18 +20,39 @@
         top:30%;
         width: 80%;
         font-family: 'Poiret One', cursive, helvetica;
+        text-shadow: 3px 2px 8px rgb(0 0 0 / 68%);
     }
-
+    .texto-interior *{
+        font-size: 2.5rem;
+    }
     #map{
         height: 450px;
     }
+
+    .img-uno{
+        background-image: url('{{ asset("assets/images/gallery/pic6.webp") }}');
+        background-size: 155%;
+        background-position: 10% 55%;
+        background-repeat: repeat-y;
+    }
+
+    @media(min-width:414px){
+        .img-uno{background-position: 10% 50%;}
+    }
+    @media(min-width:768px){
+        .img-uno{
+            background-size: contain;
+            background-position-y: 20%;
+        }
+    }
+
     @media (min-width: 992px) { 
         .parallax{
             background-attachment: fixed;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size:  cover;
-            height:30rem;
+            background-size: contain;
+            background-position-y: 20%;
+            background-repeat: repeat-y;
+            height:20rem;
             max-width: 100%;
             position: relative
         }
@@ -45,19 +66,41 @@
             width: 80%;
             font-family: 'Poiret One', cursive, helvetica;
         }
+        .texto-interior *{
+            font-size: 4rem;
+        }
         #map{
             height: 100%;
         }
+
     }
-    .img-uno{background-image: url('{{ asset("assets/images/gallery/pic6.webp") }}')}
+    @media(min-width:1280px){
+        .parallax{
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size:  cover;
+            height:30rem;
+            max-width: 100%;
+            position: relative
+        }
+        .img-uno{
+            background-position-y: 0%;
+        }
+    }
+
+
 </style>
+@endsection
+@section('content')
+
 <main id="PAGES_CONTAINER">
 
     <div class="container-fluid">
         <div class="row">
             <div class="parallax img-uno" id="m">
                 <div class="texto-interior">
-                    <h2 class="m-font fs-medium text-white text-break">Contact Us</h2>
+                    <h2 class="m-font text-white text-break">Contact Us</h2>
                 </div>
             </div><!-- .parallax -->
         </div>
