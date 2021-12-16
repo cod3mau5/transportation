@@ -98,9 +98,10 @@
         <div class="container reserve-form-container">
             @if(session('notification'))
                 <div class="card-body">
-                    <div class="alert alert-warning" role="alert">
+                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
                         {{session('notification')}}
-                    </div>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                      </div>
                 </div>
             @endif
             
@@ -464,7 +465,7 @@
                                                         <p class="text-muted">
                                                             Please confirm your travel details below.
                                                             Currently you can {{-- payonlineusingyourPayPalaccountoryoucan --}} pay with cash upon arrival.
-                                                            If you wish to get in touch with us please call +52 1 (624) 155 64 55 or email code.bit.mau@gmail.com
+                                                            If you wish to get in touch with us please call +52 1 (624) 146 1383 or cabodriverloscabos@gmail.com
                                                         </p>
                                                         <div id="summary-details">
                                                             @include('extras.summary_table')
