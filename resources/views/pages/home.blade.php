@@ -30,9 +30,9 @@
         <div class="container-fluid bg-arch">
             <div class="row">
                 <div class="col-md-8 offset-md-2 px-0 text-center m-font">
-                    <h2 class="fs-1 my-5 m-color">VIVE LOS CABOS</h2>
-                    <h1 class="fs-1 my-5 s-color">Tourist Transportation Service, Airport / Hotel, Transfers and City tour.</h1>
-                    <h2 class="fs-big my-5 pb-5 m-color text-break">Wonderful day to travel.</h2>
+                    <h2 class="fs-1 my-5 m-color">@{{ text.home.txt_hero.txt1 }}</h2>
+                    <h1 class="fs-1 my-5 s-color">@{{ text.home.txt_hero.txt2 }}</h1>
+                    <h2 class="fs-big my-5 pb-5 m-color text-break">@{{ text.home.txt_hero.txt3 }}</h2>
                 </div>
             </div>
         </div>
@@ -43,20 +43,20 @@
                     <img src="{{ asset('assets/images/arch_mini.webp') }}" class="circle">
                 </div>
                 <div class="col-md-6 py-3">
-                    <h3 class="fs-1 m-font m-color">Life is a journey make it amazing !!</h3>
-                    <p class="fs-6">La vida pasa tan deprisa, disfruta el ahora y ven a LOS CABOS a pasar las mejores vacaciones, nosotros haremos que sea una experiencia maravillosa, somos la mejor opción de transporte turístico en LOS CABOS.</p>
+                    <h3 class="fs-1 m-font m-color">@{{ text.about_us.title1.title }}</h3>
+                    <p class="fs-6">@{{ text.about_us.title1.txt }}</p>
                 </div>
             </div>
         </div>
         <div class="container-fluid py-5 s-bg">
             <div class="row">
                 <div class="col-md-4 offset-md-2">
-                    <h1 class="mb-5" style="color:#002e5d">Cabo Driver Services</h1>
+                    <h1 class="mb-5" style="color:#002e5d">@{{ text.about_us.title2.title }}</h1>
                     <p style="color:#002e5d;text-align:justify" class="fs-5">
-                        Les brindamos un servicio de calidad y profesionalismo además de que contamos con personal altamente capacitado para atender las necesidades del cliente contamos con precios accesibles y paquetes especiales.
+                        @{{ text.about_us.title2.txt1 }}
                     </p>
                     <p style="color:#002e5d;text-align:justify" class="fs-5">
-                        La atención personalizada al 100 % nuestro compromiso es estar con nuestros clientes desde que comienza a planear su viaje a Los Cabos, desde  su arribo, transfer, actividades y tours  hasta su salida. Incluimos un servicio de concierge para hacer sus reservaciones que les brinda la información general.
+                        @{{ text.about_us.title2.txt2 }}
                     </p>
                 </div>
                 <div class="col-md-4">

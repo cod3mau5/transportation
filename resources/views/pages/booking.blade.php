@@ -109,7 +109,7 @@
                 <div class="col-md-8">
                     <div class="card">
                         <div class="card-body">
-                            <h2 class="card-title mb-4 fs-2">Reservation form</h2>
+                            <h2 class="card-title mb-4 fs-2 text-center m-font m-color">Book Now</h2>
 
                             <div id="basic-pills-wizard" class="twitter-bs-wizard">
                                 @php $stepNames= ['Trip','Contact','Confirm Detail']; $i=1; @endphp
@@ -519,7 +519,7 @@
                 <div class="col-md-4">
                     <div class="widget card text-center border border-success">
                         <div class="card-header bg-transparent border-success">
-                            <h1 class="widget-title my-0 text-success"><b>Summary</b></h1>
+                            <h1 class="widget-title my-0 text-success m-font m-color"><b>Summary</b></h1>
                         </div>
                         <hr class="line">
                         <div class="summary-block">

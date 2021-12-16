@@ -41,7 +41,7 @@
                 font-family: poppins-semibold, poppins, sans-serif;
             }
             .m-color{
-                color: #41baae;
+                color: #41baae!important;
             }
             .s-color{
                 color:#397dcf;
@@ -178,7 +178,7 @@
                 @yield('content')
             @include('includes.footer')
         </div>
-
+@yield('map')
         <script src="{{ asset('assets/libs/jquery/jquery.min.js') }}"></script>
         <script src="{{ asset('assets/libs/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
         <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
@@ -198,6 +198,37 @@
                             "gallery":"Gallery",
                             "contact_us":"Contact Us",
                             "book_now":"Book Now"
+                        },
+                        "home":{
+                            "txt_hero":{
+                                "txt1":"LIVE LOS CABOS",
+                                "txt2":"Tourist Transportation Service, Airport / Hotel, Transfers and City tour.",
+                                "txt3":"Wonderful day to travel."
+                            }
+                        },
+                        "about_us":{
+                            "title1":{
+                                "title":"Life is a journey make it amazing !!",
+                                "txt":"Life goes by so fast, enjoy the now and come to LOS CABOS to spend the best vacations, we will make it a wonderful experience, we are the best option for tourist transport in LOS CABOS."
+                            },
+                            "title2":{
+                                "title":"Cabo Driver Services",
+                                "txt1":"We offer them a quality service and professionalism in addition to having highly trained personnel to attend to the needs of the client, we have accessible prices and special packages.",
+                                "txt2":"100% personalized attention, our commitment is to be with our clients from the moment they start planning their trip to Los Cabos, from their arrival, transfer, activities and tours until their departure. We include a concierge service to make your reservations that provides general information."
+                            }
+                        },
+                        "contact_us":{
+                            "title":"Contact Us",
+                            "map":{
+                                "title":"How to get?"
+                            },
+                            "form":{
+                                "name":"Name:",
+                                "email":"Email address:",
+                                "phone":"Phone:",
+                                "message":"Message:",
+                                "send_btn":"Send"
+                            }
                         },
                         "footer":{
                             "contact_info":{
@@ -221,7 +252,9 @@
                                 ]
                             },
                             "send_mail":{
-                                "title":"Send us an email"
+                                "title":"Send us an email",
+                                "email_placeholder":"Enter your email here",
+                                "send_mail_btn":"Send"
                             }
                         }
                     }
