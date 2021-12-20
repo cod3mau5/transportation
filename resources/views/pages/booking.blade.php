@@ -110,23 +110,21 @@
                 <div class="col-md-8">
                     <div class="card">
                         <div class="card-body">
-                            <h2 class="card-title mb-4 fs-2 text-center m-font m-color">Book Now</h2>
+                            <h2 class="card-title mb-4 fs-2 text-center m-font m-color">@{{ text.book_now.form.title }}</h2>
 
                             <div id="basic-pills-wizard" class="twitter-bs-wizard">
-                                @php $stepNames= ['Trip','Contact','Confirm Detail']; $i=1; @endphp
                                 <ul class="twitter-bs-wizard-nav">
-                                    @foreach ($stepNames as $name)
-                                        <li class="nav-item">
-                                            <a href="#step{{ $i }}" 
+
+                                        <li class="nav-item" v-for="t in text.book_now.form.steps">
+                                            <a :href="'#step'+t.number " 
                                             class="nav-link"  
                                             data-toggle="tab"
                                             style="pointer-events: none;cursor: not-allowed;">
-                                                <span class="step-number">0{{ $i }}</span>
-                                                <span class="step-title">{{ $name }}</span>
+                                                <span class="step-number">0@{{ t.number }}</span>
+                                                <span class="step-title">@{{ t.name }}</span>
                                             </a>
                                         </li>
-                                        @php $i++ @endphp
-                                    @endforeach
+
                                 </ul>
                                 <!-- Tab panes -->
                                 <div class="tab-content twitter-bs-wizard-tab-content">
@@ -138,24 +136,38 @@
                                                     <div class="mb-3">
                                                         {{-- <label class="form-label" for="basicpill-firstname-input">First name</label>
                                                         <input type="text" class="form-control" id="basicpill-firstname-input"> --}}
-                                                        <label for="trip_type" class="form-label">Trip Type</label>
+                                                        <label for="trip_type" class="form-label">@{{ text.book_now.form.step_trip.trip_type }}</label>
                                                             <select id="trip_type" name="trip_type" class="form-control" required="">
-                                                                <option value="" disabled="" selected="selected" style="display:none">Trip Type</option>
+                                                                <option value="" disabled="" selected="selected" style="display:none">
+                                                                    @{{ text.book_now.form.step_trip.trip_type }}
+                                                                </option>
+
                                                                 <option value="o"
-                                                                    <?php if (isset($_GET['trip']) && $_GET['trip']=='o') { echo 'selected="selected"'; } ?>
-                                                                >One Way</option>
+                                                                    <?php 
+                                                                        if (isset($_GET['trip']) && $_GET['trip']=='o') { echo 'selected="selected"'; } 
+                                                                    ?>
+                                                                >
+                                                                @{{ text.book_now.form.trip_type.oneway }}
+                                                                </option>
+
                                                                 <option value="r"
-                                                                    <?php if (isset($_GET['trip']) && $_GET['trip']=='r') { echo 'selected="selected"'; } ?>
-                                                                >Roundtrip</option>
+                                                                    <?php 
+                                                                        if (isset($_GET['trip']) && $_GET['trip']=='r') { echo 'selected="selected"'; } 
+                                                                    ?>
+                                                                >
+                                                                @{{ text.book_now.form.trip_type.roundtrip }}
+                                                            </option>
                                                             </select>
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-4">
                                                     <div class="mb-3">
-                                                        <label for="start_location" class="form-label">Start Location</label>
+                                                        <label for="start_location" class="form-label">
+                                                            @{{ text.book_now.form.step_trip.start_location }}
+                                                        </label>
                                                         <select id="start_location" name="start_location" class="form-control" required="">
                                                             <option value="" disabled="" selected="selected" style="display:none">
-                                                                Start Location
+                                                                @{{ text.book_now.form.step_trip.start_location }}
                                                             </option>
                                                             <option value="0"
                                                                     {{ !empty($start_location) ? 'selected' : '' }}
@@ -174,9 +186,9 @@
                                                 </div>
                                                 <div class="col-lg-4">
                                                     <div class="mb-3">
-                                                        <label for="end_location" class="form-label">End Location</label>
+                                                        <label for="end_location" class="form-label">@{{ text.book_now.form.step_trip.end_location }}</label>
                                                             <select id="end_location" name="end_location" class="form-control" required="">
-                                                                <option value="" disabled="" selected="selected" style="display:none">End Location</option>
+                                                                <option value="" disabled="" selected="selected" style="display:none">@{{ text.book_now.form.step_trip.end_location }}</option>
                                                                 <option value="0" {{ $end_location!='' ? 'selected="selected"' : '' }}>Los Cabos Int. Airport</option>
                                                                 @foreach ($resorts as $row)
                                                                     <option
@@ -195,11 +207,11 @@
                                                 <div class="col-lg-6">
                                                     <div class="mb-3">
                                                         <label for="passengers" class="form-label">
-                                                            Number of travelers
+                                                            @{{ text.book_now.form.step_trip.number_travelers }}
                                                         </label>
                                                         <select id="passengers" name="passengers" class="form-control" required>
                                                             <option value="" disabled="" selected="selected" style="display:none">
-                                                                Number of travelers
+                                                                @{{ text.book_now.form.step_trip.number_travelers }}
                                                             </option>
                                                             @for ($x = 1; $x<=10; $x++)
                                                                 <option value="{{$x}}" {{ $x == $passengers ? 'selected="selected"' : '' }}>
@@ -212,11 +224,11 @@
                                                 <div class="col-lg-6">
                                                     <div class="mb-3">
                                                         <label for="passengers" class="form-label">
-                                                            Children
+                                                            @{{ text.book_now.form.step_trip.children }}
                                                         </label>
                                                         <select id="passengers" name="passengers" class="form-control" required>
                                                             <option value="" disabled="" selected="selected" style="display:none">
-                                                                Number of children
+                                                               @{{ text.book_now.form.step_trip.children }}
                                                             </option>
                                                             @for ($x = 1; $x<=8; $x++)
                                                                 <option value="{{$x}}" {{ $x == $passengers ? 'selected="selected"' : '' }}>
@@ -242,14 +254,19 @@
                                                 <div class="row">
                                                     <div class="trip_locations">
                                                         <h1 class="card-title ">
-                                                            <span class="badge bg-primary">Trip #1 </span> <span class="from"></span> TO <span class="to"></span>
+                                                            <span class="badge bg-primary">
+                                                                @{{ text.book_now.form.step_trip.trip_location_title.name }} #1 
+                                                            </span> 
+                                                            <span v-if="language == '0'">De </span>
+                                                            <span class="from"></span> @{{ text.book_now.form.step_trip.trip_location_title.to }}
+                                                            <span class="to"></span>
                                                         <h1>
                                                     </div>
 
                                                     <div class="col-lg-6">
                                                         <div class="mb-3">
                                                             <label for="date" class="form-label">
-                                                                Arrival Date
+                                                                @{{ text.book_now.form.step_trip.trip1.arrival_date }}
                                                             </label>
                                                                 <input type="text" class="form-control" id="arrival_date"
                                                                     name="arrival_date" placeholder="m/d/Y"
@@ -259,17 +276,19 @@
                                                     </div>
                                                     <div class="col-lg-6">
                                                         <div class="mb-3">
-                                                            <label for="time" class="form-label">Arrival Flight Time</label>
-                                                            <input type="text" class="form-control" id="arrival_time" name="arrival_time" placeholder="Time" required>
+                                                            <label for="time" class="form-label"> 
+                                                                @{{ text.book_now.form.step_trip.trip1.arrival_flight_time }}
+                                                            </label>
+                                                            <input type="text" class="form-control" id="arrival_time" name="arrival_time" :placeholder="text.book_now.form.step_trip.trip1.arrival_flight_time+' '+ text.book_now.form.step_trip.trip1.arrival" required>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-lg-6">
                                                         <div class="mb-3">
-                                                            <label for="airline" class="form-label">Arrival Airline Company</label>
+                                                            <label for="airline" class="form-label"> @{{ text.book_now.form.step_trip.trip1.arrival_airline }}</label>
                                                             <select id="arrival_airline" name="arrival_airline" class="form-control" required>
-                                                                <option value="" disabled selected="selected" style="display:none">Arrival Airline Company</option>
+                                                                <option value="" disabled selected="selected" style="display:none"> @{{ text.book_now.form.step_trip.trip1.arrival_airline+' '+ text.book_now.form.step_trip.trip1.arrival }}</option>
                                                                 <option value="1">AAL American Airlines</option>
                                                                 <option value="3">AMX Aeromexico</option>
                                                                 <option value="2">ACA Air Canada</option>
@@ -288,8 +307,8 @@
                                                     </div>
                                                     <div class="col-lg-6">
                                                         <div class="mb-3">
-                                                            <label for="flight" class="form-label">Arrival Flight Number</label>
-                                                            <input type="text" class="form-control" name="arrival_flight" id="arrival_flight" placeholder="Flight number" required>
+                                                            <label for="flight" class="form-label">@{{ text.book_now.form.step_trip.trip1.arrival_flight_number }}</label>
+                                                            <input type="text" class="form-control" name="arrival_flight" id="arrival_flight" :placeholder="text.book_now.form.step_trip.trip1.arrival_flight_number+' '+text.book_now.form.step_trip.trip1.arrival " required>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -299,14 +318,19 @@
                                                 <div class="row">
                                                     <div class="trip_locations">
                                                         <h1 class="card-title ">
-                                                            <span class="badge bg-warning">Trip #2 </span> <span class="to"></span> TO <span class="from"></span>
+                                                            <span class="badge bg-warning">
+                                                                @{{ text.book_now.form.step_trip.trip_location_title.name }} #2 
+                                                            </span> 
+                                                            <span v-if="language == '0'">De </span>
+                                                            <span class="to"></span> @{{ text.book_now.form.step_trip.trip_location_title.to }}
+                                                            <span class="from"></span>
                                                         </h1>
                                                     </div>
 
                                                     <div class="col-lg-6">
                                                         <div class="mb-3">
                                                             <label for="date" class="form-label">
-                                                                Departure Date
+                                                                @{{ text.book_now.form.step_trip.trip2.departure_date }}
                                                             </label>
                                                             <input type="text" class="form-control" id="departure_date"
                                                                     name="departure_date" placeholder="m/d/Y">
@@ -315,9 +339,9 @@
                                                     <div class="col-lg-6">
                                                         <div class="mb-3">
                                                             <label for="time" class="form-label">
-                                                                Departure Flight Time
+                                                                @{{ text.book_now.form.step_trip.trip2.departure_flight_time }}
                                                             </label>
-                                                            <input type="text" class="form-control" id="departure_time" name="departure_time" placeholder="Time" required>
+                                                            <input type="text" class="form-control" id="departure_time" name="departure_time" :placeholder="text.book_now.form.step_trip.trip2.departure_flight_time +' '+text.book_now.form.step_trip.trip2.departure" required>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -325,13 +349,15 @@
                                                     <div class="col-lg-6">
                                                         <div class="mb-3">
                                                             <label for="airline" class="form-label">
-                                                                Departure Airline Company
+                                                                @{{ text.book_now.form.step_trip.trip2.departure_airline }}
                                                             </label>
                                                             <select id="departure_airline" name="departure_airline" class="form-control" required>
                                                                 <option value="" 
                                                                         disabled 
                                                                         selected 
-                                                                        style="display:none">Departure Airline Company</option>
+                                                                        style="display:none">
+                                                                        @{{ text.book_now.form.step_trip.trip2.departure_airline +' '+text.book_now.form.step_trip.trip2.departure }}
+                                                                </option>
                                                                 <option value="1">AAL American Airlines</option>
                                                                 <option value="2">ACA Air Canada</option>
                                                                 <option value="3">AIJ Interjet</option>
@@ -347,9 +373,9 @@
                                                     <div class="col-lg-6">
                                                         <div class="mb-3">
                                                             <label for="flight" class="form-label">
-                                                                Departure Flight Number
+                                                                @{{ text.book_now.form.step_trip.trip2.departure_flight_number }}
                                                             </label>
-                                                            <input type="text" class="form-control" name="departure_flight" id="departure_flight" placeholder="Flight number" required>
+                                                            <input type="text" class="form-control" name="departure_flight" id="departure_flight" :placeholder="text.book_now.form.step_trip.trip2.departure_flight_number +' '+text.book_now.form.step_trip.trip2.departure" required>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -362,37 +388,47 @@
                                             <div class="row">
                                                 <div class="col-lg-6">
                                                     <div class="mb-3">
-                                                        <label for="first_name" class="form-label">First Name</label>
-                                                            <input type="text" class="form-control" id="first_name" name="first_name" placeholder="First Name" required>
+                                                        <label for="first_name" class="form-label">
+                                                            @{{ text.book_now.form.step_contact.first_name }}
+                                                        </label>
+                                                            <input type="text" class="form-control" id="first_name" name="first_name" :placeholder="text.book_now.form.step_contact.first_name" required>
                                                     </div>
                                                 </div>
 
                                                 <div class="col-lg-6">
                                                     <div class="mb-3">
-                                                        <label class="form-label" for="last_name">Last Name</label>
-                                                        <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Last Name" required>
+                                                        <label class="form-label" for="last_name">
+                                                            @{{ text.book_now.form.step_contact.last_name }}
+                                                        </label>
+                                                        <input type="text" class="form-control" id="last_name" name="last_name" :placeholder="text.book_now.form.step_contact.last_name" required>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="row">
                                                 <div class="col-lg-6">
                                                     <div class="mb-3">
-                                                        <label for="email1" class="form-label">Email</label>
-                                                            <input type="email" class="form-control" id="email" name="email" placeholder="Email" required="">
+                                                        <label for="email1" class="form-label">
+                                                            @{{ text.book_now.form.step_contact.email }}
+                                                        </label>
+                                                            <input type="email" class="form-control" id="email" name="email" :placeholder="text.book_now.form.step_contact.email" required="">
                                                     </div>
                                                 </div>
 
                                                 <div class="col-lg-6">
                                                     <div class="mb-3">
-                                                        <label for="primary_phone" class="form-label">Phone Number</label>
-                                                            <input type="tel" class="form-control" id="primary_phone" placeholder="Primary Phone" required="">
+                                                        <label for="primary_phone" class="form-label">
+                                                            @{{ text.book_now.form.step_contact.phone_number }}
+                                                        </label>
+                                                            <input type="tel" class="form-control" id="primary_phone" :placeholder="text.book_now.form.step_contact.phone_number" required="">
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="row">
                                                 <div class="col-lg-12">
                                                     <div class="mb-3">
-                                                        <label for="request" class="form-label">Comments</label>
+                                                        <label for="request" class="form-label">
+                                                            @{{ text.book_now.form.step_contact.comments }}
+                                                        </label>
                                                             <textarea name="request" id="request" cols="30" rows="10" class="form-control"></textarea>
                                                     </div>
                                                 </div>
@@ -461,11 +497,9 @@
                                                     </div>
                                                     <form action="{{ route('sendReservation') }}" method="POST">
                                                         @csrf
-                                                        <h5>Confirm Detail</h5>
+                                                        <h5>@{{ text.book_now.form.step_details.title }}</h5>
                                                         <p class="text-muted">
-                                                            Please confirm your travel details below.
-                                                            Currently you can {{-- payonlineusingyourPayPalaccountoryoucan --}} pay with cash upon arrival.
-                                                            If you wish to get in touch with us please call +52 1 (624) 146 1383 or cabodriverloscabos@gmail.com
+                                                            @{{ text.book_now.form.step_details.paragraph }}
                                                         </p>
                                                         <div id="summary-details">
                                                             @include('extras.summary_table')
@@ -499,6 +533,7 @@
                                                             <input type="hidden" name="Paypal[last_name]" id="paypal_lastname" value="lastname" />
                                                             <input type="hidden" name="Paypal[payer_email]" id="paypal_email" value="email" />
                                                             <input type="hidden" name="Paypal[item_number]" value="1" / >
+                                                            <input type="hidden" name="language" id="language" v-model="language">
                                                         </div>
                                                         <button type="submit" id="sendReservation" style="display: none"></button>
                                                     </form>
@@ -509,8 +544,8 @@
                                     
                                 </div>
                                 <ul class="pager wizard twitter-bs-wizard-pager-link">
-                                    <li class="previous"><button class="btn btn-primary">Previous</button></li>
-                                    <li class="next"><button class="btn btn-primary go_step2">Next</button></li>
+                                    <li class="previous"><button class="btn btn-primary">@{{ text.book_now.form.buttons.previous }}</button></li>
+                                    <li class="next"><button class="btn btn-primary go_step2">@{{ text.book_now.form.buttons.next }}</button></li>
                                 </ul>
                             </div>
                         </div>
@@ -520,13 +555,15 @@
                 <div class="col-md-4">
                     <div class="widget card text-center border border-success">
                         <div class="card-header bg-transparent border-success">
-                            <h1 class="widget-title my-0 text-success m-font m-color"><b>Summary</b></h1>
+                            <h1 class="widget-title my-0 text-success m-font m-color">
+                                <b>@{{ text.book_now.summary.title }}</b>
+                            </h1>
                         </div>
                         <hr class="line">
                         <div class="summary-block">
                             <div class="summary-content">
                                 <div class="summary-head">
-                                    <h5 class="summary-title">Start Location</h5>
+                                    <h5 class="summary-title">@{{ text.book_now.summary.start_location }}</h5>
                                 </div>
                                 <div class="summary-price">
                                     <p class="summary-text sm_start"></p>
@@ -537,7 +574,7 @@
                         <div class="summary-block">
                             <div class="summary-content">
                                 <div class="summary-head">
-                                    <h5 class="summary-title">End Location</h5>
+                                    <h5 class="summary-title">@{{ text.book_now.summary.end_location }}</h5>
                                 </div>
                                 <div class="summary-price">
                                     <p class="summary-text sm_end"></p>
@@ -553,7 +590,7 @@
 
                                 {{-- <hr class="line"> --}}
                                 <div class="summary-price">
-                                    <div class="summary-head"> <h5 class="summary-title">Trip Type</h5></div>
+                                    <div class="summary-head"> <h5 class="summary-title">@{{ text.book_now.summary.trip_type }}</h5></div>
                                     
                                     <span class="summary-small-text sm_trip"></span>
                                 </div>
@@ -562,7 +599,7 @@
                         <hr class="line">
                         <div class="summary-block">
                             <div class="summary-content">
-                            <div class="summary-head"> <h5 class="summary-title">Total</h5></div>
+                            <div class="summary-head"> <h5 class="summary-title">@{{ text.book_now.summary.total }}</h5></div>
                                 <div class="summary-price">
                                     <p class="summary-text sm_price"></p>
                                 </div>

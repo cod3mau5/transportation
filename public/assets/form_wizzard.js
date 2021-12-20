@@ -33,10 +33,18 @@ jQuery(document).ready(function($) {
         $('.sm_price').html('');
         $('.sm_unit').html('');
         if ($(this).val() == 'r') {
-            $('.sm_trip').html('roundtrip');
+            if($('#language').val() == "1"){
+                $('.sm_trip').html('roundtrip');
+            }else{
+                $('.sm_trip').html('De Ida y Vuelta');
+            }
             $('#departure_flight_details').slideDown();
         } else {
-            $('.sm_trip').html('oneway');
+            if($('#language').val() == "1"){
+                $('.sm_trip').html('oneway');
+            }else{
+                $('.sm_trip').html('De Ida');
+            }
             $('#departure_flight_details').slideUp();
         }
         fetchLocationZone(rates);
@@ -422,12 +430,12 @@ jQuery(document).ready(function($) {
                     $('#stepTwo').css('pointer-events','auto');
                     $('#stepTree').css('pointer-events','auto');
                     if (d.hasClass("last") || c.onNext && "function" === typeof c.onNext && !1 === c.onNext(f, b, a.nextIndex())) return !1;
-                    h = a.currentIndex();
-                    $index = a.nextIndex();
-                    $index >
-                    a.navigationLength() || (g.push(h), b.find('li:has([data-toggle="tab"]):eq(' + $index + ") a").tab("show"))
-                    $('#stepTwo').css('pointer-events','none');
-                    $('#stepTree').css('pointer-events','none');
+                        h = a.currentIndex();
+                        $index = a.nextIndex();
+                        $index >
+                        a.navigationLength() || (g.push(h), b.find('li:has([data-toggle="tab"]):eq(' + $index + ") a").tab("show"))
+                        $('#stepTwo').css('pointer-events','none');
+                        $('#stepTree').css('pointer-events','none');
                 }else if(localStorage.getItem('step') == 'final' && $('#step3').hasClass('active')){
                     $('#sendReservation').click();
                 }else{

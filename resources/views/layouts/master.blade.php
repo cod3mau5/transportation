@@ -182,7 +182,7 @@
         <script src="{{ asset('assets/libs/jquery/jquery.min.js') }}"></script>
         <script src="{{ asset('assets/libs/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
         <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-        @yield('footer-scripts')
+
         <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
         <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
@@ -230,6 +230,84 @@
                                 "send_btn":"Send"
                             }
                         },
+                        "book_now":{
+                            "form":{
+                                "title": "Book Now",
+                                "trip_type":{
+                                    "oneway": "One Way",
+                                    "roundtrip":"Round Trip"
+                                },
+                                "buttons":{
+                                    "next":"Next",
+                                    "previous":"Previous"
+                                },
+                                "steps":[
+                                    {
+                                        "name":"Trip",
+                                        "number":"1"
+                                    },
+                                    {
+                                        "name":"Contact",
+                                        "number":"2"
+                                    },
+                                    {
+                                        "name":"Confirm Detail",
+                                        "number":"3"
+                                    }
+                                ],
+                                "step_trip":{
+                                    "trip_type":"Trip Type",
+                                    "start_location":"Start Location",
+                                    "end_location":"End Location",
+                                    "number_travelers":"Number of travelers",
+                                    "children":"Number of children",
+                                    "trip_location_title":{"name":"Trip","to":"TO"},
+                                    "trip1":{
+                                        "arrival":"",
+                                        "arrival_date":"Arrival Date",
+                                        "arrival_airline":"Arrival Airline Company",
+                                        "arrival_flight_time":"Arrival Flight Time",
+                                        "arrival_flight_number":"Arrival Flight Number"
+                                    },
+                                    "trip2":{
+                                        "departure":"",
+                                        "departure_date":"Departure Date",
+                                        "departure_airline":"Departure Airline Company",
+                                        "departure_flight_time":"Departure Flight Time",
+                                        "departure_flight_number":"Departure Flight Number"
+                                    }
+                                },
+                                "step_contact":{
+                                    "first_name":"First Name",
+                                    "last_name":"Last Name",
+                                    "email":"Email",
+                                    "phone_number":"Phone Number",
+                                    "comments":"Comments"
+                                },
+                                "step_details":{
+                                    "title":"Confirm Detail",
+                                    "paragraph":"Please confirm your travel details below. Currently you can pay with cash upon arrival. If you wish to get in touch with us please call +52 1 (624) 146 1383 or cabodriverloscabos@gmail.com",
+                                    "trip_type":"Trip Type",
+                                    "start_location":"Start Location:",
+                                    "end_location":"End Location:",
+                                    "arrival_time":"Arrival Time:",
+                                    "arrival_airline":"Arrival Airline:",
+                                    "arrival_flight":"Arrival Flight:",
+                                    "departure_time":"Departure Time:",
+                                    "departure_airline":"Departure Airline",
+                                    "departure_flight":"Departure Flight:",
+                                    "name":"Name:",
+                                    "Email":"Email:",
+                                    "phone":"Phone:",
+                                    "aditional_info":"",
+                                    "total_price":"Total Price",
+                                    "pay_method":"Pauy Method"
+                                }
+                            },
+                            "summary":{
+                                
+                            }
+                        },
                         "footer":{
                             "contact_info":{
                                 "title":"Contact Us",
@@ -263,6 +341,7 @@
                     this.changeLanguage();
                 },
                 mounted() {
+                    this.changeLanguage();
                     document.getElementById('vid').play();
                     
                 },
@@ -270,10 +349,29 @@
                     changeLanguage: function(){
                         axios.get('{{ route("getLanguages",'') }}/'+this.language).then((r)=>{
                             this.text = r.data;
+                        }).then(()=>{
+                            $('.sm_start').html($('#start_location option:selected').text());
+                            $('.sm_end').html($('#end_location option:selected').text());
+                            if ($('#trip_type').val() == 'r') {
+                                if($('#language').val() == "1"){
+                                    $('.sm_trip').html('roundtrip');
+                                }else{
+                                    $('.sm_trip').html('De Ida y Vuelta');
+                                }
+                                $('#departure_flight_details').slideDown();
+                            } else {
+                                if($('#language').val() == "1"){
+                                    $('.sm_trip').html('oneway');
+                                }else{
+                                    $('.sm_trip').html('De Ida');
+                                }
+                                $('#departure_flight_details').slideUp();
+                            }
                         });
                     }
                 }
             })
         </script>
+                @yield('footer-scripts')
     </body>
 </html>

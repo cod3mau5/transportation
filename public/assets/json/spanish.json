@@ -38,6 +38,89 @@
             "send_btn":"Enviar"
         }
     },
+    "book_now":{
+        "form":{
+            "title": "Reservar Ahora",
+            "trip_type":{
+                "oneway": "De Ida",
+                "roundtrip":"Ida y Vuelta"
+            },
+            "buttons":{
+                "next":"Siguiente",
+                "previous":"Anterior"
+            },
+            "steps":[
+                {
+                    "name":"Viaje",
+                    "number":"1"
+                },
+                {
+                    "name":"Contacto",
+                    "number":"2"
+                },
+                {
+                    "name":"Confirmar Detalles",
+                    "number":"3"
+                }
+            ],
+            "step_trip":{
+                "trip_type":"Tipo de viaje",
+                "start_location":"Ubicación Inicial",
+                "end_location":"Ubicación Final",
+                "number_travelers":"Adultos",
+                "children":"Niños",
+                "trip_location_title":{"name":"Viaje","to":"A"},
+                "trip1":{
+                    "arrival":"(llegada)",
+                    "arrival_date":"Fecha de llegada",
+                    "arrival_airline":"Compañia de la aerolinea",
+                    "arrival_flight_time":"Hora del vuelo",
+                    "arrival_flight_number":"Número de vuelo"
+                },
+                "trip2":{
+                    "departure":"(salida)",
+                    "departure_date":"Fecha de Salida",
+                    "departure_airline":"Compañia de la aerolinea",
+                    "departure_flight_time":"Hora del vuelo",
+                    "departure_flight_number":"Número de vuelo"
+                }
+            },
+            "step_contact":{
+                "first_name":"Nombre(s)",
+                "last_name":"Apellidos",
+                "email":"Correo Electronico",
+                "phone_number":"Numero de Teléfono",
+                "comments":"Comentarios"
+            },
+            "step_details":{
+                "title":"Confirmar Detalles",
+                "paragraph":"Porfavor, confirme los detalles de su viaje a continuación. Actualmente se puede pagar en efectivo a la llegada. Si desea ponerse en contacto con nosotros por favor llame al +52 1 (624) 146 1383 o escribanos al correo cabodriverloscabos@gmail.com",
+                "trip_type":"Tipo de viaje",
+                "start_location":"Ubicación Inicial:",
+                "end_location":"Ubicación Final:",
+                "arrival_time":"Fecha de llegada:",
+                "arrival_airline":"Aerolinea de llegada:",
+                "arrival_flight":"# Vuelo de llegada:",
+                "departure_time":"Hora de salida del vuelo:",
+                "departure_airline":"Aerolinea de salida",
+                "departure_flight":"# Vuelo de salida:",
+                "name":"Nombre:",
+                "email":"Correo electronico:",
+                "phone":"Telefono:",
+                "aditional_info":"Informacion adicional",
+                "total_price":"Precio Total",
+                "pay_method":"Metodo de pago",
+                "cash":"Efectivo a la llegada"
+            }
+        },
+        "summary":{
+            "title":"Resumen",
+            "start_location":"Ubicación Inicial",
+            "end_location":"Ubicación Final",
+            "trip_type":"Tipo de Viaje",
+            "total":"Total"
+        }
+    },
     "footer":{
         "contact_info":{
             "title":"Contactanos",

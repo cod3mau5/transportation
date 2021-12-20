@@ -40,7 +40,9 @@
                                  <textarea class="form-control mt-2" name="msj" id="msj" cols="30" rows="6"></textarea>
                              </li>
                              <li>
-                                 <button type="submit" class="btn book-btn text-white mt-1 float-right" style="color: #fff">@{{ text.footer.send_mail.send_mail_btn }}</button>
+                                 <button type="submit" class="btn book-btn text-white mt-1 float-right" style="color: #fff">
+                                    @{{ text.footer.send_mail.send_mail_btn }}
+                                </button>
                              </li>
                         </ul>
                 </div>

@@ -10,6 +10,7 @@ Route::get('/gallery', [Controllers\PagesController::class,'gallery'])->name('ga
 Route::get('/contact', [Controllers\PagesController::class,'contact'])->name('contact');
 Route::get('/book-now', [Controllers\PagesController::class,'booking'])->name('book-now');
 Route::get('/contact-us',[Controllers\PagesController::class,'contactUs'])->name('contact-us');
+Route::get('/form',[Controllers\PagesController::class,'form'])->name('form');
 Route::post('/send-reservation',[Controllers\ReservationsController::class,'sendReservation'])->name('sendReservation');
 Route::post('/send-mail', [Controllers\PagesController::class,'sendMail'])->name('sendMail');
 
