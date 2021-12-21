@@ -352,6 +352,9 @@
                         }).then(()=>{
                             $('.sm_start').html($('#start_location option:selected').text());
                             $('.sm_end').html($('#end_location option:selected').text());
+                            if(localStorage.getItem('step') == 3){
+                                $('#language').val() == "1" ? $('.go_step2').html('Finish Booking') : $('.go_step2').html('Finalizar Reserva');
+                            }
                             if ($('#trip_type').val() == 'r') {
                                 if($('#language').val() == "1"){
                                     $('.sm_trip').html('roundtrip');

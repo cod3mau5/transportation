@@ -421,11 +421,11 @@ jQuery(document).ready(function($) {
                     if(localStorage.getItem('step') == 3 && $('#step2').hasClass('active')){
                         $('.go_step2').addClass('btn-success');
                         $('.go_step2').removeClass('btn-primary');
-                        $('.go_step2').html('Finish Booking');
+                        $('#language').val() == "1" ? $('.go_step2').html('Finish Booking') : $('.go_step2').html('Finalizar Reserva');
                     }else if($('#step2').hasClass('active') && localStorage.getItem('step') == 2){
                         $('.go_step2').addClass('btn-success');
                         $('.go_step2').removeClass('btn-primary');
-                        $('.go_step2').html('Finish Booking');
+                        $('#language').val() == "1" ?  $('.go_step2').html('Finish Booking') : $('.go_step2').html('Finalizar Reserva');
                     } 
                     $('#stepTwo').css('pointer-events','auto');
                     $('#stepTree').css('pointer-events','auto');

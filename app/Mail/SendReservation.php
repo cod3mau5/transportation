@@ -25,6 +25,10 @@ class SendReservation extends Mailable
      */
     public function build()
     {
-        return $this->markdown('vendor.mail.send_reservation');
+        if($this->reservation->language == "1"){
+            return $this->markdown('vendor.mail.send_reservation');
+        }else{
+            return $this->markdown('vendor.mail.enviar_reservacion');
+        }
     }
 }
