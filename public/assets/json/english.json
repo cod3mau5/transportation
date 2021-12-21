@@ -107,6 +107,7 @@
                 "name":"Name:",
                 "email":"Email:",
                 "phone":"Phone:",
+                "number_travelers":"Number of travelers",
                 "aditional_info":"",
                 "total_price":"Total Price",
                 "pay_method":"Pay Method",

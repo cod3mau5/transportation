@@ -36,7 +36,7 @@
                         <div class="fs-6 text-wrap badge badge-soft-info info_arrival_airline"></div>
                     </div>
                     <div class="col-md-6">
-                        <strong class="fs-5">@{{ text.book_now.form.step_details.arrival_fight }}</strong><br>
+                        <strong class="fs-5">@{{ text.book_now.form.step_details.arrival_flight }}</strong><br>
                         <div class="fs-6 text-wrap badge badge-soft-info info_arrival_fight"></div>
                     </div>
                 </div>
@@ -50,7 +50,7 @@
                         <div class="fs-6 text-wrap badge badge-soft-info info_departure_airline"></div>
                     </div>
                     <div class="col-md-4">
-                        <strong class="fs-5">@{{ text.book_now.form.step_details.departure_fight }} </strong><br>
+                        <strong class="fs-5">@{{ text.book_now.form.step_details.departure_flight }} </strong><br>
                         <div class="fs-6 text-wrap badge badge-soft-info info_departure_fight"></div>
                     </div>
                 </div>

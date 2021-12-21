@@ -106,6 +106,7 @@
                 "departure_flight":"# Vuelo de salida:",
                 "name":"Nombre:",
                 "email":"Correo electronico:",
+                "number_travelers":"Numero de pasajeros",
                 "phone":"Telefono:",
                 "aditional_info":"Informacion adicional",
                 "total_price":"Precio Total",

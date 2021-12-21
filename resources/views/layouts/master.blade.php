@@ -305,7 +305,11 @@
                                 }
                             },
                             "summary":{
-                                
+                                "title":"Summary",
+                                "start_location":"Start Location",
+                                "end_location":"End Location",
+                                "trip_type":"Trip Type",
+                                "total":"Total"
                             }
                         },
                         "footer":{
