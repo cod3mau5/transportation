@@ -15,7 +15,7 @@
         | <b>Arrival Flight:</b>| {{$reservation->arrivalFlight}}                                        |
         | <b>Arrival Date:</b>  | {{$reservation->arrivalDate}}                                          |
         | <b>Phone Number:</b>  | {{$reservation->phone}}                                                |
-        | <b>Passengers: </b>   | {{$reservation->passengers}}                                           |
+        | <b>Passengers: </b>   | {{$reservation->total_travelers}}                                      |
         | <b>Vehicle: </b>      | {{$reservation->unit->name}}                                           |
         | <b>Total: </b>        | <b>${{$reservation->total}} USD</b>                                    |
         | <b>Pay Method:</b>    | <span style="color: #ec7728; font-weight: bold;">Cash on Arrival</span>|{{-- $reservation->payment_type --}}
@@ -30,7 +30,7 @@
         | <b>Departure Flight:</b>| {{$reservation->arrivalFlight}}                                      |
         | <b>Departure Date:</b>  | {{$reservation->arrivalDate}}                                        |
         | <b>Phone Number:</b>  | {{$reservation->phone}}                                                |
-        | <b>Passengers: </b>   | {{$reservation->passengers}}                                           |
+        | <b>Passengers: </b>   | {{$reservation->total_travelers}}                                      |
         | <b>Vehicle: </b>      | {{$reservation->unit->name}}                                           |
         | <b>Total: </b>        | <b>${{$reservation->total}} USD</b>                                    |
         | <b>Pay Method:</b>    | <span style="color: #ec7728; font-weight: bold;">Cash on Arrival</span>|{{-- $reservation->payment_type --}}
@@ -45,7 +45,7 @@
         | <b>Arrival Flight:</b>| {{$reservation->arrivalFlight}}                                        |
         | <b>Arrival Date:</b>  | {{$reservation->arrivalDate}}                                          |
         | <b>Phone Number:</b>  | {{$reservation->phone}}                                                |
-        | <b>Passengers: </b>   | {{$reservation->passengers}}                                           |
+        | <b>Passengers: </b>   | {{$reservation->total_travelers}}                                      |
         | <b>Vehicle: </b>      | {{$reservation->unit->name}}                                           |
         | <b>Total: </b>        | <b>${{$reservation->total}} USD</b>                                    |
         | <b>Pay Method:</b>    | <span style="color: #ec7728; font-weight: bold;">Cash on Arrival</span>|{{-- $reservation->payment_type --}}
@@ -54,9 +54,9 @@
         | DEPARTURE NOTICE      |                                                                        |
         | --------------------- |:----------------------------------------------------------------------:|
         | <b>Hotel:</b>         | {{$reservation->resort->name}}                                         |
-        | <b>Passengers: </b>   | {{$reservation->passengers}}                                           |
+        | <b>Passengers: </b>   | {{$reservation->total_travelers}}                                      |
         | <b>Departure Flight:</b>| {{$reservation->departureFlight}}                                    |
-        | <b>Flight Date:</b>  | {{$reservation->departureDate}}                                           |
+        | <b>Flight Date:</b>  | {{$reservation->departureDate}}                                         |
     @endcomponent
     <p style="text-align: center; color: #005899; font-size: 11.5px;"><b>Note:</b> Please be ready at the main lobby 5 minutes before your pick-up time.</p>
     @endif

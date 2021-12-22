@@ -59,7 +59,10 @@
           <img src="{{ asset('img/logo_mini.png') }}" class="img-responsive" style="padding: 8px;">
       </span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><img src="{{ asset('assets/images/cabo_driver.webp') }}" style="width:90%!important;margin:6px"><b>{{ config('app.name') }}</b></span>
+      <span class="logo-lg">
+        <img src="{{ asset('assets/images/cabo_driver.webp') }}" style="width:90%!important;margin:6px">
+        <b>{{ config('app.name') }}</b>
+      </span>
       {{-- <span class="logo-lg">
           <img src="/img/logo.png" alt="Transportación" class="img-responsive" style="margin-top: 10px;">
       </span> --}}
@@ -303,7 +306,7 @@
         <img src="{{ asset('img/logo.png') }}" alt="codemau5" title="codemau5" style="width: 40px; margin-left: 5px;">
       </a>
     </div>
-    <a href="{{ route('home') }}" target="_blank">
+    <a href="{{ route('homepage') }}" target="_blank">
       {{ config('app.name') }}
     </a> - Sistema de Reservaciones <b><a href="{{ route('app.version') }}">Version 1.0</a></b>
   </footer>

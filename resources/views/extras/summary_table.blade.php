@@ -17,15 +17,15 @@
                     </div>
                 </div>
                 <div class="row mb-2">
-                    <div class="col-md-6">
+                    <div class="col-md-4">
                         <strong class="fs-5">@{{ text.book_now.form.step_details.number_travelers }} </strong><br>
                         <div class="fs-6 text-wrap badge badge-soft-info info_passengers"></div>
                     </div>
-                    {{-- <div class="col-md-4">
-                        <strong class="fs-5">Vehicle: </strong><br>
-                        <div class="fs-6 text-wrap badge badge-soft-info info_vehicle"></div>
-                    </div> --}}
-                    <div class="col-md-6">
+                    <div class="col-md-4">
+                        <strong class="fs-5">@{{ text.book_now.form.step_details.number_children }} </strong><br>
+                        <div class="fs-6 text-wrap badge badge-soft-info info_children"></div>
+                    </div>
+                    <div class="col-md-4">
                         <strong class="fs-5">@{{ text.book_now.form.step_details.arrival_time }} </strong><br>
                         <div class="fs-6 text-wrap badge badge-soft-info info_arrival_time"></div>
                     </div>

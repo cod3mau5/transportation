@@ -14,8 +14,9 @@
 .actions {
     margin: 0 1px;
     display: inline-block;
-    width: 20px;
+    width: auto;
     height: 20px;
+    padding: 5px 5px;
 }
 
 input.error, select.error {

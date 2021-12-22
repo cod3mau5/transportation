@@ -11,19 +11,82 @@ use Illuminate\Support\Facades\Mail;
 
 class PagesController extends Controller
 {
-    public function home(){
-        return view('pages.home');
+    public function homepage(){
+        $options=array(
+            "ssl"=>array(
+                "verify_peer"=>false,
+                "verify_peer_name"=>false,
+            ),
+        ); 
+        $language= json_decode(file_get_contents(asset('assets/json/english.json'),false,stream_context_create($options)), true);
+        $langUpdate=1;
+        return view('pages.home',compact('language','langUpdate'));
     }
-    public function contactUs(){
-        return view('pages.contact');
+    public function inicio($language){
+        $options=array(
+            "ssl"=>array(
+                "verify_peer"=>false,
+                "verify_peer_name"=>false,
+            ),
+        ); 
+        if($language == 1){
+            $language= json_decode(file_get_contents(asset('assets/json/english.json'),false,stream_context_create($options)), true);
+            $langUpdate=1;
+        }else{
+            $language= json_decode(file_get_contents(asset('assets/json/spanish.json'),false,stream_context_create($options)), true);
+            $langUpdate=0;
+        }
+        return view('pages.home',compact('language','langUpdate'));
     }
-    public function gallery(){
-        return view('pages.gallery');
+    public function contactUs($language){
+        $options=array(
+            "ssl"=>array(
+                "verify_peer"=>false,
+                "verify_peer_name"=>false,
+            ),
+        ); 
+        if($language == 1){
+            $language= json_decode(file_get_contents(asset('assets/json/english.json'),false,stream_context_create($options)), true);
+            $langUpdate=1;
+        }else{
+            $language= json_decode(file_get_contents(asset('assets/json/spanish.json'),false,stream_context_create($options)), true);
+            $langUpdate=0;
+        }
+        return view('pages.contact',compact('language','langUpdate'));
     }
-    public function contact(){
-        return view('pages.contact');
+    public function gallery($language){
+        $options=array(
+            "ssl"=>array(
+                "verify_peer"=>false,
+                "verify_peer_name"=>false,
+            ),
+        ); 
+        if($language == 1){
+            $language= json_decode(file_get_contents(asset('assets/json/english.json'),false,stream_context_create($options)), true);
+            $langUpdate=1;
+        }else{
+            $language= json_decode(file_get_contents(asset('assets/json/spanish.json'),false,stream_context_create($options)), true);
+            $langUpdate=0;
+        }
+        return view('pages.gallery',compact('language','langUpdate'));
     }
-    public function booking(){
+    public function contact($language){
+        $options=array(
+            "ssl"=>array(
+                "verify_peer"=>false,
+                "verify_peer_name"=>false,
+            ),
+        ); 
+        if($language == 1){
+            $language= json_decode(file_get_contents(asset('assets/json/english.json'),false,stream_context_create($options)), true);
+            $langUpdate=1;
+        }else{
+            $language= json_decode(file_get_contents(asset('assets/json/spanish.json'),false,stream_context_create($options)), true);
+            $langUpdate=0;
+        }
+        return view('pages.contact',compact('language','langUpdate'));
+    }
+    public function booking($language){
         $resort_options = '';
         $unit_options   = '';
         $vehicles = array();
@@ -51,11 +114,25 @@ class PagesController extends Controller
         $passengers     = (isset($_GET['passengers'])) ? (int) $_GET['passengers'] : '';
         $date_arrival   = (isset($_GET['arrival'])) ?  $_GET['arrival'] : '';
         $date_departure = (isset($_GET['departure'])) ? $_GET['departure'] : '';
+
+        $options=array(
+            "ssl"=>array(
+                "verify_peer"=>false,
+                "verify_peer_name"=>false,
+            ),
+        ); 
+        if($language == 1){
+            $language= json_decode(file_get_contents(asset('assets/json/english.json'),false,stream_context_create($options)), true);
+            $langUpdate=1;
+        }else{
+            $language= json_decode(file_get_contents(asset('assets/json/spanish.json'),false,stream_context_create($options)), true);
+            $langUpdate=0;
+        }
         return view('pages.booking',compact(
             'resort_options','unit_options','vehicles',
             'resorts','units','rates','start_location',
             'end_location','passengers','date_arrival',
-            'date_departure'
+            'date_departure','language','langUpdate'
         ));
     }
     public function sendMail(Request $request){

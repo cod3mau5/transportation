@@ -11,14 +11,14 @@
         }
     </style>
     <!-- twitter-bootstrap-wizard css -->
-    <link rel="stylesheet" href="assets/libs/twitter-bootstrap-wizard/prettify.css">
+    <link rel="stylesheet" href="{{ asset('assets/libs/twitter-bootstrap-wizard/prettify.css') }}">
 
     {{-- <!-- Bootstrap 5 Css -->
     <link href="assets/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css" /> --}}
     <!-- Icons Css -->
-    <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('assets/css/icons.min.css') }}" rel="stylesheet" type="text/css" />
     <!-- App Css-->
-    <link href="assets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('assets/css/app.min.css') }}" id="app-style" rel="stylesheet" type="text/css" />
     <style>
         #departure_flight_details{
             display: none;
@@ -223,14 +223,14 @@
                                                 </div>
                                                 <div class="col-lg-6">
                                                     <div class="mb-3">
-                                                        <label for="passengers" class="form-label">
+                                                        <label for="children" class="form-label">
                                                             @{{ text.book_now.form.step_trip.children }}
                                                         </label>
-                                                        <select id="passengers" name="passengers" class="form-control" required>
+                                                        <select id="children" name="children" class="form-control" required>
                                                             <option value="" disabled="" selected="selected" style="display:none">
                                                                @{{ text.book_now.form.step_trip.children }}
                                                             </option>
-                                                            @for ($x = 1; $x<=8; $x++)
+                                                            @for ($x = 0; $x<=6; $x++)
                                                                 <option value="{{$x}}" {{ $x == $passengers ? 'selected="selected"' : '' }}>
                                                                     {{ $x }}
                                                                 </option>
@@ -507,6 +507,7 @@
                                                             <input type="hidden" name="_location_start" id="_location_start" value="">
                                                             <input type="hidden" name="_location_end" id="_location_end" value="">
                                                             <input type="hidden" name="_passengers" id="_passengers" value="">
+                                                            <input type="hidden" name="_children" id="_children" value="">
                                                             <input type="hidden" name="_unit" id="_unit" value="">
                                                             <input type="hidden" name="_arrival_date" id="_arrival_date" value="">
                                                             <input type="hidden" name="_arrival_time" id="_arrival_time" value="">

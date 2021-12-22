@@ -15,7 +15,7 @@
         | <b>Vuelo de llegada:</b>| {{$reservation->arrivalFlight}}                                      |
         | <b>Fecha de llegada:</b>  | {{$reservation->arrivalDate}}                                      |
         | <b>Número de teléfono:</b>  | {{$reservation->phone}}                                          |
-        | <b>Pasajeros: </b>   | {{$reservation->passengers}}                                            |
+        | <b>Total de pasajeros: </b>   | {{$reservation->total_travelers}}                              |
         | <b>Total: </b>        | <b>${{$reservation->total}} USD</b>                                    |
         | <b>Metodo de pago:</b>    | <span style="color: #ec7728; font-weight: bold;">Efectivo a la llegada</span>|{{-- $reservation->payment_type --}}
     @endcomponent
@@ -29,7 +29,7 @@
         | <b>Vuelo de salida:</b>| {{$reservation->arrivalFlight}}                                       |
         | <b>Fecha de salida:</b>  | {{$reservation->arrivalDate}}                                       |
         | <b>Número de teléfono:</b>  | {{$reservation->phone}}                                          |
-        | <b>Pasajeros: </b>   | {{$reservation->passengers}}                                            |
+        | <b>Total de pasajeros: </b>   | {{$reservation->total_travelers}}                              |
         | <b>Total: </b>        | <b>${{$reservation->total}} USD</b>                                    |
         | <b>Metodo de pago:</b>    | <span style="color: #ec7728; font-weight: bold;">Efectivo a la llegada</span>|{{-- $reservation->payment_type --}}
     @endcomponent
@@ -43,7 +43,7 @@
         | <b>Vuelo de llegada:</b>| {{$reservation->arrivalFlight}}                                      |
         | <b>Fecha de llegada:</b>  | {{$reservation->arrivalDate}}                                      |
         | <b>Número de teléfono:</b>  | {{$reservation->phone}}                                          |
-        | <b>Pasajeros: </b>   | {{$reservation->passengers}}                                            |
+        | <b>Total de pasajeros: </b>   | {{$reservation->total_travelers}}                              |
         | <b>Total: </b>        | <b>${{$reservation->total}} USD</b>                                    |
         | <b>Metodo de pago:</b>    | <span style="color: #ec7728; font-weight: bold;">Efectivo a la llegada</span>|{{-- $reservation->payment_type --}}
     @endcomponent
@@ -51,9 +51,9 @@
         | DEPARTURE NOTICE      |                                                                        |
         | --------------------- |:----------------------------------------------------------------------:|
         | <b>Hotel:</b>         | {{$reservation->resort->name}}                                         |
-        | <b>Pasajeros: </b>   | {{$reservation->passengers}}                                            |
+        | <b>Total de pasajeros: </b>   | {{$reservation->total_travelers}}                              |
         | <b>Vuelo de salida:</b>| {{$reservation->departureFlight}}                                     |
-        | <b>Fecha del vuelo:</b>  | {{$reservation->departureDate}}                                         |
+        | <b>Fecha del vuelo:</b>  | {{$reservation->departureDate}}                                     |
     @endcomponent
     <p style="text-align: center; color: #005899; font-size: 11.5px;"><b>Nota:</b> Esté preparado en el vestíbulo principal 5 minutos antes de la hora de recogida.
     </p>

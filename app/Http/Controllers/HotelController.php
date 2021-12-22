@@ -119,7 +119,7 @@ class HotelController extends Controller
         return Datatables::of(Resort::query())
             ->addColumn('action', function ($row)
             {
-                $html  = "<form class='delete-form' action='".route('hotel.destroy',$row->id)."' method='post'>";
+                $html  = "<form class='delete-form' action='".route('hotel.destroy',$row->id)."' method='POST'>";
                 $html .= csrf_field() . method_field('DELETE');
                 $html .= "<a href='".route('hotel.edit',$row->id)."' class='btn btn-xs btn-primary actions' title='Editar'>";
                 $html .= "<i class='glyphicon glyphicon-edit'></i></a>";
@@ -131,8 +131,8 @@ class HotelController extends Controller
                 return '<a href="'.route('hotel.edit',$row->id).'">'.$row->name.'</a>';
             })
             ->editColumn('zone', function ($row) {
-                if ($row->zone && isset($row->zone->name)) {
-                    return $row->zone->name;
+                if ($row->zone && isset($row->zone->nombre)) {
+                    return $row->zone->nombre;
                 }
                 return '-';
             })

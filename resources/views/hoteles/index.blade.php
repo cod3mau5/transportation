@@ -63,7 +63,7 @@
                 ],
                 rowId: 'id',
                 createdRow: function( row, data, dataIndex ) {
-                    $( row ).find('td:eq(4)').css('text-align', 'center');
+                    $( row ).find('td:eq(5)').css('text-align', 'center');
                 }
             });
 

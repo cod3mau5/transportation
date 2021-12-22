@@ -63,6 +63,8 @@ class ReservationsController extends Controller
                "type"               => $trip_type,
                "phone"              => $request['_contact_phone'],
                "passengers"         => $request['_passengers'],
+               "children"           => $request['_children'],
+               "total_travelers"    => $request['_children'] + $request['_passengers'],
                "arrival_date"       => $request['_arrival_date'],
                "arrival_time"       => $request['_arrival_time'],
                "arrival_airline"    => $request['_arrival_company'],
@@ -80,7 +82,7 @@ class ReservationsController extends Controller
                "updated_at"         => date('Y-m-d H:m:i')
         ]);
 
-
+        $reservation->language = $request['language'];
         $reservation->message_t=$message_t;
         $reservation->resort=$resort;
         $reservation->unit=$unit;
@@ -92,9 +94,9 @@ class ReservationsController extends Controller
 
         Mail::to($reservation->email)
                 ->cc([
-                        'cabodriversservices@gmail.com',
+
                         'maubkpro@hotmail.com',
-                        'cabodriverloscabos@gmail.com'
+
                     ])
                 ->send(new SendReservation($reservation));
 

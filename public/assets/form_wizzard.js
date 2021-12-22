@@ -75,6 +75,9 @@ jQuery(document).ready(function($) {
     $('#passengers').on('change', function() {
         fetchLocationZone(rates);
     });
+    $('#children').on('change', function() {
+        fetchLocationZone(rates);
+    });
     $('#vehicle').on('change', function() {
         var price = $('#vehicle option:selected').data('price');
         var name  = $('#vehicle option:selected').data('name');
@@ -234,7 +237,7 @@ jQuery(document).ready(function($) {
         var pax = 1;
 
         if ($('#passengers').val()){
-            pax = Number($('#passengers').val());
+            pax = Number($('#passengers').val()) + Number($('#children').val());
         } 
         
         for (i=0; i<=Object.keys(rates).length; i++)
@@ -314,6 +317,7 @@ jQuery(document).ready(function($) {
                     var start_id        = $('#start_location').val();
                     var transport_type  = (trip_type == 'r') ? 'Round-trip' : 'One way';
                     var num_passengers  = $('#passengers').val();
+                    var num_children  = $('#children').val();
                     var selectedCar     = $('#vehicle option:selected').text();
                     var unit_id         = $('#vehicle').val();
                     var end_location    = $('#end_location option:selected').text();
@@ -339,6 +343,7 @@ jQuery(document).ready(function($) {
                     $('#_location_start').val(start_id);
                     $('#_location_end').val(end_id);
                     $('#_passengers').val(num_passengers);
+                    $('#_children').val(num_children);
                     $('#_unit').val(unit_id);
                     $('#_arrival_date').val(arrival_date);
                     $('#_arrival_time').val(arrival_time);
@@ -361,6 +366,7 @@ jQuery(document).ready(function($) {
                     $('.info_start_location').html(start_location);
                     $('.info_trip_type').html(transport_type);
                     $('.info_passengers').html(num_passengers);
+                    $('.info_children').html(num_children);
                     $('.info_vehicle').html(selectedCar);
                     $('.info_arrival_fight').html(arrival_flight);
                     $('.info_arrival_airline').html(arrival_airline);

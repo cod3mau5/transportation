@@ -4,12 +4,17 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers;
 use App\Http\Controllers\Controller;
 
+
+/** LOGIN */
+Auth::routes();
+Route::get('/home', [Controllers\HomeController::class, 'index']);
 /** PAGES */
-Route::get('/', [Controllers\PagesController::class,'home'])->name('home');
-Route::get('/gallery', [Controllers\PagesController::class,'gallery'])->name('gallery');
-Route::get('/contact', [Controllers\PagesController::class,'contact'])->name('contact');
-Route::get('/book-now', [Controllers\PagesController::class,'booking'])->name('book-now');
-Route::get('/contact-us',[Controllers\PagesController::class,'contactUs'])->name('contact-us');
+Route::get('/', [Controllers\PagesController::class,'homepage'])->name('homepage');
+Route::get('/start/{language}', [Controllers\PagesController::class,'inicio'])->name('inicio');
+Route::get('/gallery/{language}', [Controllers\PagesController::class,'gallery'])->name('gallery');
+Route::get('/contact/{language}', [Controllers\PagesController::class,'contact'])->name('contact');
+Route::get('/book-now/{language}', [Controllers\PagesController::class,'booking'])->name('book-now');
+Route::get('/contact-us/{language}',[Controllers\PagesController::class,'contactUs'])->name('contact-us');
 Route::get('/form',[Controllers\PagesController::class,'form'])->name('form');
 Route::post('/send-reservation',[Controllers\ReservationsController::class,'sendReservation'])->name('sendReservation');
 Route::post('/send-mail', [Controllers\PagesController::class,'sendMail'])->name('sendMail');
@@ -17,10 +22,8 @@ Route::post('/send-mail', [Controllers\PagesController::class,'sendMail'])->name
 /**Languages */
 Route::get('/languages/{language}',[Controllers\PagesController::class,'getLanguages'])->name('getLanguages');
 
-/** LOGIN */
-Auth::routes();
 
-Route::get('/home', [Controllers\HomeController::class, 'index']);
+
 
 
 Route::get('/version', [Controllers\HomeController::class, 'version'])->name('app.version');

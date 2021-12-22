@@ -84,7 +84,7 @@
             </div>
             <div class="row">
                 <div class="col-md-12 text-center mt-4">
-                    <a href="{{ route('book-now') }}" class="book-btn text-white">Book Now</a>
+                    <a href="{{ route('book-now',1) }}" class="book-btn text-white">Book Now</a>
                 </div>
             </div>
         </div>
