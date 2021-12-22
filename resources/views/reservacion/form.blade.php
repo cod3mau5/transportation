@@ -55,25 +55,37 @@
         {{ Form::text('phone', null, ['class'=>'form-control']) }}
     </div>
 </div>
+
 <div class="row">
-    <div class="col-md-3">
+    <div class="col-md-4">
         <label for="unit" class="control-label">Tipo de servicio</label>
         {{ Form::select('type', $tipos, $record->type, ['class'=>'form-control', 'id'=>'tipo_servicio']) }}
     </div>
-    <div class="col-md-3">
+    <div class="col-md-4">
         <label for="unit" class="control-label">Origen</label>
         {{ Form::select('location_start', $resorts, $record->location_start, ['class'=>'form-control', 'id'=>'location_start']) }}
     </div>
-    <div class="col-md-3">
+    <div class="col-md-4">
         <label for="unit" class="control-label">Destino</label>
         {{ Form::select('location_end', $resorts, $record->location_end, ['class'=>'form-control', 'id'=>'location_end']) }}
     </div>
-    <div class="col-md-3">
-        <label for="passengers" class="control-label">Número de pasajeros</label>
-        {{ Form::selectRange('passengers', 1, 20, null, ['class'=>'form-control', 'placeholder'=>'Número de personas', 'required'=>'required']) }}
-    </div>
-
 </div>
+
+<div class="row">
+    <div class="col-md-4">
+        <label for="total_travelers" class="control-label">Total de pasajeros</label>
+        {{ Form::selectRange('total_travelers', 1, 20, null, ['class'=>'form-control', 'placeholder'=>'Total de pasajeros', 'required'=>'required']) }}
+    </div>
+    <div class="col-md-4">
+        <label for="passengers" class="control-label">Número de adultos</label>
+        {{ Form::selectRange('passengers', 1, 20, null, ['class'=>'form-control', 'placeholder'=>'Número de adultos', 'required'=>'required']) }}
+    </div>
+    <div class="col-md-4">
+        <label for="children" class="control-label">Número de niños</label>
+        {{ Form::selectRange('children', 1, 20, null, ['class'=>'form-control', 'placeholder'=>'Número de niños', 'required'=>'required']) }}
+    </div>
+</div>
+
 <div class="row">
     <div class="col-md-3">
         <label for="unit" class="control-label">Vehículo</label>
