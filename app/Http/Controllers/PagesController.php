@@ -11,16 +11,26 @@ use Illuminate\Support\Facades\Mail;
 
 class PagesController extends Controller
 {
-    public function homepage(){
+    public function homepage(Request $request){
         $options=array(
             "ssl"=>array(
                 "verify_peer"=>false,
                 "verify_peer_name"=>false,
             ),
         ); 
-        $language= json_decode(file_get_contents(asset('assets/json/english.json'),false,stream_context_create($options)), true);
-        $langUpdate=1;
-        return view('pages.home',compact('language','langUpdate'));
+        if(request('language') === '0'){
+            $language= json_decode(file_get_contents(asset('assets/json/spanish.json'),false,stream_context_create($options)), true);
+            $langUpdate=0;
+        }else{
+            $language= json_decode(file_get_contents(asset('assets/json/english.json'),false,stream_context_create($options)), true);
+            $langUpdate=1;
+        }
+        if($request->about_us == "true"){
+            $about_us=true;
+        }else{
+            $about_us=false;
+        }
+        return view('pages.home',compact('language','langUpdate','about_us'));
     }
     public function inicio($language){
         $options=array(

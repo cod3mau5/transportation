@@ -10,11 +10,11 @@ Auth::routes();
 Route::get('/home', [Controllers\HomeController::class, 'index']);
 /** PAGES */
 Route::get('/', [Controllers\PagesController::class,'homepage'])->name('homepage');
-Route::get('/start/{language}', [Controllers\PagesController::class,'inicio'])->name('inicio');
-Route::get('/gallery/{language}', [Controllers\PagesController::class,'gallery'])->name('gallery');
-Route::get('/contact/{language}', [Controllers\PagesController::class,'contact'])->name('contact');
-Route::get('/book-now/{language}', [Controllers\PagesController::class,'booking'])->name('book-now');
-Route::get('/contact-us/{language}',[Controllers\PagesController::class,'contactUs'])->name('contact-us');
+Route::get('/start/{language?}', [Controllers\PagesController::class,'inicio'])->name('inicio');
+Route::get('/gallery/{language?}', [Controllers\PagesController::class,'gallery'])->name('gallery');
+Route::get('/contact/{language?}', [Controllers\PagesController::class,'contact'])->name('contact');
+Route::get('/book-now/{language?}', [Controllers\PagesController::class,'booking'])->name('book-now');
+Route::get('/contact-us/{language?}',[Controllers\PagesController::class,'contactUs'])->name('contact-us');
 Route::get('/form',[Controllers\PagesController::class,'form'])->name('form');
 Route::post('/send-reservation',[Controllers\ReservationsController::class,'sendReservation'])->name('sendReservation');
 Route::post('/send-mail', [Controllers\PagesController::class,'sendMail'])->name('sendMail');

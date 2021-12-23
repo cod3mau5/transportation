@@ -32,7 +32,7 @@
                 <a class="nav-link text-white active" aria-current="page" :href="routes.home">@{{ text.header.home }}</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link text-white" href="/#about-us">@{{ text.header.about_us }}</a>
+                <a class="nav-link text-white" :href="'/?language='+language+'&about_us=true'">@{{ text.header.about_us }}</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link text-white" :href="routes.gallery" tabindex="-1" aria-disabled="true">@{{ text.header.gallery }}</a>

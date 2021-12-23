@@ -84,7 +84,7 @@
             </div>
             <div class="row">
                 <div class="col-md-12 text-center mt-4">
-                    <a href="{{ route('book-now',1) }}" class="book-btn text-white">Book Now</a>
+                    <a href="{{ route('book-now',1) }}" class="book-btn text-white">@{{ text.components.book_now_btn }}</a>
                 </div>
             </div>
         </div>
@@ -100,6 +100,7 @@
                 autoplaySpeed: 2300,
                 arrows: false,
             });
+            
         });
     </script>
 @endsection

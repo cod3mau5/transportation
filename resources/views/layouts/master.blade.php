@@ -190,6 +190,7 @@
             var app = new Vue({
                 el: '#app',
                 data: {
+                    about_us:'{{ empty($about_us) ? false : true }}',
                     language: '{{ $langUpdate }}',
                     routes:{
                         home:'{{ route("inicio","1") }}',
@@ -205,7 +206,11 @@
                 mounted() {
                     this.changeLanguage();
                     document.getElementById('vid').play();
-                    
+                    if(this.about_us == true){
+                        $('html, body').animate({
+                            scrollTop: $("#about-us").offset().top
+                        }, 850);
+                    }
                 },
                 methods:{
                     changeLanguage: function(){

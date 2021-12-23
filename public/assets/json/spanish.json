@@ -1,5 +1,7 @@
 {
-
+    "components":{
+        "book_now_btn":"Reserva Ahora"
+    },
     "header": {
         "home":"Inicio",
         "about_us":"Nosotros",

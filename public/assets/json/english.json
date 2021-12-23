@@ -1,5 +1,7 @@
 {
-
+    "components":{
+        "book_now_btn":"Book Now"
+    },
     "header": {
         "home":"Home",
         "about_us":"About Us",
