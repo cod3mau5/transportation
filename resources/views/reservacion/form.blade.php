@@ -74,15 +74,15 @@
 <div class="row">
     <div class="col-md-4">
         <label for="total_travelers" class="control-label">Total de pasajeros</label>
-        {{ Form::selectRange('total_travelers', 1, 20, null, ['class'=>'form-control', 'placeholder'=>'Total de pasajeros', 'required'=>'required']) }}
+        {{ Form::number('total_travelers', null, ['class'=>'form-control', 'id'=>'total_travelers','disabled'=>'disabled', 'placeholder'=>'Total de pasajeros']) }}
     </div>
     <div class="col-md-4">
         <label for="passengers" class="control-label">Número de adultos</label>
-        {{ Form::selectRange('passengers', 1, 20, null, ['class'=>'form-control', 'placeholder'=>'Número de adultos', 'required'=>'required']) }}
+        {{ Form::selectRange('passengers', 1, 20, null, ['class'=>'form-control', 'id' => 'passengers','placeholder'=>'Número de adultos', 'required'=>'required']) }}
     </div>
     <div class="col-md-4">
         <label for="children" class="control-label">Número de niños</label>
-        {{ Form::selectRange('children', 1, 20, null, ['class'=>'form-control', 'placeholder'=>'Número de niños', 'required'=>'required']) }}
+        {{ Form::selectRange('children', 1, 20, null, ['class'=>'form-control', 'id'=> 'children' ,'placeholder'=>'Número de niños', 'required'=>'required']) }}
     </div>
 </div>
 

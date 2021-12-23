@@ -24,6 +24,9 @@
                 headers: { 'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content') }
             });
 
+            var totalPax=  Number($('#passengers').val()) + Number($('#children').val());
+            $('#total_travelers').val(totalPax);
+
             $('#departure_date').mask('00/00/0000', {placeholder: "__/__/____"});
             $('#arrival_date').mask('00/00/0000', {placeholder: "__/__/____"});
 
@@ -73,6 +76,17 @@
             $('#location_end').on('change', function() {
                 checkTipoServicio();
             });
+            $('#passengers').on('change', function() {
+                calcTotalPax();
+            });
+            $('#children').on('change', function() {
+                calcTotalPax();
+            });
+
+            function calcTotalPax(){
+                var totalPax=  Number($('#passengers').val()) + Number($('#children').val());
+                $('#total_travelers').val(totalPax);
+            }
 
             function checkTipoServicio()
             {

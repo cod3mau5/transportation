@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Auth;
 use App\Models\Resort;
 use App\Models\Reservation;
-
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Symfony\Component\HttpFoundation\StreamedResponse;
@@ -31,10 +31,19 @@ class ReportesController extends Controller
             }
             $reservas = $reservas->orderBy('arrival_time')->get();
         }else{
-            $reservas = Reservation::latest()->take(3)->get();
+            $fecha= Carbon::now()->format('Y-m-d');
+            $reservas = Reservation::with(['resort'])->where('arrival_date', $fecha);
+            $reservas = $reservas->orderBy('arrival_time')->get();
         }
 
-        return view('reportes.llegadas', compact('hoteles', 'reservas'));
+
+        $meses = array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
+        $fecha = Carbon::parse($fecha);
+        $mes = $meses[($fecha->format('n')) - 1];
+        $mes=strtoupper($mes);
+        $fecha = $fecha->format('d') . ' DE ' . $mes . ' DEL ' . $fecha->format('Y');
+
+        return view('reportes.llegadas', compact('hoteles', 'reservas','fecha'));
     }
 
     public function llegadasPDFVertical(Request $request)
@@ -140,11 +149,18 @@ class ReportesController extends Controller
             }
             $reservas = $reservas->orderBy('departure_time')->get();
         }else{
-            $reservas = Reservation::latest()->take(3)->get();
+            $fecha= Carbon::now()->format('Y-m-d');
+            $reservas = Reservation::with(['resort'])->where('departure_date', $fecha);
+            $reservas = $reservas->orderBy('departure_time')->get();
         }
 
+        $meses = array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
+        $fecha = Carbon::parse($fecha);
+        $mes = $meses[($fecha->format('n')) - 1];
+        $mes=strtoupper($mes);
+        $fecha = $fecha->format('d') . ' DE ' . $mes . ' DEL ' . $fecha->format('Y');
         // return view('reportes.salidas', compact('hoteles', 'agencias', 'reservas'));  <-- this is old
-        return view('reportes.salidas', compact('hoteles','reservas'));
+        return view('reportes.salidas', compact('hoteles','reservas','fecha'));
     }
 
     public function fechaString($fecha)
@@ -411,6 +427,7 @@ class ReportesController extends Controller
 
         foreach ($reservas as $row)
         {
+            $resortName=!empty($row['resort']['name']) ? $row['resort']['name'] : 'hotel eliminado';
             $llegadas[] = [
                             $row['voucher'],
                             strtoupper($row['type']),
@@ -419,7 +436,7 @@ class ReportesController extends Controller
                             $row['arrival_airline'],
                             $row['arrival_flight'],
                             $row['passengers'],
-                            strtoupper($row['resort']['name']),
+                            $resortName,
                             strtoupper($row['fullname']),
                             $row['email'],
                             $row['phone'],
