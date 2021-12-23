@@ -346,6 +346,10 @@ class ReportesController extends Controller
             }
 
             $reservas = $reservas->orderBy('departure_time')->get()->toArray();
+        }else{
+            $fecha= Carbon::now()->format('Y-m-d');
+            $reservas = Reservation::with(['resort'])->where('departure_date', $fecha);
+            $reservas = $reservas->orderBy('departure_time')->get();
         }
 
         $salidas[] = [
@@ -406,6 +410,10 @@ class ReportesController extends Controller
             }
 
             $reservas = $reservas->orderBy('arrival_time')->get()->toArray();
+        }else{
+            $fecha= Carbon::now()->format('Y-m-d');
+            $reservas = Reservation::with(['resort'])->where('arrival_date', $fecha);
+            $reservas = $reservas->orderBy('arrival_time')->get();
         }
 
         $llegadas[] = [
