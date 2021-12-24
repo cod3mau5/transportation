@@ -12,6 +12,11 @@ use Symfony\Component\HttpFoundation\StreamedResponse;
 
 class ReportesController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
         return view('reportes.index');

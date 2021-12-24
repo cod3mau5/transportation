@@ -89,18 +89,18 @@
               </ul>
           </li>
           @if (!Auth::user()->hasRole('representante'))
-          <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                  <i class="fa fa-book"></i>&nbsp;&nbsp;REPORTES <span class="caret"></span>
-              </a>
-              <ul class="dropdown-menu">
-                  {{-- <li><a href="#">Imprimir voucher</a></li>
-                  <li role="separator" class="divider"></li> --}}
-                  <li><a href="{{route('reporte.llegadas')}}">Llegadas diarias</a></li>
-                  <li><a href="{{route('reporte.salidas')}}">Salidas diarias</a></li>
-              </ul>
-          </li>
-          @endif
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                    <i class="fa fa-book"></i>&nbsp;&nbsp;REPORTES <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                    {{-- <li><a href="#">Imprimir voucher</a></li>
+                    <li role="separator" class="divider"></li> --}}
+                    <li><a href="{{route('reporte.llegadas')}}">Llegadas diarias</a></li>
+                    <li><a href="{{route('reporte.salidas')}}">Salidas diarias</a></li>
+                </ul>
+            </li>
+            @endif
           {{-- @if (Auth::user()->hasRole('admin') || Auth::user()->hasRole('superadmin')) --}}
           <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">

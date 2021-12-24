@@ -8,27 +8,27 @@ use App\Http\Controllers\Controller;
 /** LOGIN */
 Auth::routes();
 Route::get('/home', [Controllers\HomeController::class, 'index']);
-/** PAGES */
+
+/** ############## PAGES ############## */
 Route::get('/', [Controllers\PagesController::class,'homepage'])->name('homepage');
 Route::get('/start/{language?}', [Controllers\PagesController::class,'inicio'])->name('inicio');
 Route::get('/gallery/{language?}', [Controllers\PagesController::class,'gallery'])->name('gallery');
 Route::get('/contact/{language?}', [Controllers\PagesController::class,'contact'])->name('contact');
 Route::get('/book-now/{language?}', [Controllers\PagesController::class,'booking'])->name('book-now');
 Route::get('/contact-us/{language?}',[Controllers\PagesController::class,'contactUs'])->name('contact-us');
-Route::get('/form',[Controllers\PagesController::class,'form'])->name('form');
+# Posts
 Route::post('/send-reservation',[Controllers\ReservationsController::class,'sendReservation'])->name('sendReservation');
 Route::post('/send-mail', [Controllers\PagesController::class,'sendMail'])->name('sendMail');
-
-/**Languages */
+# Languages for vue
 Route::get('/languages/{language}',[Controllers\PagesController::class,'getLanguages'])->name('getLanguages');
+# For test
+Route::get('/form',[Controllers\PagesController::class,'form'])->name('form');
 
 
-
-
-
+/** ############## PANEL ############## */
 Route::get('/version', [Controllers\HomeController::class, 'version'])->name('app.version');
 Route::get('/reservacion/data', [Controllers\ReservacionController::class, 'anyData'])->name('reservacion.data');
-// Route::get('/reservacion/{reservacion}/voucher', 'ReservacionController@voucher')->name('reservacion.voucher');
+Route::get('/reservacion/{reservacion}/voucher', 'ReservacionController@voucher')->name('reservacion.voucher');
 Route::resource('/reservacion', Controllers\ReservacionController::class);
 
 Route::get('/user/data',[Controllers\UserController::class, 'anyData'])->name('user.data');
@@ -54,8 +54,6 @@ Route::prefix('/reportes')->group(function() {
     Route::get('personalizado-horizontal', [Controllers\ReportesController::class, 'personalizadoPDF'])->name('reporte.personalizado-horizontal');
     Route::get('reservas-facturadas', [Controllers\ReportesController::class, 'reservasFacturadas'])->name('reporte.reservas-facturadas');
 });
-
-/** PANEL */
 Route::prefix('/administracion')->group(function() {
     Route::get('/', [Controllers\PanelController::class,'administracion'])->name('administracion');
     //datatable data source
@@ -76,13 +74,4 @@ Route::prefix('/administracion')->group(function() {
     Route::resource('moneda',   Controllers\MonedaPagoController::class);
     Route::resource('agencia',  Controllers\AgenciaController::class);
     Route::resource('empleado', Controllers\EmpleadoController::class);
-});
-
-
-
-Route::get('arrival',function(){
-    return view('services.arrival');
-});
-Route::get('roundtrip',function(){
-    return view('services.roundtrip');
 });
