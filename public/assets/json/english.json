@@ -92,6 +92,22 @@
                 "last_name":"Last Name",
                 "email":"Email",
                 "phone_number":"Phone Number",
+                "special_request":{
+                    "title":"Special Request",
+                    "paragraph":"The waters and beers are already included in the private transfers.",
+                    "checkboxes":{
+                        "booster_seat":{
+                            "title":"Booster seat (free)"
+                        },
+                        "car_seat":{
+                            "title":"Car seat (free)"
+                        },
+                        "shopping_stop":{
+                            "title":"Grocery stop",
+                            "subtitle":"30 minutes. Walmart, Costco, Fresko (25 USD)"
+                        }
+                    }
+                },
                 "comments":"Comments"
             },
             "step_details":{

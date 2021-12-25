@@ -50,7 +50,7 @@ class ReservationsController extends Controller
         }
 
         $fullname = $request['_contact_firstname'] . " " . $request['_contact_lastname'];
-
+// dd($request->all());
         // $wpdb now is $reservation
         $reservation=Reservation::create([
                "resort_id"          => $resort_id,
@@ -64,6 +64,9 @@ class ReservationsController extends Controller
                "phone"              => $request['_contact_phone'],
                "passengers"         => $request['_passengers'],
                "children"           => $request['_children'],
+               "booster_seat"       => $request['_booster_seat'] == 'true' ? true : false,
+               "car_seat"           => $request['_car_seat'] == 'true' ? true : false,
+               "shopping_stop"      => $request['_shopping_stop'] == 'true' ? true : false,
                "total_travelers"    => $request['_children'] + $request['_passengers'],
                "arrival_date"       => $request['_arrival_date'],
                "arrival_time"       => $request['_arrival_time'],

@@ -92,6 +92,22 @@
                 "last_name":"Apellidos",
                 "email":"Correo Electronico",
                 "phone_number":"Numero de Teléfono",
+                "special_request":{
+                    "title":"Solicitud Especial",
+                    "paragraph":"Las aguas y cervezas ya están incluidas en los traslados privados.",
+                    "checkboxes":{
+                        "booster_seat":{
+                            "title":"Asiento elevador (gratis)"
+                        },
+                        "car_seat":{
+                            "title":"Asiento de coche (gratis)"
+                        },
+                        "shopping_stop":{
+                            "title":"Parada de comestibles",
+                            "subtitle":"30 minutos. Walmart, Costco, Fresko (25 USD)"
+                        }
+                    }
+                },
                 "comments":"Comentarios"
             },
             "step_details":{

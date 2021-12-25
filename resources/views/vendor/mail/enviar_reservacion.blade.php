@@ -16,6 +16,9 @@
         | <b>Fecha de llegada:</b>  | {{$reservation->arrivalDate}}                                      |
         | <b>Número de teléfono:</b>  | {{$reservation->phone}}                                          |
         | <b>Total de pasajeros: </b>   | {{$reservation->total_travelers}}                              |
+        | <b>Asiento elevador: </b> | @if($reservation->booster_seat) SI @else NO @endif                 |
+        | <b>Asiento de coche: </b>     | @if($reservation->car_seat) SI @else NO @endif                 |
+        | <b>Parada de comestibles: </b>| @if($reservation->shopping_stop) SI @else NO @endif            |
         | <b>Total: </b>        | <b>${{$reservation->total}} USD</b>                                    |
         | <b>Metodo de pago:</b>    | <span style="color: #ec7728; font-weight: bold;">Efectivo a la llegada</span>|{{-- $reservation->payment_type --}}
     @endcomponent
@@ -30,6 +33,9 @@
         | <b>Fecha de salida:</b>  | {{$reservation->arrivalDate}}                                       |
         | <b>Número de teléfono:</b>  | {{$reservation->phone}}                                          |
         | <b>Total de pasajeros: </b>   | {{$reservation->total_travelers}}                              |
+        | <b>Asiento elevador: </b> | @if($reservation->booster_seat) SI @else NO @endif                 |
+        | <b>Asiento de coche: </b>     | @if($reservation->car_seat) SI @else NO @endif                 |
+        | <b>Parada de comestibles: </b>| @if($reservation->shopping_stop) SI @else NO @endif            |
         | <b>Total: </b>        | <b>${{$reservation->total}} USD</b>                                    |
         | <b>Metodo de pago:</b>    | <span style="color: #ec7728; font-weight: bold;">Efectivo a la llegada</span>|{{-- $reservation->payment_type --}}
     @endcomponent
@@ -44,6 +50,9 @@
         | <b>Fecha de llegada:</b>  | {{$reservation->arrivalDate}}                                      |
         | <b>Número de teléfono:</b>  | {{$reservation->phone}}                                          |
         | <b>Total de pasajeros: </b>   | {{$reservation->total_travelers}}                              |
+        | <b>Asiento elevador: </b> | @if($reservation->booster_seat) SI @else NO @endif                 |
+        | <b>Asiento de coche: </b>     | @if($reservation->car_seat) SI @else NO @endif                 |
+        | <b>Parada de comestibles: </b>| @if($reservation->shopping_stop) SI @else NO @endif            |
         | <b>Total: </b>        | <b>${{$reservation->total}} USD</b>                                    |
         | <b>Metodo de pago:</b>    | <span style="color: #ec7728; font-weight: bold;">Efectivo a la llegada</span>|{{-- $reservation->payment_type --}}
     @endcomponent

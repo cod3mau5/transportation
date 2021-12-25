@@ -192,6 +192,11 @@
                 data: {
                     about_us:'{{ empty($about_us) ? false : true }}',
                     language: '{{ $langUpdate }}',
+                    specialRequest:{
+                        boosterSeat:false,
+                        carSeat:false,
+                        shoppingStop: false,
+                    },
                     routes:{
                         home:'{{ route("inicio","1") }}',
                         gallery:'{{ route("gallery","1") }}',

@@ -6,58 +6,64 @@
         @endcomponent
     @endslot
     @if($reservation->message_t == 'ARRIVAL')
-    @component('mail::table')
-        | PRIVATE SERVICE{{' ('.$reservation->message_t.')'}}|{{'E-TICKET: '.$reservation->voucher  }}   |
-        | --------------------- |:----------------------------------------------------------------------:|
-        | <b>Name:</b>          | {{$reservation->fullname}}                                             |
-        | <b>Email:</b>         | {{$reservation->email}}                                                |
-        | <b>Hotel:</b>         | {{$reservation->resort->name}}                                         |
-        | <b>Arrival Flight:</b>| {{$reservation->arrivalFlight}}                                        |
-        | <b>Arrival Date:</b>  | {{$reservation->arrivalDate}}                                          |
-        | <b>Phone Number:</b>  | {{$reservation->phone}}                                                |
-        | <b>Passengers: </b>   | {{$reservation->total_travelers}}                                      |
-        | <b>Vehicle: </b>      | {{$reservation->unit->name}}                                           |
-        | <b>Total: </b>        | <b>${{$reservation->total}} USD</b>                                    |
-        | <b>Pay Method:</b>    | <span style="color: #ec7728; font-weight: bold;">Cash on Arrival</span>|{{-- $reservation->payment_type --}}
-    @endcomponent
+        @component('mail::table')
+            | PRIVATE SERVICE{{' ('.$reservation->message_t.')'}}|{{'E-TICKET: '.$reservation->voucher  }}   |
+            | --------------------- |:----------------------------------------------------------------------:|
+            | <b>Name:</b>          | {{$reservation->fullname}}                                             |
+            | <b>Email:</b>         | {{$reservation->email}}                                                |
+            | <b>Hotel:</b>         | {{$reservation->resort->name}}                                         |
+            | <b>Arrival Flight:</b>| {{$reservation->arrivalFlight}}                                        |
+            | <b>Arrival Date:</b>  | {{$reservation->arrivalDate}}                                          |
+            | <b>Phone Number:</b>  | {{$reservation->phone}}                                                |
+            | <b>Passengers: </b>   | {{$reservation->total_travelers}}                                      |
+            | <b>Booster seat: </b> | @if($reservation->booster_seat) YES @else NO @endif                    |
+            | <b>Car seat: </b>     | @if($reservation->car_seat) YES @else NO @endif                        |
+            | <b>Grocery Stop: </b>| @if($reservation->shopping_stop) YES @else NO @endif                   |
+            | <b>Total: </b>        | <b>${{$reservation->total}} USD</b>                                    |
+            | <b>Pay Method:</b>    | <span style="color: #ec7728; font-weight: bold;">Cash on Arrival</span>|{{-- $reservation->payment_type --}}
+        @endcomponent
     @elseif($reservation->message_t == 'DEPARTURE')
-    @component('mail::table')
-        | PRIVATE SERVICE{{' ('.$reservation->message_t.')'}}|{{'E-TICKET: '.$reservation->voucher  }}   |
-        | --------------------- |:----------------------------------------------------------------------:|
-        | <b>Name:</b>          | {{$reservation->fullname}}                                             |
-        | <b>Email:</b>         | {{$reservation->email}}                                                |
-        | <b>Meeting At:</b>    | {{$reservation->resort->name}}                                         |
-        | <b>Departure Flight:</b>| {{$reservation->arrivalFlight}}                                      |
-        | <b>Departure Date:</b>  | {{$reservation->arrivalDate}}                                        |
-        | <b>Phone Number:</b>  | {{$reservation->phone}}                                                |
-        | <b>Passengers: </b>   | {{$reservation->total_travelers}}                                      |
-        | <b>Vehicle: </b>      | {{$reservation->unit->name}}                                           |
-        | <b>Total: </b>        | <b>${{$reservation->total}} USD</b>                                    |
-        | <b>Pay Method:</b>    | <span style="color: #ec7728; font-weight: bold;">Cash on Arrival</span>|{{-- $reservation->payment_type --}}
-    @endcomponent
+        @component('mail::table')
+            | PRIVATE SERVICE{{' ('.$reservation->message_t.')'}}|{{'E-TICKET: '.$reservation->voucher  }}   |
+            | --------------------- |:----------------------------------------------------------------------:|
+            | <b>Name:</b>          | {{$reservation->fullname}}                                             |
+            | <b>Email:</b>         | {{$reservation->email}}                                                |
+            | <b>Meeting At:</b>    | {{$reservation->resort->name}}                                         |
+            | <b>Departure Flight:</b>| {{$reservation->arrivalFlight}}                                      |
+            | <b>Departure Date:</b>  | {{$reservation->arrivalDate}}                                        |
+            | <b>Phone Number:</b>  | {{$reservation->phone}}                                                |
+            | <b>Passengers: </b>   | {{$reservation->total_travelers}}                                      |
+            | <b>Booster seat: </b> | @if($reservation->booster_seat) YES @else NO @endif                    |
+            | <b>Car seat: </b>     | @if($reservation->car_seat) YES @else NO @endif                        |
+            | <b>Grocery Stop: </b>| @if($reservation->shopping_stop) YES @else NO @endif                   |
+            | <b>Total: </b>        | <b>${{$reservation->total}} USD</b>                                    |
+            | <b>Pay Method:</b>    | <span style="color: #ec7728; font-weight: bold;">Cash on Arrival</span>|{{-- $reservation->payment_type --}}
+        @endcomponent
     @elseif($reservation->message_t == 'ROUND TRIP')
-    @component('mail::table')
-        | PRIVATE SERVICE{{' ('.$reservation->message_t.')'}}|{{'E-TICKET: '.$reservation->voucher  }}   |
-        | --------------------- |:----------------------------------------------------------------------:|
-        | <b>Name:</b>          | {{$reservation->fullname}}                                             |
-        | <b>Email:</b>         | {{$reservation->email}}                                                |
-        | <b>Hotel:</b>         | {{$reservation->resort->name}}                                         |
-        | <b>Arrival Flight:</b>| {{$reservation->arrivalFlight}}                                        |
-        | <b>Arrival Date:</b>  | {{$reservation->arrivalDate}}                                          |
-        | <b>Phone Number:</b>  | {{$reservation->phone}}                                                |
-        | <b>Passengers: </b>   | {{$reservation->total_travelers}}                                      |
-        | <b>Vehicle: </b>      | {{$reservation->unit->name}}                                           |
-        | <b>Total: </b>        | <b>${{$reservation->total}} USD</b>                                    |
-        | <b>Pay Method:</b>    | <span style="color: #ec7728; font-weight: bold;">Cash on Arrival</span>|{{-- $reservation->payment_type --}}
-    @endcomponent
-    @component('mail::table')
-        | DEPARTURE NOTICE      |                                                                        |
-        | --------------------- |:----------------------------------------------------------------------:|
-        | <b>Hotel:</b>         | {{$reservation->resort->name}}                                         |
-        | <b>Passengers: </b>   | {{$reservation->total_travelers}}                                      |
-        | <b>Departure Flight:</b>| {{$reservation->departureFlight}}                                    |
-        | <b>Flight Date:</b>  | {{$reservation->departureDate}}                                         |
-    @endcomponent
+        @component('mail::table')
+            | PRIVATE SERVICE{{' ('.$reservation->message_t.')'}}|{{'E-TICKET: '.$reservation->voucher  }}   |
+            | --------------------- |:----------------------------------------------------------------------:|
+            | <b>Name:</b>          | {{$reservation->fullname}}                                             |
+            | <b>Email:</b>         | {{$reservation->email}}                                                |
+            | <b>Hotel:</b>         | {{$reservation->resort->name}}                                         |
+            | <b>Arrival Flight:</b>| {{$reservation->arrivalFlight}}                                        |
+            | <b>Arrival Date:</b>  | {{$reservation->arrivalDate}}                                          |
+            | <b>Phone Number:</b>  | {{$reservation->phone}}                                                |
+            | <b>Passengers: </b>   | {{$reservation->total_travelers}}                                      |
+            | <b>Booster seat: </b> | @if($reservation->booster_seat) YES @else NO @endif                    |
+            | <b>Car seat: </b>     | @if($reservation->car_seat) YES @else NO @endif                        |
+            | <b>Grocery Stop: </b>| @if($reservation->shopping_stop) YES @else NO @endif                   |
+            | <b>Total: </b>        | <b>${{$reservation->total}} USD</b>                                    |
+            | <b>Pay Method:</b>    | <span style="color: #ec7728; font-weight: bold;">Cash on Arrival</span>|{{-- $reservation->payment_type --}}
+        @endcomponent
+        @component('mail::table')
+            | DEPARTURE NOTICE      |                                                                        |
+            | --------------------- |:----------------------------------------------------------------------:|
+            | <b>Hotel:</b>         | {{$reservation->resort->name}}                                         |
+            | <b>Passengers: </b>   | {{$reservation->total_travelers}}                                      |
+            | <b>Departure Flight:</b>| {{$reservation->departureFlight}}                                    |
+            | <b>Flight Date:</b>  | {{$reservation->departureDate}}                                         |
+        @endcomponent
     <p style="text-align: center; color: #005899; font-size: 11.5px;"><b>Note:</b> Please be ready at the main lobby 5 minutes before your pick-up time.</p>
     @endif
     @if($reservation->comments != '')
