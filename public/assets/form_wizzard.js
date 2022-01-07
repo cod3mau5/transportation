@@ -194,6 +194,7 @@ jQuery(document).ready(function($) {
         }
 
         $('#vehicle').html(options);
+        // FOR ONLY SUBURBAN
         $('#vehicle option:eq(1)').attr('selected','select');
         $('.sm_price').html('');
         $('.sm_unit').html('');

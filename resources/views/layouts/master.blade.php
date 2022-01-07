@@ -32,7 +32,7 @@
                 color:#fff;
             }
             .fs-big,.fs-big *{
-                font-size: 5rem;
+                font-size: 3rem;
             }
             .fs-medium,.fs-medium *{
                 font-size: 4rem;
@@ -49,6 +49,12 @@
 
             .float-right{
                 float: right!important;
+            }
+
+            @media(min-width:1024px){
+                .fs-big,.fs-big *{
+                    font-size: 5rem;
+                }
             }
             /*components*/
             .book-btn{

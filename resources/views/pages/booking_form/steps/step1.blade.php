@@ -73,7 +73,7 @@
         </div>
 
         <div class="row">
-            <div class="col-lg-6">
+            <div class="col-lg-4">
                 <div class="mb-3">
                     <label for="passengers" class="form-label">
                         @{{ text.book_now.form.step_trip.number_travelers }}
@@ -90,7 +90,7 @@
                     </select>
                 </div>
             </div>
-            <div class="col-lg-6">
+            <div class="col-lg-4">
                 <div class="mb-3">
                     <label for="children" class="form-label">
                         @{{ text.book_now.form.step_trip.children }}
@@ -107,7 +107,7 @@
                     </select>
                 </div>
             </div>
-            <div class="col-lg-6 d-none">
+            <div class="col-lg-4">
                 <div class="mb-3">
                     <label for="vehicle" class="form-label">
                         Kind of vehicle

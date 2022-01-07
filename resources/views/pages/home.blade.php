@@ -2,7 +2,11 @@
 @section('styles')
     <style>
         .bg-arch{
-            background: linear-gradient(0deg, rgba(255, 255, 255, 0.777), rgba(255, 255, 255, 0.777)),url("{{ asset('assets/images/arch.webp') }}");
+            background: linear-gradient(    0deg, 
+                                            rgba(255, 255, 255, 0.777), 
+                                            rgba(255, 255, 255, 0.777)
+                                        ),
+                        url("{{ asset('assets/images/arch.webp') }}");
             background-repeat: no-repeat;
             background-size: cover;
             background-position-y: 40%;
@@ -33,7 +37,7 @@
                 <div class="col-md-8 offset-md-2 px-0 text-center m-font">
                     <h2 class="fs-1 my-5 m-color">@{{ text.home.txt_hero.txt1 }}</h2>
                     <h1 class="fs-1 my-5 s-color">@{{ text.home.txt_hero.txt2 }}</h1>
-                    <h2 class="fs-big my-5 pb-5 m-color text-break">@{{ text.home.txt_hero.txt3 }}</h2>
+                    <h2 class="fs-big my-3 my-md-5 pb-md-5 pb-3 px-2 px-md-0 m-color text-break">@{{ text.home.txt_hero.txt3 }}</h2>
                 </div>
             </div>
         </div>
@@ -44,7 +48,9 @@
                     <img src="{{ asset('assets/images/arch_mini.webp') }}" class="circle">
                 </div>
                 <div class="col-md-6 py-3">
-                    <h3 class="fs-1 m-font m-color">@{{ text.about_us.title1.title }}</h3>
+                    <h3 class="fs-1 m-font m-color">
+                        @{{ text.about_us.title1.title }}
+                    </h3>
                     <p class="fs-6">@{{ text.about_us.title1.txt }}</p>
                 </div>
             </div>
