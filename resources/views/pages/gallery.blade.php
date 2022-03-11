@@ -81,6 +81,9 @@
     }
 </style>
 @endsection
+@section('global-header')
+    @include('includes.google-header-global')
+@endsection
 @section('content')
 
     <main id="PAGES_CONTAINER">

@@ -1,3 +1,6 @@
+@section('summary-header')
+    @include('includes.google-header-conversion')
+@endsection
 <div class="table-rep-plugin">
     <div class="table-responsive mb-0" data-pattern="priority-columns">
         <table id="tech-companies-1" class="table table-striped table-sm m-0">

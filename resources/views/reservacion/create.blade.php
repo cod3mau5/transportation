@@ -12,6 +12,7 @@
         </div>
     </div><!-- /.box-body -->
 </div>
+
 @endsection
 
 @section ('footer-scripts')
