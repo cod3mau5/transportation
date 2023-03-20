@@ -12,16 +12,16 @@
                             </option>
 
                             <option value="o"
-                                <?php 
-                                    if (isset($_GET['trip']) && $_GET['trip']=='o') { echo 'selected="selected"'; } 
+                                <?php
+                                    if (isset($_GET['trip']) && $_GET['trip']=='o') { echo 'selected="selected"'; }
                                 ?>
                             >
                             @{{ text.book_now.form.trip_type.oneway }}
                             </option>
 
                             <option value="r"
-                                <?php 
-                                    if (isset($_GET['trip']) && $_GET['trip']=='r') { echo 'selected="selected"'; } 
+                                <?php
+                                    if (isset($_GET['trip']) && $_GET['trip']=='r') { echo 'selected="selected"'; }
                                 ?>
                             >
                             @{{ text.book_now.form.trip_type.roundtrip }}
@@ -34,7 +34,10 @@
                     <label for="start_location" class="form-label">
                         @{{ text.book_now.form.step_trip.start_location }}
                     </label>
-                    <select id="start_location" name="start_location" class="form-control" required="">
+                    <select id="start_location"
+                            name="start_location"
+                            class="form-control select2"
+                            required="">
                         <option value="" disabled="" selected="selected" style="display:none">
                             @{{ text.book_now.form.step_trip.start_location }}
                         </option>
@@ -56,13 +59,17 @@
             <div class="col-lg-4">
                 <div class="mb-3">
                     <label for="end_location" class="form-label">@{{ text.book_now.form.step_trip.end_location }}</label>
-                        <select id="end_location" name="end_location" class="form-control" required="">
+                        <select id="end_location"
+                                name="end_location"
+                                class="form-control select2"
+                                required=""
+                        >
                             <option value="" disabled="" selected="selected" style="display:none">@{{ text.book_now.form.step_trip.end_location }}</option>
                             <option value="0" {{ $end_location!='' ? 'selected="selected"' : '' }}>Los Cabos Int. Airport</option>
                             @foreach ($resorts as $row)
                                 <option
                                     value="{{ $row->id }}"
-                                    {{ $row->id == $end_location ? 'selected="selected"' : '' }} 
+                                    {{ $row->id == $end_location ? 'selected="selected"' : '' }}
                                     data-zone="{{ $row->zone_id }}">
                                     {{ $row->name }}
                                 </option>
@@ -124,8 +131,8 @@
                 <div class="trip_locations">
                     <h1 class="card-title ">
                         <span class="badge bg-primary">
-                            @{{ text.book_now.form.step_trip.trip_location_title.name }} #1 
-                        </span> 
+                            @{{ text.book_now.form.step_trip.trip_location_title.name }} #1
+                        </span>
                         <span v-if="language == '0'">De </span>
                         <span class="from"></span> @{{ text.book_now.form.step_trip.trip_location_title.to }}
                         <span class="to"></span>
@@ -145,7 +152,7 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="mb-3">
-                        <label for="time" class="form-label"> 
+                        <label for="time" class="form-label">
                             @{{ text.book_now.form.step_trip.trip1.arrival_flight_time }}
                         </label>
                         <input type="text" class="form-control" id="arrival_time" name="arrival_time" :placeholder="text.book_now.form.step_trip.trip1.arrival_flight_time+' '+ text.book_now.form.step_trip.trip1.arrival" required>
@@ -155,7 +162,9 @@
             <div class="row">
                 <div class="col-lg-6">
                     <div class="mb-3">
-                        <label for="airline" class="form-label"> @{{ text.book_now.form.step_trip.trip1.arrival_airline }}</label>
+                        <label for="airline" class="form-label">
+                            @{{ text.book_now.form.step_trip.trip1.arrival_airline }}
+                        </label>
                         <select id="arrival_airline" name="arrival_airline" class="form-control" required>
                             <option value="" disabled selected="selected" style="display:none"> @{{ text.book_now.form.step_trip.trip1.arrival_airline+' '+ text.book_now.form.step_trip.trip1.arrival }}</option>
                             <option value="1">AAL American Airlines</option>
@@ -188,8 +197,8 @@
                 <div class="trip_locations">
                     <h1 class="card-title ">
                         <span class="badge bg-warning">
-                            @{{ text.book_now.form.step_trip.trip_location_title.name }} #2 
-                        </span> 
+                            @{{ text.book_now.form.step_trip.trip_location_title.name }} #2
+                        </span>
                         <span v-if="language == '0'">De </span>
                         <span class="to"></span> @{{ text.book_now.form.step_trip.trip_location_title.to }}
                         <span class="from"></span>
@@ -221,9 +230,9 @@
                             @{{ text.book_now.form.step_trip.trip2.departure_airline }}
                         </label>
                         <select id="departure_airline" name="departure_airline" class="form-control" required>
-                            <option value="" 
-                                    disabled 
-                                    selected 
+                            <option value=""
+                                    disabled
+                                    selected
                                     style="display:none">
                                     @{{ text.book_now.form.step_trip.trip2.departure_airline +' '+text.book_now.form.step_trip.trip2.departure }}
                             </option>
