@@ -17,12 +17,18 @@ class PagesController extends Controller
                 "verify_peer"=>false,
                 "verify_peer_name"=>false,
             ),
-        ); 
+        );
         if(request('language') === '0'){
-            $language= json_decode(file_get_contents(asset('assets/json/spanish.json'),false,stream_context_create($options)), true);
+            $language= json_decode(file_get_contents(asset('assets/json/spanish.json'),
+            false,stream_context_create($options)),
+             true
+        );
             $langUpdate=0;
         }else{
-            $language= json_decode(file_get_contents(asset('assets/json/english.json'),false,stream_context_create($options)), true);
+            $language= json_decode(file_get_contents(asset('assets/json/english.json'),
+            false,stream_context_create($options)),
+             true
+        );
             $langUpdate=1;
         }
         if($request->about_us == "true"){
@@ -38,12 +44,18 @@ class PagesController extends Controller
                 "verify_peer"=>false,
                 "verify_peer_name"=>false,
             ),
-        ); 
+        );
         if($language == 1){
-            $language= json_decode(file_get_contents(asset('assets/json/english.json'),false,stream_context_create($options)), true);
+            $language= json_decode(file_get_contents(asset('assets/json/english.json'),
+            false,stream_context_create($options)),
+             true
+        );
             $langUpdate=1;
         }else{
-            $language= json_decode(file_get_contents(asset('assets/json/spanish.json'),false,stream_context_create($options)), true);
+            $language= json_decode(file_get_contents(asset('assets/json/spanish.json'),
+            false,stream_context_create($options)),
+             true
+        );
             $langUpdate=0;
         }
         return view('pages.home',compact('language','langUpdate'));
@@ -54,12 +66,22 @@ class PagesController extends Controller
                 "verify_peer"=>false,
                 "verify_peer_name"=>false,
             ),
-        ); 
+        );
         if($language == 1){
-            $language= json_decode(file_get_contents(asset('assets/json/english.json'),false,stream_context_create($options)), true);
+            $language= json_decode(
+                file_get_contents(asset('assets/json/english.json'),
+                false,
+                stream_context_create($options)),
+                true
+            );
             $langUpdate=1;
         }else{
-            $language= json_decode(file_get_contents(asset('assets/json/spanish.json'),false,stream_context_create($options)), true);
+            $language= json_decode(
+                file_get_contents(asset('assets/json/spanish.json'),
+                false,
+                stream_context_create($options)),
+                true
+            );
             $langUpdate=0;
         }
         return view('pages.contact',compact('language','langUpdate'));
@@ -70,12 +92,22 @@ class PagesController extends Controller
                 "verify_peer"=>false,
                 "verify_peer_name"=>false,
             ),
-        ); 
+        );
         if($language == 1){
-            $language= json_decode(file_get_contents(asset('assets/json/english.json'),false,stream_context_create($options)), true);
+            $language= json_decode(
+                file_get_contents(asset('assets/json/english.json'),
+                false,
+                stream_context_create($options)),
+                 true
+            );
             $langUpdate=1;
         }else{
-            $language= json_decode(file_get_contents(asset('assets/json/spanish.json'),false,stream_context_create($options)), true);
+            $language= json_decode(
+                file_get_contents(asset('assets/json/spanish.json'),
+                false,
+                stream_context_create($options)),
+                 true
+            );
             $langUpdate=0;
         }
         return view('pages.gallery',compact('language','langUpdate'));
@@ -86,12 +118,22 @@ class PagesController extends Controller
                 "verify_peer"=>false,
                 "verify_peer_name"=>false,
             ),
-        ); 
+        );
         if($language == 1){
-            $language= json_decode(file_get_contents(asset('assets/json/english.json'),false,stream_context_create($options)), true);
+            $language= json_decode(
+                file_get_contents(asset('assets/json/english.json'),
+                false,
+                stream_context_create($options)),
+                true
+            );
             $langUpdate=1;
         }else{
-            $language= json_decode(file_get_contents(asset('assets/json/spanish.json'),false,stream_context_create($options)), true);
+            $language= json_decode(
+                file_get_contents(asset('assets/json/spanish.json'),
+                false,
+                stream_context_create($options)),
+                true
+            );
             $langUpdate=0;
         }
         return view('pages.contact',compact('language','langUpdate'));
@@ -108,20 +150,20 @@ class PagesController extends Controller
         # ONLY SUBURBAN
         // $rates   = Rate::where('unit_id','1')->get()->sortBy('zone_id');
         #ALL UNTIS ENABLED
-        $rates= Rate::all()->sortBy('zone_id'); 
+        $rates= Rate::all()->sortBy('zone_id');
         foreach ($resorts as $row) {
             $resort_options .=  '<option value="'.$row->id.'" data-zone="'.$row->zone_id.'">'.
                                     htmlentities($row->name).
                                 '</option>';
         }
-    
+
         foreach ($units as $unit) {
             $vehicles[$unit->id] = ['name'=> $unit->name, 'capacity'=> $unit->capacity];
             $unit_options .=  '<option value="'.$unit->id.'" data-name="'.$unit->id.'">'.
                                     htmlentities($unit->name).
                                 '</option>';
         }
-    
+
         $start_location = (isset($_GET['start_location'])) ? $_GET['start_location'] : '';
         $end_location   = (isset($_GET['end_location'])) ? $_GET['end_location'] : '';
         $passengers     = (isset($_GET['passengers'])) ? (int) $_GET['passengers'] : '';
@@ -133,12 +175,22 @@ class PagesController extends Controller
                 "verify_peer"=>false,
                 "verify_peer_name"=>false,
             ),
-        ); 
+        );
         if($language == 1){
-            $language= json_decode(file_get_contents(asset('assets/json/english.json'),false,stream_context_create($options)), true);
+            $language= json_decode(
+                file_get_contents(asset('assets/json/english.json'),
+                false,
+                stream_context_create($options)),
+                 true
+            );
             $langUpdate=1;
         }else{
-            $language= json_decode(file_get_contents(asset('assets/json/spanish.json'),false,stream_context_create($options)), true);
+            $language= json_decode(
+                file_get_contents(asset('assets/json/spanish.json'),
+                false,
+                stream_context_create($options)),
+                 true
+            );
             $langUpdate=0;
         }
         return view('pages.booking',compact(
@@ -149,9 +201,13 @@ class PagesController extends Controller
         ));
     }
     public function sendMail(Request $request){
-        Mail::to('cabodriverloscabos@gmail.com')->cc(['cabodriversservices@gmail.com','maubkpro@hotmail.com'])->send(new sendMail($request));
+        Mail::to('cabodriverloscabos@gmail.com')
+        ->cc([
+            'cabodriversservices@gmail.com',
+            'code.bit.mau@gmail.com'
+        ])->send(new sendMail($request));
 
-        
+
             $notification="El mensaje se ha enviado correctamente";
 
         return back()->with(compact('notification'));
@@ -164,11 +220,20 @@ class PagesController extends Controller
                 "verify_peer"=>false,
                 "verify_peer_name"=>false,
             ),
-        ); 
+        );
         if($language == 1){
-            return json_decode(file_get_contents(asset('assets/json/english.json'),false,stream_context_create($options)), true);
+            return json_decode(
+                file_get_contents(asset('assets/json/english.json'),
+                false,stream_context_create($options)),
+                true
+            );
         }else{
-            return json_decode(file_get_contents(asset('assets/json/spanish.json'),false,stream_context_create($options)), true);
+            return json_decode(
+                file_get_contents(asset('assets/json/spanish.json'),
+                false,
+                stream_context_create($options)),
+                true
+            );
         }
     }
 
