@@ -167,19 +167,28 @@
                         </label>
                         <select id="arrival_airline" name="arrival_airline" class="form-control" required>
                             <option value="" disabled selected="selected" style="display:none"> @{{ text.book_now.form.step_trip.trip1.arrival_airline+' '+ text.book_now.form.step_trip.trip1.arrival }}</option>
-                            <option value="1">AAL American Airlines</option>
-                            <option value="3">AMX Aeromexico</option>
-                            <option value="2">ACA Air Canada</option>
-                            <option value="3">DL Delta</option>
-                            <option value="3">AIJ Interjet</option>
-                            <option value="3">ASA Alaska</option>
-                            <option value="3">CFV Aero Calafia</option>
-                            <option value="3">FT Frontier</option>
-                            <option value="3">CXP Xtra Airways</option>
-                            <option value="3">WJA Westjet</option>
-                            <option value="3">SWA Southwest</option>
-                            <option value="3">UAL United Airlines</option>
-                            <option value="3">VOI Volaris</option>
+                            <option value="AAL American Airlines">AAL American Airlines</option>
+                            <option value="AMX Aeromexico">AMX Aeromexico</option>
+                            <option value="ACA Air Canadá">ACA Air Canadá</option>
+                            <option value="DL Delta">DL Delta</option>
+                            <option value="AIJ Interjet">AIJ Interjet</option>
+                            <option value="ASA Alaska">ASA Alaska</option>
+                            <option value="CFV Aero Calafia">CFV Aero Calafia</option>
+                            <option value="FT Frontier">FT Frontier</option>
+                            <option value="CXP Xtra Airways">CXP Xtra Airways</option>
+                            <option value="WJA Westjet">WJA Westjet</option>
+                            <option value="SWA Southwest">SWA Southwest</option>
+                            <option value="UAL United Airlines">UAL United Airlines</option>
+                            <option value="VOI Volaris">VOI Volaris</option>
+                            <option value="Blue net">Blue net</option>
+                            <option value="JBU JetBlue">JBU JetBlue</option>
+                            <option value="SWG SunWing">SWG SunWing</option>
+                            <option value="NKS Spirit Wings">NKS Spirit Wings</option>
+                            <option value="EJA NetJets">EJA NetJets</option>
+                            <option value="FLE Flair Airlines">FLE Flair Airlines</option>
+                            <option value="LXJ Flex Jet">LXJ Flex Jet</option>
+                            <option value="Jetlinx">Jetlinx</option>
+                            <option value="FBO">FBO</option>
                         </select>
                     </div>
                 </div>
@@ -236,15 +245,27 @@
                                     style="display:none">
                                     @{{ text.book_now.form.step_trip.trip2.departure_airline +' '+text.book_now.form.step_trip.trip2.departure }}
                             </option>
-                            <option value="1">AAL American Airlines</option>
-                            <option value="2">ACA Air Canada</option>
-                            <option value="3">AIJ Interjet</option>
-                            <option value="3">AL United Airlines</option>
-                            <option value="3">AMX Aeromexico</option>
-                            <option value="3">ASA Alaska</option>
-                            <option value="3">CFV Aero Calafia</option>
-                            <option value="3">AMX Aeromexico</option>
-                            <option value="3">CXP Xtra Airways</option>
+                            <option value="AAL American Airlines">AAL American Airlines</option>
+                            <option value="AMX Aeromexico">AMX Aeromexico</option>
+                            <option value="ACA Air Canadá">ACA Air Canadá</option>
+                            <option value="DL Delta">DL Delta</option>
+                            <option value="AIJ Interjet">AIJ Interjet</option>
+                            <option value="ASA Alaska">ASA Alaska</option>
+                            <option value="CFV Aero Calafia">CFV Aero Calafia</option>
+                            <option value="FT Frontier">FT Frontier</option>
+                            <option value="CXP Xtra Airways">CXP Xtra Airways</option>
+                            <option value="WJA Westjet">WJA Westjet</option>
+                            <option value="SWA Southwest">SWA Southwest</option>
+                            <option value="UAL United Airlines">UAL United Airlines</option>
+                            <option value="VOI Volaris">VOI Volaris</option>
+                            <option value="Blue net">Blue net</option>
+                            <option value="JBU JetBlue">JBU JetBlue</option>
+                            <option value="SWG SunWing">SWG SunWing</option>
+                            <option value="NKS Spirit Wings">NKS Spirit Wings</option>
+                            <option value="EJA NetJets">EJA NetJets</option>
+                            <option value="FLE Flair Airlines">FLE Flair Airlines</option>
+                            <option value="LXJ Flex Jet">LXJ Flex Jet</option>
+                            <option value="Jetlinx">Jetlinx</option>
                         </select>
                     </div>
                 </div>
