@@ -46,7 +46,7 @@
             }
         }
 
-        @media (min-width: 992px) { 
+        @media (min-width: 992px) {
             .parallax{
                 background-attachment: fixed;
                 background-size: contain;
@@ -112,14 +112,14 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
-                    
+
                     <div class="card-body">
                         <div class="alert alert-warning alert-dismissible fade show" role="alert">
                             {{session('notification')}}
                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                           </div>
                     </div>
-                
+
                 </div>
             </div>
         </div>
@@ -175,5 +175,5 @@
         });
     }
 </script>
-<script  defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBcjB5D6m1N4UAcwssY-tmPYLTi2wgF7Uc&callback=initMap"> </script>
+<script  defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDl3QdpavEMHbNxiU9AqmO577Hir0EZ_Ho&callback=initMap"> </script>
 @endsection
