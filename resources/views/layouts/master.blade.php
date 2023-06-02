@@ -18,6 +18,7 @@
         <link rel="stylesheet" href="{{ asset('assets/css/fonts.css') }}">
         <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
         <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
         <style>
             /*normalize custom*/
             body{
@@ -130,7 +131,7 @@
             .circle{
                 border-radius: 50%;
             }
-            @media (min-width: 992px) { 
+            @media (min-width: 992px) {
                 .top_header a img{
                     width:auto;
                 }
@@ -174,6 +175,106 @@
                 color: #397dcf;
                 width: 7%;
             }
+
+            /* IG pageGallery */
+            .w-100{
+                width:100%;
+            }
+            .h-100{
+                height: 100%;
+            }
+            .overflow{
+                overflow: hidden;
+            }
+            #ig_container{
+                background: rgb(189,189,189);
+                margin: 5rem 0;
+                width: 100%;
+                overflow: hidden;
+            }
+            .gallery-container{
+                width: 100%;
+                overflow: hidden;
+                scroll-behavior: smooth;
+            }
+            .main-gallery{
+                width: 100%;
+                display: flex;
+                align-items: center;
+                position: relative;
+            }
+            .chevron span{
+                display: flex;
+                align-items: center;
+                position: absolute;
+                z-index: 1;
+                font-size: 2rem;
+                color: rgb(157, 217, 238);
+                width: 4.3rem;
+                height: 4.7rem;
+                background-color: rgba(23,23,23, 0.9);
+                border-radius: 100%;
+                cursor: pointer;
+            }
+            .chevron span:hover{
+                background-color: rgba(23,23,23, 0.6);
+            }
+            .chevron #prev{
+                padding-right: .5rem;
+                justify-content: flex-end;
+                left: -1.7rem;
+            }
+
+            .chevron #next{
+                padding-right: .5rem;
+                justify-content: flex-start;
+                right: -1.7rem;
+            }
+            .gallery{
+                display: flex;
+                flex-wrap: nowrap;
+            }
+            .image{
+                min-width: 20%;
+                height: 273px;
+                position: relative;
+            }
+            .image img{
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: center;
+            }
+            .image:hover .opacity-hover{
+                width:100%;
+            }
+            .caption{
+                width: 100%;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                text-align: center;
+                transform: translateY(300px);
+                transition: transform 100ms linear;
+            }
+            .opacity-hover:hover .caption{
+                transform: translateY(0px);
+            }
+            .caption p{
+                color:white;
+                width: 80%;
+            }
+            .opacity-hover{
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                top:0;
+                transition:background-color 300ms linear;
+            }
+            .opacity-hover:hover{
+                background-color: rgba(2,2,2, 0.8);
+            }
+
         </style>
         @yield('styles')
     </head>
@@ -184,6 +285,30 @@
         <div id="app">
             @include('includes.header')
                 @yield('content')
+
+                {{-- FEED Instagram --}}
+                <section id="ig_container">
+                    <div class="main-gallery">
+                        {{-- left --}}
+                        <div class="chevron">
+                            <span id="prev" class="material-symbols-outlined">
+                                arrow_back_ios_new
+                            </span>
+                        </div>
+
+                        {{-- gallery --}}
+                        <div class="gallery-container">
+                            <div class="gallery"></div>
+                        </div>
+
+                        {{-- right --}}
+                        <div class="chevron">
+                            <span id="next" class="material-symbols-outlined">
+                                arrow_forward_ios
+                            </span>
+                        </div>
+                    </div>
+                </section>
             @include('includes.footer')
         </div>
 @yield('map')
@@ -227,7 +352,7 @@
                 },
                 methods:{
                     changeLanguage: function(){
-                        
+
                         if(this.language == 1){
                             this.routes.home= this.routes.home.replace('/0','/'+this.language);
                             this.routes.gallery= this.routes.gallery.replace('/0','/'+this.language);
@@ -274,5 +399,46 @@
             })
         </script>
                 @yield('footer-scripts')
+        <script>
+            'use strict'
+            const gallery=document.querySelector('.gallery');
+            const feed= document.querySelector('.gallery-container');
+            const next= document.querySelector('#next');
+            const prev= document.querySelector('#prev');
+            const token='IGQVJXS0p5cGJFNHE4cW9oNlFialZAJQzcxMGFHWmpjQXFEak1jb0t4Mm5vdUhkY1A2OV9zSVN1aWllYTJCTEZAoUnNNQldaeWlFcHFlSERTbGltdU5oWkhoaVNDTTJnSVk2SjJub256eUJBT28zVUZAxeQZDZD';
+            const url=`https://graph.instagram.com/me/media?fields=thumbnail_url,media_url,caption,permalink&limit=80&access_token=${token}`;
+            fetch(url)
+            .then(res=> res.json())
+            .then(data=>createHtml(data.data));
+
+            function createHtml(data){
+                for(const img of data){
+                    if(img.caption !== undefined){
+                        gallery.innerHTML+=`
+                            <div class="image overflow">
+                                <img loading="lazy" src="${img.media_url}">
+                                <div class="opacity-hover">
+                                    <a href="${img.permalink}" class="caption">
+                                        <p>
+                                            ${img.caption.slice(0,80)}
+                                        </p>
+                                    </a>
+                            </div>
+                        `;
+                    }
+                }
+            }
+            next.addEventListener('click',moveGallery);
+            prev.addEventListener('click',moveGallery);
+
+            function moveGallery(e){
+                if(e.target.id === "next" || e.target.parentElement.id == "next"){
+                    feed.scrollLeft+= feed.offsetWidth;
+                }else{
+                    feed.scrollLeft-= feed.offsetWidth;
+
+                }
+            }
+        </script>
     </body>
 </html>
