@@ -405,7 +405,7 @@
             const feed= document.querySelector('.gallery-container');
             const next= document.querySelector('#next');
             const prev= document.querySelector('#prev');
-            const token='IGQVJXS0p5cGJFNHE4cW9oNlFialZAJQzcxMGFHWmpjQXFEak1jb0t4Mm5vdUhkY1A2OV9zSVN1aWllYTJCTEZAoUnNNQldaeWlFcHFlSERTbGltdU5oWkhoaVNDTTJnSVk2SjJub256eUJBT28zVUZAxeQZDZD';
+            const token='{{env("IG_GALLERY_TOKEN")}}';
             const url=`https://graph.instagram.com/me/media?fields=thumbnail_url,media_url,caption,permalink&limit=80&access_token=${token}`;
             fetch(url)
             .then(res=> res.json())
