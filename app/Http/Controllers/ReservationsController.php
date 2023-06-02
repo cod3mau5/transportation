@@ -97,8 +97,9 @@ class ReservationsController extends Controller
 
         Mail::to($reservation->email)
                 ->cc([
-                    'cabodriversservices@gmail.com',
                     'code.bit.mau@gmail.com',
+                    'reservations@cabodrivers.com',
+                    'cabodriversservices@gmail.com',
                     'cabodriverloscabos@gmail.com'
                     ])
                 ->send(new SendReservation($reservation));

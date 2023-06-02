@@ -92,21 +92,21 @@
 
             <!-- Reservation form begin -->
             <div class="container reserve-form-container">
-                
+
                 <div class="row">
 
                     <div class="col-md-8">
                         <div class="card">
                             <div class="card-body">
                                 <h2 class="card-title mb-4 fs-2">Reservation form</h2>
-        
+
                                 <div id="basic-pills-wizard" class="twitter-bs-wizard">
                                     @php $stepNames= ['Trip','Contact','Confirm Detail']; $i=1; @endphp
                                     <ul class="twitter-bs-wizard-nav">
                                         @foreach ($stepNames as $name)
                                             <li class="nav-item">
-                                                <a href="#step{{ $i }}" 
-                                                class="nav-link"  
+                                                <a href="#step{{ $i }}"
+                                                class="nav-link"
                                                 data-toggle="tab"
                                                 style="pointer-events: none;cursor: not-allowed;">
                                                     <span class="step-number">0{{ $i }}</span>
@@ -169,7 +169,7 @@
                                                                     @foreach ($resorts as $row)
                                                                         <option
                                                                             value="{{ $row->id }}"
-                                                                            {{ $row->id == $end_location ? 'selected="selected"' : '' }} 
+                                                                            {{ $row->id == $end_location ? 'selected="selected"' : '' }}
                                                                             data-zone="{{ $row->zone_id }}">
                                                                             {{ $row->name }}
                                                                         </option>
@@ -178,7 +178,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-        
+
                                                 <div class="row">
                                                     <div class="col-lg-6">
                                                         <div class="mb-3">
@@ -233,7 +233,7 @@
                                                                 <span class="badge bg-primary">Trip #1 </span> <span class="from"></span> TO <span class="to"></span>
                                                             <h1>
                                                         </div>
-    
+
                                                         <div class="col-lg-6">
                                                             <div class="mb-3">
                                                                 <label for="date" class="form-label">
@@ -290,7 +290,7 @@
                                                                 <span class="badge bg-warning">Trip #2 </span> <span class="to"></span> TO <span class="from"></span>
                                                             </h1>
                                                         </div>
-    
+
                                                         <div class="col-lg-6">
                                                             <div class="mb-3">
                                                                 <label for="date" class="form-label">
@@ -316,9 +316,9 @@
                                                                     Departure Airline Company
                                                                 </label>
                                                                 <select id="departure_airline" name="departure_airline" class="form-control" required>
-                                                                    <option value="" 
-                                                                            disabled 
-                                                                            selected 
+                                                                    <option value=""
+                                                                            disabled
+                                                                            selected
                                                                             style="display:none">Departure Airline Company</option>
                                                                     <option value="1">AAL American Airlines</option>
                                                                     <option value="2">ACA Air Canada</option>
@@ -354,7 +354,7 @@
                                                                 <input type="text" class="form-control" id="first_name" name="first_name" placeholder="First Name" required>
                                                         </div>
                                                     </div>
-        
+
                                                     <div class="col-lg-6">
                                                         <div class="mb-3">
                                                             <label class="form-label" for="last_name">Last Name</label>
@@ -369,7 +369,7 @@
                                                                 <input type="email" class="form-control" id="email" name="email" placeholder="Email" required="">
                                                         </div>
                                                     </div>
-        
+
                                                     <div class="col-lg-6">
                                                         <div class="mb-3">
                                                             <label for="primary_phone" class="form-label">Phone Number</label>
@@ -384,7 +384,7 @@
                                                                 <textarea name="request" id="request" cols="30" rows="10" class="form-control"></textarea>
                                                         </div>
                                                     </div>
-    
+
                                                 </div>
                                             </form>
                                             </div>
@@ -399,7 +399,7 @@
                                                                 <input type="text" class="form-control" id="basicpill-namecard-input">
                                                             </div>
                                                         </div>
-        
+
                                                         <div class="col-lg-6">
                                                             <div class="mb-3">
                                                                 <label>Credit Card Type</label>
@@ -420,7 +420,7 @@
                                                                 <input type="text" class="form-control" id="basicpill-cardno-input">
                                                             </div>
                                                         </div>
-        
+
                                                         <div class="col-lg-6">
                                                             <div class="mb-3">
                                                                 <label class="form-label" for="basicpill-card-verification-input">Card Verification Number</label>
@@ -435,7 +435,7 @@
                                                                 <input type="text" class="form-control" id="basicpill-expiration-input">
                                                             </div>
                                                         </div>
-        
+
                                                     </div>
                                                 </form>
                                             </div>
@@ -453,7 +453,7 @@
                                                             <p class="text-muted">
                                                                 Please confirm your travel details below.
                                                                 Currently you can {{-- payonlineusingyourPayPalaccountoryoucan --}} pay with cash upon arrival.
-                                                                If you wish to get in touch with us please call +52 1 (624) 155 64 55 or email code.bit.mau@gmail.com
+                                                                If you wish to get in touch with us please call +52 1 (624) 155 64 55 or email reservations@cabodrivers.com
                                                             </p>
                                                             <div id="summary-details">
                                                                 @include('extras.summary_table')
@@ -478,7 +478,7 @@
                                                                 <input type="hidden" name="_contact_request" id="_contact_request" value="">
                                                                 <input type="hidden" name="_subtotal" id="_subtotal" value="100">
                                                                 <input type="hidden" name="_total" id="_total" value="100">
-            
+
                                                                 <input type="hidden" name="Paypal[cmd]" value="_xclick" />
                                                                 <input type="hidden" name="Paypal[no_note]" value="1" />
                                                                 <input type="hidden" name="Paypal[lc]" value="en_US" />
@@ -494,7 +494,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        
+
                                     </div>
                                     <ul class="pager wizard twitter-bs-wizard-pager-link">
                                         <li class="previous"><button class="btn btn-primary">Previous</button></li>
@@ -541,7 +541,7 @@
                             <hr class="line">
                                     <div class="summary-price">
                                         <div class="summary-head"> <h5 class="summary-title">Trip Type</h5></div>
-                                        
+
                                         <span class="summary-small-text pull-right sm_trip"></span>
                                     </div>
                                 </div>
@@ -557,7 +557,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                 </div>
 
             </div>
@@ -566,7 +566,7 @@
 
 
         </div>
-         
+
         {{-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> --}}
