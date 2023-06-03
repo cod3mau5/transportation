@@ -16,6 +16,7 @@ Route::get('/gallery/{language?}', [Controllers\PagesController::class,'gallery'
 Route::get('/contact/{language?}', [Controllers\PagesController::class,'contact'])->name('contact');
 Route::get('/book-now/{language?}', [Controllers\PagesController::class,'booking'])->name('book-now');
 Route::get('/contact-us/{language?}',[Controllers\PagesController::class,'contactUs'])->name('contact-us');
+Route::get('/privacy-policy',[Controllers\PagesController::class,'privacy'])->name('privacy');
 # Posts
 Route::post('/send-reservation',[Controllers\ReservationsController::class,'sendReservation'])->name('sendReservation');
 Route::post('/send-mail', [Controllers\PagesController::class,'sendMail'])->name('sendMail');
