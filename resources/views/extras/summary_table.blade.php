@@ -1,5 +1,5 @@
 @section('summary-header')
-    @include('includes.google-header-conversion')
+    {{-- @include('includes.google-header-conversion') --}}
 @endsection
 <div class="table-rep-plugin">
     <div class="table-responsive mb-0" data-pattern="priority-columns">
@@ -89,10 +89,10 @@
                         <span class="fs-6 text-wrap badge badge-soft-warning">@{{ text.book_now.form.step_details.cash }}</span>
                     </div>
                         <label class="pay" style="display:none">
-                            <input type="radio" 
-                            ame="pay_method" 
-                            id="optionsRadios2" 
-                            value="cash" 
+                            <input type="radio"
+                            ame="pay_method"
+                            id="optionsRadios2"
+                            value="cash"
                             checked="checked"
                             style="display:none">
                             @{{ text.book_now.form.step_details.cash }}
