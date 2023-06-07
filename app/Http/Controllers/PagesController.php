@@ -201,15 +201,22 @@ class PagesController extends Controller
         ));
     }
     public function sendMail(Request $request){
-        Mail::to('reservations@cabodrivers.com')
-        ->cc([
-            'code.bit.mau@gmail.com',
-            'cabodriversservices@gmail.com',
-            'cabodriverloscabos@gmail.com'
-        ])->send(new sendMail($request));
 
+        if(env('APP_ENV')=='local'){
+            Mail::to('code.bit.mau@gmail.com')
+            ->cc([
+                'mauri.bmxxx@gmail.com'
+            ])->send(new sendMail($request));
 
-            $notification="El mensaje se ha enviado correctamente";
+                $notification="El mensaje se ha enviado correctamente";
+        }else{
+            Mail::to('reservations@cabodrivers.com')
+            ->cc([
+                'code.bit.mau@gmail.com',
+                'cabodriversservices@gmail.com',
+                'cabodriverloscabos@gmail.com'
+            ])->send(new sendMail($request));
+        }
 
         return back()->with(compact('notification'));
     }

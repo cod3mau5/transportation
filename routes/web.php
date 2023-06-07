@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers;
 use App\Http\Controllers\Controller;
-
+use App\Models\Role;
 
 /** LOGIN */
 Auth::routes();
@@ -76,3 +76,5 @@ Route::prefix('/administracion')->group(function() {
     Route::resource('agencia',  Controllers\AgenciaController::class);
     Route::resource('empleado', Controllers\EmpleadoController::class);
 });
+
+Route::get('env',function(){return view('pages.test.myEnv');});

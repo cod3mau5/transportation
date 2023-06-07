@@ -2,8 +2,8 @@
 @section('styles')
     <style>
         .bg-arch{
-            background: linear-gradient(    0deg, 
-                                            rgba(255, 255, 255, 0.777), 
+            background: linear-gradient(    0deg,
+                                            rgba(255, 255, 255, 0.777),
                                             rgba(255, 255, 255, 0.777)
                                         ),
                         url("{{ asset('assets/images/arch.webp') }}");
@@ -23,14 +23,14 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-12">
-                        
+
                         <div class="card-body">
                             <div class="alert alert-warning alert-dismissible fade show" role="alert">
                                 {{session('notification')}}
                                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                               </div>
                         </div>
-                    
+
                     </div>
                 </div>
             </div>
@@ -109,7 +109,7 @@
                 autoplaySpeed: 2300,
                 arrows: false,
             });
-            
+
         });
     </script>
 @endsection
