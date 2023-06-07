@@ -95,14 +95,22 @@ class ReservationsController extends Controller
                 $reservation->departureFlight=$request['_departure_company']." ".$request['_departure_flight'];
                 $reservation->departureDate= date('m/d/Y', strtotime($request['_departure_date'])). " ". date('h:i a', strtotime($request['_departure_time']));
 
-        Mail::to($reservation->email)
-                ->cc([
-                    'code.bit.mau@gmail.com',
-                    'reservations@cabodrivers.com',
-                    'cabodriversservices@gmail.com',
-                    'cabodriverloscabos@gmail.com'
-                    ])
-                ->send(new SendReservation($reservation));
+                if(env('APP_ENV')=='local'){
+                    Mail::to('code.bit.mau@gmail.com')
+                    ->cc([
+                        'mauri.bmxxx@gmail.com'
+                        ])
+                    ->send(new SendReservation($reservation));
+                }else{
+                    Mail::to($reservation->email)
+                    ->cc([
+                        'code.bit.mau@gmail.com',
+                        'reservations@cabodrivers.com',
+                        'cabodriversservices@gmail.com',
+                        'cabodriverloscabos@gmail.com'
+                        ])
+                    ->send(new SendReservation($reservation));
+                }
 
     $reservation=true;
         if($reservation){
