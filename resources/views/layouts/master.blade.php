@@ -275,6 +275,28 @@
                 background-color: rgba(2,2,2, 0.8);
             }
 
+            .whatsapp-btn span{
+                color: #444;
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                font-size: 12px;
+            }
+            .whatsapp-btn a{
+                position: fixed;
+                bottom: 44px;
+                right: 40px;
+                padding: 13px 15px;
+                font-size: 2.777rem;
+                background-color: rgb(37 211 102);
+                border-radius: 50px;
+                font-weight: bold;
+                display: flex;
+                align-items: center;
+                text-decoration: none;
+                z-index: 100;
+                color: #fff;
+            }
         </style>
         @yield('styles')
     </head>
@@ -307,6 +329,15 @@
                                 arrow_forward_ios
                             </span>
                         </div>
+                    </div>
+
+                    <div id="whatsapp-btn" class="whatsapp-btn">
+                        <a
+                            href="https://api.whatsapp.com/send?phone=5216241104185&text=%F0%9F%91%8B%20hello%2C%20I%20come%20from%20the%20page%20and%20I%20want%20information%20about..."
+                            target="_BLANK">
+                            <i class="fa fa-whatsapp"></i>
+                        </a>
+                        <span>We are on WhatsApp</span>
                     </div>
                 </section>
             @include('includes.footer')
