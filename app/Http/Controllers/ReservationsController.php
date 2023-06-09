@@ -57,7 +57,7 @@ class ReservationsController extends Controller
 
         // Generar el QR code
         $qrCode= QrCode::format('png')->size(350)
-        ->generate('https://cabodrivers.com/'.$voucher, public_path('qrcodes/'.$voucher.'.png'));
+        ->generate('https://cabodrivers.com/'.$voucher, '/home/u606769855/domains/cabodrivers.com/public_html/qrcodes/'.$voucher.'.png');
         // ->generate(url($voucher));
 
         // Creamos una ruta única para el archivo de imagen
