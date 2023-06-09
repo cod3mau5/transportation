@@ -56,15 +56,14 @@ class ReservationsController extends Controller
         // $wpdb now is $reservation
 
         // Generar el QR code
-        $qrcode = QrCode::format('png')
-        ->size(350)
-        ->generate('https://cabodrivers.com/'.$voucher);
+        $qrCode= QrCode::format('png')->size(350)
+        ->generate('https://cabodrivers.com/'.$voucher, public_path('qrcodes/'.$voucher.'.png'));
         // ->generate(url($voucher));
 
         // Creamos una ruta única para el archivo de imagen
         $imagePath = "qrcodes/{$voucher}.png";
         // Guardamos la imagen en el disco público
-        Storage::disk('public')->put($imagePath, $qrcode);
+        Storage::disk('public')->put($imagePath, $qrCode);
 
 
         $reservation=Reservation::create([
