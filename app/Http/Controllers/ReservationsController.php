@@ -63,7 +63,7 @@ class ReservationsController extends Controller
         // Creamos una ruta única para el archivo de imagen
         $imagePath = "qrcodes/{$voucher}.png";
         // Guardamos la imagen en el disco público
-        Storage::disk('public')->put($imagePath, $qrCode);
+        // Storage::disk('public')->put($imagePath, $qrCode);
 
 
         $reservation=Reservation::create([
