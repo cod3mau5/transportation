@@ -98,4 +98,5 @@ Route::get('qr/{language?}',function($language){
     );
         $langUpdate=0;
     }
-    return view('qr',compact('language','langUpdate'));});
+    return view('qr',compact('language','langUpdate'));
+});
