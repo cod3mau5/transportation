@@ -61,7 +61,7 @@ class ReservationsController extends Controller
         // ->generate(url($voucher));
 
         // Creamos una ruta única para el archivo de imagen
-        $imagePath = "qrcodes/{$voucher}.png";
+        $imagePath = "https://cabodrivers.com/qrcodes/{$voucher}.png";
         // Guardamos la imagen en el disco público
         // Storage::disk('public')->put($imagePath, $qrCode);
 
