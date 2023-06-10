@@ -66,7 +66,7 @@
         @endcomponent
     @endif
     <p style="text-align: center; color: #005899; font-size: 11.5px;"><b>IMPORTANT! SHOW THIS QR CODE TO YOUR DRIVER BEFORE BOARDING</b></p>
-    <p><img src="{{ $reservation->qr_image }}" style="margin:0 auto" alt="QR Code" /></p>
+    <p style="text-align: center"><img src="{{ $reservation->qr_image }}" style="margin:0 auto" alt="QR Code" /></p>
     <p style="text-align: center; color: #005899; font-size: 11.5px;"><b>Note:</b> Please be ready at the main lobby 5 minutes before your pick-up time.</p>
     @if($reservation->comments != '')
     <div style="padding:1rem 1rem;margin-bottom:1rem;border:1px solid transparent;border-radius: 0.25rem;color: #664d03;background-color: #fff3cd;border-color: #ffecb5;"><h1 style="color:#494949;font-size: 15px;line-height: 18px;margin-bottom:5px;">Special Request:</h1><h5 style="color:#74787e;font-size: 11.5px;line-height: 18px;padding:5px 15px;margin-top:5px;margin-bottom:0px">{{$reservation->comments}}</h5></div>

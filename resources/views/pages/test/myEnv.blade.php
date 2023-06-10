@@ -15,5 +15,6 @@
     <h1>My environment is: {{env('APP_ENV')}}</h1>
     <h2>Url: {{url('')}}</h2>
     <h2>Laravel v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }})</h2>
+    <h3>La raiz del proyecto es: {{ base_path();}}</h3>
 </body>
 </html>
