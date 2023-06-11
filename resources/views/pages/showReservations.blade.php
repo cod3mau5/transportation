@@ -23,7 +23,7 @@
 
         .invoice {
             width: min(900px, 90vw);
-            font: 400 1rem 'myriad pro', helvetica, sans-serif;
+            font: 500 1rem 'myriad pro', helvetica, sans-serif;
             border: 0.5px solid black;
             padding: 4rem 3rem;
             display: flex;
