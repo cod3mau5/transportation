@@ -24,16 +24,6 @@
         <priority>0.80</priority>
     </url>
     <url>
-        <loc>https://cabodrivers.com/?language=1&about_us=true</loc>
-        <lastmod>2023-06-11T07:32:05+00:00</lastmod>
-        <priority>0.64</priority>
-    </url>
-        <url>
-        <loc>https://cabodrivers.com/?language=0&about_us=true</loc>
-        <lastmod>2023-06-11T07:32:05+00:00</lastmod>
-        <priority>0.64</priority>
-    </url>
-    <url>
         <loc>https://cabodrivers.com/gallery/1</loc>
         <lastmod>2023-06-11T07:32:05+00:00</lastmod>
         <priority>0.64</priority>
