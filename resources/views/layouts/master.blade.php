@@ -133,7 +133,7 @@
             }
             @media (min-width: 992px) {
                 .top_header a img{
-                    width:auto;
+                    width:45%;
                 }
                 .navbar-expand-lg .navbar-nav .nav-link {
                     padding-right: 0.9rem!important;

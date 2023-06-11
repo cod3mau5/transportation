@@ -60,7 +60,7 @@
       </span>
       <!-- logo for regular state and mobile devices -->
       <span class="logo-lg">
-        <img src="{{ asset('assets/images/cabo_driver.webp') }}" style="width:90%!important;margin:6px">
+        <img src="{{ asset('assets/images/cabo_drivers_logo.png') }}" style="width:90%!important;margin:6px">
         <b>{{ config('app.name') }}</b>
       </span>
       {{-- <span class="logo-lg">

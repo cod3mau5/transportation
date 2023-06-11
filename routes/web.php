@@ -78,25 +78,4 @@ Route::prefix('/administracion')->group(function() {
 });
 
 Route::get('env',function(){return view('pages.test.myEnv');});
-Route::get('qr/{language?}',function($language){
-    $options=array(
-        "ssl"=>array(
-            "verify_peer"=>false,
-            "verify_peer_name"=>false,
-        ),
-    );
-    if($language == 1){
-        $language= json_decode(file_get_contents(asset('assets/json/english.json'),
-        false,stream_context_create($options)),
-         true
-    );
-        $langUpdate=1;
-    }else{
-        $language= json_decode(file_get_contents(asset('assets/json/spanish.json'),
-        false,stream_context_create($options)),
-         true
-    );
-        $langUpdate=0;
-    }
-    return view('qr',compact('language','langUpdate'));
-});
+Route::get('/{voucher}', [Controllers\ReservationsController::class,'showReservation']);

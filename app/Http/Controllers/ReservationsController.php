@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Storage;
 class ReservationsController extends Controller
 {
     public function sendReservation(Request $request){
+
         $resort_id = $request['_location_start'] > 0 ? $request['_location_start'] : $request['_location_end'];
         $trip_type = $request['_trip_type'] == 'o' ? 'oneway' : 'roundtrip';
         $message_t = $request['_trip_type'] == 'o' ? 'ARRIVAL' : 'ROUND-TRIP';
@@ -106,9 +107,7 @@ class ReservationsController extends Controller
         $reservation->departureFlight=$request['_departure_company']." ".$request['_departure_flight'];
         $reservation->departureDate= date('m/d/Y', strtotime($request['_departure_date'])). " ". date('h:i a', strtotime($request['_departure_time']));
 
-
-
-
+        // Verificacion del entorno para envio de mail
         if(env('APP_ENV')=='local'){
             Mail::to('code.bit.mau@gmail.com')
             ->cc([
@@ -135,5 +134,23 @@ class ReservationsController extends Controller
         }
         return back()->with(compact('notification'));
 
+    }
+    public function showReservation($voucher){
+        $reservation= Reservation::where('voucher',$voucher)->first();
+
+        if(!$reservation){
+            abort(404, 'Reservation not found, check your voucher');
+        }
+
+        if ($reservation->type == 'oneway')
+        {
+            if ($reservation->location_start == 0)
+                $reservation->message_t = "ARRIVAL";
+            if ($reservation->location_end == 0)
+                $reservation->message_t = "DEPARTURE";
+        } else {
+            $reservation->message_t = 'ROUND TRIP';
+        }
+        return view('pages.showReservations',compact('reservation'));
     }
 }

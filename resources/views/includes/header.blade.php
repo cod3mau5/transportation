@@ -6,7 +6,7 @@
         <div class="row">
             <div class="col-md-6 text-center">
                 <a class="navbar-brand" :href="routes.home">
-                    <img src="{{ asset('assets/images/cabo_driver.webp') }}" alt="" class="d-inline-block align-text-top mx-auto mx-0-md">
+                    <img src="{{ asset('assets/images/cabo_drivers_logo.png') }}" alt="" class="d-inline-block align-text-top mx-auto mx-0-md">
                 </a>
             </div>
             <div class="col-md-6 text-center">
@@ -44,7 +44,7 @@
                 <a class="nav-link text-white" :href="routes.book_now" tabindex="-1" aria-disabled="true">@{{ text.header.book_now }}</a>
               </li>
             </ul>
-           
+
           </div>
         </div>
       </nav>
