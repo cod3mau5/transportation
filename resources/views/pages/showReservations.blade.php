@@ -33,7 +33,7 @@
         @media(min-width:1200px){
             .invoice{
                 width: min(600px, 90vw);
-                font: 100 0.7rem 'myriad pro', helvetica, sans-serif;
+                font: 400 0.7rem 'myriad pro', helvetica, sans-serif;
             }
         }
 
