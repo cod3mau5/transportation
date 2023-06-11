@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Reservation Details</title>
+    <title>Reservation Details - {{$reservation->voucher}}</title>
     <style>
         * {
             margin: 0;
@@ -16,7 +16,9 @@
         body {
             height: 100vh;
             display: grid;
-            place-items: center;
+            place-items: flex-start;
+            justify-content: center;
+            padding: 15px;
         }
 
         .invoice {
