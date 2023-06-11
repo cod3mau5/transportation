@@ -60,7 +60,6 @@
             | DEPARTURE NOTICE      |                                                                        |
             | --------------------- |:----------------------------------------------------------------------:|
             | <b>Hotel:</b>         | {{$reservation->resort->name}}                                         |
-            | <b>Passengers: </b>   | {{$reservation->total_travelers}}                                      |
             | <b>Departure Flight:</b>| {{$reservation->departureFlight}}                                    |
             | <b>Flight Date:</b>  | {{$reservation->departureDate}}                                         |
         @endcomponent

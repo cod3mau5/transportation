@@ -20,13 +20,19 @@
         }
 
         .invoice {
-            width: min(600px, 90vw);
-            font: 100 0.7rem 'myriad pro', helvetica, sans-serif;
+            width: min(900px, 90vw);
+            font: 100 1rem 'myriad pro', helvetica, sans-serif;
             border: 0.5px solid black;
             padding: 4rem 3rem;
             display: flex;
             flex-direction: column;
             gap: 3rem;
+        }
+        @media(min-width:1200px){
+            .invoice{
+                width: min(600px, 90vw);
+                font: 100 0.7rem 'myriad pro', helvetica, sans-serif;
+            }
         }
 
         .invoice-wrapper {
@@ -94,8 +100,8 @@
         th,
         td {
             width: calc((600px - 3rem) / 4);
-            text-align: center;
-            padding: 0.66rem;
+            text-align: left;
+            padding: 0.44rem;
         }
 
         tr:nth-of-type(1) {
@@ -223,7 +229,7 @@
                     <td>{{ $reservation->arrival_airline . ' ' . $reservation->arrival_flight }}</td>
                 </tr>
                 <tr>
-                    <td><b>Arrival Date:</b></td>
+                    <td><b>Departure Date:</b></td>
                     <td>{{$reservation->arrival_date . ' ' . $reservation->arrival_time}}</td>
                 </tr>
                 <tr>
@@ -257,7 +263,7 @@
 
             </table>
         @elseif($reservation->message_t == 'ROUND TRIP')
-            {{-- <table class='invoice-table'>
+            <table class='invoice-table'>
                 <tr>
                     <th>PRIVATE SERVICE {{' ('.$reservation->message_t.')'}}</th>
                     <th>VOUCHER No. {{$reservation->voucher}}</th>
@@ -310,7 +316,25 @@
                     <td><b>Pay Method:</b></td>
                     <td><span style="color: #ec7728; font-weight: bold;">Cash on Arrival</span></td>
                 </tr>
-            </table> --}}
+            </table>
+            <table class="invoice-table">
+                <tr>
+                    <th>DEPARTURE INFO</th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <td>Hotel:</td>
+                    <td>{{$reservation->resort->name}}</td>
+                </tr>
+                <tr>
+                    <td>Departure Flight:</td>
+                    <td>{{$reservation->departure_airline." ".$reservation->departure_flight}}</td>
+                </tr>
+                <tr>
+                    <td>Flight Date:</td>
+                    <td>{{$reservation->departure_date ." ". $reservation->departure_time}}</td>
+                </tr>
+            </table>
         @endif
         <ion-icon name="print-outline" class='invoice-print'></ion-icon>
     </main>
