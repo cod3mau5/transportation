@@ -23,7 +23,7 @@
 
         .invoice {
             width: min(900px, 90vw);
-            font: 100 1rem 'myriad pro', helvetica, sans-serif;
+            font: 300 1rem 'myriad pro', helvetica, sans-serif;
             border: 0.5px solid black;
             padding: 4rem 3rem;
             display: flex;
@@ -325,15 +325,15 @@
                     <th></th>
                 </tr>
                 <tr>
-                    <td>Hotel:</td>
+                    <td><b>Hotel:</b></td>
                     <td>{{$reservation->resort->name}}</td>
                 </tr>
                 <tr>
-                    <td>Departure Flight:</td>
+                    <td><b>Departure Flight:</b></td>
                     <td>{{$reservation->departure_airline." ".$reservation->departure_flight}}</td>
                 </tr>
                 <tr>
-                    <td>Flight Date:</td>
+                    <td><b>Flight Date:</b></td>
                     <td>{{$reservation->departure_date ." ". $reservation->departure_time}}</td>
                 </tr>
             </table>
