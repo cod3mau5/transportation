@@ -330,15 +330,20 @@
                             </span>
                         </div>
                     </div>
-
-                    <div id="whatsapp-btn" class="whatsapp-btn">
-                        <a
-                            href="https://api.whatsapp.com/send?phone=5216241104185&text=%F0%9F%91%8B%20hello%2C%20I%20come%20from%20the%20page%20and%20I%20want%20information%20about..."
-                            target="_BLANK">
-                            <i class="fa fa-whatsapp"></i>
-                        </a>
-                        <span>We are on WhatsApp</span>
-                    </div>
+                    @if(
+                        Route::current()->getName() == 'inicio' ||
+                        Route::current()->getName() == 'homepage' ||
+                        Route::current()->getName() == 'gallery'
+                    )
+                        <div id="whatsapp-btn" class="whatsapp-btn">
+                            <a
+                                href="https://api.whatsapp.com/send?phone=5216241104185&text=%F0%9F%91%8B%20hello%2C%20I%20come%20from%20the%20page%20and%20I%20want%20information%20about..."
+                                target="_BLANK">
+                                <i class="fa fa-whatsapp"></i>
+                            </a>
+                            <span>We are on WhatsApp</span>
+                        </div>
+                    @endif
                 </section>
             @include('includes.footer')
         </div>
