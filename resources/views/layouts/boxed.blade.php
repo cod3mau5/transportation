@@ -299,7 +299,7 @@
   </div>
   <!-- /.content-wrapper -->
 
-  <footer class="main-footer">
+  <footer class="main-footer" style="padding:25px">
     <div class="pull-right hidden-xs">
        <small>Powered by</small>
       <a href="http://www.codemau5.com" target="_blank">
