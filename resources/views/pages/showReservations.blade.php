@@ -88,7 +88,6 @@
         .invoice-info-value {
             font-weight: 900;
         }
-
         .invoicetable {
             width: 100%;
         }
@@ -98,30 +97,21 @@
         td {
             border-collapse: collapse;
         }
-
         th,
         td {
             width: calc((600px - 3rem) / 4);
             text-align: left;
             padding: 0.44rem;
         }
-
         tr:nth-of-type(1) {
             background-color: rgba(0, 0, 0, 0.333);
         }
-
         tr {
             border-bottom: 0.5px solid rgba(0, 0, 0, 0.25);
         }
-
         tr:nth-child(even) {
             background-color: #bde0fe; /* Color azul para las filas pares */
         }
-
-
-
-
-
         .invoice-total {
             font-weight: 900;
         }

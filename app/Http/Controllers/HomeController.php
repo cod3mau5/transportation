@@ -28,6 +28,6 @@ class HomeController extends Controller
     }
     public function version()
     {
-        return view('version');
+        return view('pages.test.myEnv');
     }
 }

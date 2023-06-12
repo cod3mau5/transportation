@@ -27,7 +27,7 @@ Route::get('/form',[Controllers\PagesController::class,'form'])->name('form');
 
 
 /** ############## PANEL ############## */
-Route::get('/version', [Controllers\HomeController::class, 'version'])->name('app.version');
+Route::get('/env', [Controllers\HomeController::class, 'env'])->name('app.env');
 Route::get('/reservacion/data', [Controllers\ReservacionController::class, 'anyData'])->name('reservacion.data');
 Route::get('/reservacion/{reservacion}/voucher', 'ReservacionController@voucher')->name('reservacion.voucher');
 Route::resource('/reservacion', Controllers\ReservacionController::class);
@@ -40,6 +40,7 @@ Route::get('/facturacion/previo',[Controllers\FacturacionController::class, 'pre
 Route::post('/facturacion/procesar', [Controllers\FacturacionController::class, 'procesar'])->name('facturacion.procesar');
 
 Route::post('/reportes/guardarAsig', [Controllers\ReportesController::class, 'guardarAsig'])->name('reportes.guardar-asig');
+
 Route::prefix('/reportes')->group(function() {
     Route::get('/', [Controllers\ReportesController::class, 'index'])->name('reporte.index');
     Route::get('llegadas', [Controllers\ReportesController::class, 'llegadas'])->name('reporte.llegadas');
@@ -54,6 +55,7 @@ Route::prefix('/reportes')->group(function() {
     Route::get('personalizado', [Controllers\ReportesController::class, 'personalizado'])->name('reporte.personalizado');
     Route::get('personalizado-horizontal', [Controllers\ReportesController::class, 'personalizadoPDF'])->name('reporte.personalizado-horizontal');
     Route::get('reservas-facturadas', [Controllers\ReportesController::class, 'reservasFacturadas'])->name('reporte.reservas-facturadas');
+
 });
 Route::prefix('/administracion')->group(function() {
     Route::get('/', [Controllers\PanelController::class,'administracion'])->name('administracion');
@@ -75,7 +77,8 @@ Route::prefix('/administracion')->group(function() {
     Route::resource('moneda',   Controllers\MonedaPagoController::class);
     Route::resource('agencia',  Controllers\AgenciaController::class);
     Route::resource('empleado', Controllers\EmpleadoController::class);
+
 });
 
-Route::get('env',function(){return view('pages.test.myEnv');});
-Route::get('/{voucher}', [Controllers\ReservationsController::class,'showReservation']);
+
+Route::get('/reservation/{voucher}/show', [Controllers\ReservationsController::class,'showReservation']);

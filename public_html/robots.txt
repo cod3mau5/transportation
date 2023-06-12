@@ -1,3 +1,4 @@
 User-agent: *
+Allow: /
 Disallow: /login
 Sitemap: https://cabodrivers.com/sitemap.xml
