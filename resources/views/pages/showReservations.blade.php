@@ -107,18 +107,15 @@
         }
 
         tr:nth-of-type(1) {
-            background-color: rgba(0, 0, 0, 0.2);
+            background-color: rgba(0, 0, 0, 0.333);
         }
 
         tr {
             border-bottom: 0.5px solid rgba(0, 0, 0, 0.25);
         }
-        tr:nth-child(odd) {
-            background-color: #ffffff; /* Color blanco para las filas impares */
-        }
 
         tr:nth-child(even) {
-            background-color: #0000ff; /* Color azul para las filas pares */
+            background-color: #bde0fe; /* Color azul para las filas pares */
         }
 
 
