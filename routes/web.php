@@ -24,8 +24,9 @@ Route::post('/send-mail', [Controllers\PagesController::class,'sendMail'])->name
 Route::get('/languages/{language}',[Controllers\PagesController::class,'getLanguages'])->name('getLanguages');
 # For test
 Route::get('/form',[Controllers\PagesController::class,'form'])->name('form');
-
+# VOUCHERS
 Route::get('/reservation/{voucher}/show', [Controllers\ReservationsController::class,'showReservation']);
+
 /** ############## PANEL ############## */
 Route::get('/env', [Controllers\HomeController::class, 'env'])->name('app.env');
 Route::get('/reservacion/data', [Controllers\ReservacionController::class, 'anyData'])->name('reservacion.data');
