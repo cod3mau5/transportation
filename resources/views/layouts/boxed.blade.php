@@ -308,7 +308,7 @@
     </div>
     <a href="{{ route('homepage') }}" target="_blank">
       {{ config('app.name') }}
-    </a> - Sistema de Reservaciones <b><a href="{{ route('app.version') }}">Version 1.0</a></b>
+    </a> - Sistema de Reservaciones <b><a href="{{ route('app.env') }}">Version 1.0</a></b>
   </footer>
 
   <!-- Add the sidebar's background. This div must be placed

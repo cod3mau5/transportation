@@ -25,10 +25,10 @@
             width: min(900px, 90vw);
             font: 500 1rem 'myriad pro', helvetica, sans-serif;
             border: 0.5px solid black;
-            padding: 4rem 3rem;
+            padding: 3rem 2.3rem;
             display: flex;
             flex-direction: column;
-            gap: 3rem;
+            gap: 1.4rem;
         }
         @media(min-width:1200px){
             .invoice{
@@ -80,7 +80,17 @@
             gap: 2rem;
             margin: 0.25rem 0;
         }
-
+        .invoice-info-footer {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 1rem;
+        }
+        .invoice-info-footer p{
+            font-size: 1rem;
+        }
+        .invoice-info-footer span{
+            font-size: .7rem;
+        }
         .invoice-info:nth-of-type(5) {
             margin-top: 1.5rem;
         }
@@ -129,6 +139,9 @@
             background-color: black;
             color: white;
         }
+        .left_line{
+            border-left: #000 solid 2px;
+        }
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.1.135/jspdf.min.js"></script>
@@ -149,20 +162,42 @@
                 </p>
             </div>
         </div>
+        <div class='invoice-wrapper'>
+            <div class='invoice-billing'>
+                <div class='invoice-info'>
+                    <span class='invoice-info-key'>Voucher No:</span>
+                    <span class='invoice-info-value'><b>{{$reservation->voucher}}</b></span>
+                </div>
+                <div class='invoice-info'>
+                  <span class='invoice-info-key'>Trip Type:</span>
+                  <span class='invoice-info-value'><b>{{$reservation->message_t}}</b></span>
+                </div>
+              {{-- <div class='invoice-info'>
+                <span class='invoice-info-key'>Issue Date:</span>
+                <span class='invoice-info-value'>10/05/2033</span>
+              </div> --}}
+            </div>
+            <div class='invoice-details'>
+              <div class='invoice-info'>
+                <span class='invoice-info-key'>Client Name:</span>
+                <span class='invoice-info-value'><b>{{$reservation->fullname}}</b></span>
+              </div>
+              <div class='invoice-info'>
+                <span class='invoice-info-key'>Email:</span>
+                <span class='invoice-info-value'><b>{{$reservation->email}}</b></span>
+              </div>
+              <div class='invoice-info'>
+                <span class='invoice-info-key'>Phone:</span>
+                <span class='invoice-info-value'><b>{{$reservation->phone}}</b></span>
+              </div>
+            </div>
+          </div>
 
         @if($reservation->message_t == 'ARRIVAL')
             <table class='invoice-table'>
                 <tr>
                     <th>PRIVATE SERVICE {{' ('.$reservation->message_t.')'}}</th>
-                    <th>VOUCHER No. {{$reservation->voucher}}</th>
-                </tr>
-                <tr>
-                    <td><b>Name:</b></td>
-                    <td>{{$reservation->fullname}}</td>
-                </tr>
-                <tr>
-                    <td><b>Email:</b></td>
-                    <td>{{$reservation->email}}</td>
+                    <th></th>
                 </tr>
                 <tr>
                     <td><b>Hotel:</b></td>
@@ -175,10 +210,6 @@
                 <tr>
                     <td><b>Arrival Date:</b></td>
                     <td>{{$reservation->arrival_date . ' ' . $reservation->arrival_time}}</td>
-                </tr>
-                <tr>
-                    <td><b>Phone Number:</b></td>
-                    <td>{{$reservation->phone}}</td>
                 </tr>
                 <tr>
                     <td><b>Passengers:</b></td>
@@ -198,11 +229,15 @@
                 </tr>
                 <tr>
                     <td><b>Total:</b></td>
-                    <td>${{$reservation->total}} USD</td>
+                    <td><b>${{$reservation->total}} USD</b></td>
+                </tr>
+                <tr>
+                    <td><b>Total (MXN):</b></td>
+                    <td><b>${{$reservation->total * 19 }} MXN</b></td>
                 </tr>
                 <tr>
                     <td><b>Pay Method:</b></td>
-                    <td><span style="color: #ec7728; font-weight: bold;">Cash on Arrival</span></td>
+                    <td><span style="color: #ec7728; font-weight: bold;"><b>Cash on Arrival</b></span></td>
                 </tr>
 
             </table>
@@ -213,15 +248,7 @@
                     <th>VOUCHER No. {{$reservation->voucher}}</th>
                 </tr>
                 <tr>
-                    <td><b>Name:</b></td>
-                    <td>{{$reservation->fullname}}</td>
-                </tr>
-                <tr>
-                    <td><b>Email:</b></td>
-                    <td>{{$reservation->email}}</td>
-                </tr>
-                <tr>
-                    <td><b>Meeting At:</b></td>
+                    <td><b>Pick up:</b></td>
                     <td>{{$reservation->resort->name}}</td>
                 </tr>
                 <tr>
@@ -233,10 +260,6 @@
                     <td>{{$reservation->arrival_date . ' ' . $reservation->arrival_time}}</td>
                 </tr>
                 <tr>
-                    <td><b>Phone Number:</b></td>
-                    <td>{{$reservation->phone}}</td>
-                </tr>
-                <tr>
                     <td><b>Passengers:</b></td>
                     <td>{{$reservation->total_travelers}}</td>
                 </tr>
@@ -257,85 +280,106 @@
                     <td>${{$reservation->total}} USD</td>
                 </tr>
                 <tr>
+                    <td><b>Total (MXN):</b></td>
+                    <td><b>${{$reservation->total * 19 }} MXN</b></td>
+                </tr>
+                {{-- <tr>
                     <td><b>Pay Method:</b></td>
                     <td><span style="color: #ec7728; font-weight: bold;">Cash on Arrival</span></td>
-                </tr>
-
+                </tr> --}}
             </table>
         @elseif($reservation->message_t == 'ROUND TRIP')
             <table class='invoice-table'>
                 <tr>
-                    <th>PRIVATE SERVICE {{' ('.$reservation->message_t.')'}}</th>
-                    <th>VOUCHER No. {{$reservation->voucher}}</th>
+                    <th>ARRIVAL INFO</th>
+                    <th></th>
+                    <th>DEPARTURE INFO</th>
+                    <th></th>
                 </tr>
                 <tr>
-                    <td><b>Name:</b></td>
-                    <td>{{$reservation->fullname}}</td>
-                </tr>
-                <tr>
-                    <td><b>Email:</b></td>
-                    <td>{{$reservation->email}}</td>
-                </tr>
-                <tr>
-                    <td><b>Hotel:</b></td>
+                    <td><b>Arrival:</b></td>
+                    <td>{{ $reservation->location_start === 0 ? "Los Cabos Int. Airport" : $reservation->resort->name }}</td>
+                    <td class="left_line"><b>Pick up:</b></td>
                     <td>{{$reservation->resort->name}}</td>
                 </tr>
                 <tr>
                     <td><b>Arrival Flight:</b></td>
                     <td>{{ $reservation->arrival_airline . ' ' . $reservation->arrival_flight }}</td>
+                    <td class="left_line"><b>Departure Flight:</b></td>
+                    <td>{{$reservation->departure_airline." ".$reservation->departure_flight}}</td>
                 </tr>
                 <tr>
                     <td><b>Arrival Date:</b></td>
                     <td>{{$reservation->arrival_date . ' ' . $reservation->arrival_time}}</td>
-                </tr>
-                <tr>
-                    <td><b>Phone Number:</b></td>
-                    <td>{{$reservation->phone}}</td>
+                    <td class="left_line"><b>Departure Date:</b></td>
+                    <td>{{$reservation->departure_date ." ". $reservation->departure_time}}</td>
                 </tr>
                 <tr>
                     <td><b>Passengers:</b></td>
                     <td>{{$reservation->total_travelers}}</td>
+                    <td class="left_line"><b>Passengers:</b></td>
+                    <td>{{$reservation->passengers}}</td>
+                </tr>
+                <tr>
+                    <td><b>Destination:</b></td>
+                    <td>{{$reservation->resort->name}}</td>
+                    <td class="left_line"><b>Grocery Stop:</b></td>
+                    <td>@if($reservation->shopping_stop) YES @else NO @endif</td>
                 </tr>
                 <tr>
                     <td><b>Booster seat:</b></td>
                     <td>@if($reservation->booster_seat) YES @else NO @endif</td>
-                </tr>
-                <tr>
-                    <td><b>Car seat:</b></td>
+                    <td class="left_line"><b>Car seat:</b></td>
                     <td>@if($reservation->car_seat) YES @else NO @endif</td>
                 </tr>
                 <tr>
-                    <td><b>Grocery Stop:</b></td>
-                    <td>@if($reservation->shopping_stop) YES @else NO @endif</td>
+                    <td></td>
+                    <td></td>
+                    <td class="left_line"><b>Total (USD):</b></td>
+                    <td><b>${{$reservation->total}} USD</b></td>
                 </tr>
                 <tr>
-                    <td><b>Total:</b></td>
-                    <td>${{$reservation->total}} USD</td>
+                    <td></td>
+                    <td></td>
+                    <td class="left_line"><b>Total (MXN):</b></td>
+                    <td><b>${{$reservation->total * 19 }} MXN</b></td>
                 </tr>
-                <tr>
-                    <td><b>Pay Method:</b></td>
+                {{-- <tr>
+                    <td></td>
+                    <td></td>
+                    <td class="left_line"><b>Pay Method:</b></td>
                     <td><span style="color: #ec7728; font-weight: bold;">Cash on Arrival</span></td>
-                </tr>
+                </tr> --}}
             </table>
-            <table class="invoice-table">
+        @endif
+
+        @if($reservation->comments != '')
+            <table class='invoice-table'>
                 <tr>
-                    <th>DEPARTURE INFO</th>
-                    <th></th>
+                    <th>SPECIAL REQUEST</th>
                 </tr>
                 <tr>
-                    <td><b>Hotel:</b></td>
-                    <td>{{$reservation->resort->name}}</td>
-                </tr>
-                <tr>
-                    <td><b>Departure Flight:</b></td>
-                    <td>{{$reservation->departure_airline." ".$reservation->departure_flight}}</td>
-                </tr>
-                <tr>
-                    <td><b>Flight Date:</b></td>
-                    <td>{{$reservation->departure_date ." ". $reservation->departure_time}}</td>
+                    <td>{{$reservation->comments}}</td>
                 </tr>
             </table>
         @endif
+        <div class='invoice-wrapper'>
+            <div class='invoice-billing'>
+                <div class='invoice-info-footer'>
+                    <p class='invoice-info-title'>
+                        <b>WE WILL WAITING FOR YOU AT THE UMBRELLA #3</b> <br>
+                        <span>
+                            Our airport representative will be waiting for you with a sign with your name on it and
+                            with a palette with the name and the logo of Cabo Driver Services.
+                        </span>
+                    </p>
+                    <span class='invoice-info'>
+                        <p style="text-align: center"><img src="{{ $reservation->qr_image }}" style="margin:0 auto;max-width:50%" alt="QR Code" /></p>
+                    </span>
+                </div>
+            </div>
+        </div>
+
         <ion-icon name="print-outline" class='invoice-print'></ion-icon>
     </main>
 

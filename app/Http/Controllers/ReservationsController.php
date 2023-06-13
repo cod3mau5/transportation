@@ -137,7 +137,7 @@ class ReservationsController extends Controller
     }
     public function showReservation($voucher){
         $reservation= Reservation::where('voucher',$voucher)->first();
-
+// dd($reservation);
         if(!$reservation){
             abort(404, 'Reservation not found, check your voucher');
         }
