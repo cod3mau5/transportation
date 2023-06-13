@@ -25,7 +25,7 @@ Route::get('/languages/{language}',[Controllers\PagesController::class,'getLangu
 # For test
 Route::get('/form',[Controllers\PagesController::class,'form'])->name('form');
 
-
+Route::get('/reservation/{voucher}/show', [Controllers\ReservationsController::class,'showReservation']);
 /** ############## PANEL ############## */
 Route::get('/env', [Controllers\HomeController::class, 'env'])->name('app.env');
 Route::get('/reservacion/data', [Controllers\ReservacionController::class, 'anyData'])->name('reservacion.data');
@@ -81,4 +81,4 @@ Route::prefix('/administracion')->group(function() {
 });
 
 
-Route::get('/reservation/{voucher}/show', [Controllers\ReservationsController::class,'showReservation']);
+
