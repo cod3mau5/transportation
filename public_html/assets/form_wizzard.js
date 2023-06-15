@@ -30,6 +30,7 @@ jQuery(document).ready(function($) {
     }
 
     $('#trip_type').on('change', function() {
+
         $('.sm_price').html('');
         $('.sm_unit').html('');
         if ($(this).val() == 'r') {
@@ -39,6 +40,9 @@ jQuery(document).ready(function($) {
                 $('.sm_trip').html('De Ida y Vuelta');
             }
             $('#departure_flight_details').slideDown();
+            fetchLocationZone(rates);
+            app.addedShoppingStop= false;
+            checkShoppingStop();
         } else {
             if($('#language').val() == "1"){
                 $('.sm_trip').html('oneway');
@@ -46,11 +50,14 @@ jQuery(document).ready(function($) {
                 $('.sm_trip').html('De Ida');
             }
             $('#departure_flight_details').slideUp();
+            fetchLocationZone(rates);
+            app.departure_previous_stop == true ? ( app.departure_previous_stop=false, app.addedShoppingStop= false ) : app.addedShoppingStop= false;
+            checkShoppingStop();
         }
-        fetchLocationZone(rates);
-        checkShoppingStop('changeTrip');
+
     });
     $('#start_location').on('change', function() {
+
         if ($(this).val() == 0) {
             $('#end_location').html(resort_options);
         } else {
@@ -66,20 +73,32 @@ jQuery(document).ready(function($) {
         $('.sm_end').html(end);
 
         fetchLocationZone(rates);
+        app.addedShoppingStop= false
+        checkShoppingStop();
     });
     $('#end_location').on('change', function() {
+
         var end   = $('#end_location option:selected').text();
         $('.to').html( $('#end_location option:selected').text() );
         $('.sm_end').html(end);
         fetchLocationZone(rates);
+        app.addedShoppingStop= false
+        checkShoppingStop();
     });
     $('#passengers').on('change', function() {
+
         fetchLocationZone(rates);
+        app.addedShoppingStop= false
+        checkShoppingStop();
     });
     $('#children').on('change', function() {
+
         fetchLocationZone(rates);
+        app.addedShoppingStop= false
+        checkShoppingStop();
     });
     $('#vehicle').on('change', function() {
+
         var price = $('#vehicle option:selected').data('price');
         var name  = $('#vehicle option:selected').data('name');
         $('.sm_price').html('$ ' + price + ' usd');
@@ -87,10 +106,14 @@ jQuery(document).ready(function($) {
         $('#_subtotal').val(price);
         $('#_total').val(price);
         $('.sm_unit').html(name);
+        app.addedShoppingStop= false
+        checkShoppingStop();
     });
 
     $('#arrival_previous_stop').on('change', function() {
-
+        if(app.arrival_previous_stop == true || app.departure_previous_stop == true){
+            app.recalculate=true;
+        }
         if( document.getElementById("arrival_previous_stop").checked == true ){
             $(".arrival-stop").css("display","block");
         }else{
@@ -100,7 +123,9 @@ jQuery(document).ready(function($) {
     });
 
     $('#departure_previous_stop').on('change', function() {
-
+        if(app.arrival_previous_stop == true || app.departure_previous_stop == true){
+            app.recalculate=true;
+        }
         if( document.getElementById("departure_previous_stop").checked == true ){
             $(".departure-stop").css("display","block");
         }else{
@@ -144,42 +169,39 @@ jQuery(document).ready(function($) {
         format: 'LT'
     });
 
-    var addedShoppingStop = false;
+    // var addedShoppingStop = false;
 
-    function checkShoppingStop(from){
+    function checkShoppingStop(){
         var shoppingStop = 25;
         var price = Number($('#_total').val());
 
-
-        if(document.getElementById("arrival_previous_stop").checked == true || document.getElementById("departure_previous_stop").checked == true){
-
-            if(document.getElementById("arrival_previous_stop").checked == true){
+        if(app.arrival_previous_stop == true || app.departure_previous_stop == true){
+            console.log('hay casillas activadas');
+            if(app.arrival_previous_stop == true){
                 $("#arrival_stop_time").prop('required',true);
                 $("#arrival_stop_place").prop('required',true);
             }
 
-            if(document.getElementById("departure_previous_stop").checked == true){
+            if(app.departure_previous_stop == true){
                 $("#departure_stop_time").prop('required',true);
                 $("#departure_stop_place").prop('required',true);
             }
 
-            if(from === 'changeTrip'){ //  si viene de un cambio de trip, el precio viene reseteado y addedShoppingStop no tiene efecto
-                // por lo tanto hay que aumentar los 25
-                price = price + shoppingStop;
-                addedShoppingStop = true; // recuerda que ya añadimos los 25
-            }else{
-
-                if(!addedShoppingStop) {
-                    price = price + shoppingStop;
-                    addedShoppingStop = true; // recuerda que ya añadimos los 25
+            if($("#vehicle").val()){
+                if(app.recalculate == true){ // recalculamos cuando algun previous stop este checkeado
+                    if(!app.addedShoppingStop) { // y verificamos si el valor de previous stop no fue agregado
+                        console.log('el price sube');
+                        price = price + shoppingStop;
+                        app.addedShoppingStop = true; // recuerda que ya añadimos los 25
+                    }
                 }
             }
 
 
-
-        } else if(addedShoppingStop) { // si ninguna casilla está marcada y los 25 ya se añadieron, los resta
+        } else if(app.addedShoppingStop) { // si ninguna casilla está marcada y los 25 ya se añadieron, los resta
+            console.log('el price baja');
             price = price - shoppingStop;
-            addedShoppingStop = false; // recuerda que ya restamos los 25
+            app.addedShoppingStop = false; // recuerda que ya restamos los 25
         }
 
         if($('#vehicle').val() !== null){

@@ -383,23 +383,26 @@
                 el: '#app',
                 data: {
                     about_us:'{{ empty($about_us) ? false : true }}',
-                    language: '{{ $langUpdate }}',
-                    start_location:'',
-                    trip_type:'',
-                    specialRequest:{
-                        boosterSeat:false,
-                        carSeat:false,
-                        shoppingStop: false,
-                    },
+                    addedShoppingStop:false,
+                    recalculate:true,
                     arrival_previous_stop:false,
                     departure_previous_stop:false,
+                    language: '{{ $langUpdate }}',
                     routes:{
                         home:'{{ route("inicio","1") }}',
                         gallery:'{{ route("gallery","1") }}',
                         contact_us:'{{ route("contact-us","1") }}',
                         book_now:'{{ route("book-now","1") }}',
                     },
-                    text: @json($language)
+                    specialRequest:{
+                        boosterSeat:false,
+                        carSeat:false,
+                        shoppingStop: false,
+                    },
+                    start_location:'',
+                    text: @json($language),
+                    trip_type:'',
+                    other:false
                 },
                 beforeMount(){
                     this.changeLanguage();

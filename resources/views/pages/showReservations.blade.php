@@ -344,10 +344,10 @@
                             <td></td>
                         @endif
                         @if ($reservation->departure_stop_time)
-                            <td><b>Departure Stop Time:</b></td>
+                            <td class="left_line"><b>Departure Stop Time:</b></td>
                             <td>{{$reservation->departure_stop_time}}</td>
                             @else
-                            <td></td>
+                            <td class="left_line"></td>
                             <td></td>
                         @endif
                     </tr>
@@ -360,10 +360,10 @@
                             <td></td>
                         @endif
                         @if ($reservation->departure_stop_place)
-                            <td><b>Departure Stop Place:</b></td>
+                            <td class="left_line"><b>Departure Stop Place:</b></td>
                             <td>{{$reservation->departure_stop_place}}</td>
                             @else
-                            <td></td>
+                            <td class="left_line"></td>
                             <td></td>
                         @endif
                     </tr>
