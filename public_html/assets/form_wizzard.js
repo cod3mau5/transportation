@@ -75,6 +75,8 @@ jQuery(document).ready(function($) {
         fetchLocationZone(rates);
         app.addedShoppingStop= false
         checkShoppingStop();
+        setVehicleImg();
+
     });
     $('#end_location').on('change', function() {
 
@@ -84,6 +86,7 @@ jQuery(document).ready(function($) {
         fetchLocationZone(rates);
         app.addedShoppingStop= false
         checkShoppingStop();
+        setVehicleImg();
     });
     $('#passengers').on('change', function() {
 
@@ -100,12 +103,11 @@ jQuery(document).ready(function($) {
     $('#vehicle').on('change', function() {
 
         var price = $('#vehicle option:selected').data('price');
-        var name  = $('#vehicle option:selected').data('name');
+        setVehicleImg();
         $('.sm_price').html('$ ' + price + ' usd');
         $('.info_price').html('$ ' + price + ' usd');
         $('#_subtotal').val(price);
         $('#_total').val(price);
-        $('.sm_unit').html(name);
         app.addedShoppingStop= false
         checkShoppingStop();
     });
@@ -211,8 +213,11 @@ jQuery(document).ready(function($) {
             $('#_total').val(price);
         }
     }
-
-
+    function setVehicleImg(){
+        var name  = $('#vehicle option:selected').data('name');
+        $('p.img img').attr("src","/assets/images/units/"+name.toLowerCase()+".webp");
+        $('.sm_unit').html(name);
+    }
     function fetchLocationZone(rates)
     {
         var startLocation = $('#start_location').val();

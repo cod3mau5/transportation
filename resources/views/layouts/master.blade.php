@@ -402,7 +402,6 @@
                     start_location:'',
                     text: @json($language),
                     trip_type:'',
-                    other:false
                 },
                 beforeMount(){
                     this.changeLanguage();

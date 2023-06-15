@@ -11,6 +11,13 @@
             background-size: cover;
             background-position-y: 40%;
         }
+        .vehicles_home img{
+            height: 200px;
+            width: auto!important;
+        }
+        .vehicles_home .row>div{
+            text-align: center;
+        }
     </style>
 @endsection
 @section('global-header')
@@ -80,15 +87,19 @@
                 </div>
             </div>
         </div>
-        <div class="container py-5">
+        <div class="container py-5 vehicles_home">
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <h1 class="text-center fs-1 m-font m-color">Suburban</h1>
-                    <img src="{{ asset('assets/images/units/suburban.webp') }}" class="w-100">
+                    <img src="{{ asset('assets/images/units/suburban.webp') }}">
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <h1 class="text-center fs-1 m-font m-color">Hiace</h1>
-                    <img src="{{ asset('assets/images/units/hiace.webp') }}" class="w-100">
+                    <img src="{{ asset('assets/images/units/hiace.webp') }}">
+                </div>
+                <div class="col-md-4">
+                    <h1 class="text-center fs-1 m-font m-color">Bus</h1>
+                    <img src="{{ asset('assets/images/units/bus.png') }}">
                 </div>
             </div>
             <div class="row">
