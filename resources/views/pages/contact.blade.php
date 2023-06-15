@@ -163,6 +163,12 @@
 @endsection
 @section('map')
 <script  defer>
+    // sleep time expects milliseconds
+    function sleep (time) {
+    return new Promise((resolve) => setTimeout(resolve, time));
+    }
+
+
     function initMap() {
         var uluru = {lat:22.879278, lng: -109.910536};
         var map = new google.maps.Map(document.getElementById('map'), {
@@ -174,6 +180,17 @@
             map: map
         });
     }
+
+    // Usage!
+    sleep(1500).then(() => {
+        $('#map > div:nth-child(2)').css('display','none');
+    });
 </script>
 <script  defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDl3QdpavEMHbNxiU9AqmO577Hir0EZ_Ho&callback=initMap"> </script>
+
+<script>
+    $(document).ready(()=>{
+        $('#map > div:nth-child(2)').css('display','none');
+    });
+</script>
 @endsection

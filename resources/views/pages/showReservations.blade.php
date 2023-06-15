@@ -211,6 +211,16 @@
                     <td><b>Arrival Date:</b></td>
                     <td>{{$reservation->arrival_date . ' ' . $reservation->arrival_time}}</td>
                 </tr>
+                @if ($reservation->arrival_stop_time)
+                    <tr>
+                        <td><b>Arrival Stop Time:</b></td>
+                        <td>{{$reservation->arrival_stop_time}}</td>
+                    </tr>
+                    <tr>
+                        <td><b>Arrival Stop Place:</b></td>
+                        <td>{{$reservation->arrival_stop_place}}</td>
+                    </tr>
+                @endif
                 <tr>
                     <td><b>Passengers:</b></td>
                     <td>{{$reservation->total_travelers}}</td>
@@ -259,6 +269,16 @@
                     <td><b>Departure Date:</b></td>
                     <td>{{$reservation->arrival_date . ' ' . $reservation->arrival_time}}</td>
                 </tr>
+                @if ($reservation->arrival_stop_time)
+                    <tr>
+                        <td><b>Departure Stop Time:</b></td>
+                        <td>{{$reservation->arrival_stop_time}}</td>
+                    </tr>
+                    <tr>
+                        <td><b>Departure Stop Place:</b></td>
+                        <td>{{$reservation->arrival_stop_place}}</td>
+                    </tr>
+                @endif
                 <tr>
                     <td><b>Passengers:</b></td>
                     <td>{{$reservation->total_travelers}}</td>
@@ -314,6 +334,40 @@
                     <td class="left_line"><b>Departure Date:</b></td>
                     <td>{{$reservation->departure_date ." ". $reservation->departure_time}}</td>
                 </tr>
+                @if ($reservation->arrival_stop_time || $reservation->departure_stop_time)
+                    <tr>
+                        @if ($reservation->arrival_stop_time)
+                            <td><b>Arrival Stop Time:</b></td>
+                            <td>{{$reservation->arrival_stop_time}}</td>
+                            @else
+                            <td></td>
+                            <td></td>
+                        @endif
+                        @if ($reservation->departure_stop_time)
+                            <td><b>Departure Stop Time:</b></td>
+                            <td>{{$reservation->departure_stop_time}}</td>
+                            @else
+                            <td></td>
+                            <td></td>
+                        @endif
+                    </tr>
+                    <tr>
+                        @if ($reservation->arrival_stop_place)
+                            <td><b>Arrival Stop Place:</b></td>
+                            <td>{{$reservation->arrival_stop_place}}</td>
+                            @else
+                            <td></td>
+                            <td></td>
+                        @endif
+                        @if ($reservation->departure_stop_place)
+                            <td><b>Departure Stop Place:</b></td>
+                            <td>{{$reservation->departure_stop_place}}</td>
+                            @else
+                            <td></td>
+                            <td></td>
+                        @endif
+                    </tr>
+                @endif
                 <tr>
                     <td><b>Passengers:</b></td>
                     <td>{{$reservation->total_travelers}}</td>

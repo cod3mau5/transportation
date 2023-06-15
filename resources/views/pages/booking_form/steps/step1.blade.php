@@ -6,7 +6,7 @@
                     {{-- <label class="form-label" for="basicpill-firstname-input">First name</label>
                     <input type="text" class="form-control" id="basicpill-firstname-input"> --}}
                     <label for="trip_type" class="form-label">@{{ text.book_now.form.step_trip.trip_type }}</label>
-                        <select id="trip_type" name="trip_type" class="form-control" required="">
+                        <select id="trip_type" name="trip_type" class="form-control" required=""  v-model="trip_type">
                             <option value="" disabled="" selected="selected" style="display:none">
                                 @{{ text.book_now.form.step_trip.trip_type }}
                             </option>
@@ -34,10 +34,7 @@
                     <label for="start_location" class="form-label">
                         @{{ text.book_now.form.step_trip.start_location }}
                     </label>
-                    <select id="start_location"
-                            name="start_location"
-                            class="form-control select2"
-                            required="">
+                    <select id="start_location" name="start_location" class="form-control select2" required="">
                         <option value="" disabled="" selected="selected" style="display:none">
                             @{{ text.book_now.form.step_trip.start_location }}
                         </option>
@@ -195,8 +192,26 @@
                 <div class="col-lg-6">
                     <div class="mb-3">
                         <label for="flight" class="form-label">@{{ text.book_now.form.step_trip.trip1.arrival_flight_number }}</label>
-                        <input type="text" class="form-control" name="arrival_flight" id="arrival_flight" :placeholder="text.book_now.form.step_trip.trip1.arrival_flight_number+' '+text.book_now.form.step_trip.trip1.arrival " required>
+                        <input type="text"
+                                class="form-control"
+                                name="arrival_flight"
+                                id="arrival_flight"
+                                :placeholder="text.book_now.form.step_trip.trip1.arrival_flight_number+' '+text.book_now.form.step_trip.trip1.arrival "
+                                required>
                     </div>
+                </div>
+                <div class="col-lg-10 previous-stop">
+                    <label for="arrival-previous-stop" class="form-label">you need an earlier stop before going to your destination?</label>
+                    <small>Yes</small>
+                    <input type="checkbox" name="arrival_previous_stop"  id="arrival_previous_stop" v-model="arrival_previous_stop">
+                </div>
+                <div class="col-lg-6 arrival-stop">
+                    <label for="arrival-stop-time">Time</label>
+                    <input type="text" name="arrival_stop_time" id="arrival_stop_time"  class="form-control">
+                </div>
+                <div class="col-lg-6 arrival-stop">
+                    <label for="arrival-stop-place">Place</label>
+                    <input type="text" name="arrival_stop_place" id="arrival_stop_place" class="form-control">
                 </div>
             </div>
         </div>
@@ -228,7 +243,8 @@
                         <label for="time" class="form-label">
                             @{{ text.book_now.form.step_trip.trip2.departure_flight_time }}
                         </label>
-                        <input type="text" class="form-control" id="departure_time" name="departure_time" :placeholder="text.book_now.form.step_trip.trip2.departure_flight_time +' '+text.book_now.form.step_trip.trip2.departure" required>
+                        <input type="text" class="form-control"
+                        id="departure_time" name="departure_time" :placeholder="text.book_now.form.step_trip.trip2.departure_flight_time +' '+text.book_now.form.step_trip.trip2.departure" required>
                     </div>
                 </div>
             </div>
@@ -274,9 +290,28 @@
                         <label for="flight" class="form-label">
                             @{{ text.book_now.form.step_trip.trip2.departure_flight_number }}
                         </label>
-                        <input type="text" class="form-control" name="departure_flight" id="departure_flight" :placeholder="text.book_now.form.step_trip.trip2.departure_flight_number +' '+text.book_now.form.step_trip.trip2.departure" required>
+                        <input type="text"
+                                class="form-control"
+                                name="departure_flight"
+                                id="departure_flight"
+                                :placeholder="text.book_now.form.step_trip.trip2.departure_flight_number +' '+text.book_now.form.step_trip.trip2.departure"
+                                required>
                     </div>
                 </div>
+                <div class="col-lg-10 previous-stop">
+                    <label for="departure-previous-stop" class="form-label">you need an earlier stop before the departure flight?</label>
+                    <small>Yes</small>
+                    <input type="checkbox" name="departure_previous_stop"  id="departure_previous_stop" v-model="departure_previous_stop">
+                </div>
+                <div class="col-lg-6 departure-stop">
+                    <label for="departure-stop-time">Time</label>
+                    <input type="text" name="departure_stop_time" id="departure_stop_time"  class="form-control">
+                </div>
+                <div class="col-lg-6 departure-stop">
+                    <label for="departure-stop-place">Place</label>
+                    <input type="text" name="departure_stop_place" id="departure_stop_place" class="form-control">
+                </div>
+
             </div>
         </div>
     </form>

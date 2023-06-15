@@ -48,6 +48,7 @@ jQuery(document).ready(function($) {
             $('#departure_flight_details').slideUp();
         }
         fetchLocationZone(rates);
+        checkShoppingStop('changeTrip');
     });
     $('#start_location').on('change', function() {
         if ($(this).val() == 0) {
@@ -87,9 +88,31 @@ jQuery(document).ready(function($) {
         $('#_total').val(price);
         $('.sm_unit').html(name);
     });
-    $('#shopping_stop').on('change', function() {
+
+    $('#arrival_previous_stop').on('change', function() {
+
+        if( document.getElementById("arrival_previous_stop").checked == true ){
+            $(".arrival-stop").css("display","block");
+        }else{
+            $(".arrival-stop").css("display","none");
+        }
         checkShoppingStop();
     });
+
+    $('#departure_previous_stop').on('change', function() {
+
+        if( document.getElementById("departure_previous_stop").checked == true ){
+            $(".departure-stop").css("display","block");
+        }else{
+            $(".departure-stop").css("display","none");
+        }
+        checkShoppingStop();
+    });
+
+
+    // $('#shopping_stop').on('change', function() {
+    //     checkShoppingStop();
+    // });
 
     //date & time picker
     $('#arrival_date').datetimepicker({
@@ -114,29 +137,60 @@ jQuery(document).ready(function($) {
     $('#arrival_time').datetimepicker({
         format: 'LT'
     });
+    $('#arrival_stop_time').datetimepicker({
+        format: 'LT'
+    });
+    $('#departure_stop_time').datetimepicker({
+        format: 'LT'
+    });
 
-    function checkShoppingStop(){
-        if(app.specialRequest.shoppingStop){
-            var shoppingStop= 25;
-            var price = Number($('#_total').val());
+    var addedShoppingStop = false;
 
-            var price = Number(price) + Number(shoppingStop)+'.00';
-            console.log("el precio es: "+price)
-            $('.sm_price').html('$ ' + price + ' usd');
-            $('.info_price').html('$ ' + price + ' usd');
-            $('#_subtotal').val(price);
-            $('#_total').val(price);
-        }else{
-            var shoppingStop= 25;
-            var price = Number($('#_total').val());
-            var price = Number(price) - Number(shoppingStop)+'.00';
+    function checkShoppingStop(from){
+        var shoppingStop = 25;
+        var price = Number($('#_total').val());
 
+
+        if(document.getElementById("arrival_previous_stop").checked == true || document.getElementById("departure_previous_stop").checked == true){
+
+            if(document.getElementById("arrival_previous_stop").checked == true){
+                $("#arrival_stop_time").prop('required',true);
+                $("#arrival_stop_place").prop('required',true);
+            }
+
+            if(document.getElementById("departure_previous_stop").checked == true){
+                $("#departure_stop_time").prop('required',true);
+                $("#departure_stop_place").prop('required',true);
+            }
+
+            if(from === 'changeTrip'){ //  si viene de un cambio de trip, el precio viene reseteado y addedShoppingStop no tiene efecto
+                // por lo tanto hay que aumentar los 25
+                price = price + shoppingStop;
+                addedShoppingStop = true; // recuerda que ya añadimos los 25
+            }else{
+
+                if(!addedShoppingStop) {
+                    price = price + shoppingStop;
+                    addedShoppingStop = true; // recuerda que ya añadimos los 25
+                }
+            }
+
+
+
+        } else if(addedShoppingStop) { // si ninguna casilla está marcada y los 25 ya se añadieron, los resta
+            price = price - shoppingStop;
+            addedShoppingStop = false; // recuerda que ya restamos los 25
+        }
+
+        if($('#vehicle').val() !== null){
             $('.sm_price').html('$ ' + price + ' usd');
             $('.info_price').html('$ ' + price + ' usd');
             $('#_subtotal').val(price);
             $('#_total').val(price);
         }
     }
+
+
     function fetchLocationZone(rates)
     {
         var startLocation = $('#start_location').val();
@@ -156,9 +210,9 @@ jQuery(document).ready(function($) {
             }
 
             updateZoneUnits(zone, rates);
-            if(app.specialRequest.shoppingStop){
-                checkShoppingStop();
-            }
+            // if(app.specialRequest.shoppingStop){
+            //     checkShoppingStop();
+            // }
         }
     }
     function updateZoneUnits(zone, rates)
@@ -243,23 +297,28 @@ jQuery(document).ready(function($) {
                     $('#form_step1').valid()
                     )
                 {
-                    var trip_type       = $('#trip_type').val();
-                    var start_location  = $('#start_location option:selected').text();
-                    var start_id        = $('#start_location').val();
-                    var transport_type  = (trip_type == 'r') ? 'Round-trip' : 'One way';
-                    var num_passengers  = $('#passengers').val();
-                    var num_children  = $('#children').val();
-                    var selectedCar     = $('#vehicle option:selected').text();
-                    var unit_id         = $('#vehicle').val();
-                    var end_location    = $('#end_location option:selected').text();
-                    var end_id          = $('#end_location').val();
+                    var trip_type           = $('#trip_type').val();
+                    var start_location      = $('#start_location option:selected').text();
+                    var start_id            = $('#start_location').val();
+                    app.start_location      = $('#start_location').val();
+                    var transport_type      = (trip_type == 'r') ? 'Round-trip' : 'One way';
+                    var num_passengers      = $('#passengers').val();
+                    var num_children        = $('#children').val();
+                    var selectedCar         = $('#vehicle option:selected').text();
+                    var unit_id             = $('#vehicle').val();
+                    var end_location        = $('#end_location option:selected').text();
+                    var end_id              = $('#end_location').val();
 
-                    var arrival_date    = $('#arrival_date').val();
-                    var arrival_time    = $('#arrival_time').val();
-                    var arrival_airline = $('#arrival_airline option:selected').text();
-                    var arrival_flight  = $('#arrival_flight').val();
+                    var arrival_date        = $('#arrival_date').val();
+                    var arrival_time        = $('#arrival_time').val();
+                    var arrival_airline     = $('#arrival_airline option:selected').text();
+                    var arrival_flight      = $('#arrival_flight').val();
+                    var arrival_stop_time   = $('#arrival_stop_time').val();
+                    var arrival_stop_place   = $('#arrival_stop_place').val();
 
                     $('.departure_block').hide();
+                    $('.arrival_previous_stop').hide();
+                    $('.departure_previous_stop').hide();
 
                     if (trip_type == 'r')
                     {
@@ -268,6 +327,9 @@ jQuery(document).ready(function($) {
                         var departure_time    = $('#departure_time').val();
                         var departure_airline = $('#departure_airline option:selected').text();
                         var departure_flight  = $('#departure_flight').val();
+                        var departure_stop_time   = $('#departure_stop_time').val();
+                        var departure_stop_place   = $('#departure_stop_place').val();
+
                     }
 
                     $('#_trip_type').val(trip_type);
@@ -280,6 +342,8 @@ jQuery(document).ready(function($) {
                     $('#_arrival_time').val(arrival_time);
                     $('#_arrival_company').val(arrival_airline);
                     $('#_arrival_flight').val(arrival_flight);
+                    $('#_arrival_stop_time').val(arrival_stop_time);
+                    $('#_arrival_stop_place').val(arrival_stop_place);
 
                     if (trip_type == 'r')
                     {
@@ -292,6 +356,8 @@ jQuery(document).ready(function($) {
                         $('#_departure_time').val(departure_time);
                         $('#_departure_company').val(departure_airline);
                         $('#_departure_flight').val(departure_flight);
+                        $('#_departure_stop_time').val(departure_stop_time);
+                        $('#_departure_stop_place').val(departure_stop_place);
                     }
 
                     $('.info_start_location').html(start_location);
@@ -302,9 +368,23 @@ jQuery(document).ready(function($) {
                     $('.info_arrival_fight').html(arrival_flight);
                     $('.info_arrival_airline').html(arrival_airline);
                     $('.info_arrival_time').html(arrival_date+" "+arrival_time);
+
+
+                    if(app.arrival_previous_stop){
+                        $('.arrival_previous_stop').show();
+                        $('.info_arrival_stop_time').html(arrival_stop_time);
+                        $('.info_arrival_stop_place').html(arrival_stop_place);
+                    }
+
                     $('.info_departure_fight').html(departure_flight);
                     $('.info_departure_airline').html(departure_airline);
                     $('.info_departure_time').html(departure_date+" "+departure_time);
+
+                    if(app.departure_previous_stop){
+                        $('.departure_previous_stop').show();
+                        $('.info_departure_stop_time').html(departure_stop_time);
+                        $('.info_departure_stop_place').html(departure_stop_place);
+                    }
                     $('.info_end_location').html(end_location);
 
                     $('#nav-step2 a').attr('href', '#step2');

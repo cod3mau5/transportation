@@ -297,6 +297,29 @@
                 z-index: 100;
                 color: #fff;
             }
+            .previous-stop{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 1.1rem;
+                margin-top: 1rem;
+                margin-bottom: 1.3rem;
+            }
+            .previous-stop label{
+                margin: 0!important;
+            }
+            .previous-stop small{
+                margin-left: 1rem;
+            }
+            .previous-stop input{
+                margin-left:.3rem;
+            }
+            .arrival-stop{
+                display: none;
+            }
+            .departure-stop{
+                display: none;
+            }
         </style>
         @yield('styles')
     </head>
@@ -361,11 +384,15 @@
                 data: {
                     about_us:'{{ empty($about_us) ? false : true }}',
                     language: '{{ $langUpdate }}',
+                    start_location:'',
+                    trip_type:'',
                     specialRequest:{
                         boosterSeat:false,
                         carSeat:false,
                         shoppingStop: false,
                     },
+                    arrival_previous_stop:false,
+                    departure_previous_stop:false,
                     routes:{
                         home:'{{ route("inicio","1") }}',
                         gallery:'{{ route("gallery","1") }}',
@@ -475,6 +502,7 @@
 
                 }
             }
+
         </script>
     </body>
 </html>

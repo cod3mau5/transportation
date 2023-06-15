@@ -14,6 +14,10 @@
             | <b>Hotel:</b>         | {{$reservation->resort->name}}                                         |
             | <b>Arrival Flight:</b>| {{$reservation->arrivalFlight}}                                        |
             | <b>Arrival Date:</b>  | {{$reservation->arrivalDate}}                                          |
+            @if ($reservation->arrival_stop_time)
+            | <b>Arrival Stop Time:</b>| {{$reservation->arrival_stop_time}}                                 |
+            | <b>Arrival Stop Place:</b>| {{$reservation->arrival_stop_place}}                               |
+            @endif
             | <b>Phone Number:</b>  | {{$reservation->phone}}                                                |
             | <b>Passengers: </b>   | {{$reservation->total_travelers}}                                      |
             | <b>Booster seat: </b> | @if($reservation->booster_seat) YES @else NO @endif                    |
@@ -31,6 +35,10 @@
             | <b>Meeting At:</b>    | {{$reservation->resort->name}}                                         |
             | <b>Departure Flight:</b>| {{$reservation->arrivalFlight}}                                      |
             | <b>Departure Date:</b>| {{$reservation->arrivalDate}}                                          |
+            @if ($reservation->arrival_stop_time)
+            | <b>Departure Stop Time:</b>| {{$reservation->arrival_stop_time}}                                 |
+            | <b>Departure Stop Place:</b>| {{$reservation->arrival_stop_place}}                               |
+            @endif
             | <b>Phone Number:</b>  | {{$reservation->phone}}                                                |
             | <b>Passengers: </b>   | {{$reservation->total_travelers}}                                      |
             | <b>Booster seat: </b> | @if($reservation->booster_seat) YES @else NO @endif                    |
@@ -48,6 +56,10 @@
             | <b>Hotel:</b>         | {{$reservation->resort->name}}                                         |
             | <b>Arrival Flight:</b>| {{$reservation->arrivalFlight}}                                        |
             | <b>Arrival Date:</b>  | {{$reservation->arrivalDate}}                                          |
+            @if ($reservation->arrival_stop_time)
+            | <b>Arrival Stop Time:</b>| {{$reservation->arrival_stop_time}}                                 |
+            | <b>Arrival Stop Place:</b>| {{$reservation->arrival_stop_place}}                               |
+            @endif
             | <b>Phone Number:</b>  | {{$reservation->phone}}                                                |
             | <b>Passengers: </b>   | {{$reservation->total_travelers}}                                      |
             | <b>Booster seat: </b> | @if($reservation->booster_seat) YES @else NO @endif                    |
@@ -62,6 +74,10 @@
             | <b>Hotel:</b>         | {{$reservation->resort->name}}                                         |
             | <b>Departure Flight:</b>| {{$reservation->departureFlight}}                                    |
             | <b>Flight Date:</b>  | {{$reservation->departureDate}}                                         |
+            @if ($reservation->departure_stop_time)
+            | <b>Departure Stop Time:</b>| {{$reservation->departure_stop_time}}                             |
+            | <b>Departure Stop Place:</b>| {{$reservation->departure_stop_place}}                           |
+            @endif
         @endcomponent
     @endif
     <p style="text-align: center; color: #005899; font-size: 11.5px;"><b>IMPORTANT! SHOW THIS QR CODE TO YOUR DRIVER BEFORE BOARDING</b></p>

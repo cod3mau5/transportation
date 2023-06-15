@@ -8,11 +8,11 @@
                     <label for="first_name" class="form-label">
                         @{{ text.book_now.form.step_contact.first_name }}
                     </label>
-                        <input type="text" 
-                            class="form-control" 
-                            id="first_name" 
-                            name="first_name" 
-                            :placeholder="text.book_now.form.step_contact.first_name" 
+                        <input type="text"
+                            class="form-control"
+                            id="first_name"
+                            name="first_name"
+                            :placeholder="text.book_now.form.step_contact.first_name"
                             required>
                 </div>
             </div>
@@ -22,7 +22,7 @@
                     <label class="form-label" for="last_name">
                         @{{ text.book_now.form.step_contact.last_name }}
                     </label>
-                    <input type="text" 
+                    <input type="text"
                     class="form-control" id="last_name" name="last_name" :placeholder="text.book_now.form.step_contact.last_name" required>
                 </div>
             </div>
@@ -63,9 +63,9 @@
             <div class="col-lg-4">
                 <div class="mb-3 ml-2">
                     <label for="booster_seat">
-                        <input type="checkbox" 
-                                name="booster_seat" 
-                                id="booster_seat" 
+                        <input type="checkbox"
+                                name="booster_seat"
+                                id="booster_seat"
                                 v-model="specialRequest.boosterSeat"
                         >
                         @{{ text.book_now.form.step_contact.special_request.checkboxes.booster_seat.title }}
@@ -75,8 +75,8 @@
             <div class="col-lg-4">
                 <div class="mb-3">
                     <label for="car_seat">
-                        <input type="checkbox" 
-                                name="car_seat" 
+                        <input type="checkbox"
+                                name="car_seat"
                                 id="car_seat"
                                 v-model="specialRequest.carSeat"
                         >
@@ -84,12 +84,12 @@
                     </label>
                 </div>
             </div>
-            <div class="col-lg-4">
+            {{-- <div class="col-lg-4">
                 <div class="mb-3 mb-md-0 mr-2">
                     <label for="shopping_stop" class="mb-0">
-                        <input type="checkbox" 
-                                name="shopping_stop" 
-                                id="shopping_stop" 
+                        <input type="checkbox"
+                                name="shopping_stop"
+                                id="shopping_stop"
                                 v-model="specialRequest.shoppingStop"
                         >
                         @{{ text.book_now.form.step_contact.special_request.checkboxes.shopping_stop.title }} <br>
@@ -98,7 +98,7 @@
                         </small>
                     </label>
                 </div>
-            </div>
+            </div> --}}
         </div>
         {{-- COMMENTS --}}
         <div class="row">

@@ -23,29 +23,33 @@
                         <input type="hidden" name="_arrival_time" id="_arrival_time" value="">
                         <input type="hidden" name="_arrival_company" id="_arrival_company" value="">
                         <input type="hidden" name="_arrival_flight" id="_arrival_flight" value="">
+                        <input type="hidden" name="_arrival_stop_time" id="_arrival_stop_time" value="">
+                        <input type="hidden" name="_arrival_stop_place" id="_arrival_stop_place" value="">
                         <input type="hidden" name="_departure_date" id="_departure_date" value="">
                         <input type="hidden" name="_departure_time" id="_departure_time" value="">
+                        <input type="hidden" name="_departure_stop_time" id="_departure_stop_time" value="">
+                        <input type="hidden" name="_departure_stop_place" id="_departure_stop_place" value="">
                         <input type="hidden" name="_departure_company" id="_departure_company" value="">
                         <input type="hidden" name="_departure_flight" id="_departure_flight" value="">
                         <input type="hidden" name="_contact_firstname" id="_contact_firstname" value="">
                         <input type="hidden" name="_contact_lastname" id="_contact_lastname" value="">
                         <input type="hidden" name="_contact_email" id="_contact_email" value="">
                         <input type="hidden" name="_contact_phone" id="_contact_phone" value="">
-                        <input type="hidden" 
-                                name="_booster_seat" 
-                                id="_booster_seat" 
+                        <input type="hidden"
+                                name="_booster_seat"
+                                id="_booster_seat"
                                 v-model="specialRequest.boosterSeat"
                         >
-                        <input type="hidden" 
+                        <input type="hidden"
                                 name="_car_seat"
-                                 id="_car_seat" 
+                                 id="_car_seat"
                                  v-model="specialRequest.carSeat"
                         >
-                        <input type="hidden" 
-                                name="_shopping_stop" 
+                        {{-- <input type="hidden"
+                                name="_shopping_stop"
                                 id="_shopping_stop"
                                 v-model="specialRequest.shoppingStop"
-                        >
+                        > --}}
                         <input type="hidden" name="_contact_request" id="_contact_request" value="">
                         <input type="hidden" name="_subtotal" id="_subtotal" value="100">
                         <input type="hidden" name="_total" id="_total" value="100">

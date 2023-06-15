@@ -84,10 +84,14 @@ class ReservationsController extends Controller
                 "arrival_time"       => $request['_arrival_time'],
                 "arrival_airline"    => $request['_arrival_company'],
                 "arrival_flight"     => $request['_arrival_flight'],
+                "arrival_stop_time"  => $request['_arrival_stop_time'],
+                "arrival_stop_place"  => $request['_arrival_stop_place'],
                 "departure_date"     => $request['_departure_date'],
                 "departure_time"     => $request['_departure_time'],
                 "departure_airline"  => $request['_departure_company'],
                 "departure_flight"   => $request['_departure_flight'],
+                "departure_stop_time"  => $request['_departure_stop_time'],
+                "departure_stop_place"  => $request['_departure_stop_place'],
                 "comments"           => $request['_contact_request'],
                 "payment_type"       => $request['pay_method'],
                 "subtotal"           => !empty($request['_subtotal']) ? $request['_subtotal'] : 0,
@@ -137,7 +141,6 @@ class ReservationsController extends Controller
     }
     public function showReservation($voucher){
         $reservation= Reservation::where('voucher',$voucher)->first();
-// dd($reservation);
         if(!$reservation){
             abort(404, 'Reservation not found, check your voucher');
         }

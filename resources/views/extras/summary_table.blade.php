@@ -43,6 +43,20 @@
                         <div class="fs-6 text-wrap badge badge-soft-info info_arrival_fight"></div>
                     </div>
                 </div>
+                <div class="row mb-2 arrival_previous_stop">
+                    <div class="col-md-6">
+                        <strong class="fs-5">
+                            @{{ ((trip_type == 'o' && start_location == '0')|| trip_type == 'r') ? text.book_now.form.step_details.arrival_stop_time : text.book_now.form.step_details.departure_stop_time }}
+                        </strong><br>
+                        <div class="fs-6 text-wrap badge badge-soft-info info_arrival_stop_time"></div>
+                    </div>
+                    <div class="col-md-6">
+                        <strong class="fs-5">
+                            @{{ ((trip_type == 'o' && start_location == '0')||trip_type == 'r') ? text.book_now.form.step_details.arrival_stop_place : text.book_now.form.step_details.departure_stop_place }}
+                        </strong><br>
+                        <div class="fs-6 text-wrap badge badge-soft-info info_arrival_stop_place"></div>
+                    </div>
+                </div>
                 <div class="row departure_block">
                     <div class="col-md-4">
                         <strong class="fs-5">@{{ text.book_now.form.step_details.departure_time }}</strong><br>
@@ -55,6 +69,16 @@
                     <div class="col-md-4">
                         <strong class="fs-5">@{{ text.book_now.form.step_details.departure_flight }} </strong><br>
                         <div class="fs-6 text-wrap badge badge-soft-info info_departure_fight"></div>
+                    </div>
+                    <div class="row mb-2 departure_previous_stop">
+                        <div class="col-md-6">
+                            <strong class="fs-5">@{{ text.book_now.form.step_details.departure_stop_time }}</strong><br>
+                            <div class="fs-6 text-wrap badge badge-soft-info info_departure_stop_time"></div>
+                        </div>
+                        <div class="col-md-6">
+                            <strong class="fs-5">@{{ text.book_now.form.step_details.departure_stop_place }}</strong><br>
+                            <div class="fs-6 text-wrap badge badge-soft-info info_departure_stop_place"></div>
+                        </div>
                     </div>
                 </div>
                 <div class="row mb-2">
@@ -86,15 +110,17 @@
                 <div class="row mb-2">
                     <div class="col-md-12">
                         <strong class="fs-5">@{{ text.book_now.form.step_details.pay_method }} </strong><br>
-                        <span class="fs-6 text-wrap badge badge-soft-warning">@{{ text.book_now.form.step_details.cash }}</span>
+                        <span class="fs-6 text-wrap badge badge-soft-warning">
+                            @{{ text.book_now.form.step_details.cash }}
+                        </span>
                     </div>
                         <label class="pay" style="display:none">
                             <input type="radio"
-                            ame="pay_method"
-                            id="optionsRadios2"
-                            value="cash"
-                            checked="checked"
-                            style="display:none">
+                                    name="pay_method"
+                                    id="optionsRadios2"
+                                    value="cash"
+                                    checked="checked"
+                                    style="display:none">
                             @{{ text.book_now.form.step_details.cash }}
                         </label>
                         {{-- <label class="pay">
