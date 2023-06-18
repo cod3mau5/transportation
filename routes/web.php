@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\Role;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\App;
 
 /** LOGIN */
 Auth::routes();
@@ -11,17 +13,25 @@ Route::get('/home', [Controllers\HomeController::class, 'index']);
 
 /** ############## PAGES ############## */
 Route::get('/', [Controllers\PagesController::class,'homepage'])->name('homepage');
-Route::get('/start/{language?}', [Controllers\PagesController::class,'inicio'])->name('inicio');
-Route::get('/gallery/{language?}', [Controllers\PagesController::class,'gallery'])->name('gallery');
-Route::get('/contact/{language?}', [Controllers\PagesController::class,'contact'])->name('contact');
-Route::get('/book-now/{language?}', [Controllers\PagesController::class,'booking'])->name('book-now');
-Route::get('/contact-us/{language?}',[Controllers\PagesController::class,'contactUs'])->name('contact-us');
+Route::get('/gallery', [Controllers\PagesController::class,'gallery'])->name('gallery');
+Route::get('/contact', [Controllers\PagesController::class,'contact'])->name('contact');
+Route::get('/book-now', [Controllers\PagesController::class,'booking'])->name('book-now');
+Route::get('/contact-us',[Controllers\PagesController::class,'contactUs'])->name('contact-us');
 Route::get('/privacy-policy',[Controllers\PagesController::class,'privacy'])->name('privacy');
+
+# Languages
+Route::get('/lang/{lang}', function ($lang) {
+    session(['applocale' => $lang]);
+    return redirect()->back();
+});
+# Languages for vue
+Route::get('/languages/{language}',[Controllers\PagesController::class,'getLanguages'])->name('getLanguages');
+
 # Posts
 Route::post('/send-reservation',[Controllers\ReservationsController::class,'sendReservation'])->name('sendReservation');
 Route::post('/send-mail', [Controllers\PagesController::class,'sendMail'])->name('sendMail');
-# Languages for vue
-Route::get('/languages/{language}',[Controllers\PagesController::class,'getLanguages'])->name('getLanguages');
+
+// Route::get('/languages/{language}',[Controllers\PagesController::class,'getLanguages'])->name('getLanguages');
 # For test
 Route::get('/form',[Controllers\PagesController::class,'form'])->name('form');
 # VOUCHERS

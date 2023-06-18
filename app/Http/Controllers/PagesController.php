@@ -8,137 +8,24 @@ use App\Mail\sendMail;
 use App\Models\Resort;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
-
+use Illuminate\Support\Facades\App;
 class PagesController extends Controller
 {
-    public function homepage(Request $request){
-        $options=array(
-            "ssl"=>array(
-                "verify_peer"=>false,
-                "verify_peer_name"=>false,
-            ),
-        );
-        if(request('language') === '0'){
-            $language= json_decode(file_get_contents(asset('assets/json/spanish.json'),
-            false,stream_context_create($options)),
-             true
-        );
-            $langUpdate=0;
-        }else{
-            $language= json_decode(file_get_contents(asset('assets/json/english.json'),
-            false,stream_context_create($options)),
-             true
-        );
-            $langUpdate=1;
-        }
-        if($request->about_us == "true"){
-            $about_us=true;
-        }else{
-            $about_us=false;
-        }
-        return view('pages.home',compact('language','langUpdate','about_us'));
+    public function homepage(){
+        return view('pages.home');
     }
-    public function inicio($language){
-        $options=array(
-            "ssl"=>array(
-                "verify_peer"=>false,
-                "verify_peer_name"=>false,
-            ),
-        );
-        if($language == 1){
-            $language= json_decode(file_get_contents(asset('assets/json/english.json'),
-            false,stream_context_create($options)),
-             true
-        );
-            $langUpdate=1;
-        }else{
-            $language= json_decode(file_get_contents(asset('assets/json/spanish.json'),
-            false,stream_context_create($options)),
-             true
-        );
-            $langUpdate=0;
-        }
-        return view('pages.home',compact('language','langUpdate'));
+    public function contactUs(){
+
+        return view('pages.contact');
     }
-    public function contactUs($language){
-        $options=array(
-            "ssl"=>array(
-                "verify_peer"=>false,
-                "verify_peer_name"=>false,
-            ),
-        );
-        if($language == 1){
-            $language= json_decode(
-                file_get_contents(asset('assets/json/english.json'),
-                false,
-                stream_context_create($options)),
-                true
-            );
-            $langUpdate=1;
-        }else{
-            $language= json_decode(
-                file_get_contents(asset('assets/json/spanish.json'),
-                false,
-                stream_context_create($options)),
-                true
-            );
-            $langUpdate=0;
-        }
-        return view('pages.contact',compact('language','langUpdate'));
+    public function gallery(){
+        return view('pages.gallery');
     }
-    public function gallery($language){
-        $options=array(
-            "ssl"=>array(
-                "verify_peer"=>false,
-                "verify_peer_name"=>false,
-            ),
-        );
-        if($language == 1){
-            $language= json_decode(
-                file_get_contents(asset('assets/json/english.json'),
-                false,
-                stream_context_create($options)),
-                 true
-            );
-            $langUpdate=1;
-        }else{
-            $language= json_decode(
-                file_get_contents(asset('assets/json/spanish.json'),
-                false,
-                stream_context_create($options)),
-                 true
-            );
-            $langUpdate=0;
-        }
-        return view('pages.gallery',compact('language','langUpdate'));
+    public function contact(){
+
+        return view('pages.contact');
     }
-    public function contact($language){
-        $options=array(
-            "ssl"=>array(
-                "verify_peer"=>false,
-                "verify_peer_name"=>false,
-            ),
-        );
-        if($language == 1){
-            $language= json_decode(
-                file_get_contents(asset('assets/json/english.json'),
-                false,
-                stream_context_create($options)),
-                true
-            );
-            $langUpdate=1;
-        }else{
-            $language= json_decode(
-                file_get_contents(asset('assets/json/spanish.json'),
-                false,
-                stream_context_create($options)),
-                true
-            );
-            $langUpdate=0;
-        }
-        return view('pages.contact',compact('language','langUpdate'));
-    }
-    public function booking($language){
+    public function booking($language='en'){
         $resort_options = '';
         $unit_options   = '';
         $vehicles = array();
@@ -229,13 +116,15 @@ class PagesController extends Controller
                 "verify_peer_name"=>false,
             ),
         );
-        if($language == 1){
+        if($language == 'en'){
+            session(['applocale' => 'en']);
             return json_decode(
                 file_get_contents(asset('assets/json/english.json'),
                 false,stream_context_create($options)),
                 true
             );
         }else{
+            session(['applocale' => 'es']);
             return json_decode(
                 file_get_contents(asset('assets/json/spanish.json'),
                 false,

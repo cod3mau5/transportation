@@ -1,6 +1,6 @@
 
 <!DOCTYPE html>
-<html lang="es">
+<html lang="{{app()->getLocale()}}">
     <head>
         <meta charset='utf-8'>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -328,9 +328,13 @@
         @yield('header-scripts')
 
         <div id="app">
-            @include('includes.header')
-                @yield('content')
+            @hasSection('header')
+                @yield('header')
+            @else
+                @include('includes.header')
+            @endif
 
+                @yield('content')
                 {{-- FEED Instagram --}}
                 <section id="ig_container">
                     <div class="main-gallery">
@@ -378,91 +382,6 @@
         <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
         <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
-        <script>
-            var app = new Vue({
-                el: '#app',
-                data: {
-                    about_us:'{{ empty($about_us) ? false : true }}',
-                    addedShoppingStop:false,
-                    recalculate:true,
-                    arrival_previous_stop:false,
-                    departure_previous_stop:false,
-                    language: '{{ $langUpdate }}',
-                    routes:{
-                        home:'{{ route("inicio","1") }}',
-                        gallery:'{{ route("gallery","1") }}',
-                        contact_us:'{{ route("contact-us","1") }}',
-                        book_now:'{{ route("book-now","1") }}',
-                    },
-                    specialRequest:{
-                        boosterSeat:false,
-                        carSeat:false,
-                        shoppingStop: false,
-                    },
-                    start_location:'',
-                    text: @json($language),
-                    trip_type:'',
-                },
-                beforeMount(){
-                    this.changeLanguage();
-                },
-                mounted() {
-                    this.changeLanguage();
-                    document.getElementById('vid').play();
-                    if(this.about_us == true){
-                        $('html, body').animate({
-                            scrollTop: $("#about-us").offset().top
-                        }, 850);
-                    }
-                },
-                methods:{
-                    changeLanguage: function(){
-
-                        if(this.language == 1){
-                            this.routes.home= this.routes.home.replace('/0','/'+this.language);
-                            this.routes.gallery= this.routes.gallery.replace('/0','/'+this.language);
-                            this.routes.contact_us= this.routes.contact_us.replace('/0','/'+this.language);
-                            this.routes.book_now= this.routes.book_now.replace('/0','/'+this.language);
-                        }
-                        if(this.language == "0"){
-                            console.log(typeof(this.language));
-                            this.routes.home= this.routes.home.replace('/1','/'+this.language);
-                            this.routes.gallery= this.routes.gallery.replace('/1','/'+this.language);
-                            this.routes.contact_us= this.routes.contact_us.replace('/1','/'+this.language);
-                            this.routes.book_now= this.routes.book_now.replace('/1','/'+this.language);
-                        }
-                        axios.get('{{ route("getLanguages",'') }}/'+this.language).then((r)=>{
-                            this.text = r.data;
-
-                        }).then(()=>{
-                            $('.sm_start').html($('#start_location option:selected').text());
-                            $('.sm_end').html($('#end_location option:selected').text());
-
-                            if(localStorage.getItem('step') == 3){
-                                $('#language').val() == "1" ? $('.go_step2').html('Finish Booking') : $('.go_step2').html('Finalizar Reserva');
-                            }
-
-                            if ($('#trip_type').val() == 'r') {
-                                if($('#language').val() == "1"){
-                                    $('.sm_trip').html('roundtrip');
-                                }else{
-                                    $('.sm_trip').html('De Ida y Vuelta');
-                                }
-                                $('#departure_flight_details').slideDown();
-                            } else {
-                                if($('#language').val() == "1"){
-                                    $('.sm_trip').html('oneway');
-                                }else{
-                                    $('.sm_trip').html('De Ida');
-                                }
-                                $('#departure_flight_details').slideUp();
-                            }
-
-                        });
-                    }
-                }
-            })
-        </script>
                 @yield('footer-scripts')
         <script>
             'use strict'

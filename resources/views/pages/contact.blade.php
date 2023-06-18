@@ -103,7 +103,7 @@
         <div class="row">
             <div class="parallax img-uno" id="m">
                 <div class="texto-interior">
-                    <h2 class="m-font text-white text-break">@{{ text.contact_us.title }}</h2>
+                    <h2 class="m-font text-white text-break">{{ __("pages/contact.contact_us.title") }}</h2>
                 </div>
             </div><!-- .parallax -->
         </div>
@@ -128,31 +128,31 @@
 
         <div class="row my-5 pb-5">
             <div class="col-md-6">
-                <h3 class="s-color">@{{ text.contact_us.map.title }}</h3>
+                <h3 class="s-color">{{ __("pages/contact.contact_us.map.title") }}</h3>
                 <div id="map"></div>
                 <p>San José del Cabo, Baja California Sur, México </p>
             </div>
             <div class="col-md-6">
                 <form action="{{ route('sendMail') }}" method="POST">
                     @csrf
-                    <h3 class="s-color">@{{ text.contact_us.title }}</h3>
+                    <h3 class="s-color">{{ __("pages/contact.contact_us.title") }}</h3>
                     <div class="mb-3">
-                      <label for="name" class="form-label">@{{ text.contact_us.form.name }}</label>
+                      <label for="name" class="form-label">{{ __("pages/contact.contact_us.form.name") }}</label>
                       <input type="text" class="form-control" id="name" name="name">
                     </div>
                     <div class="mb-3">
-                        <label for="email" class="form-label">@{{ text.contact_us.form.email }}</label>
+                        <label for="email" class="form-label">{{ __("pages/contact.contact_us.form.email") }}</label>
                         <input type="email" class="form-control" id="email" name="email" >
                     </div>
                     <div class="mb-3">
-                        <label for="phone" class="form-label">@{{ text.contact_us.form.phone }}</label>
+                        <label for="phone" class="form-label">{{ __("pages/contact.contact_us.form.phone") }}</label>
                         <input type="phone" class="form-control" id="phone" name="phone">
                     </div>
                     <div class="mb-3">
-                        <label for="msj" class="form-label">@{{ text.contact_us.form.message }}</label>
+                        <label for="msj" class="form-label">{{ __("pages/contact.contact_us.form.message") }}</label>
                         <textarea class="form-control mt-2" name="msj" id="msj" cols="30" rows="6"></textarea>
                     </div>
-                    <button type="submit" class="btn send-btn float-right">@{{ text.contact_us.form.send_btn }}</button>
+                    <button type="submit" class="btn send-btn float-right">{{ __("pages/contact.contact_us.form.send_btn") }}</button>
                 </form>
             </div>
         </div>

@@ -62,7 +62,7 @@
                         <input type="hidden" name="Paypal[last_name]" id="paypal_lastname" value="lastname" />
                         <input type="hidden" name="Paypal[payer_email]" id="paypal_email" value="email" />
                         <input type="hidden" name="Paypal[item_number]" value="1" / >
-                        <input type="hidden" name="language" id="language" v-model="language">
+                        <input type="hidden" name="language" id="language" v-model="lang">
                     </div>
                     <button type="submit" id="sendReservation" style="display: none"></button>
                 </form>

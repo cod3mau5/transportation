@@ -223,7 +223,7 @@
                         <span class="badge bg-warning">
                             @{{ text.book_now.form.step_trip.trip_location_title.name }} #2
                         </span>
-                        <span v-if="language == '0'">De </span>
+                        <span v-if="lang == 'es'">De </span>
                         <span class="to"></span> @{{ text.book_now.form.step_trip.trip_location_title.to }}
                         <span class="from"></span>
                     </h1>
