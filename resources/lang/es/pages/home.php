@@ -6,9 +6,9 @@ return [
     ],
     "home" => [
         "txt_hero" => [
-            "txt1" => "VIVE LOS CABOS",
+            "txt1" => "TRANSPORTACION DE AEROPUERTO EN CABO",
             "txt2" => "Servicio de Transporte Turístico, Aeropuerto / Hotel, Traslados y City tour.",
-            "txt3" => "Maravilloso día para viajar."
+            "txt3" => "Inicia tu tranportacion en cabo."
         ]
     ],
     "about_us" => [

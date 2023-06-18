@@ -6,9 +6,9 @@ return [
     ],
     "home" => [
         "txt_hero" => [
-            "txt1" => "LIVE LOS CABOS",
+            "txt1" => "CABO AIRPORT TRANSPORTATION",
             "txt2" => "Tourist Transportation Service, Airport / Hotel, Transfers and City tour.",
-            "txt3" => "Wonderful day to travel.",
+            "txt3" => "Start your transportation in cabo.",
         ]
     ],
     "about_us" => [
