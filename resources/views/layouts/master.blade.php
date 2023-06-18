@@ -56,7 +56,7 @@
 
             @media(min-width:1024px){
                 .fs-big,.fs-big *{
-                    font-size: 5rem;
+                    font-size: 3.2rem;
                 }
             }
             /*components*/

@@ -32,8 +32,8 @@
     <div class="container-fluid bg-arch">
         <div class="row">
             <div class="col-md-8 offset-md-2 px-0 text-center m-font">
-                <h2 class="fs-1 my-5 m-color">{{ __('pages/home.home.txt_hero.txt1') }}</h2>
-                <h1 class="fs-1 my-5 s-color">{{ __('pages/home.home.txt_hero.txt2') }}</h1>
+                <h1 class="fs-1 my-5 m-color">{{ __('pages/home.home.txt_hero.txt1') }}</h1>
+                <h3 class="fs-1 my-5 s-color">{{ __('pages/home.home.txt_hero.txt2') }}</h3>
                 <h2 class="fs-big my-3 my-md-5 pb-md-5 pb-3 px-2 px-md-0 m-color text-break">{{ __('pages/home.home.txt_hero.txt3') }}</h2>
             </div>
         </div>
