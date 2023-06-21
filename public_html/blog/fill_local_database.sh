@@ -5,8 +5,8 @@ git fetch
 git pull
 
 # Variables
-DB_USER="u606769855_cabodrivers_bl"
-DB_PASSWORD="Wifislaxutf-8"
+DB_USER="root"
+DB_PASSWORD="root"
 DB_NAME="u606769855_cabodrivers_bl"
 DUMP_DIR="sql_dumps/"
 
