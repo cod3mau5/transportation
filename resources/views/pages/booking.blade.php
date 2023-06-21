@@ -146,6 +146,9 @@
                     <li class="nav-item">
                         <a class="nav-link text-white"  href="{{route('book-now')}}">@{{ text.header.book_now }}</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white"  href="{{route('book-now')}}">@{{ text.header.things_to_do }}</a>
+                    </li>
                     </ul>
 
                 </div>

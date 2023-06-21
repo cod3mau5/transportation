@@ -43,6 +43,9 @@
               <li class="nav-item">
                 <a class="nav-link text-white" href="{{route('book-now')}}" tabindex="-1" aria-disabled="true">{{ __("pages/includes/header.menu.book_now") }}</a>
               </li>
+              <li class="nav-item">
+                <a class="nav-link text-white" href="/blog" tabindex="-1" aria-disabled="true">{{ __("pages/includes/header.menu.things_to_do") }}</a>
+              </li>
             </ul>
 
           </div>
