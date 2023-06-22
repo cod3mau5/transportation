@@ -1,0 +1,287 @@
+/*
+* Skeleton V2.0.4
+* Copyright 2014, Dave Gamache
+* www.getskeleton.com
+* Free to use under the MIT license.
+* http://www.opensource.org/licenses/mit-license.php
+* 12/29/2014
+*/
+
+
+/* Table of contents
+––––––––––––––––––––––––––––––––––––––––––––––––––
+- Grid
+- Base Styles
+- Typography
+- Code
+- Tables
+- Spacing
+- Utilities
+- Clearing
+- Media Queries
+*/
+
+/* Grid
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.container {
+  position: relative;
+  width: 85%;
+  max-width: 1140px;
+  margin: 0 auto;
+  box-sizing: border-box; }
+.column,
+.columns {
+  width: 100%;
+  padding: 0 1.6rem;
+  float: left;
+  box-sizing: border-box; }
+.vertical-center { display: unset; }
+
+/* For devices larger than 400px */
+@media (min-width: 400px) {
+  .container {
+    padding: 0; }
+}
+
+/* For devices Smaller than 600px */
+@media (max-width: 600px) {
+  .container {
+    width: 100%;
+  }
+
+}
+
+/* For devices larger than 767px */
+@media (min-width: 767.98px) {
+  .container {
+    padding: 0;
+  }
+
+  .three.columns                  { width: 50%; }
+  .four.columns                   { width: 50%; }
+  .six.columns                    { width: 50%; }
+
+  .one-third.column               { width: 50%; }
+  .two-thirds.column              { width: 50%; }
+
+  .one-half.column                { width: 50%; }
+}
+
+/* For devices larger than 991px */
+@media (min-width: 991.98px) {
+
+  .vertical-center {
+    display: flex;
+    align-items: center;
+  }
+
+  .one.column,
+  .one.columns                    { width: 8.33%; }
+  .two.columns                    { width: 16.6666666667%; }
+  .three.columns                  { width: 25%;          }
+  .four.columns                   { width: 33.3333333333%; }
+  .five.columns                   { width: 41.6666666667%; }
+  .six.columns                    { width: 50%;            }
+  .seven.columns                  { width: 58.3333333333%; }
+  .eight.columns                  { width: 66.6666666667%; }
+  .nine.columns                   { width: 75%;            }
+  .ten.columns                    { width: 83.3333333333%; }
+  .eleven.columns                 { width: 91.67%; }
+  .twelve.columns                 { width: 100%; margin-left: 0; }
+
+  .one-third.column               { width: 33.3333333333%; }
+  .two-thirds.column              { width: 66.6666666667%; }
+
+  .one-half.column                { width: 50%; }
+
+  /* Offsets */
+  .offset-by-one.column,
+  .offset-by-one.columns          { margin-left: 8.33%; }
+  .offset-by-two.column,
+  .offset-by-two.columns          { margin-left: 16.6666666667%; }
+  .offset-by-three.column,
+  .offset-by-three.columns        { margin-left: 25%;            }
+  .offset-by-four.column,
+  .offset-by-four.columns         { margin-left: 33.3333333333%; }
+  .offset-by-five.column,
+  .offset-by-five.columns         { margin-left: 41.67; }
+  .u-full-width .offset-by-six.column,
+  .u-full-width .offset-by-six.columns          { margin-left: 50%;            }
+  .offset-by-six.column,
+  .offset-by-six.columns          { margin-left: 50%;            }
+  .offset-by-seven.column,
+  .offset-by-seven.columns        { margin-left: 58.3333333333%; }
+  .offset-by-eight.column,
+  .offset-by-eight.columns        { margin-left: 66.6666666667%; }
+  .offset-by-nine.column,
+  .offset-by-nine.columns         { margin-left: 75.0%;          }
+  .offset-by-ten.column,
+  .offset-by-ten.columns          { margin-left: 83.3333333333%; }
+  .offset-by-eleven.column,
+  .offset-by-eleven.columns       { margin-left: 91.67%; }
+
+  .offset-by-one-third.column,
+  .offset-by-one-third.columns    { margin-left: 33.3333333333%; }
+  .offset-by-two-thirds.column,
+  .offset-by-two-thirds.columns   { margin-left: 66.6666666667%; }
+
+  .offset-by-one-half.column,
+  .offset-by-one-half.columns     { margin-left: 50%; }
+
+}
+
+
+/* Base Styles
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+/* NOTE
+html is set to 62.5% so that all the REM measurements throughout Skeleton
+are based on 10px sizing. So basically 1.5rem = 15px :) */
+html {
+  font-size: 62.5%; }
+body {
+  font-size: 1.6em; /* currently ems cause chrome bug misinterpreting rems on body element */
+  line-height: 1.6;
+  font-weight: 400;
+  font-family: "Rubik", "Open Sans", "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #656565;
+  background-color: #f7f8f8;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-smoothing: antialiased;}
+
+
+/* Typography
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+  margin-bottom: 2rem;
+  font-weight: 300;
+  font-family: "Rubik", "Open Sans", 'Montserrat', sans-serif; }
+h1 { font-size: 5.0rem; font-weight: 700; line-height: 1.2;  letter-spacing: -.1rem;}
+h2 { font-size: 4.4rem; line-height: 1.25; letter-spacing: -.1rem; }
+h3 { font-size: 3.0rem; line-height: 1.3;  letter-spacing: -.1rem; }
+h4 { font-size: 2.4rem; line-height: 1.35; letter-spacing: -.08rem; }
+h5 { font-size: 1.8rem; line-height: 1.5;  letter-spacing: -.05rem; }
+h6 { font-size: 1.5rem; line-height: 1.6;  letter-spacing: 0; }
+
+/* Larger than phablet */
+@media (min-width: 550px) {
+  h3 { font-size: 3.6rem; }
+  h4 { font-size: 3.0rem; }
+  h5 { font-size: 2.4rem; }
+  h6 { font-size: 1.5rem; }
+}
+
+p {
+  margin-top: 0;
+  font-family: "Rubik", "Open Sans", 'Lato', sans-serif;
+  font-weight: 400;
+  font-size: 1.6rem; }
+
+
+/* Code
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+code {
+    padding: 0.6rem .4rem;
+    font-size: 90%;
+    background-color: #f7f7f9;
+    border-radius: 0.25rem;
+    line-height: 1;
+}
+pre > code {
+  display: block;
+  padding: 1rem 1.5rem;
+  white-space: pre; }
+kbd {
+  padding: 0.6rem 0.4rem;
+  font-size: 90%;
+  color: #fff;
+  background-color: #292b2c;
+  border-radius: 0.2rem;
+}
+
+/* Tables
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+th,
+td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #E1E1E1; }
+th:first-child,
+td:first-child {
+  padding-left: 0; }
+th:last-child,
+td:last-child {
+  padding-right: 0; }
+
+
+/* Spacing
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+button,
+.button {
+  margin-bottom: 1rem; }
+input,
+textarea,
+select,
+fieldset {
+  margin-bottom: 1.5rem; }
+pre,
+blockquote,
+dl,
+figure,
+table,
+p,
+ul,
+ol,
+form {
+  margin-bottom: 0; }
+
+
+/* Utilities
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.u-full-width {
+  width: 100%;
+  box-sizing: border-box; }
+.u-max-full-width {
+  max-width: 100%;
+  box-sizing: border-box; }
+.u-pull-right {
+  float: right; }
+.u-pull-left {
+  float: left; }
+
+
+
+/* Clearing
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+/* Self Clearing Goodness */
+.container:after,
+.row:after,
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both; }
+
+
+/* Media Queries
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+/*
+Note: The best way to structure the use of media queries is to create the queries
+near the relevant code. For example, if you wanted to change the styles for buttons
+on small devices, paste the mobile query code up in the buttons section and style it
+there.
+*/
+
+/* Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) {}
+
+/* Small devices (landscape phones, less than 768px) */
+@media (max-width: 767.98px) {}
+
+/* Medium devices (tablets, less than 992px) */
+@media (max-width: 991.98px) {}
+
+/* Large devices (desktops, less than 1200px) */
+@media (max-width: 1199.98px) {}

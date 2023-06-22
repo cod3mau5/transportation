@@ -1,0 +1,365 @@
+// out: false
+
+/* Navigation Menu */
+
+.site-header {
+    .row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        &::after {
+            content: none;
+        }
+    }
+
+    .site-branding {
+        margin-top: .6rem;
+        float: left;
+    }
+
+    .menu-all-pages-container {
+        float: right;
+    }
+}
+
+.site-branding {
+
+    .custom-logo-link,
+    .custom-logo-dark {
+        img {
+            max-width: 220px;
+            height: auto;
+        }
+    }
+}
+
+.admin-bar {
+    .site-header {
+        top: 3.2rem;
+    }
+}
+
+@media screen and (max-width: 782px) {
+    .admin-bar {
+        .site-header {
+            top: 4.6rem;
+        }
+    }
+}
+
+/* For devices smaller than 991.98px */
+@media (max-width: 991.98px) {
+    .site-header {
+        .site-branding {
+            float: none;
+        }
+    }
+}
+
+nav {
+    // float: right;
+    position: relative;
+    z-index: 2;
+}
+
+nav a {
+    font-size: 1.6rem;
+    font-weight: 700;
+}
+
+.main-nav li {
+    list-style-type: none;
+}
+
+.main-nav>li {
+    float: left;
+}
+
+.main-nav li a:hover {
+    color: @primary-color;
+}
+
+.main-nav>li>a {
+    color: @dark-color;
+    display: block;
+    padding: 2.2rem 1.6rem;
+}
+
+.sub-menu {
+    li {
+        margin-bottom: .6rem;
+    }
+}
+
+.main-nav>.menu-item-has-children>ul {
+    background-color: #fff;
+
+    position: absolute;
+    padding: 1.6rem 2.4rem;
+    width: 220px;
+
+    opacity: 0;
+    visibility: hidden;
+
+    -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    -o-transition: all .3s;
+    transition: all .3s;
+}
+
+.main-nav>.menu-item-has-children:hover>ul {
+    border-bottom: 1px solid @primary-color;
+    opacity: 1;
+    visibility: visible;
+}
+
+.main-nav .menu-item-has-children>a:after {
+    content: "\f107";
+    padding-left: 6px;
+    font: normal normal normal 16px/1 FontAwesome;
+}
+
+.main-nav .menu-item-has-children .menu-item-has-children>ul {
+    background-color: #fff;
+
+    position: absolute;
+    margin-left: -1.1rem;
+    padding: 1.6rem 2.4rem;
+    border-left: 1px solid @primary-color;
+    width: 185px;
+    left: 100%;
+
+    opacity: 0;
+    visibility: hidden;
+
+    -webkit-transform: translateY(-2.4rem);
+    -moz-transform: translateY(-2.4rem);
+    -o-transform: translateY(-2.4rem);
+    transform: translateY(-2.4rem);
+
+    -webkit-transition: all .2s;
+    -moz-transition: all .2s;
+    -o-transition: all .2s;
+    transition: all .2s;
+}
+
+.main-nav .menu-item-has-children .menu-item-has-children:hover>ul,
+.main-nav .menu-item-has-children .menu-item-has-children>ul.is-focused {
+    opacity: 1;
+    visibility: visible;
+}
+
+.main-nav .menu-item-has-children .menu-item-has-children>a:after {
+    content: "\f105";
+    display: inline-block;
+
+    font: normal normal normal 1.6rem/1 FontAwesome;
+
+    right: 0;
+    padding-top: .4rem;
+    padding-right: 2.4rem;
+    position: absolute;
+}
+
+.main-nav li ul li a {
+    color: @dark-color;
+}
+
+.menu-item-has-children>ul.is-focused {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Mobile Navigation Menu */
+
+.mobile-menu-container {
+    position: absolute;
+    top: 0;
+    right: 3.2rem;
+}
+
+.menubar-right,
+.menubar-close {
+    cursor: pointer;
+    position: absolute;
+    font-size: 2.7rem;
+
+    right: 0;
+    top: 2.4rem;
+    z-index: 2;
+}
+
+.menubar-right {
+    position: relative;
+}
+
+.menubar-right {
+    top: 0;
+}
+
+.menubar-close {
+    right: 0;
+    top: 0;
+    padding: .45rem .75rem .6rem;
+    line-height: 1;
+    background-color: @primary-color;
+    color: @white-color;
+
+    &:hover {
+        color: @white-color;
+    }
+}
+
+.has-logo {
+    top: 1.2rem;
+}
+
+.admin-bar .mobile-menu-open {
+    top: 32px;
+}
+
+@media screen and (max-width: 782px) {
+    .admin-bar .mobile-menu-open {
+        top: 46px;
+    }
+}
+
+.dropdown-toggle {
+    cursor: pointer;
+    font-size: 2.2rem;
+    padding: 0 1rem;
+
+    position: absolute;
+    top: -5px;
+    right: -.1rem;
+
+    -webkit-transition: -webkit-transform .2s ease-out;
+    -moz-transition: -moz-transform .2s ease-out;
+    -o-transition: -o-transform .2s ease-out;
+    transition: transform .2s ease-out;
+}
+
+.nav-parent {
+    background-color: #fff;
+    border-left: 1px solid #e3e3e3;
+
+    padding: 4rem;
+    position: fixed;
+    overflow-y: scroll;
+
+    top: 0;
+    right: 0;
+    bottom: 0;
+
+    max-width: 35rem;
+    width: 100%;
+    visibility: hidden;
+
+    z-index: 9902;
+
+    -webkit-transition: all .2s;
+    -moz-transition: all .2s;
+    -o-transition: all .2s;
+    transition: all .2s ease;
+
+    -webkit-transform: translate3d(100%, 0, 0);
+    transform: translate3d(100%, 0, 0);
+    .shadow();
+}
+
+.mobile-menu-open {
+    -webkit-transform: translate3d(0, 0, 0) !important;
+    transform: translate3d(0, 0, 0) !important;
+    visibility: visible;
+
+    .mobile-nav>li>ul {
+        padding-left: 0;
+        margin-left: 10px;
+    }
+}
+
+.mobile-nav li {
+    position: relative;
+    list-style-type: none;
+}
+
+.mobile-nav>li {
+    border-bottom: 1px solid #e3e3e3;
+}
+
+.mobile-nav>li:last-child {
+    border-bottom: none;
+}
+
+.mobile-nav li a {
+    padding: 1rem;
+    display: block;
+}
+
+.mobile-nav li ul li ul a,
+.mobile-nav li ul a {
+    display: block;
+}
+
+.mobile-nav>li>ul {
+    display: none;
+    padding-left: 1.6rem;
+}
+
+.mobile-nav>li>ul>li>ul {
+    display: none;
+    padding-left: 1.6rem;
+}
+
+.toggled {
+    -o-transform: rotate(-180deg);
+    -ms-transform: rotate(-180deg);
+    -webkit-transform: rotate(-180deg);
+    transform: rotate(-180deg);
+}
+
+/**
+ *
+ * #.# Media Queries
+ *
+ */
+
+/* Medium devices (tablets, less than 992px) */
+@media (max-width: 991px) {
+    .main-nav {
+        display: none;
+    }
+}
+
+/* Larger than tablet */
+@media (min-width: 992px) {
+    .mobile-navigation {
+        display: none;
+    }
+}
+
+.highlight {
+    position: relative;
+}
+
+ul .highlight::after {
+    content: "\f111";
+    font-family: Fontawesome;
+    font-size: 1rem;
+    position: absolute;
+    right: 1rem;
+    top: 1.2rem;
+    color: @primary-color;
+}
+
+.menu-item-has-children::after {
+    right: 1.6rem !important;
+}
+
+/* Medium devices (tablets, less than 992px) */
+@media (max-width: 991px) {
+    ul .highlight::after {
+        top: .4rem;
+    }
+}

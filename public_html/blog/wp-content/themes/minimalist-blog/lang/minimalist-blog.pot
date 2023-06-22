@@ -1,0 +1,217 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"Project-Id-Version: Minimalist Blog\n"
+"POT-Creation-Date: 2019-03-20 06:08+0530\n"
+"PO-Revision-Date: 2019-03-20 06:08+0530\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.0.3\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: style.css\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: 404.php:16
+msgid "Oops! That page can&rsquo;t be found."
+msgstr ""
+
+#: 404.php:19
+msgid "It looks like nothing was found at this location. Maybe try a search?"
+msgstr ""
+
+#: comments.php:23
+msgid "No Responses"
+msgstr ""
+
+#: comments.php:24
+msgid "One Response"
+msgstr ""
+
+#: comments.php:25
+msgid "% Responses"
+msgstr ""
+
+#: comments.php:41
+msgid "Previous"
+msgstr ""
+
+#: comments.php:42 template-parts/pagination/pagination.php:25
+msgid "Next"
+msgstr ""
+
+#: comments.php:49
+msgid "Comments are closed."
+msgstr ""
+
+#: inc/custom-functions.php:16
+msgctxt "Lora font: on or off"
+msgid "on"
+msgstr ""
+
+#: inc/custom-functions.php:17
+msgctxt "Rubik font: on or off"
+msgid "on"
+msgstr ""
+
+#: inc/custom-widgets.php:11
+msgid "Sidebar"
+msgstr ""
+
+#: inc/custom-widgets.php:13
+msgid "Add widgets here to appear in your single post sidebar area."
+msgstr ""
+
+#: inc/custom-widgets.php:21
+msgid "Footer Left"
+msgstr ""
+
+#: inc/custom-widgets.php:23
+msgid "Add widgets here to appear on your left footer section."
+msgstr ""
+
+#: inc/custom-widgets.php:31
+msgid "Footer Middle"
+msgstr ""
+
+#: inc/custom-widgets.php:33
+msgid "Add widgets here to appear on your middle footer section."
+msgstr ""
+
+#: inc/custom-widgets.php:41
+msgid "Footer Right"
+msgstr ""
+
+#: inc/custom-widgets.php:43
+msgid "Add widgets here to appear on your right footer section."
+msgstr ""
+
+#: inc/customizer.php:21
+msgid "Primary color"
+msgstr ""
+
+#: inc/theme-setup.php:37
+msgid "Header Menu"
+msgstr ""
+
+#: inc/theme-setup.php:38
+msgid "Mobile Menu"
+msgstr ""
+
+#: search.php:15
+msgid "Search results for: "
+msgstr ""
+
+#: template-parts/content/content-excerpt.php:39
+#: template-parts/content/content-single.php:64
+#: template-parts/content/content.php:40
+msgid " / "
+msgstr ""
+
+#: template-parts/content/content-excerpt.php:51
+#: template-parts/content/content.php:52
+msgid "0 Comment"
+msgstr ""
+
+#: template-parts/content/content-excerpt.php:51
+#: template-parts/content/content.php:52
+msgid "1 Comment"
+msgstr ""
+
+#: template-parts/content/content-excerpt.php:51
+#: template-parts/content/content.php:52
+msgid "% Comments"
+msgstr ""
+
+#: template-parts/content/content-none.php:14
+msgid "Nothing Found"
+msgstr ""
+
+#. translators: 1: link to WP admin new post page.
+#: template-parts/content/content-none.php:23
+#, php-format
+msgid ""
+"Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr ""
+
+#: template-parts/content/content-none.php:36
+msgid ""
+"Sorry, but nothing matched your search terms. Please try again with some "
+"different keywords."
+msgstr ""
+
+#: template-parts/content/content-none.php:43
+msgid ""
+"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
+"searching can help."
+msgstr ""
+
+#. translators: %s: Name of current post
+#: template-parts/content/content-page.php:24
+#: template-parts/content/content-single.php:30
+#, php-format
+msgid "<span class=\"screen-reader-text\"> \"%s\"</span>"
+msgstr ""
+
+#: template-parts/content/content-page.php:33
+#: template-parts/content/content-single.php:40
+msgid "Continue Reading:"
+msgstr ""
+
+#. translators: %s: Name of current post
+#: template-parts/content/content-single.php:53
+#, php-format
+msgid "Edit %s"
+msgstr ""
+
+#: template-parts/content/content-single.php:91
+msgid "Previous Post"
+msgstr ""
+
+#: template-parts/content/content-single.php:99
+msgid "Next Post"
+msgstr ""
+
+#: template-parts/content/content-single.php:113
+msgid "About the author"
+msgstr ""
+
+#: template-parts/content/content-single.php:120
+msgid "Visit Website"
+msgstr ""
+
+#: template-parts/pagination/pagination.php:24
+msgid "Prev"
+msgstr ""
+
+#: template-parts/pagination/pagination.php:26
+msgid "Page"
+msgstr ""
+
+#. Theme Name of the plugin/theme
+msgid "Minimalist Blog"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"Minimalist Blog is a multipurpose blog theme that can be used for all types "
+"of blogs for example travel blog, news blog, personal blog etc. The theme "
+"option makes it very easy to customize the theme."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Crafthemes"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "https://www.crafthemes.com/"
+msgstr ""

@@ -1,0 +1,256 @@
+/**
+ * --------------------------------------------------------------------------------
+ * Main Stylesheet
+ * --------------------------------------------------------------------------------
+*/
+
+.transition(@property) {
+    -webkit-transition: @property;
+    -ms-transition: @property;
+    transition: @property;
+}
+
+@primary-color: #43c6ac;
+@secondary-color: #f8ffae;
+@white-color: #fff;
+@dark-color: #444;
+@border-color: #e0e0e0;
+@footer-bg-color: #282f35;
+
+@font-size: 1.6rem;
+@line-height: @font-size*1.5;
+@base-margin: 1.6rem*1.5;
+@theme-margin: @line-height*3;
+
+/**
+ *
+ * #.# General
+ *
+ */
+ul,
+ol {
+    margin: 0;
+    padding: 0;
+    list-style-position: inside;
+}
+
+a {
+    text-decoration: none;
+    color: @dark-color;
+    font-weight: 500;
+    -ms-word-wrap: break-word;
+    word-wrap: break-word;
+    transition: all .2s ease;
+
+    &:hover {
+        color: @primary-color;
+    }
+}
+
+a,
+a:hover,
+a:focus {
+    // outline: 0;
+    transition: all .3s ease;
+}
+
+/* Text selection color */
+
+/* Mozilla based browser */
+::-moz-selection {
+    background-color: @primary-color;
+    color: #fff;
+}
+
+/* Opera browser */
+::-o-selection {
+    background-color: @primary-color;
+    color: #fff;
+}
+
+/* Internet Explorer browser*/
+::-ms-selection {
+    background-color: @primary-color;
+    color: #fff;
+}
+
+/* Chrome and safari browser */
+::-webkit-selection {
+    background-color: @primary-color;
+    color: #fff;
+}
+
+/* Default */
+::selection {
+    background-color: @primary-color;
+    color: #fff;
+}
+
+.right {
+    float: right;
+}
+
+.white {
+    background-color: @white-color;
+}
+
+.dark {
+    background-color: #f9f8f8;
+}
+
+.center {
+    text-align: center;
+}
+
+.bold {
+    font-weight: 700;
+}
+
+.shadow {
+    box-shadow: 0 14px 28px -4px rgba(14, 17, 20, 0.1);
+}
+
+.slick-dots li.slick-active button:before {
+    color: @white-color;
+}
+
+.slick-dots li button:before {
+    font-size: @font-size*3;
+    color: @white-color;
+}
+
+.parallax {
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.vertical-align {
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex !important;
+    /** Overrides other display properties to make the contents align vertically **/
+
+    align-items: center;
+}
+
+.bordered {
+    border-bottom: 1px solid @border-color;
+}
+
+.underline {
+    display: inline-block;
+    margin-bottom: 1rem;
+    height: .2rem;
+    width: 5rem;
+    background-color: @primary-color;
+}
+
+.container {
+    padding: @theme-margin 0;
+}
+
+.u-full-width {
+    padding: @theme-margin 0;
+
+    .container {
+        padding: 0;
+    }
+}
+
+/**
+ *
+ * #.# Header
+ *
+ */
+
+/* Header Container */
+
+.sticky-header {
+    padding-top: 10rem;
+}
+
+.site-header {
+    background-color: @white-color;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 1.5rem 0;
+    width: 100%;
+    z-index: 9;
+    transition: .3s all ease;
+
+    .row {
+        padding: 0 1.6rem;
+    }
+}
+
+.stuck {
+    z-index: 9;
+    padding: 0;
+    box-shadow: 0 14px 28px -4px rgba(14, 17, 20, 0.1);
+}
+
+header>.container {
+    padding: 0;
+    width: 85%;
+}
+
+/* For devices Smaller than 600px */
+@media (max-width: 600px) {
+
+    header>.container {
+        padding: 0;
+        width: 85%;
+    }
+
+    .site-header .row {
+        padding: 0 1.6rem 0 0 !important;
+    }
+}
+
+/**
+ *
+ * #.# Misc
+ *
+ */
+
+.wp-block-gallery .blocks-gallery-image figcaption,
+.wp-block-gallery .blocks-gallery-item figcaption {
+    padding: 0;
+}
+
+.widgetarea {
+    .menu {
+        ul {
+            margin-left: 0;
+        }
+    }
+}
+
+footer,
+.ct-bottom-bar,
+.top-bar {
+    .container {
+        padding: 0;
+    }
+}
+
+.site-title {
+    margin: 1rem 0px;
+
+    a {
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flex;
+        display: -o-flex;
+        display: flex;
+
+        &:hover {
+            color: unset !important;
+        }
+    }
+}

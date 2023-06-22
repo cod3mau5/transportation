@@ -1,0 +1,298 @@
+// out: false
+
+/**
+ * --------------------------------------------------------------------------------
+ * Comments Template
+ * --------------------------------------------------------------------------------
+*/
+
+.logged-in {
+    .comment-message-section {
+        width: 100%;
+    }
+}
+
+.comment-message-section,
+.comment-author-section {
+    width: 49%;
+    float: left;
+}
+
+.comment-author-section {
+    padding-left: 2%;
+
+    >div {
+        margin-bottom: .3rem;
+    }
+}
+
+label {
+    display: block;
+    color: @dark-color;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+input,
+input[type="text"],
+input[type="email"],
+input[type="url"],
+textarea {
+    background-color: @white-color;
+    border: 1px solid @white-color;
+    border-bottom-color: #e3e5e6;
+    margin-bottom: .5rem;
+    padding: 0 1rem;
+    width: 100%;
+    box-sizing: border-box;
+    transition: border-bottom-color 0.2s ease;
+
+    &:hover {
+        border-bottom-color: @primary-color;
+    }
+}
+
+.wpcf7-submit {
+    border: 1px solid #e3e5e6;
+}
+
+.comment-form-cookies-consent {
+    float: left;
+
+    * {
+        display: inline;
+    }
+}
+
+#wp-comment-cookies-consent {
+    margin-right: 1rem;
+    margin-bottom: 0;
+}
+
+// .comment-form-cookies-consent label {
+    //     display: inline-block;
+    //     margin-bottom: 0;
+    // }
+
+input,
+input[type="text"],
+input[type="email"],
+input[type="url"] {
+    height: 4rem;
+}
+
+.submit>button {
+    margin-top: 1rem;
+    text-transform: uppercase;
+    padding: 0 2rem;
+    height: 4.5rem;
+}
+
+.form-submit #submit {
+    background-color: #ffffff;
+    font-size: 1.5rem;
+    margin: 0;
+    padding: 0 1.5rem;
+    width: 100%;
+    height: 4rem;
+    text-align: center;
+    position: relative;
+    border: 1px solid #ffffff;
+    border-bottom-color: @primary-color;
+    box-sizing: border-box;
+    transition: border-bottom-color 0.2s ease;
+
+    &:hover {
+        border-bottom-color: #e3e5e6;
+    }
+}
+
+.author-image {
+    float: left;
+    padding-right: .6rem;
+}
+
+.author-image img {
+    border-radius: 100%;
+    width: 5rem;
+    height: 5rem;
+}
+
+.ct-has-description img {
+    width: 10rem;
+}
+
+.comment-wrapper {
+    display: table;
+    padding-left: 1.6rem;
+    border-left: 1px dotted #1f1f1f;
+    margin-bottom: 3.6rem;
+}
+
+.comment-wrapper p {
+    margin-bottom: 0;
+}
+
+#comments {
+    margin-top: @base-margin;
+
+    ol {
+        list-style-type: none;
+    }
+}
+
+.comment-author {
+    .fn {
+        a {
+            font-weight: 500;
+        }
+    }
+}
+
+.comment-author img {
+    float: left;
+    border-radius: 50%;
+    margin-right: 2rem;
+}
+
+.comment-author .says {
+    display: none;
+}
+
+.comment-meta {
+    margin-bottom: 1rem;
+}
+
+.comment-meta a {
+    font-weight: 400;
+}
+
+.reply {
+    display: block;
+    text-align: right;
+}
+
+.comment {
+    border-top: 2px solid @primary-color;
+
+    article {
+        margin-bottom: @base-margin;
+        padding: @base-margin;
+        background-color: @white-color;
+        .shadow;
+    }
+}
+
+.trackback,
+.pingback {
+    margin-bottom: @base-margin;
+}
+
+.comment p {
+    margin-bottom: 1rem;
+}
+
+.comment .children {
+    margin-left: 6rem;
+}
+
+.comment-time {
+    font-size: 1.4rem;
+    font-weight: 400;
+}
+
+.comments-pagination {
+    margin-bottom: 2.4rem;
+}
+
+.comments-pagination .nav-links {
+    margin-right: 1rem;
+}
+
+.comments-pagination .nav-links>.next {
+    margin-right: 0;
+}
+
+.comments-pagination .nav-links>.next,
+.comments-pagination .nav-links>.prev {
+    position: relative;
+    top: .2rem;
+}
+
+.author-link {
+    margin-top: 1rem;
+}
+
+.bypostauthor {
+    border-top: unset !important;
+    /* Override if posted by admin */
+
+    article {
+        border: 2px solid @primary-color;
+    }
+}
+
+/**
+ * Comment Form Defaults styling
+ */
+
+.form-submit {
+    margin-top: 1rem;
+}
+
+.comment-form-comment {
+    width: 49%;
+    float: left;
+}
+
+.comment-form-author,
+.comment-form-email,
+.comment-form-url {
+    width: 49%;
+    float: right;
+}
+
+.logged-in {
+    .comment-form-comment {
+        width: 100%;
+        float: unset;
+    }
+}
+
+/* General Updates */
+// #commentform * {
+//     outline: 0;
+// }
+
+.comment-metadata time,
+.edit-link,
+.edit-link * {
+    font-size: 12px;
+    color: rgba(0, 0, 0, 0.3);
+}
+
+.comment-metadata {
+    line-height: 0.8;
+}
+
+// Admin Reply Message Style
+.bypostauthor {
+    position: relative;
+
+    article {
+        border: unset;
+        border-top: 2px solid @primary-color;
+
+        &::before {
+            content: "Admin";
+            position: absolute;
+            top: 0;
+            right: 0;
+
+            color: @white-color;
+            background: @primary-color;
+            padding: 0 5px;
+            font-size: 12px;
+        }
+    }
+}

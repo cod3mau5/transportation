@@ -1,0 +1,121 @@
+// out: ../main.css
+
+/* Theme Specific*/
+:root {
+    --padding-text: 5px 10px;
+    --padding-small: 15px;
+    --padding-inner: 50px;
+    --space-5: 5px;
+    --radius-small: 3px;
+
+    --color-border: #e1e1e1;
+    --color-shaded: #989ea6;
+    --color-white: #fff;
+    --color-dark: #333;
+    --color-primary: #43c6ac;
+
+    --margin-h2: 14px;
+    --font-h2: 32px;
+    --font-small: 14px;
+}
+
+.container.home-section {
+    padding-bottom: 0;
+}
+
+.meet-minimalist-style {
+
+    // Typography
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    blockquote {
+        font-family: 'Poppins', sans-serif;
+        font-weight: 700;
+        letter-spacing: 0px;
+    }
+
+    p {
+        font-family: 'Inter', sans-serif;
+        font-weight: 400;
+    }
+
+    .single-masonry img {
+        border-top-right-radius: 4px;
+        border-top-left-radius: 4px;
+    }
+
+    .single-masonry .post-date {
+        border-radius: 3px;
+    }
+
+    .single-masonry .post-date span {
+        font-weight: 400;
+    }
+
+    .featured-single-image img {
+        border-top-right-radius: 4px;
+        border-top-left-radius: 4px;
+    }
+
+    .single-masonry .post-date {
+        left: 23px;
+    }
+
+    .item-block {
+        border-radius: 4px;
+
+        .post-excerpt .post-date {
+            border-radius: 4px;
+        }
+
+        .post-featured img {
+            border-radius: 4px;
+        }
+    }
+
+    .sub-menu {
+        box-shadow: 0 14px 28px -4px rgba(14, 17, 20, 0.1);
+    }
+
+    .mobile-nav .sub-menu {
+        box-shadow: unset;
+    }
+
+    .no-featured-image {
+        .ct-caption {
+            text-align: center;
+        }
+    }
+
+    .sub-menu .menu-item {
+        border-bottom: 1px solid #e0e0e0;
+        margin-bottom: 10px;
+        padding-bottom: 10px;
+    }
+
+    .sub-menu .menu-item {
+        border-bottom: 1px solid #e0e0e0;
+        margin-bottom: 10px;
+        padding-bottom: 10px;
+    }
+
+    .sub-menu .menu-item:last-child {
+        border-bottom: unset;
+        margin-bottom: 0;
+        padding-bottom: 0;
+    }
+
+    .comment {
+        article {
+            border-bottom-left-radius: 4px;
+            border-bottom-right-radius: 4px;
+        }
+    }
+}
+
+@import "slider";
+@import "panel";
