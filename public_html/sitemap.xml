@@ -3,44 +3,62 @@
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
     <url>
         <loc>https://cabodrivers.com/</loc>
-        <lastmod>2023-06-11T07:32:05+00:00</lastmod>
+        <lastmod>2023-06-22T17:42:19+00:00</lastmod>
         <priority>1.00</priority>
     </url>
     <url>
-        <loc>https://cabodrivers.com/?language=0</loc>
-        <lastmod>2023-06-11T07:32:05+00:00</lastmod>
-        <priority>0.90</priority>
-    </url>
-    <url>
-        <loc>https://cabodrivers.com/book-now/1</loc>
-        <lastmod>2023-06-11T07:32:05+00:00</lastmod>
+        <loc>https://cabodrivers.com/gallery</loc>
+        <lastmod>2023-06-22T17:42:19+00:00</lastmod>
         <priority>0.80</priority>
     </url>
     <url>
-        <loc>https://cabodrivers.com/book-now/0</loc>
-        <lastmod>2023-06-11T07:32:05+00:00</lastmod>
+        <loc>https://cabodrivers.com/contact-us</loc>
+        <lastmod>2023-06-22T17:42:19+00:00</lastmod>
         <priority>0.80</priority>
     </url>
     <url>
-        <loc>https://cabodrivers.com/gallery/1</loc>
-        <lastmod>2023-06-11T07:32:05+00:00</lastmod>
+        <loc>https://cabodrivers.com/book-now</loc>
+        <lastmod>2023-06-22T17:42:19+00:00</lastmod>
+        <priority>0.80</priority>
+    </url>
+    <url>
+        <loc>https://cabodrivers.com/blog/</loc>
+        <lastmod>2023-06-22T17:42:19+00:00</lastmod>
+        <priority>0.80</priority>
+    </url>
+    <url>
+        <loc>https://cabodrivers.com/book-now?1</loc>
+        <lastmod>2023-06-22T17:42:19+00:00</lastmod>
+        <priority>0.80</priority>
+    </url>
+    <url>
+        <loc>
+            https://cabodrivers.com/blog/the-ultimate-guide-to-cabo-san-lucas-transportation-services-how-to-get-around-hassle-free/</loc>
+        <lastmod>2023-06-22T17:42:19+00:00</lastmod>
         <priority>0.64</priority>
     </url>
     <url>
-        <loc>https://cabodrivers.com/gallery/0</loc>
-        <lastmod>2023-06-11T07:32:05+00:00</lastmod>
+        <loc>https://cabodrivers.com/blog/author/king/</loc>
+        <lastmod>2023-06-22T17:42:19+00:00</lastmod>
         <priority>0.64</priority>
     </url>
     <url>
-        <loc>https://cabodrivers.com/contact-us/1</loc>
-        <lastmod>2023-06-11T07:32:05+00:00</lastmod>
+        <loc>https://cabodrivers.com/blog/category/guides/</loc>
+        <lastmod>2023-06-22T17:42:19+00:00</lastmod>
         <priority>0.64</priority>
     </url>
     <url>
-        <loc>https://cabodrivers.com/contact-us/0</loc>
-        <lastmod>2023-06-11T07:32:05+00:00</lastmod>
-        <priority>0.64</priority>
+        <loc>https://cabodrivers.com/blog/tag/tips/</loc>
+        <lastmod>2023-06-22T17:42:19+00:00</lastmod>
+        <priority>0.51</priority>
     </url>
+    <url>
+        <loc>https://cabodrivers.com/blog/2023/06/</loc>
+        <lastmod>2023-06-22T17:42:19+00:00</lastmod>
+        <priority>0.51</priority>
+    </url>
+
 </urlset>
