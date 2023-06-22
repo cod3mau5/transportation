@@ -6,58 +6,69 @@
 
     <url>
         <loc>https://cabodrivers.com/</loc>
-        <lastmod>2023-06-22T17:42:19+00:00</lastmod>
+        <lastmod>2023-06-22T20:12:03+00:00</lastmod>
         <priority>1.00</priority>
     </url>
     <url>
         <loc>https://cabodrivers.com/gallery</loc>
-        <lastmod>2023-06-22T17:42:19+00:00</lastmod>
+        <lastmod>2023-06-22T20:12:03+00:00</lastmod>
         <priority>0.80</priority>
     </url>
     <url>
         <loc>https://cabodrivers.com/contact-us</loc>
-        <lastmod>2023-06-22T17:42:19+00:00</lastmod>
+        <lastmod>2023-06-22T20:12:03+00:00</lastmod>
         <priority>0.80</priority>
     </url>
     <url>
         <loc>https://cabodrivers.com/book-now</loc>
-        <lastmod>2023-06-22T17:42:19+00:00</lastmod>
+        <lastmod>2023-06-22T20:12:03+00:00</lastmod>
         <priority>0.80</priority>
     </url>
     <url>
         <loc>https://cabodrivers.com/blog/</loc>
-        <lastmod>2023-06-22T17:42:19+00:00</lastmod>
-        <priority>0.80</priority>
+        <lastmod>2023-06-22T20:12:03+00:00</lastmod>
+        <priority>0.777</priority>
     </url>
     <url>
-        <loc>https://cabodrivers.com/book-now?1</loc>
-        <lastmod>2023-06-22T17:42:19+00:00</lastmod>
-        <priority>0.80</priority>
+        <loc>
+            https://cabodrivers.com/blog/the-dos-and-donts-of-getting-around-cabo-san-lucas-transportation-tips-from-locals/</loc>
+        <lastmod>2023-06-22T20:12:03+00:00</lastmod>
+        <priority>0.777</priority>
+    </url>
+    <url>
+        <loc>https://cabodrivers.com/blog/author/king/</loc>
+        <lastmod>2023-06-22T20:12:03+00:00</lastmod>
+        <priority>0.777</priority>
+    </url>
+    <url>
+        <loc>https://cabodrivers.com/blog/category/guides/</loc>
+        <lastmod>2023-06-22T20:12:03+00:00</lastmod>
+        <priority>0.777</priority>
     </url>
     <url>
         <loc>
             https://cabodrivers.com/blog/the-ultimate-guide-to-cabo-san-lucas-transportation-services-how-to-get-around-hassle-free/</loc>
-        <lastmod>2023-06-22T17:42:19+00:00</lastmod>
-        <priority>0.64</priority>
+        <lastmod>2023-06-22T20:12:03+00:00</lastmod>
+        <priority>0.777</priority>
     </url>
     <url>
-        <loc>https://cabodrivers.com/blog/author/king/</loc>
-        <lastmod>2023-06-22T17:42:19+00:00</lastmod>
-        <priority>0.64</priority>
+        <loc>https://cabodrivers.com/blog/category/uncategorized/</loc>
+        <lastmod>2023-06-22T20:12:03+00:00</lastmod>
+        <priority>0.644</priority>
     </url>
     <url>
-        <loc>https://cabodrivers.com/blog/category/guides/</loc>
-        <lastmod>2023-06-22T17:42:19+00:00</lastmod>
-        <priority>0.64</priority>
+        <loc>https://cabodrivers.com/blog/tag/cabo-transportation-options/</loc>
+        <lastmod>2023-06-22T20:12:03+00:00</lastmod>
+        <priority>0.51</priority>
     </url>
     <url>
         <loc>https://cabodrivers.com/blog/tag/tips/</loc>
-        <lastmod>2023-06-22T17:42:19+00:00</lastmod>
+        <lastmod>2023-06-22T20:12:03+00:00</lastmod>
         <priority>0.51</priority>
     </url>
     <url>
         <loc>https://cabodrivers.com/blog/2023/06/</loc>
-        <lastmod>2023-06-22T17:42:19+00:00</lastmod>
+        <lastmod>2023-06-22T20:12:03+00:00</lastmod>
         <priority>0.51</priority>
     </url>
 
