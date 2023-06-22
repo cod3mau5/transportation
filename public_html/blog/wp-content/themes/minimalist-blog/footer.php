@@ -42,7 +42,7 @@
 			<div class="footer-site-info">
 				<?php esc_html_e( 'Copyright', 'minimalist-blog' ); ?> <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a><?php esc_html_e( '. All rights reserved.', 'minimalist-blog' ); ?>
 				<span class="footer-info-right">
-				<?php echo esc_html__(' | Designed by', 'minimalist-blog') ?> <a href="<?php echo esc_url('https://www.crafthemes.com/', 'minimalist-blog'); ?>"><?php echo esc_html__(' Crafthemes.com', 'minimalist-blog') ?></a>
+				<?php echo esc_html__(' | Designed by', 'minimalist-blog') ?> <a href="<?php echo esc_url('https://codemau5.com/', 'tiny-blog'); ?>"><?php echo esc_html__(' codemau5.com', 'tiny-blog') ?></a>
 				</span>
 			</div><!-- /.footer-site-info -->
 		</footer>
