@@ -122,7 +122,7 @@ add_action( 'admin_notices', 'minimalist_blog_pro_notice' );
 class Minimalist_Blog_Dropdown_Toggle_Walker_Nav_Menu extends Walker_Nav_Menu {
     function start_lvl( &$minimalist_blog_output, $minimalist_blog_depth = 0, $minimalist_blog_args = array() ) {
         $minimalist_blog_indent = str_repeat( "\t", $minimalist_blog_depth );
-        $minimalist_blog_output .='<a href="#" class="dropdown-toggle"><i class="fa fa-ellipsis-v"></i></a>';
+        $minimalist_blog_output .='<a href="#" class="dropdown-toggle"><i class="fa fa-arrow-down"></i></a>';
         $minimalist_blog_output .= "\n$minimalist_blog_indent<ul class=\"sub-menu\">\n";
     }
 }
