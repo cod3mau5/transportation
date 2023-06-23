@@ -176,34 +176,38 @@
                 width: 7%;
             }
 
+
             /* IG pageGallery */
-            .w-100{
-                width:100%;
+            .w-100 {
+                width: 100%;
             }
-            .h-100{
+
+            .h-100 {
                 height: 100%;
             }
-            .overflow{
+
+            .overflow {
                 overflow: hidden;
             }
-            #ig_container{
-                background: rgb(189,189,189);
+
+            #ig_container {
                 margin: 5rem 0;
                 width: 100%;
-                overflow: hidden;
             }
+
             .gallery-container{
                 width: 100%;
                 overflow: hidden;
                 scroll-behavior: smooth;
             }
-            .main-gallery{
+            .main-gallery {
                 width: 100%;
                 display: flex;
                 align-items: center;
                 position: relative;
             }
-            .chevron span{
+
+            .chevron span {
                 display: flex;
                 align-items: center;
                 position: absolute;
@@ -212,43 +216,51 @@
                 color: rgb(157, 217, 238);
                 width: 4.3rem;
                 height: 4.7rem;
-                background-color: rgba(23,23,23, 0.9);
+                background-color: rgba(23, 23, 23, 0.9);
                 border-radius: 100%;
                 cursor: pointer;
             }
-            .chevron span:hover{
-                background-color: rgba(23,23,23, 0.6);
+
+            .chevron span:hover {
+                background-color: rgba(23, 23, 23, 0.6);
             }
-            .chevron #prev{
-                padding-right: .5rem;
+
+            .chevron #prev {
+                padding-right: 0.5rem;
                 justify-content: flex-end;
                 left: -1.7rem;
             }
 
-            .chevron #next{
-                padding-right: .5rem;
+            .chevron #next {
+                padding-right: 0.5rem;
                 justify-content: flex-start;
                 right: -1.7rem;
             }
-            .gallery{
+
+            .gallery {
                 display: flex;
                 flex-wrap: nowrap;
+                padding-bottom: 10px;
             }
-            .image{
+
+            .image {
                 min-width: 20%;
                 height: 273px;
                 position: relative;
             }
-            .image img{
+
+            .image img {
                 width: 100%;
                 height: 100%;
                 object-fit: cover;
                 object-position: center;
             }
-            .image:hover .opacity-hover{
-                width:100%;
+
+            .image:hover .opacity-hover {
+                width: 100%;
             }
-            .caption{
+
+            .caption {
                 width: 100%;
                 height: 100%;
                 display: flex;
@@ -257,24 +269,52 @@
                 transform: translateY(300px);
                 transition: transform 100ms linear;
             }
-            .opacity-hover:hover .caption{
+
+            .opacity-hover:hover .caption {
                 transform: translateY(0px);
             }
-            .caption p{
-                color:white;
+
+            .caption p {
+                color: white;
                 width: 80%;
             }
-            .opacity-hover{
+
+            .opacity-hover {
                 width: 100%;
                 height: 100%;
                 position: absolute;
-                top:0;
-                transition:background-color 300ms linear;
-            }
-            .opacity-hover:hover{
-                background-color: rgba(2,2,2, 0.8);
+                top: 0;
+                transition: background-color 300ms linear;
             }
 
+            .opacity-hover:hover {
+            background-color: rgba(2, 2, 2, 0.8);
+            }
+
+            /* Estilos específicos para dispositivos móviles */
+
+            @media (max-width: 768px) {
+                .gallery-container,
+                .gallery {
+                    flex-wrap: wrap; /* Cambia el comportamiento a envolver en lugar de no envolver */
+                    justify-content: center; /* Centra las imágenes cuando se envuelven */
+                }
+
+                .image {
+                    min-width: 95%;
+                    margin: 5px; /* Agrega un margen entre las imágenes envueltas */
+                }
+
+                .caption p {
+                    width: 100%; /* Ocupa todo el ancho disponible en dispositivos móviles */
+                }
+                .chevron{
+                    display: none;
+                }
+            }
+
+
+            /*  WHATSAPP BUTTON */
             .whatsapp-btn span{
                 color: #444;
                 position: fixed;
@@ -297,6 +337,8 @@
                 z-index: 100;
                 color: #fff;
             }
+
+            /* FORM PREVIOUS STOP */
             .previous-stop{
                 display: flex;
                 justify-content: center;
@@ -357,6 +399,7 @@
                             </span>
                         </div>
                     </div>
+
                     @if(
                         Route::current()->getName() == 'inicio' ||
                         Route::current()->getName() == 'homepage' ||
