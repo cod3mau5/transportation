@@ -1,13 +1,10 @@
 <footer tabindex="-1" id="SITE_FOOTER" class="my-5">
    <div class="container">
        <div class="row">
-           <div class="col-md-5 offset-md-1 px-4 pb-4">
+           {{-- <div class="col-md-3 offset-md-1 px-4 pb-4">
                <p class="fs-2 s-color">{{ __("pages/includes/footer.contact_info.title") }}</p>
                <hr class="line">
                <ul class="s2-color fs-5">
-                {{-- @php
-                    echo dd(__("pages/includes/footer.contact_info.ul"));
-                @endphp --}}
                 @foreach (__("pages/includes/footer.contact_info.ul") as $li )
                     <li class="mb-4">
                         {{ $li["li"] }}
@@ -29,8 +26,8 @@
                     </li>
                 </ul>
 
-           </div>
-           <div class="col-md-5 px-4 pb-4 footer-form">
+           </div> --}}
+           <div class="col-md-4 offset-md-1 px-4 pb-4 footer-form">
                <form action="{{ route('sendMail') }}" method="POST">
                 @csrf
                 <div class="ps-md-5">
@@ -51,6 +48,71 @@
                         </ul>
                 </div>
                </form>
+           </div>
+           <div class="col-md-3">
+                <h4 class="fs-2 s-color">San Jose del Cabo Hotels</h4>
+                <hr class="line">
+                <nav class="footer-nav">
+                    <ul class="s2-color">
+                        <li>Acre The House Hotel Transportation</li>
+                        <li>Barcelo Grand Faro Transportation</li>
+                        <li>Cabo Azul Transportation</li>
+                        <li>Casa del Mar Transportation</li>
+                        <li>Dreams Transportation</li>
+                        <li>Grand Velas Transportation</li>
+                        <li>JW Marriott Transportation</li>
+                        <li>Hyatt Ziva Airport Transportation</li>
+                        <li>One & Only Palmilla Transportation</li>
+                        <li>Royal Solaris Transportation</li>
+                    </ul>
+                </nav>
+                <h4 class="fs-2 s-color">Restaurants Transportation</h4>
+                <hr class="line">
+                <nav class="footer-nav">
+                    <ul class="s2-color">
+                        <li>Floras Farm Kitchen Transportation</li>
+                        <li>Tamarindos Restaurant Transportation</li>
+                        <li>Mango Deck Transportation</li>
+                    </ul>
+                </nav>
+                <h4 class="fs-2 s-color">Foreign Transportation</h4>
+                <hr class="line">
+                <nav class="footer-nav">
+                    <ul class="s2-color">
+                        <li>Floras Farm Kitchen Transportation</li>
+                        <li>Tamarindos Restaurant Transportation</li>
+                        <li>Mango Deck Transportation</li>
+                    </ul>
+                </nav>
+           </div>
+           <div class="col-md-3">
+                <h4 class="fs-2 s-color">Cabo San Lucas Hotels</h4>
+                <hr class="line">
+                <nav class="footer-nav">
+                    <ul class="s2-color">
+                        <li>Nobu Transportation</li>
+                        <li>Diamante Transportation</li>
+                        <li>Grand Solmar Transportation</li>
+                        <li>Rancho San Lucas Transportation</li>
+                        <li>ME Cabo Transportation</li>
+                        <li>Montage Transportation</li>
+                        <li>Pueblo Bonito Blanco Transportation</li>
+                        <li>Pueblo Bonito Pacifica Transportation</li>
+                        <li>Pueblo Bonito Rose Transportation</li>
+                        <li>Pueblo Bonito Sunset Transportation</li>
+                        <li>RIU Palace Cabo San Lucas Transportation</li>
+                        <li>RIU Santa Fe Transportation</li>
+                        <li>Sheraton Transportation</li>
+                        <li>Solmar Hotel Transportation</li>
+                        <li>The Cape Transportation</li>
+                        <li>Villa del Arco Transportation</li>
+                        <li>Villa del Palmar Transportation</li>
+                        <li>Villa La Estancia Transportation</li>
+                        <li>Breathless Transportation</li>
+                        <li>Cachet Beach Cabo Villas Transportation</li>
+                        <li>Fairfield Inn Transportation</li>
+                    </ul>
+                </nav>
            </div>
        </div>
    </div>
