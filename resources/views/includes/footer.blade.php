@@ -79,9 +79,9 @@
                 <hr class="line">
                 <nav class="footer-nav">
                     <ul class="s2-color">
-                        <li>Floras Farm Kitchen Transportation</li>
-                        <li>Tamarindos Restaurant Transportation</li>
-                        <li>Mango Deck Transportation</li>
+                        <li>Cabo Pulmo Transportation</li>
+                        <li>Los Barriles Transportation</li>
+                        <li>Todos Santos Transportation</li>
                     </ul>
                 </nav>
            </div>
