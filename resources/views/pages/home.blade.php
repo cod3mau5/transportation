@@ -12,8 +12,14 @@
             background-position-y: 40%;
         }
         .vehicles_home img{
-            height: 200px;
+            max-height: 200px;
             width: auto!important;
+        }
+        @media(max-width:1024px){
+            .vehicles_home img{
+                max-height: 200px;
+                width: 100%!important;
+            }
         }
         .vehicles_home .row>div{
             text-align: center;
@@ -86,7 +92,7 @@
             </div>
             <div class="col-md-4">
                 <h1 class="text-center fs-1 m-font m-color">Bus</h1>
-                <img src="{{ asset('assets/images/units/bus.png') }}">
+                <img src="{{ asset('assets/images/units/bus.webp') }}">
             </div>
         </div>
         <div class="row">
