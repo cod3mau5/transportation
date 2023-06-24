@@ -433,7 +433,7 @@
             const next= document.querySelector('#next');
             const prev= document.querySelector('#prev');
             const token='{{env("IG_GALLERY_TOKEN")}}';
-            const url=`https://graph.instagram.com/me/media?fields=thumbnail_url,media_url,caption,permalink&limit=80&access_token=${token}`;
+            const url=`https://graph.instagram.com/me/media?fields=thumbnail_url,media_url,caption,permalink&limit=5&access_token=${token}`;
             fetch(url)
             .then(res=> res.json())
             .then(data=>createHtml(data.data));
