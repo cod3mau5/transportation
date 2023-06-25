@@ -422,7 +422,7 @@
         <script src="{{ asset('assets/libs/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
         <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 
-        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js"></script>
         <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
                 @yield('footer-scripts')
@@ -433,7 +433,15 @@
             const next= document.querySelector('#next');
             const prev= document.querySelector('#prev');
             const token='{{env("IG_GALLERY_TOKEN")}}';
-            const url=`https://graph.instagram.com/me/media?fields=thumbnail_url,media_url,caption,permalink&limit=5&access_token=${token}`;
+
+            let limit = 5; // Valor predeterminado para dispositivos no móviles
+
+            // Detectar si la página se carga desde un dispositivo móvil
+            if (/Mobi|Android/i.test(navigator.userAgent)) {
+                limit = 3; // Cambiar el límite a 3 para dispositivos móviles
+            }
+
+            const url=`https://graph.instagram.com/me/media?fields=thumbnail_url,media_url,caption,permalink&limit=${limit}&access_token=${token}`;
             fetch(url)
             .then(res=> res.json())
             .then(data=>createHtml(data.data));
