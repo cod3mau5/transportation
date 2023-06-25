@@ -62,7 +62,7 @@
     <div class="container my-5" id="about-us">
         <div class="row">
             <div class="col-md-2 offset-md-2">
-                <img src="{{ asset('assets/images/arch_mini.webp') }}" class="circle">
+                <img src="{{ asset('assets/images/arch_mini.webp') }}" class="circle" alt="Arch of Cabo San Lucas">
             </div>
             <div class="col-md-6 py-3">
                 <h3 class="fs-1 m-font m-color">
@@ -85,11 +85,11 @@
             </div>
             <div class="col-md-4">
                 <div class="single-item-rtl">
-                    <div><img src="{{ asset('assets/images/home-slider/pic1.webp') }}"></div>
-                    <div><img src="{{ asset('assets/images/home-slider/pic2.webp') }}"></div>
-                    <div><img src="{{ asset('assets/images/home-slider/pic3.webp') }}"></div>
-                    <div><img src="{{ asset('assets/images/home-slider/pic4.webp') }}"></div>
-                    <div><img src="{{ asset('assets/images/home-slider/pic5.webp') }}"></div>
+                    <div><img src="{{ asset('assets/images/home-slider/pic1.webp') }}" alt="whale in los cabos"></div>
+                    <div><img src="{{ asset('assets/images/home-slider/pic2.webp') }}" alt="Arch and kayak in los cabos"></div>
+                    <div><img src="{{ asset('assets/images/home-slider/pic3.webp') }}" alt="Beach sight los cabos"></div>
+                    <div><img src="{{ asset('assets/images/home-slider/pic4.webp') }}" alt="Beautifull sunset in los cabos"></div>
+                    <div><img src="{{ asset('assets/images/home-slider/pic5.webp') }}" alt="Church in city tour los cabos"></div>
                 </div>
             </div>
         </div>
@@ -98,15 +98,15 @@
         <div class="row">
             <div class="col-md-4">
                 <h5 class="text-center fs-1 m-font m-color">Suburban</h5>
-                <img src="{{ asset('assets/images/units/suburban.webp') }}" width="356" height="168">
+                <img src="{{ asset('assets/images/units/suburban.webp') }}" width="356" height="168" alt="Suburban unit">
             </div>
             <div class="col-md-4">
                 <h5 class="text-center fs-1 m-font m-color">Hiace</h5>
-                <img src="{{ asset('assets/images/units/hiace.webp') }}" width="356" height="168">
+                <img src="{{ asset('assets/images/units/hiace.webp') }}" width="356" height="168" alt="Hiace unit">
             </div>
             <div class="col-md-4">
                 <h5 class="text-center fs-1 m-font m-color">Bus</h5>
-                <img src="{{ asset('assets/images/units/bus.webp') }}" width="356" height="168">
+                <img src="{{ asset('assets/images/units/bus.webp') }}" width="356" height="168" alt="Bus unit">
             </div>
         </div>
         <div class="row">
@@ -119,15 +119,15 @@
         <div class="row">
             <div class="col-md-4">
                 <h5 class="text-center fs-1 m-font m-color">Suburban</h5>
-                <img src="{{ asset('assets/images/units/suburban.webp') }}">
+                <img src="{{ asset('assets/images/units/suburban.webp') }}" alt="Suburban unit">
             </div>
             <div class="col-md-4">
                 <h5 class="text-center fs-1 m-font m-color">Hiace</h5>
-                <img src="{{ asset('assets/images/units/hiace.webp') }}">
+                <img src="{{ asset('assets/images/units/hiace.webp') }}" alt="Hiace unit">
             </div>
             <div class="col-md-4">
                 <h5 class="text-center fs-1 m-font m-color">Bus</h5>
-                <img src="{{ asset('assets/images/units/bus.webp') }}">
+                <img src="{{ asset('assets/images/units/bus.webp') }}" alt="Bus unit">
             </div>
         </div>
         <div class="row">
