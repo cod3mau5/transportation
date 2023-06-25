@@ -109,7 +109,7 @@
             <div class="row">
                 <div class="col-md-6 text-center">
                     <a class="navbar-brand" href="{{route('homepage')}}">
-                        <img src="{{ asset('assets/images/cabo_drivers_logo.png') }}" alt="" class="d-inline-block align-text-top mx-auto mx-0-md">
+                        <img src="{{ asset('assets/images/cabo_drivers_logo.webp') }}" alt="" class="d-inline-block align-text-top mx-auto mx-0-md">
                     </a>
                 </div>
                 <div class="col-md-6 text-center">

@@ -151,7 +151,7 @@
 
     <main class='invoice'>
         <div class='invoice-wrapper'>
-            <img src="{{ asset('assets/images/cabo_drivers_logo.png') }}"
+            <img src="{{ asset('assets/images/cabo_drivers_logo.webp') }}"
                 alt='logo' class='invoice-logo'>
             <div class='invoice-company'>
                 <h2 class='invoice-company-name'>CABO DRIVERS SERVICES</h2>
