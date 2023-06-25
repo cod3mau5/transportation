@@ -12,18 +12,31 @@
             background-position-y: 40%;
         }
         .vehicles_home img{
-            max-height: 200px;
-            width: auto!important;
+            height: auto;
             max-width: 100%;
         }
         @media(max-width:1024px){
             .vehicles_home img{
                 max-height: 200px;
-                width: 100%!important;
+                width: auto;
             }
         }
         .vehicles_home .row>div{
             text-align: center;
+        }
+        .vehicles_home.desktop{
+            display: none;
+        }
+        .vehicles_home.mobile{
+                display: block;
+        }
+        @media(min-width:1200px){
+            .vehicles_home.desktop{
+                display: block;
+            }
+            .vehicles_home.mobile{
+                display: none;
+            }
         }
     </style>
 @endsection
@@ -81,7 +94,28 @@
             </div>
         </div>
     </div>
-    <div class="container py-5 vehicles_home">
+    <div class="container py-5 vehicles_home desktop">
+        <div class="row">
+            <div class="col-md-4">
+                <h5 class="text-center fs-1 m-font m-color">Suburban</h5>
+                <img src="{{ asset('assets/images/units/suburban.webp') }}" width="356" height="168">
+            </div>
+            <div class="col-md-4">
+                <h5 class="text-center fs-1 m-font m-color">Hiace</h5>
+                <img src="{{ asset('assets/images/units/hiace.webp') }}" width="356" height="168">
+            </div>
+            <div class="col-md-4">
+                <h5 class="text-center fs-1 m-font m-color">Bus</h5>
+                <img src="{{ asset('assets/images/units/bus.webp') }}" width="356" height="168">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center mt-4">
+                <a href="{{ route('book-now',1) }}" class="book-btn text-white">{{ __('pages/home.components.book_now_btn') }}</a>
+            </div>
+        </div>
+    </div>
+    <div class="container py-5 vehicles_home mobile">
         <div class="row">
             <div class="col-md-4">
                 <h5 class="text-center fs-1 m-font m-color">Suburban</h5>
