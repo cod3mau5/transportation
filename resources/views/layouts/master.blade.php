@@ -420,10 +420,10 @@
 @yield('map')
         <script src="{{ asset('assets/libs/jquery/jquery.min.js') }}"></script>
         <script src="{{ asset('assets/libs/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-        <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+        <script type="text/javascript" src="{{asset('assets/libs/slick/slick.min.js')}}"></script>
 
-        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js"></script>
-        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script src="{{asset('assets/libs/vue/vue.min.js')}}"></script>
+        <script src="{{asset('assets/libs/axios/axios.min.js')}}"></script>
 
                 @yield('footer-scripts')
         <script>
