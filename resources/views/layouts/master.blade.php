@@ -467,7 +467,7 @@
                     if(img.caption !== undefined){
                         gallery.innerHTML+=`
                             <div class="image overflow">
-                                <img loading="lazy" src="${img.media_url}">
+                                <img loading="lazy" src="${img.media_url}" alt="${img.caption.slice(0,80)}">
                                 <div class="opacity-hover">
                                     <a href="${img.permalink}" class="caption">
                                         <p>
