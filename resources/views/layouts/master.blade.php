@@ -393,7 +393,7 @@
 
                 @yield('content')
                 {{-- FEED Instagram --}}
-                <section id="ig_container">
+                <section id="ig_container" class="desktop">
                     <div class="main-gallery">
                         {{-- left --}}
                         <div class="chevron">
