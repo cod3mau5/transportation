@@ -362,6 +362,21 @@
             .departure-stop{
                 display: none;
             }
+
+            .desktop{
+                display: none!important;
+            }
+            .mobile{
+                    display: block!important;
+            }
+            @media(min-width:1200px){
+                .desktop{
+                    display: block!important;
+                }
+                .mobile{
+                    display: none!important;
+                }
+            }
         </style>
         @yield('styles')
     </head>
