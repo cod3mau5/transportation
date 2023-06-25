@@ -2,11 +2,8 @@
 
     return [
         "contact_info" => [
-            "title" => "Contact Us",
+            "title" => "Contact Info",
             "ul" => [
-                [
-                    "li" => "Ask me what you want ... I'm here for any question you have."
-                ],
                 [
                     "li" => "San José del Cabo, Baja California Sur, México."
                 ],

@@ -138,6 +138,13 @@ class PagesController extends Controller
         return view("pages.privacy_policy");
     }
 
+    public function hotel($hotelSlug){
+        $hotel=str_replace('-',' ',$hotelSlug);
+        $hotel=Resort::where('name',$hotel)->firstOrFail();
+        // return$hotel;
+        return view('pages.hotel',compact('hotel'));
+    }
+
     /** for testing: */
     public function form(){
         $resort_options = '';
@@ -172,4 +179,5 @@ class PagesController extends Controller
             'date_departure'
         ));
     }
+
 }

@@ -1,7 +1,7 @@
 <?php
     return [
         "contact_info" => [
-            "title" => "Contactanos",
+            "title" => "Informacion de contacto",
             "ul" => [
                 [
                     "li" => "Pregúntame lo que quieras ... Estoy aquí para cualquier pregunta que tengas."

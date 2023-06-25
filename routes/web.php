@@ -18,6 +18,8 @@ Route::get('/contact', [Controllers\PagesController::class,'contact'])->name('co
 Route::get('/book-now', [Controllers\PagesController::class,'booking'])->name('book-now');
 Route::get('/contact-us',[Controllers\PagesController::class,'contactUs'])->name('contact-us');
 Route::get('/privacy-policy',[Controllers\PagesController::class,'privacy'])->name('privacy');
+Route::get('/hotel/{hotelSlug}',[Controllers\PagesController::class,'hotel'])->name('hotel');
+
 
 # Languages
 Route::get('/lang/{lang}', function ($lang) {

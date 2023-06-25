@@ -10,16 +10,16 @@
         @yield('global-header')
 
         <!-- Font Awesome -->
-        <link rel="stylesheet" href="{{ asset('vendor/font-awesome/css/font-awesome.min.css') }}" async>
+        <link rel="stylesheet" href="{{ asset('vendor/font-awesome/css/font-awesome.min.css') }}">
         <!-- Bootstrap 5 Css -->
-        <link href="{{ asset('assets/css/bootstrap.min.css') }}" id="bootstrap-style" rel="stylesheet" type="text/css" async/>
+        <link href="{{ asset('assets/css/bootstrap.min.css') }}" id="bootstrap-style" rel="stylesheet" type="text/css"/>
 
         <title>Inicio | {{ config('app.name') }}</title>
         @yield('summary-header')
         <link rel="stylesheet" href="{{ asset('assets/css/fonts.css') }}">
-        <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" async/>
-        <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" async/>
-        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" async/>
+        <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+        <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
         <style>
             /*normalize custom*/
             body{
@@ -467,7 +467,7 @@
                     if(img.caption !== undefined){
                         gallery.innerHTML+=`
                             <div class="image overflow">
-                                <img loading="lazy" src="${img.media_url}" alt="${img.caption.slice(0,80)}">
+                                <img loading="lazy" src="${img.media_url}" alt="">
                                 <div class="opacity-hover">
                                     <a href="${img.permalink}" class="caption">
                                         <p>
