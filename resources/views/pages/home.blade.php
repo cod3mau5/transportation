@@ -84,16 +84,16 @@
     <div class="container py-5 vehicles_home">
         <div class="row">
             <div class="col-md-4">
-                <h1 class="text-center fs-1 m-font m-color">Suburban</h1>
-                <img src="{{ asset('assets/images/units/suburban.webp') }}">
+                <h5 class="text-center fs-1 m-font m-color">Suburban</h5>
+                <img src="{{ asset('assets/images/units/suburban.webp') }}" width="356" height="168">
             </div>
             <div class="col-md-4">
-                <h1 class="text-center fs-1 m-font m-color">Hiace</h1>
-                <img src="{{ asset('assets/images/units/hiace.webp') }}">
+                <h5 class="text-center fs-1 m-font m-color">Hiace</h5>
+                <img src="{{ asset('assets/images/units/hiace.webp') }}" width="356" height="168">
             </div>
             <div class="col-md-4">
-                <h1 class="text-center fs-1 m-font m-color">Bus</h1>
-                <img src="{{ asset('assets/images/units/bus.webp') }}">
+                <h5 class="text-center fs-1 m-font m-color">Bus</h5>
+                <img src="{{ asset('assets/images/units/bus.webp') }}" width="356" height="168">
             </div>
         </div>
         <div class="row">

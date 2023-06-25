@@ -50,7 +50,7 @@
                </form>
            </div>
            <div class="col-md-3">
-                <h4 class="fs-2 s-color">San Jose del Cabo Hotels</h4>
+                <h3 class="fs-2 s-color">San Jose del Cabo Hotels</h3>
                 <hr class="line">
                 <nav class="footer-nav">
                     <ul class="s2-color">
@@ -66,7 +66,7 @@
                         <li>Royal Solaris Transportation</li>
                     </ul>
                 </nav>
-                <h4 class="fs-2 s-color">Restaurants Transportation</h4>
+                <h3 class="fs-2 s-color">Restaurants Transportation</h3>
                 <hr class="line">
                 <nav class="footer-nav">
                     <ul class="s2-color">
@@ -75,7 +75,7 @@
                         <li>Mango Deck Transportation</li>
                     </ul>
                 </nav>
-                <h4 class="fs-2 s-color">Foreign Transportation</h4>
+                <h3 class="fs-2 s-color">Foreign Transportation</h3>
                 <hr class="line">
                 <nav class="footer-nav">
                     <ul class="s2-color">
@@ -86,7 +86,7 @@
                 </nav>
            </div>
            <div class="col-md-3">
-                <h4 class="fs-2 s-color">Cabo San Lucas Hotels</h4>
+                <h3 class="fs-2 s-color">Cabo San Lucas Hotels</h3>
                 <hr class="line">
                 <nav class="footer-nav">
                     <ul class="s2-color">
