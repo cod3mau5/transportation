@@ -14,6 +14,7 @@
         .vehicles_home img{
             max-height: 200px;
             width: auto!important;
+            max-width: 100%;
         }
         @media(max-width:1024px){
             .vehicles_home img{
