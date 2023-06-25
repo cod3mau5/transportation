@@ -6,8 +6,8 @@
         <div class="row">
             <div class="col-md-6 text-center">
                 <a class="navbar-brand" href="{{route('homepage')}}">
-                    <img src="{{ asset('assets/images/cabo_drivers_logo.webp') }}" alt="" class="d-inline-block align-text-top mx-auto mx-0-md mobile" width="246" height="92">
-                    <img src="{{ asset('assets/images/cabo_drivers_logo.webp') }}" alt="" class="d-inline-block align-text-top mx-auto mx-0-md desktop">
+                    <img src="{{ asset('assets/images/cabo_drivers_logo.webp') }}" alt="" class="d-inline-block align-text-top mx-auto mx-0-md mobile">
+                    <img src="{{ asset('assets/images/cabo_drivers_logo.webp') }}" alt="" class="d-inline-block align-text-top mx-auto mx-0-md desktop" width="246" height="92">
 
                 </a>
             </div>
