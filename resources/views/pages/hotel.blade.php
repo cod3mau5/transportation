@@ -99,6 +99,8 @@
             font-weight: bold;
             text-transform: uppercase;
             font-size: 0.7rem;
+            word-wrap: break-word;
+            white-space: normal;
         }
 
         @media only screen and (min-width:768px) {
