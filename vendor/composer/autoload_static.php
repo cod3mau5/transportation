@@ -620,6 +620,7 @@ class ComposerStaticInit05a54d6885a73b3d0ee0b6164966db13
         'App\\Models\\Rate' => __DIR__ . '/../..' . '/app/Models/Rate.php',
         'App\\Models\\Reservation' => __DIR__ . '/../..' . '/app/Models/Reservation.php',
         'App\\Models\\Resort' => __DIR__ . '/../..' . '/app/Models/Resort.php',
+        'App\\Models\\ResortImage' => __DIR__ . '/../..' . '/app/Models/ResortImage.php',
         'App\\Models\\Role' => __DIR__ . '/../..' . '/app/Models/Role.php',
         'App\\Models\\Unit' => __DIR__ . '/../..' . '/app/Models/Unit.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',

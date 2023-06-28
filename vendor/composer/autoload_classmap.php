@@ -52,6 +52,7 @@ return array(
     'App\\Models\\Rate' => $baseDir . '/app/Models/Rate.php',
     'App\\Models\\Reservation' => $baseDir . '/app/Models/Reservation.php',
     'App\\Models\\Resort' => $baseDir . '/app/Models/Resort.php',
+    'App\\Models\\ResortImage' => $baseDir . '/app/Models/ResortImage.php',
     'App\\Models\\Role' => $baseDir . '/app/Models/Role.php',
     'App\\Models\\Unit' => $baseDir . '/app/Models/Unit.php',
     'App\\Models\\User' => $baseDir . '/app/Models/User.php',

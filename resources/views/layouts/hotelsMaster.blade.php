@@ -7,15 +7,12 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="description" content="Experience the comfort and convenience of Cabo Drivers Services in Cabo San Lucas. Avoid the headaches and enjoy a worry-free transportation experience with our reliable service. Explore this Mexican paradise without compromising on comfort or quality. Book now and let us take care of your transportation needs while you immerse yourself in the wonders of Cabo San Lucas!">
 
-        @yield('global-header')
-
         <!-- Font Awesome -->
         <link rel="stylesheet" href="{{ asset('vendor/font-awesome/css/font-awesome.min.css') }}">
         <!-- Bootstrap 5 Css -->
         <link href="{{ asset('assets/css/bootstrap.min.css') }}" id="bootstrap-style" rel="stylesheet" type="text/css"/>
 
-        <title>Inicio | {{ config('app.name') }}</title>
-        @yield('summary-header')
+        <title>Hotel | {{ config('app.name') }}</title>
         <link rel="stylesheet" href="{{ asset('assets/css/fonts.css') }}">
         <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
         <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
@@ -60,6 +57,7 @@
                     font-size: 3.2rem;
                 }
             }
+
             /*components*/
             .book-btn{
                 background: #6AA4E9;
@@ -77,6 +75,8 @@
                 color: #fff;
                 transition: all 0.2s ease, visibility 0s;
             }
+
+
             /*Header*/
             #main_header{
                 position: relative;
@@ -93,6 +93,7 @@
             .top_header a img{
                 position: relative;
                 width: 70%;
+                height: auto;
             }
             .navbar{
                 background-color:rgba(57,125,207, 0.6);
@@ -120,6 +121,8 @@
                 font-size: 2rem;
                 color: #41baae!important;
             }
+
+
             /*HOME*/
             .bg-img{
                 background-color: #ffffffc6;
@@ -144,6 +147,8 @@
                     font-size: 1rem!important;
                 }
             }
+
+
             /**footer*/
             #SITE_FOOTER ul{
                 list-style-type: none;
@@ -178,141 +183,6 @@
             }
 
 
-            /* IG pageGallery */
-            .w-100 {
-                width: 100%;
-            }
-
-            .h-100 {
-                height: 100%;
-            }
-
-            .overflow {
-                overflow: hidden;
-            }
-
-            #ig_container {
-                margin: 5rem 0;
-                width: 100%;
-            }
-
-            .gallery-container{
-                width: 100%;
-                overflow: hidden;
-                scroll-behavior: smooth;
-            }
-            .main-gallery {
-                width: 100%;
-                display: flex;
-                align-items: center;
-                position: relative;
-            }
-
-            .chevron span {
-                display: flex;
-                align-items: center;
-                position: absolute;
-                z-index: 1;
-                font-size: 2rem;
-                color: rgb(157, 217, 238);
-                width: 4.3rem;
-                height: 4.7rem;
-                background-color: rgba(23, 23, 23, 0.9);
-                border-radius: 100%;
-                cursor: pointer;
-            }
-
-            .chevron span:hover {
-                background-color: rgba(23, 23, 23, 0.6);
-            }
-
-            .chevron #prev {
-                padding-right: 0.5rem;
-                justify-content: flex-end;
-                left: -1.7rem;
-            }
-
-            .chevron #next {
-                padding-right: 0.5rem;
-                justify-content: flex-start;
-                right: -1.7rem;
-            }
-
-            .gallery {
-                display: flex;
-                flex-wrap: nowrap;
-                padding-bottom: 10px;
-            }
-
-            .image {
-                min-width: 20%;
-                height: 273px;
-                position: relative;
-            }
-
-            .image img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-                object-position: center;
-            }
-
-            .image:hover .opacity-hover {
-                width: 100%;
-            }
-
-            .caption {
-                width: 100%;
-                height: 100%;
-                display: flex;
-                align-items: center;
-                text-align: center;
-                transform: translateY(300px);
-                transition: transform 100ms linear;
-            }
-
-            .opacity-hover:hover .caption {
-                transform: translateY(0px);
-            }
-
-            .caption p {
-                color: white;
-                width: 80%;
-            }
-
-            .opacity-hover {
-                width: 100%;
-                height: 100%;
-                position: absolute;
-                top: 0;
-                transition: background-color 300ms linear;
-            }
-
-            .opacity-hover:hover {
-            background-color: rgba(2, 2, 2, 0.8);
-            }
-
-            /* Estilos específicos para dispositivos móviles */
-
-            @media (max-width: 768px) {
-                .gallery-container,
-                .gallery {
-                    flex-wrap: wrap; /* Cambia el comportamiento a envolver en lugar de no envolver */
-                    justify-content: center; /* Centra las imágenes cuando se envuelven */
-                }
-
-                .image {
-                    min-width: 95%;
-                    margin: 5px; /* Agrega un margen entre las imágenes envueltas */
-                }
-
-                .caption p {
-                    width: 100%; /* Ocupa todo el ancho disponible en dispositivos móviles */
-                }
-                .chevron{
-                    display: none;
-                }
-            }
 
 
             /*  WHATSAPP BUTTON */
@@ -339,30 +209,7 @@
                 color: #fff;
             }
 
-            /* FORM PREVIOUS STOP */
-            .previous-stop{
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                font-size: 1.1rem;
-                margin-top: 1rem;
-                margin-bottom: 1.3rem;
-            }
-            .previous-stop label{
-                margin: 0!important;
-            }
-            .previous-stop small{
-                margin-left: 1rem;
-            }
-            .previous-stop input{
-                margin-left:.3rem;
-            }
-            .arrival-stop{
-                display: none;
-            }
-            .departure-stop{
-                display: none;
-            }
+
 
             .desktop{
                 display: none!important;
@@ -382,8 +229,8 @@
         @yield('styles')
     </head>
     <body>
-
         @yield('header-scripts')
+
 
         <div id="app">
             @hasSection('header')
@@ -393,28 +240,7 @@
             @endif
 
                 @yield('content')
-                {{-- FEED Instagram --}}
-                <section id="ig_container" class="desktop">
-                    <div class="main-gallery">
-                        {{-- left --}}
-                        {{-- <div class="chevron">
-                            <span id="prev" class="material-symbols-outlined">
-                                arrow_back_ios_new
-                            </span>
-                        </div> --}}
 
-                        {{-- gallery --}}
-                        <div class="gallery-container">
-                            <div class="gallery"></div>
-                        </div>
-
-                        {{-- right --}}
-                        {{-- <div class="chevron">
-                            <span id="next" class="material-symbols-outlined">
-                                arrow_forward_ios
-                            </span>
-                        </div> --}}
-                    </div>
 
                     @if(
                         Route::current()->getName() == 'inicio' ||
@@ -441,56 +267,7 @@
         <script src="{{asset('assets/libs/vue/vue.min.js')}}"></script>
         <script src="{{asset('assets/libs/axios/axios.min.js')}}"></script>
 
-                @yield('footer-scripts')
-        <script>
-            'use strict'
-            const gallery=document.querySelector('.gallery');
-            const feed= document.querySelector('.gallery-container');
-            const next= document.querySelector('#next');
-            const prev= document.querySelector('#prev');
-            const token='{{env("IG_GALLERY_TOKEN")}}';
+        @yield('footer-scripts')
 
-            let limit = 5; // Valor predeterminado para dispositivos no móviles
-
-            // Detectar si la página se carga desde un dispositivo móvil
-            if (/Mobi|Android/i.test(navigator.userAgent)) {
-                limit = 3; // Cambiar el límite a 3 para dispositivos móviles
-            }
-
-            const url=`https://graph.instagram.com/me/media?fields=thumbnail_url,media_url,caption,permalink&limit=${limit}&access_token=${token}`;
-            fetch(url)
-            .then(res=> res.json())
-            .then(data=>createHtml(data.data));
-
-            function createHtml(data){
-                for(const img of data){
-                    if(img.caption !== undefined){
-                        gallery.innerHTML+=`
-                            <div class="image overflow">
-                                <img loading="lazy" src="${img.media_url}" alt="">
-                                <div class="opacity-hover">
-                                    <a href="${img.permalink}" class="caption">
-                                        <p>
-                                            ${img.caption.slice(0,80)}
-                                        </p>
-                                    </a>
-                            </div>
-                        `;
-                    }
-                }
-            }
-            next.addEventListener('click',moveGallery);
-            prev.addEventListener('click',moveGallery);
-
-            function moveGallery(e){
-                if(e.target.id === "next" || e.target.parentElement.id == "next"){
-                    feed.scrollLeft+= feed.offsetWidth;
-                }else{
-                    feed.scrollLeft-= feed.offsetWidth;
-
-                }
-            }
-
-        </script>
     </body>
 </html>

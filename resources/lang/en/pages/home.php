@@ -6,7 +6,7 @@ return [
     ],
     "home" => [
         "txt_hero" => [
-            "txt1" => "CABO AIRPORT SHUTTLE",
+            "txt1" => "THE BEST SHUTTLE SERVICE IN CABO",
             "txt2" => "Tourist Transportation Service, Airport / Hotel, Transfers and City tour.",
             "txt3" => "Start your transportation in cabo.",
         ]

@@ -23,4 +23,8 @@ class Resort extends Model
     {
         return $this->belongsTo('App\Reservation');
     }
+    public function images()
+    {
+        return $this->hasMany(ResortImage::class);
+    }
 }

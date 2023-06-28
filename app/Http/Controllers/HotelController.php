@@ -2,10 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use Datatables;
 use App\Models\Zone;
 use App\Models\Resort;
-use Datatables;
+use Illuminate\Http\File;
+use App\Models\ResortImage;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class HotelController extends Controller
 {
@@ -14,11 +18,7 @@ class HotelController extends Controller
         $this->middleware('auth');
     }
 
-    /**
-    * Display a listing of the resource.
-    *
-    * @return \Illuminate\Http\Response
-    */
+
     public function index()
     {
         $submit_label = 'Agregar';
@@ -28,78 +28,85 @@ class HotelController extends Controller
         return view('hoteles.index', compact('submit_label', 'zonas'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function create()
     {
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(Request $request)
     {
         $record = new Resort;
-
         $record->create($request->except('_token'));
+
+        // Carga de imágenes
+        if ($request->hasFile('images')) {
+            $this->uploadImages($request->file('images'), $record);
+        }
 
         return redirect()->route('hotel.index');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function show($id)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function edit($id)
     {
         $submit_label = 'Actualizar';
 
         $record = Resort::findOrFail($id);
+
         $zonas  = Zone::pluck(strtoupper('name'), 'id');
 
         return view('hoteles.edit', compact('record', 'zonas', 'submit_label'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function update(Request $request, $id)
     {
-        $record = Resort::updateOrCreate(['id'=>$request['id']], $request->except(['_token', '_method']));
+        $imgIds_to_delete = $request->input('eliminar');
+        if($imgIds_to_delete){
+            foreach($imgIds_to_delete as $img_id) {
+                $image = ResortImage::findOrFail($img_id);
+                Storage::disk('public')->delete($image->path);
+                // // si no funciona el sistema de archivos de laravel usar esto
+                // if (file_exists(base_path('public_html/'.$image->path))) {
+                //     unlink(base_path('public_html/'.$image->path));
+                // }
+                $image->delete();
+            }
+        }
+        $record = Resort::findOrFail($id);
+        $record->fill($request->except(['_token', '_method', 'cover', 'eliminar', 'images']));
 
-        return redirect()->route('hotel.index');
+        // Código para establecer la imagen de portada
+        $coverImage = ResortImage::find($request->input('cover'));
+        if ($coverImage && $coverImage->category !== 'cover') {
+            // Primero, quita la categoría 'cover' de cualquier otra imagen
+            ResortImage::where('category', 'cover')->update(['category' => null]);
+
+            // Luego, establece la imagen seleccionada como portada
+            $coverImage->category = 'cover';
+            $coverImage->save();
+        }
+
+        $record->save();
+
+        // Carga de imágenes
+        if ($request->hasFile('images')) {
+            $this->uploadImages($request->file('images'), $record);
+        }
+
+        return redirect()->route('hotel.edit',$record->id);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
+
     public function destroy($id)
     {
         $record = Resort::findOrFail($id);
@@ -109,11 +116,7 @@ class HotelController extends Controller
         return redirect()->route('hotel.index');
     }
 
-    /**
-     * Process datatables ajax request.
-     *
-     * @return \Illuminate\Http\JsonResponse
-     */
+
     public function anyData()
     {
         return Datatables::of(Resort::query())
@@ -138,5 +141,22 @@ class HotelController extends Controller
             })
             ->rawColumns(['name', 'action'])
             ->make(true);
+    }
+
+    protected function uploadImages($images, $hotel)
+    {
+        $basePath = base_path('public_html/assets/images/resort_images/') . Str::slug($hotel->name);
+        $publicImgPath='assets/images/resort_images/' . Str::slug($hotel->name);
+        Storage::disk('public')->makeDirectory($basePath);
+
+        foreach ($images as $image) {
+            $imageName = Str::slug($hotel->name) . '_' . uniqid('', true) . '.' . $image->getClientOriginalExtension();
+            $image->move($basePath, $imageName);
+
+            $resortImage = new ResortImage();
+            $resortImage->path = $publicImgPath . '/' . $imageName;
+            $resortImage->name=$imageName;
+            $hotel->images()->save($resortImage);
+        }
     }
 }

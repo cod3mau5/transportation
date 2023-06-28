@@ -1,509 +1,183 @@
-@extends('layouts.master')
-@section('header_scripts')
-    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@900&display=swap" rel="stylesheet">
-
+@extends('layouts.hotelsMaster')
+@section('header-scripts')
+    {{-- <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@900&display=swap" rel="stylesheet"> --}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
     <style>
-        :root{
-            --main_blue:#023047;
-            --main_orange:#ffb703;
-            --secondary_orange:#ff7e00;
-        }
-                /* helpers */
-                .hidden{
-            display: none!important;
-        }
-        .input-error{
-            border-color: #9e1317!important;
-        }
-        .input-success{
-            border-color: #016936!important;
-        }
-        .disabled{
-            color: #7F7F7F!important;
-            font-weight: 100!important;
-        }
-        .text-center{
-            text-align: center!important;
-        }
-        .px-0{
-            padding-left: 0!important;
-            padding-right: 0!important
-        }
-        .py-0{
-            padding-top: 0!important;
-            padding-bottom: 0!important;
-        }
-        .p-1 {
-            padding: 1rem !important;
-        }
-        .p-2 {
-            padding: 2rem !important;
-        }
-        .my-0{
-            margin-top: 0!important;
-            margin-bottom: 0!important;
-        }
-        .mx-0{
-            margin-left: 0!important;
-            margin-right: 0!important;
-        }
-        .mt-4 {
-            margin-top: 4rem !important;
-        }
-        .mt-3 {
-            margin-top: 3rem !important;
-        }
-        .mt-2 {
-            margin-top: 2rem !important;
-        }
-        .mt-1 {
-            margin-top: 1rem !important;
-        }
-        .ml-2 {
-            margin-left: 2rem !important;
-        }
-        .mb-0 {
-            margin-bottom: 0 !important;
-        }
-        .m-auto {
-            margin: auto !important;
-        }
-        .h-100 {
-            height: 100% !important;
-        }
-        .d-flex {
-            display: flex !important;
-        }
-        .polarized {
-            background-color: rgba(0, 0, 0, 0.65);
-        }
-        .h-fit {
-            height: fit-content;
-        }
-        .w-100 {
-            width: 100%;
-        }
-        .date-input {
-            cursor: pointer;
-        }
-        .float-right{
-            float: right!important;
-        }
         main{
             background: rgb(246,246,246);
             background: radial-gradient(circle, rgba(246,246,246,1) 32%, rgba(246,246,246,0.6839110644257703) 63%, rgba(219,219,219,0.40940126050420167) 81%, rgba(68,68,68,0.4234068627450981) 100%);
-            padding-top: 100px;
             padding-bottom: 80px;
             min-height: 100%;
         }
-        #traditional_arch_tour .ui.container {
-            padding: 1rem 0;
-        }
-        #traditional_arch_tour .ui.container .father_sticky{
-            padding: 0 7px;
 
-        }
-
-        .tour-title {
-            text-align: center!important;
-            font-family: 'Work Sans', sans-serif;
-            background: radial-gradient(circle, var(--main_orange) 10%, var(--secondary_orange) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin: 0;
-            font-size: 42px;
-        }
-        .tour-title:before{
-            bottom: 2px;
-            color: #023047;
-            content: attr(title);
-            left: 9px;
-            position: absolute;
-            text-shadow: none;
-            transform-origin: bottom left;
-            transform: skew(20deg) scale(1, 0.95);
-            z-index: -1;
-        }
-
-        .grid-gallery > div{
-            width: 100%;
-            height: 250px;
-            background-size: cover;
-        }
-
-        .grid-gallery > a > div{
-            background-size: cover;
-        }
-
-        .shadow-image {
-            bottom: 0;
-            z-index: 2;
-            width: 100%;
-            height: 70px;
-            position: absolute;
-            background-image: linear-gradient(to bottom,rgba(0,0,0,0),rgba(0,0,0,.77));
-        }
-        .swiper-pagination-bullet{
-            background:#FFF;
-            opacity:1;
-        }
-        .swiper-pagination-bullet-active{
-            background: var(--main_orange)!important;
-        }
-        .swiper-horizontal>.swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal, .swiper-pagination-custom, .swiper-pagination-fraction{
-            bottom: 1px !important;
-        }
-
-        .pswp img{
-            object-fit: contain!important;
-        }
-
-        @media(min-width: 920px){
-            .grid-gallery > a{
-                width: unset;
-                height: unset;
-            }
-            .grid-gallery{
-                display: grid;
-                grid-template-columns: 3fr 1fr 1fr;
-                grid-template-rows: 6fr 3.5fr;
-                grid-gap: 7px;
-                height: 360px;
-                font-size: 30px;
-                margin-left: auto;
-                margin-right: auto;
-            }
-
-            .grid-gallery > a:nth-child(1){
-                grid-row-start: 1;
-                grid-row-end: 3;
-            }
-            .grid-gallery > a:nth-child(2){
-                grid-column-start: 2;
-                grid-column-end: 4
-            }
-            .grid-gallery > a:nth-child(3) > div,.grid-gallery > a:nth-child(3) > div{
-                background-position: center;
-            }
-
-            .tour-title {
-                padding-top: 1rem;
-                margin-bottom:2rem;
-            }
-
-        }
-      /*====================================
-          STEPS
-      ====================================*/
-        .steps {
-            position: relative;
-            overflow: hidden;
-            counter-reset: wizard;
-            width: 100%;
-            margin: 10px auto;
-        }
-
-        .steps li {
-            position: relative;
-            float: left;
-            width: 33.3%;
-            text-align: center;
-            color: var(--main_blue);
-            font-weight: bolder;
-            cursor: pointer!important;
-        }
-
-        .current ~ li {
-            color: black;
-        }
-
-        .steps li:before {
-            font-weight: bolder;
-            counter-increment: wizard;
-            content: counter(wizard);
-            display: block;
-            color: var(--main_blue);
-            background-color: var(--main_orange);
-            border: 2px solid var(--main_orange);
-            text-align: center;
-            width: 2em;
-            height: 2em;
-            line-height: 2em;
-            border-radius: 2em;
-            position: relative;
-            left: 50%;
-            margin-bottom: 1em;
-            margin-left: -1em;
-            z-index: 6;
-        }
-        .current ~ li:before {
-            background-color: var(--main_blue);
-            color: #FFF;
-            border-color: var(--main_blue);
-        }
-
-        .steps li + li:after {
-            content: "";
-            display: block;
-            width: 100%;
-            background-color: var(--main_orange);
-            height: 2px;
-            position: absolute;
-            left: -50%;
-            top: 1em;
-            z-index: 5;
-        }
-
-        .current ~ li:after {
-            background-color: #555;
-        }
-        #features_price{
-            background: #fff;
-            padding: 1rem;
-            margin: 3rem .3rem;
-            border-radius: 0.28571429rem;
-            box-shadow: 1px 1px 48px -6px rgba(0,0,0,0.37);
-            -webkit-box-shadow: 1px 1px 48px -6px rgba(0,0,0,0.37);
-            -moz-box-shadow: 1px 1px 48px -6px rgba(0,0,0,0.37);
-        }
-        #features_price > .column{
-            padding-left: .5rem;
-            padding-right: .5rem;
-        }
-        #features{
-            padding-right: 1.3rem;
-        }
-        #features i{
-            font-size: 1.25rem;
-            margin-top:.5rem
-        }
-        #features .row .column{
-            padding-right: .77rem;
-            padding-left: .77rem;
-            text-align: center;
-        }
-
-        #duration .column{
-            text-align: center
-        }
-        #duration .column i{
-            font-size: 1.5rem;
-        }
-        #price .column{
-            text-align: center;
-        }
-        #price .card-price{
-            text-align: center;
-        }
-        #price p:nth-child(2){
-            position: relative;
-            bottom: 1.3em;
-        }
-        #price small{
-            position: relative;
-            bottom: -1.7rem;
-            color: #6c757d;
-            font-size: 97%;
-            line-height: 0;
-        }
-        #price .ui.orange.label{
-            font-size: 21px;
-        }
-
-        .description .title{
-            text-align: center;
-            padding-left: 10px!important;
-            padding-right: 10px!important;
-        }
-        .description #what_to_know{
-            padding-bottom: 1rem;
-        }
-        #back-button-container{
-            float: left;
-            background-color: var(--main_blue)!important;
-            color: white !important;
-            padding-left: 2.7rem!important;
-            padding-top: 0.6rem;
-            padding-bottom: 0.6rem;
-            margin-bottom: 1.5rem;
-        }
-        .button-container {
-            float: right;
-            background-color: var(--secondary_orange)!important;
-            color: white !important;
-            margin-top:30px!important;
-        }
-
-        footer {
-            padding: 3.5rem 0!important;
-        }
-        #features_price .up.divider{
-                display:none;
-        }
-        #features_price h5{
-            margin-top:0;
-            text-align: left;
-        }
-        #location p{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        #location p small {
-            display: contents;
-        }
-        #location p i{
-            margin:0 1rem;
-            font-size: 3.4rem;
-        }
-
-        .filler{
-            height: 100%;
-            width: 100%;
-        }
-
-        form select.dropdown{
-            background-color: whitesmoke;
-        }
-        #location:hover{
-            cursor: pointer;
-        }
-
-        .image.content{
-            height: 80vh;
-            padding-top: 75px!important;
-        }
-        /*====================================
-            GOOGLE MAP
-        ====================================*/
-        #map {
-            height: 100%;
-            width: 100%;
-        }
-
-
-        .ui.dropdown, input{
-            margin: 0;
-            max-width: 100%;
-            -webkit-box-flex: 1;
-            -ms-flex: 1 0 auto;
-            flex: 1 0 auto;
-            outline: 0;
-            -webkit-tap-highlight-color: rgba(255,255,255,0);
-            text-align: left;
-            line-height: 1.21428571em;
-            font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
-            padding: 0.67857143em 1em;
-            background: #fff;
-            border: 1px solid rgba(34,36,38,.15);
-            color: rgba(0,0,0,.87);
-            border-radius: 0.28571429rem;
-            -webkit-transition: border-color .1s ease,-webkit-box-shadow .1s ease;
-            transition: border-color .1s ease,-webkit-box-shadow .1s ease;
-            transition: box-shadow .1s ease,border-color .1s ease;
-            transition: box-shadow .1s ease,border-color .1s ease,-webkit-box-shadow .1s ease;
-            -webkit-box-shadow: none;
-            box-shadow: none;
-        }
         @media only screen and (min-width:1200px) {}
-        @media only screen and (min-width:1100px) {
-            .image.content{
-                height: 80vh;
-                padding-top:115px!important;
-            }
-        }
+        @media only screen and (min-width:1100px) {}
         @media only screen and (max-width:920px) {}
         @media only screen and (max-width:840px) {}
-        @media only screen and (max-width:767px) {
-            footer {
-                display:none;
-            }
-            #features_price > .column{
-                padding-top: 0!important;
-                padding-bottom: 0!important;
-            }
-
-            main > .ui.container{
-                margin-left:0px!important;
-                margin-right:0px!important;
-            }
-
-            .button-container{
-                position: fixed!important;
-                bottom: 7px;
-                z-index: 11;
-                width: calc(100% - 14px);
-                height: 41.3px!important;
-                margin: 0 auto!important;
-            }
-            #price p:nth-child(2){
-                position: relative;
-                bottom:20px;
-                margin-top:0;
-            }
-        }
-        @media only screen and (max-width:480px) {
-            #features_price h5{
-                margin-top:1rem;
-                text-align: center;
-            }
-            #features_price .down.divider{
-                display:none;
-            }
-
-            #features_price .up.divider{
-                display:block;
-            }
-
-        }
-        @media only screen and (max-width: 767px){
-            .ui.modal .content>.description{
-                padding-top: 75px!important;
-            }
-            form .ui.grid{
-                padding-left: 0.6rem!important;
-                padding-right: 0.6rem!important;
-            }
-            .ui.grid>.column:not(.row), .ui.grid>.row>.column{
-                padding-left: .25rem!important;
-                padding-right: .25rem!important;
-            }
-        }
+        @media only screen and (max-width:767px) {}
+        @media only screen and (max-width:480px) {}
+        @media only screen and (max-width: 767px){}
         @media only screen and (max-width:320px) {}
-        .mbsc-calendar-cell.mbsc-flex-1-0-0.mbsc-calendar-day.mbsc-ios.mbsc-ltr.mbsc-hb > div:nth-child(1),
-        .mbsc-scroller-wheel-item.mbsc-ios.mbsc-ltr.xxxxmbsc-scroller-wheel-item-2d > div:nth-child(1),
-        .mbsc-scroller-wheel-item.mbsc-ios.mbsc-ltr.mbsc-scroller-wheel-item-2d.mbsc-selected > div:nth-child(1),
-        .mbsc-calendar-cell.mbsc-flex-1-0-0.mbsc-calendar-day.mbsc-ios.mbsc-ltr > div:nth-child(1),
-        .mbsc-calendar-cell.mbsc-flex-1-0-0.mbsc-calendar-day.mbsc-material.mbsc-ltr > div:nth-child(1){
-            display: none !important;
-        }
-        #trial-message{
-            display: none !important;
+
+        #cover-image{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-content: end;
+            height: 450px;
+            @if(count($gallery) >= 3)
+                background-image:url("{{url($coverImg->path)}}");
+            @endif
+            background-size:cover;
+            background-position:center;
         }
 
-        #paypal-button-container{
-            text-align: center;
+
+        .cover-title{
+            background-color: rgba(255,255,255,0.6);
+            padding: 1rem 3rem;
+            font-size: 1.7rem;
+            margin-bottom: 3.777rem;
+            font-weight: bolder;
         }
-        #paypal-button{
-            margin: 1.3rem;
+        @media(min-width:1024px){
+            #cover-image{
+                height: 650px;
+            }
+            .cover-title{
+                font-size: 3rem;
+            }
         }
-        .field .iti{
-            width: 100%!important;
+
+
+        .container.gallery {
+            position: relative;
         }
-        .ui.label.extra-fee:before{
-            width: 2.2em!important;
-            height: 2.2em!important;
+
+        #slide-left, #slide-right {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255,255,255,0.7);
+            border: none;
+            border-radius: 50%;
+            font-size: 2rem;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            z-index: 1;
         }
+
+        #slide-left {
+            left: 10px;
+        }
+
+        #slide-right {
+            right: 10px;
+        }
+        #hotel-gallery {
+            position: relative;
+            overflow-x: hidden;
+            display: flex;
+            flex-wrap: nowrap;
+            gap: 1rem;
+            padding: 1rem;
+        }
+        #hotel-gallery img {
+
+            width: auto;
+            height: 300px;
+            object-fit: cover;
+            scroll-snap-align: center;
+        }
+        input[type="button"]{
+            padding: 1rem 2rem;
+            background-color: #41baae!important;
+            border: none;
+            border-radius: 0px;
+            color: #fff;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 0.7rem;
+        }
+
+        @media only screen and (min-width:768px) {
+            input[type="button"]{
+                font-size: 1rem;
+            }
+        }
+        @media only screen and (min-width:920px) {
+            input[type="button"]{
+                font-size: 1.2rem;
+            }
+        }
+
     </style>
 
 @endsection
+
+@section('header')
+    <header id="main_header">
+        <video id="vid" width="100%" loop autoplay muted>
+            <source src="{{ asset('assets/videos/file.mp4') }}" type="video/mp4">
+        </video>
+        <div class="container top_header pt-2 pb-1">
+            <div class="row">
+                <div class="col-md-5 text-center">
+                    <a class="navbar-brand d-flex" href="{{route('homepage')}}">
+                        <img src="{{ asset('assets/images/cabo_drivers_logo.webp') }}" alt="" class="d-inline-block align-text-top mx-auto mx-0-md mobile">
+                        <img src="{{ asset('assets/images/cabo_drivers_logo.webp') }}" alt="" class="d-inline-block align-text-top mx-auto mx-0-md desktop" width="246" height="92">
+
+                    </a>
+                </div>
+                <div class="col-md-7 text-center">
+                    <div class="d-flex justify-content-center w-100 h-100 py-1">
+                        <select class="align-middle align-self-center py-1 px-2"  @change="changeLanguage" v-model="lang">
+                            <option value="es"@if ( app()->getLocale() == 'es') selected @endif>español</option>
+                            <option value="en" @if ( app()->getLocale() == 'en') selected @endif>english</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <nav class="navbar navbar-expand-lg navbar-light py-0">
+            <div class="container-fluid justify-content-end">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fa fa-bars" aria-hidden="true"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                <ul class="navbar-nav mx-auto text-center mb-1 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link text-white active" aria-current="page" href="{{route('homepage')}}">{{ __("pages/includes/header.menu.home") }}</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="/#about-us">{{ __("pages/includes/header.menu.about_us") }}</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="{{route('gallery')}}" tabindex="-1" aria-disabled="true">{{ __("pages/includes/header.menu.gallery") }}</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="{{route('contact-us')}}" tabindex="-1" aria-disabled="true">{{ __("pages/includes/header.menu.contact_us") }}</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="{{route('book-now')}}" tabindex="-1" aria-disabled="true">{{ __("pages/includes/header.menu.book_now") }}</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="/blog" tabindex="-1" aria-disabled="true">{{ __("pages/includes/header.menu.things_to_do") }}</a>
+                </li>
+                </ul>
+
+            </div>
+            </div>
+        </nav>
+    </header>
+@endsection
+
 @section('content')
 
-    <main id="traditional_arch_tour">
-        <div class="ui container">
+    <main id="hotel">
 
             @if ($errors->any())
                 <div class="ui negative message mt-2" >
@@ -517,34 +191,95 @@
             @endif
 
 
-            <h2 class="tour-title">{{$hotel->name}}</h2>
-
-
-            <div class="swiper mySwiper">
-                <div class="grid-gallery swiper-wrapper pswp-gallery" id="my-gallery">
-
-
-                        {{-- @foreach($tour->gallery as $img)
-                            <a href="{{url($img)}}"
-                            data-pswp-width="950"
-                            data-pswp-height="683"
-                            target="_blank">
-                                <div class="swiper-slide" style="background-image:url({{url($img)}})"></div>
-                            </a>
-                        @endforeach --}}
-
-
+            <div class="container-fluid">
+                <div class="row cover-container">
+                    <div class="col-md-12 text-center" id="cover-image">
+                        <h2 class="text-center cover-title">{{$hotel->name}}</h2>
+                    </div>
                 </div>
-                <div class="swiper-pagination"></div>
             </div>
 
-        </div>
+            <div class="container description py-4">
+                {!! $hotel->description !!}
+            </div>
+
+            @if(count($gallery) >= 3)
+                <div class="container gallery">
+                    <button id="slide-left"><i class="fa fa-chevron-left"></i></button>
+                    <button id="slide-right"><i class="fa fa-chevron-right"></i></button>
+                    <div class="row" id="hotel-gallery">
+                        @foreach($gallery as $img)
+                            <img src="{{url($img->path)}}"/>
+                        @endforeach
+                    </div>
+                </div>
+            @endif
+
     </main>
 
 @endsection
 
-@section('footer_scripts')
+@section('footer-scripts')
 
+    @if(count($gallery) >= 3)
+        <script>
+            $(document).ready(function(){
+                const hotel="{{$hotel->name}}";
+                buttons=document.querySelectorAll("input[type='button']");
+                buttons.forEach(button => {
+                    var link = document.createElement('a');
+                    link.href = 'https://cabodrivers.com/book-now';
+                    link.target = '_blank';
+                    // Insertar el enlace antes del botón en el DOM
+                    button.parentNode.insertBefore(link, button);
+                    // Mover el botón dentro del enlace
+                    link.appendChild(button);
+                    button.value="Book "+hotel+" Now";
+                });
+                const images = document.querySelectorAll('#hotel-gallery img');
+                let imgCount = images.length;
+                let imgWidth;
+                let currentIndex = 0;
 
+                if (imgCount > 6) {
+                    imgWidth = 100 / 6;
+                } else {
+                    imgWidth = 100 / imgCount;
+                }
+
+                for (let img of images) {
+                    img.style.flex = `0 0 ${imgWidth}%`;
+                }
+
+                const slideLeft = document.getElementById('slide-left');
+                const slideRight = document.getElementById('slide-right');
+
+                if (!slideLeft) {
+                    console.error("No se pudo encontrar el botón #slide-left");
+                } else {
+                    slideLeft.addEventListener('click', () => {
+                        console.log('Botón izquierdo pulsado');
+                        if (currentIndex > 0) {
+                            currentIndex--;
+                            images[currentIndex].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+                        }
+                    });
+                }
+
+                if (!slideRight) {
+                    console.error("No se pudo encontrar el botón #slide-right");
+                } else {
+                    slideRight.addEventListener('click', () => {
+                        console.log('Botón derecho pulsado');
+                        if (currentIndex < imgCount - 1) {
+                            currentIndex++;
+                            images[currentIndex].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+                        }
+                    });
+                }
+        });
+
+        </script>
+    @endif
 
 @endsection

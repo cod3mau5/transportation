@@ -12,8 +12,8 @@
                 </a>
             </div>
             <div class="col-md-6 text-center">
-                <div class="d-flex justify-content-center w-100 h-100 py-2">
-                    <select class="align-middle align-self-center py-2 px-2"  @change="changeLanguage" v-model="lang">
+                <div class="d-flex justify-content-center w-100 h-100 py-1">
+                    <select class="align-middle align-self-center py-1 px-2"  @change="changeLanguage" v-model="lang">
                         <option value="es"@if ( app()->getLocale() == 'es') selected @endif>español</option>
                         <option value="en" @if ( app()->getLocale() == 'en') selected @endif>english</option>
                     </select>

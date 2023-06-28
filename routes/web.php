@@ -33,9 +33,6 @@ Route::get('/languages/{language}',[Controllers\PagesController::class,'getLangu
 Route::post('/send-reservation',[Controllers\ReservationsController::class,'sendReservation'])->name('sendReservation');
 Route::post('/send-mail', [Controllers\PagesController::class,'sendMail'])->name('sendMail');
 
-// Route::get('/languages/{language}',[Controllers\PagesController::class,'getLanguages'])->name('getLanguages');
-# For test
-Route::get('/form',[Controllers\PagesController::class,'form'])->name('form');
 # VOUCHERS
 Route::get('/reservation/{voucher}/show', [Controllers\ReservationsController::class,'showReservation']);
 
@@ -93,5 +90,8 @@ Route::prefix('/administracion')->group(function() {
 
 });
 
+
+# For test
+Route::get('/form',[Controllers\PagesController::class,'form'])->name('form');
 
 

@@ -8,33 +8,33 @@
                 <nav class="footer-nav">
                     <ul class="s2-color">
                         <li><a href="/hotel/Acre-The-House-Hotel">Acre The House Hotel Transportation</a></li>
-                        <li>Barcelo Grand Faro Transportation</li>
-                        <li>Cabo Azul Transportation</li>
-                        <li>Casa del Mar Transportation</li>
-                        <li>Dreams Transportation</li>
-                        <li>Grand Velas Transportation</li>
-                        <li>JW Marriott Transportation</li>
-                        <li>Hyatt Ziva Airport Transportation</li>
-                        <li>One & Only Palmilla Transportation</li>
-                        <li>Royal Solaris Transportation</li>
+                        <li><a href="/hotel/Barcelo-Grand-Faro-Los-Cabos">Barcelo Grand Faro Transportation</a></li>
+                        <li><a href="/hotel/Cabo-Azul-Resort">Cabo Azul Transportation</a></li>
+                        <li><a href="/hotel/Casa-del-Mar">Casa del Mar Transportation</a></li>
+                        <li><a href="/hotel/Dreams">Dreams Transportation</a></li>
+                        <li><a href="/hotel/Grand-Velas">Grand Velas Transportation</a></li>
+                        <li><a href="/hotel/JW-Marriott">JW Marriott Transportation</a></li>
+                        <li><a href="/hotel/Hyatt-Ziva">Hyatt Ziva Airport Transportation</a></li>
+                        <li><a href="/hotel/One-&-Only-Palmilla">One & Only Palmilla Transportation</a></li>
+                        <li><a href="/hotel/Royal-Solaris">Royal Solaris Transportation</a></li>
                     </ul>
                 </nav>
                 <h3 class="fs-2 s-color mt-3">Restaurants Transportation</h3>
                 <hr class="line">
                 <nav class="footer-nav">
                     <ul class="s2-color">
-                        <li>Floras Farm Kitchen Transportation</li>
-                        <li>Tamarindos Restaurant Transportation</li>
-                        <li>Mango Deck Transportation</li>
+                        <li><a href="/restaurant/">Floras Farm Kitchen Transportation</a></li>
+                        <li><a href="/restaurant/">Tamarindos Restaurant Transportation</a></li>
+                        <li><a href="/restaurant/">Mango Deck Transportation</a></li>
                     </ul>
                 </nav>
                 <h3 class="fs-2 s-color mt-3">Foreign Transportation</h3>
                 <hr class="line">
                 <nav class="footer-nav">
                     <ul class="s2-color">
-                        <li>Cabo Pulmo Transportation</li>
-                        <li>Los Barriles Transportation</li>
-                        <li>Todos Santos Transportation</li>
+                        <li><a href="/foreign/">Cabo Pulmo Transportation</a></li>
+                        <li><a href="/foreign/">Los Barriles Transportation</a></li>
+                        <li><a href="/foreign/">Todos Santos Transportation</a></li>
                     </ul>
                 </nav>
            </div>
@@ -43,27 +43,27 @@
                 <hr class="line">
                 <nav class="footer-nav">
                     <ul class="s2-color">
-                        <li>Nobu Transportation</li>
-                        <li>Diamante Transportation</li>
-                        <li>Grand Solmar Transportation</li>
-                        <li>Rancho San Lucas Transportation</li>
-                        <li>ME Cabo Transportation</li>
-                        <li>Montage Transportation</li>
-                        <li>Pueblo Bonito Blanco Transportation</li>
-                        <li>Pueblo Bonito Pacifica Transportation</li>
-                        <li>Pueblo Bonito Rose Transportation</li>
-                        <li>Pueblo Bonito Sunset Transportation</li>
-                        <li>RIU Palace Cabo San Lucas Transportation</li>
-                        <li>RIU Santa Fe Transportation</li>
-                        <li>Sheraton Transportation</li>
-                        <li>Solmar Hotel Transportation</li>
-                        <li>The Cape Transportation</li>
-                        <li>Villa del Arco Transportation</li>
-                        <li>Villa del Palmar Transportation</li>
-                        <li>Villa La Estancia Transportation</li>
-                        <li>Breathless Transportation</li>
-                        <li>Cachet Beach Cabo Villas Transportation</li>
-                        <li>Fairfield Inn Transportation</li>
+                        <li><a href="/hotel/Nobu">Nobu Transportation</a></li>
+                        <li><a href="/hotel/Diamante">Diamante Transportation</a></li>
+                        <li><a href="/hotel/Grand-Solmar">Grand Solmar Transportation</a></li>
+                        <li><a href="/hotel/Rancho-San-Lucas">Rancho San Lucas Transportation</a></li>
+                        <li><a href="/hotel/ME-Cabo-by-Melia">ME Cabo Transportation</a></li>
+                        <li><a href="/hotel/Montage">Montage Transportation</a></li>
+                        <li><a href="/hotel/Pueblo-Bonito-Blanco">Pueblo Bonito Blanco Transportation</a></li>
+                        <li><a href="/hotel/Pueblo-Bonito-Pacifica">Pueblo Bonito Pacifica Transportation</a></li>
+                        <li><a href="/hotel/Pueblo-Bonito-Rose">Pueblo Bonito Rose Transportation</a></li>
+                        <li><a href="/hotel/Pueblo-Bonito-Sunset">Pueblo Bonito Sunset Transportation</a></li>
+                        <li><a href="/hotel/RIU-Palace">RIU Palace Cabo San Lucas Transportation</a></li>
+                        <li><a href="/hotel/RIU-Santa-Fe">RIU Santa Fe Transportation</a></li>
+                        <li><a href="/hotel/Sheraton-Hacienda-del-Mar">Sheraton Hacienda del Mar Transportation</a></li>
+                        <li><a href="/hotel/Solmar">Solmar Transportation</a></li>
+                        <li><a href="/hotel/The-Cape">The Cape Transportation</a></li>
+                        <li><a href="/hotel/Villa-del-Arco">Villa del Arco Transportation</a></li>
+                        <li><a href="/hotel/Villa-del-Palmar">Villa del Palmar Transportation</a></li>
+                        <li><a href="/hotel/Villa-La-Estancia">Villa La Estancia Transportation</a></li>
+                        <li><a href="/hotel/Breathless-Cabo-San-Lucas">Breathless Transportation</a></li>
+                        <li><a href="/hotel/Cabo-Villas-Beach-Resort">Cabo Villas Beach Resort Transportation</a></li>
+                        <li><a href="/hotel/Fairfield-Inn">Fairfield Inn Transportation</a></li>
                     </ul>
                 </nav>
            </div>

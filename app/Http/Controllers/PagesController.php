@@ -141,8 +141,10 @@ class PagesController extends Controller
     public function hotel($hotelSlug){
         $hotel=str_replace('-',' ',$hotelSlug);
         $hotel=Resort::where('name',$hotel)->firstOrFail();
-        // return$hotel;
-        return view('pages.hotel',compact('hotel'));
+        $coverImg=$hotel->images->where('category','cover')->first();
+        // dd($coverImg->path);
+        $gallery=$hotel->images->where('category',null);
+        return view('pages.hotel',compact('hotel','coverImg','gallery'));
     }
 
     /** for testing: */
