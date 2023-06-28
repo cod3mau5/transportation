@@ -92,7 +92,7 @@
         }
         input[type="button"]{
             padding: 1rem 2rem;
-            background-color: #41baae!important;
+            background-color: #6AA4E9;
             border: none;
             border-radius: 0px;
             color: #fff;
