@@ -234,7 +234,7 @@
                     button.parentNode.insertBefore(link, button);
                     // Mover el botón dentro del enlace
                     link.appendChild(button);
-                    button.value="Book "+hotel+" Now";
+                    button.value="Book "+hotel+" Transportation Now";
                 });
                 const images = document.querySelectorAll('#hotel-gallery img');
                 let imgCount = images.length;
