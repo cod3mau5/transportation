@@ -88,7 +88,7 @@ class HotelController extends Controller
         $coverImage = ResortImage::find($request->input('cover'));
         if ($coverImage && $coverImage->category !== 'cover') {
             // Primero, quita la categoría 'cover' de cualquier otra imagen
-            ResortImage::where('category', 'cover')->update(['category' => null]);
+            $record->images->where('category', 'cover')->update(['category' => null]);
 
             // Luego, establece la imagen seleccionada como portada
             $coverImage->category = 'cover';
