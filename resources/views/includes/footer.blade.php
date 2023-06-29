@@ -10,7 +10,7 @@
                         <li><a href="/hotel/Acre-The-House-Hotel">Acre The House Hotel Transportation</a></li>
                         <li><a href="/hotel/Barcelo-Grand-Faro-Los-Cabos">Barcelo Grand Faro Transportation</a></li>
                         <li><a href="/hotel/Cabo-Azul-Resort">Cabo Azul Transportation</a></li>
-                        <li><a href="/hotel/Casa-del-Mar">Casa del Mar Transportation</a></li>
+                        <li><a href="/hotel/Zoetry-Casa-del-Mar">Casa del Mar Transportation</a></li>
                         <li><a href="/hotel/Dreams">Dreams Transportation</a></li>
                         <li><a href="/hotel/Grand-Velas">Grand Velas Transportation</a></li>
                         <li><a href="/hotel/JW-Marriott">JW Marriott Transportation</a></li>
