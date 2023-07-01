@@ -110,7 +110,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-12 text-center mt-4">
+            <div class="col-md-12 text-center my-4">
                 <a href="{{ route('book-now',1) }}" class="book-btn text-white">{{ __('pages/home.components.book_now_btn') }}</a>
             </div>
         </div>
@@ -131,7 +131,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-12 text-center mt-4">
+            <div class="col-md-12 text-center my-4">
                 <a href="{{ route('book-now',1) }}" class="book-btn text-white">{{ __('pages/home.components.book_now_btn') }}</a>
             </div>
         </div>
