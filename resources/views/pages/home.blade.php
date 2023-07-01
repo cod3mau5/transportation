@@ -89,7 +89,7 @@
                     <div><img src="{{ asset('assets/images/home-slider/pic2.webp') }}" alt="Arch and kayak in los cabos"></div>
                     <div><img src="{{ asset('assets/images/home-slider/pic3.webp') }}" alt="Beach sight los cabos"></div>
                     <div><img src="{{ asset('assets/images/home-slider/pic4.webp') }}" alt="Beautifull sunset in los cabos"></div>
-                    <div><img src="{{ asset('assets/images/home-slider/pic5.webp') }}" alt="Church in city tour los cabos"></div>
+                    <div><img src="{{ asset('assets/images/home-slider/pic5.webp') }}" alt="Church in city tour los"></div>
                 </div>
             </div>
         </div>
@@ -110,7 +110,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-12 text-center my-4">
+            <div class="col-md-12 text-center mt-4">
                 <a href="{{ route('book-now',1) }}" class="book-btn text-white">{{ __('pages/home.components.book_now_btn') }}</a>
             </div>
         </div>
@@ -131,7 +131,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-12 text-center my-4">
+            <div class="col-md-12 text-center mt-4">
                 <a href="{{ route('book-now',1) }}" class="book-btn text-white">{{ __('pages/home.components.book_now_btn') }}</a>
             </div>
         </div>

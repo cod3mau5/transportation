@@ -30,6 +30,13 @@
     </div>
 </div>
 
+<div class="row" style="margin-bottom: 2rem">
+    <div class="col-md-12">
+        <label for="meta_description" class="control-label">Meta Description (para Google):</label>
+        {{ Form::textarea('meta_description', null, ['id' => 'meta_description', 'class' => 'form-control', 'rows'=> '2']) }}
+    </div>
+</div>
+
 
 <div class="row" style="margin-bottom: 2rem">
     <div class="col-md-12">
@@ -38,17 +45,16 @@
     </div>
 </div>
 
+<div class="row">
+    <div class="col-md-2">
+        <label for="images" class="control-label">Imágenes:</label>
+    </div>
+    <div class="col-md-3">
+        {{ Form::file('images[]', ['class' => 'form-control-file', 'multiple' => true]) }}
+    </div>
+</div>
 
 @isset($record)
-    <div class="row">
-        <div class="col-md-2">
-            <label for="images" class="control-label">Imágenes:</label>
-        </div>
-        <div class="col-md-3">
-            {{ Form::file('images[]', ['class' => 'form-control-file', 'multiple' => true]) }}
-        </div>
-    </div>
-
     @if (!empty($record->images->toArray()))
         <div class="row">
             <div class="col-md-12">
