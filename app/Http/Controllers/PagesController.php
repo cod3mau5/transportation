@@ -147,6 +147,15 @@ class PagesController extends Controller
         return view('pages.hotel',compact('hotel','coverImg','gallery'));
     }
 
+    public function restaurant($hotelSlug){
+        $hotel=str_replace('-',' ',$hotelSlug);
+        $hotel=Resort::where('name',$hotel)->firstOrFail();
+        $coverImg=$hotel->images->where('category','cover')->first();
+        // dd($coverImg->path);
+        $gallery=$hotel->images->where('category',null);
+        return view('pages.hotel',compact('hotel','coverImg','gallery'));
+    }
+
     /** for testing: */
     public function form(){
         $resort_options = '';
