@@ -25,7 +25,7 @@
                     <ul class="s2-color">
                         <li><a href="/restaurant/Flora-Farms">Flora Farms Kitchen Transportation</a></li>
                         <li><a href="/restaurant/Tamarindos-Restaurant">Tamarindos Restaurant Transportation</a></li>
-                        <li><a href="/restaurant/Mango-Deck">Mango Deck Transportation</a></li>
+                        <li><a href="/restaurant/Mango-Deck-Cabo">Mango Deck Transportation</a></li>
                     </ul>
                 </nav>
                 <h3 class="fs-2 s-color mt-3">Foreign Transportation</h3>
