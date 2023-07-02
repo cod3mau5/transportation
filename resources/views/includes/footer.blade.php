@@ -23,7 +23,7 @@
                 <hr class="line">
                 <nav class="footer-nav">
                     <ul class="s2-color">
-                        <li><a href="/restaurant/Floras-Farm">Floras Farm Kitchen Transportation</a></li>
+                        <li><a href="/restaurant/Flora-Farms">Flora Farms Kitchen Transportation</a></li>
                         <li><a href="/restaurant/Tamarindos-Restaurant">Tamarindos Restaurant Transportation</a></li>
                         <li><a href="/restaurant/Mango-Deck">Mango Deck Transportation</a></li>
                     </ul>
