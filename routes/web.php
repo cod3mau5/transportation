@@ -20,6 +20,7 @@ Route::get('/contact-us',[Controllers\PagesController::class,'contactUs'])->name
 Route::get('/privacy-policy',[Controllers\PagesController::class,'privacy'])->name('privacy');
 Route::get('/hotel/{hotelSlug}',[Controllers\PagesController::class,'hotel'])->name('hotel');
 Route::get('/restaurant/{restaurantSlug}',[Controllers\PagesController::class,'restaurant'])->name('restaurant');
+Route::get('/foreign/{foreignSlug}',[Controllers\PagesController::class,'foreign'])->name('foreign');
 
 
 # Languages

@@ -23,18 +23,18 @@
                 <hr class="line">
                 <nav class="footer-nav">
                     <ul class="s2-color">
-                        <li><a href="/restaurant/">Floras Farm Kitchen Transportation</a></li>
-                        <li><a href="/restaurant/">Tamarindos Restaurant Transportation</a></li>
-                        <li><a href="/restaurant/">Mango Deck Transportation</a></li>
+                        <li><a href="/restaurant/Floras-Farm">Floras Farm Kitchen Transportation</a></li>
+                        <li><a href="/restaurant/Tamarindos-Restaurant">Tamarindos Restaurant Transportation</a></li>
+                        <li><a href="/restaurant/Mango-Deck">Mango Deck Transportation</a></li>
                     </ul>
                 </nav>
                 <h3 class="fs-2 s-color mt-3">Foreign Transportation</h3>
                 <hr class="line">
                 <nav class="footer-nav">
                     <ul class="s2-color">
-                        <li><a href="/foreign/">Cabo Pulmo Transportation</a></li>
-                        <li><a href="/foreign/">Los Barriles Transportation</a></li>
-                        <li><a href="/foreign/">Todos Santos Transportation</a></li>
+                        <li><a href="/foreign/Cabo Pulmo">Cabo Pulmo Transportation</a></li>
+                        <li><a href="/foreign/Los-Barriles">Los Barriles Transportation</a></li>
+                        <li><a href="/foreign/Todos-Santos">Todos Santos Transportation</a></li>
                     </ul>
                 </nav>
            </div>

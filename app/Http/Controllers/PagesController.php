@@ -142,16 +142,21 @@ class PagesController extends Controller
         $hotel=str_replace('-',' ',$hotelSlug);
         $hotel=Resort::where('name',$hotel)->firstOrFail();
         $coverImg=$hotel->images->where('category','cover')->first();
-        // dd($coverImg->path);
         $gallery=$hotel->images->where('category',null);
         return view('pages.hotel',compact('hotel','coverImg','gallery'));
     }
 
-    public function restaurant($hotelSlug){
-        $hotel=str_replace('-',' ',$hotelSlug);
+    public function restaurant($restaurantSlug){
+        $hotel=str_replace('-',' ',$restaurantSlug);
         $hotel=Resort::where('name',$hotel)->firstOrFail();
         $coverImg=$hotel->images->where('category','cover')->first();
-        // dd($coverImg->path);
+        $gallery=$hotel->images->where('category',null);
+        return view('pages.hotel',compact('hotel','coverImg','gallery'));
+    }
+    public function foreign($foreignSlug){
+        $hotel=str_replace('-',' ',$foreignSlug);
+        $hotel=Resort::where('name',$hotel)->firstOrFail();
+        $coverImg=$hotel->images->where('category','cover')->first();
         $gallery=$hotel->images->where('category',null);
         return view('pages.hotel',compact('hotel','coverImg','gallery'));
     }
