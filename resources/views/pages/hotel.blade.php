@@ -196,7 +196,7 @@
             <div class="container-fluid">
                 <div class="row cover-container">
                     <div class="col-md-12 text-center" id="cover-image">
-                        <h2 class="text-center cover-title">{{$hotel->name}}</h2>
+                        <h1 class="text-center cover-title">{{$hotel->name}} <br> Transportation</h1>
                     </div>
                 </div>
             </div>
