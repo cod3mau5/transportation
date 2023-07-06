@@ -4,6 +4,7 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 
+    <!-- Main pages -->
     <url>
         <loc>https://cabodrivers.com/</loc>
         <lastmod>2023-06-22T20:12:03+00:00</lastmod>
@@ -24,55 +25,8 @@
         <lastmod>2023-06-22T20:12:03+00:00</lastmod>
         <priority>0.80</priority>
     </url>
-    <url>
-        <loc>https://cabodrivers.com/blog/</loc>
-        <lastmod>2023-06-22T20:12:03+00:00</lastmod>
-        <priority>0.777</priority>
-    </url>
-    <url>
-        <loc>
-            https://cabodrivers.com/blog/the-dos-and-donts-of-getting-around-cabo-san-lucas-transportation-tips-from-locals/</loc>
-        <lastmod>2023-06-22T20:12:03+00:00</lastmod>
-        <priority>0.777</priority>
-    </url>
-    <url>
-        <loc>https://cabodrivers.com/blog/author/king/</loc>
-        <lastmod>2023-06-22T20:12:03+00:00</lastmod>
-        <priority>0.777</priority>
-    </url>
-    <url>
-        <loc>https://cabodrivers.com/blog/category/guides/</loc>
-        <lastmod>2023-06-22T20:12:03+00:00</lastmod>
-        <priority>0.777</priority>
-    </url>
-    <url>
-        <loc>
-            https://cabodrivers.com/blog/the-ultimate-guide-to-cabo-san-lucas-transportation-services-how-to-get-around-hassle-free/</loc>
-        <lastmod>2023-06-22T20:12:03+00:00</lastmod>
-        <priority>0.777</priority>
-    </url>
-    <url>
-        <loc>https://cabodrivers.com/blog/category/uncategorized/</loc>
-        <lastmod>2023-06-22T20:12:03+00:00</lastmod>
-        <priority>0.644</priority>
-    </url>
-    <url>
-        <loc>https://cabodrivers.com/blog/tag/cabo-transportation-options/</loc>
-        <lastmod>2023-06-22T20:12:03+00:00</lastmod>
-        <priority>0.51</priority>
-    </url>
-    <url>
-        <loc>https://cabodrivers.com/blog/tag/tips/</loc>
-        <lastmod>2023-06-22T20:12:03+00:00</lastmod>
-        <priority>0.51</priority>
-    </url>
-    <url>
-        <loc>https://cabodrivers.com/blog/2023/06/</loc>
-        <lastmod>2023-06-22T20:12:03+00:00</lastmod>
-        <priority>0.51</priority>
-    </url>
 
-
+    <!-- Hotel & restaurants pages -->
     <url>
         <loc>https://cabodrivers.com/hotel/Acre-The-House-Hotel</loc>
         <lastmod>2023-07-06T04:37:33+00:00</lastmod>
@@ -243,4 +197,96 @@
         <lastmod>2023-07-06T04:37:33+00:00</lastmod>
         <priority>0.80</priority>
     </url>
+
+    <!-- BLog pages -->
+    <url>
+        <loc>https://cabodrivers.com/blog/</loc>
+        <lastmod>2023-06-22T20:12:03+00:00</lastmod>
+        <priority>0.80</priority>
+    </url>
+    <url>
+        <loc>https://cabodrivers.com/blog/category/guides/</loc>
+        <lastmod>2023-07-06T04:37:33+00:00</lastmod>
+        <priority>0.77</priority>
+    </url>
+    <url>
+        <loc>https://cabodrivers.com/blog/the-wonders-of-cabo-and-surroundings-with-cabo-drivers/</loc>
+        <lastmod>2023-07-06T04:37:33+00:00</lastmod>
+        <priority>0.77</priority>
+    </url>
+    <url>
+        <loc>https://cabodrivers.com/blog/author/king/</loc>
+        <lastmod>2023-07-06T04:37:33+00:00</lastmod>
+        <priority>0.77</priority>
+    </url>
+    <url>
+        <loc>
+            https://cabodrivers.com/blog/cabo-drivers-is-the-best-decision-for-your-cabo-san-lucas-airport-transfer/</loc>
+        <lastmod>2023-07-06T04:37:33+00:00</lastmod>
+        <priority>0.77</priority>
+    </url>
+    <url>
+        <loc>https://cabodrivers.com/blog/where-to-find-the-best-breakfast-in-cabo-top-3-spots/</loc>
+        <lastmod>2023-07-06T04:37:33+00:00</lastmod>
+        <priority>0.77</priority>
+    </url>
+    <url>
+        <loc>
+            https://cabodrivers.com/blog/why-cabo-san-lucas-airport-shuttle-service-is-the-best-way-to-start-your-getaway/</loc>
+        <lastmod>2023-07-06T04:37:33+00:00</lastmod>
+        <priority>0.77</priority>
+    </url>
+    <url>
+        <loc>
+            https://cabodrivers.com/blog/the-dos-and-donts-of-getting-around-cabo-san-lucas-transportation-tips-from-locals/</loc>
+        <lastmod>2023-07-06T04:37:33+00:00</lastmod>
+        <priority>0.77</priority>
+    </url>
+    <url>
+        <loc>https://cabodrivers.com/blog/category/uncategorized/</loc>
+        <lastmod>2023-07-06T04:37:33+00:00</lastmod>
+        <priority>0.77</priority>
+    </url>
+    <url>
+        <loc>
+            https://cabodrivers.com/blog/the-ultimate-guide-to-cabo-san-lucas-transportation-services-how-to-get-around-hassle-free/</loc>
+        <lastmod>2023-07-06T04:37:33+00:00</lastmod>
+        <priority>0.77</priority>
+    </url>
+    <url>
+        <loc>https://cabodrivers.com/blog/tag/city-tours/</loc>
+        <lastmod>2023-07-06T04:37:33+00:00</lastmod>
+        <priority>0.51</priority>
+    </url>
+    <url>
+        <loc>https://cabodrivers.com/blog/tag/transportation-service/</loc>
+        <lastmod>2023-07-06T04:37:33+00:00</lastmod>
+        <priority>0.51</priority>
+    </url>
+    <url>
+        <loc>https://cabodrivers.com/blog/tag/breakfast/</loc>
+        <lastmod>2023-07-06T04:37:33+00:00</lastmod>
+        <priority>0.51</priority>
+    </url>
+    <url>
+        <loc>https://cabodrivers.com/blog/tag/restaurants-in-cabo/</loc>
+        <lastmod>2023-07-06T04:37:33+00:00</lastmod>
+        <priority>0.51</priority>
+    </url>
+    <url>
+        <loc>https://cabodrivers.com/blog/tag/cabo-airtport-information/</loc>
+        <lastmod>2023-07-06T04:37:33+00:00</lastmod>
+        <priority>0.51</priority>
+    </url>
+    <url>
+        <loc>https://cabodrivers.com/blog/tag/cabo-transportation-options/</loc>
+        <lastmod>2023-07-06T04:37:33+00:00</lastmod>
+        <priority>0.51</priority>
+    </url>
+    <url>
+        <loc>https://cabodrivers.com/blog/tag/tips/</loc>
+        <lastmod>2023-07-06T04:37:33+00:00</lastmod>
+        <priority>0.51</priority>
+    </url>
+
 </urlset>
