@@ -139,7 +139,8 @@ class PagesController extends Controller
     }
 
     public function hotel($hotelSlug){
-        $hotel=str_replace('-',' ',$hotelSlug);
+        $hotel=str_replace('-And-','-&-',$hotelSlug);
+        $hotel=str_replace('-',' ',$hotel);
         $hotel=Resort::where('name',$hotel)->firstOrFail();
         $coverImg=$hotel->images->where('category','cover')->first();
         $gallery=$hotel->images->where('category',null);
@@ -147,7 +148,8 @@ class PagesController extends Controller
     }
 
     public function restaurant($restaurantSlug){
-        $hotel=str_replace('-',' ',$restaurantSlug);
+        $hotel=str_replace('-And-','-&-',$restaurantSlug);
+        $hotel=str_replace('-',' ',$hotel);
         $hotel=Resort::where('name',$hotel)->firstOrFail();
         $coverImg=$hotel->images->where('category','cover')->first();
         $gallery=$hotel->images->where('category',null);

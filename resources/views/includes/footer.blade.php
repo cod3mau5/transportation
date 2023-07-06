@@ -15,7 +15,7 @@
                         <li><a href="/hotel/Grand-Velas">Grand Velas Transportation</a></li>
                         <li><a href="/hotel/JW-Marriott">JW Marriott Transportation</a></li>
                         <li><a href="/hotel/Hyatt-Ziva">Hyatt Ziva Airport Transportation</a></li>
-                        <li><a href="/hotel/One-&-Only-Palmilla">One & Only Palmilla Transportation</a></li>
+                        <li><a href="/hotel/One-And-Only-Palmilla">One & Only Palmilla Transportation</a></li>
                         <li><a href="/hotel/Royal-Solaris">Royal Solaris Transportation</a></li>
                     </ul>
                 </nav>
