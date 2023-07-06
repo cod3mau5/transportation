@@ -465,9 +465,11 @@
             function createHtml(data){
                 for(const img of data){
                     if(img.caption !== undefined){
+                        let content= img.thumbnail_url ? `<img loading="lazy" src="${img.thumbnail_url}" alt="">`:`<img loading="lazy" src="${img.media_url}" alt="">`;
+
                         gallery.innerHTML+=`
                             <div class="image overflow">
-                                <img loading="lazy" src="${img.media_url}" alt="">
+                                ${content}
                                 <div class="opacity-hover">
                                     <a href="${img.permalink}" class="caption">
                                         <p>

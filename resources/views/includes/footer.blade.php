@@ -32,9 +32,9 @@
                 <hr class="line">
                 <nav class="footer-nav">
                     <ul class="s2-color">
-                        <li><a href="/foreign/Cabo Pulmo">Cabo Pulmo Transportation</a></li>
-                        <li><a href="/foreign/Los-Barriles">Los Barriles Transportation</a></li>
-                        <li><a href="/foreign/Todos-Santos">Todos Santos Transportation</a></li>
+                        <li><a href="/foreign/Los-Cabos">Los Cabos City Tour</a></li>
+                        <li><a href="/foreign/Todos-Santos">Todos Santos City Tour</a></li>
+                        <li><a href="/foreign/La-Paz">La Paz City Tour</a></li>
                     </ul>
                 </nav>
            </div>
