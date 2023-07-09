@@ -29,12 +29,6 @@ class HotelController extends Controller
     }
 
 
-    public function create()
-    {
-        //
-    }
-
-
     public function store(Request $request)
     {
         $record = new Resort;
@@ -46,12 +40,6 @@ class HotelController extends Controller
         }
 
         return redirect()->route('hotel.index');
-    }
-
-
-    public function show($id)
-    {
-        //
     }
 
 
@@ -116,6 +104,22 @@ class HotelController extends Controller
         return redirect()->route('hotel.index');
     }
 
+    protected function uploadImages($images, $hotel)
+    {
+        $basePath = base_path('public_html/assets/images/resort_images/') . Str::slug($hotel->name);
+        $publicImgPath='assets/images/resort_images/' . Str::slug($hotel->name);
+        Storage::disk('public')->makeDirectory($basePath);
+
+        foreach ($images as $image) {
+            $imageName = Str::slug($hotel->name) . '_' . uniqid('', true) . '.' . $image->getClientOriginalExtension();
+            $image->move($basePath, $imageName);
+
+            $resortImage = new ResortImage();
+            $resortImage->path = $publicImgPath . '/' . $imageName;
+            $resortImage->name=$imageName;
+            $hotel->images()->save($resortImage);
+        }
+    }
 
     public function anyData()
     {
@@ -143,20 +147,4 @@ class HotelController extends Controller
             ->make(true);
     }
 
-    protected function uploadImages($images, $hotel)
-    {
-        $basePath = base_path('public_html/assets/images/resort_images/') . Str::slug($hotel->name);
-        $publicImgPath='assets/images/resort_images/' . Str::slug($hotel->name);
-        Storage::disk('public')->makeDirectory($basePath);
-
-        foreach ($images as $image) {
-            $imageName = Str::slug($hotel->name) . '_' . uniqid('', true) . '.' . $image->getClientOriginalExtension();
-            $image->move($basePath, $imageName);
-
-            $resortImage = new ResortImage();
-            $resortImage->path = $publicImgPath . '/' . $imageName;
-            $resortImage->name=$imageName;
-            $hotel->images()->save($resortImage);
-        }
-    }
 }

@@ -6,6 +6,7 @@ use App\Models\Rate;
 use App\Models\Unit;
 use App\Mail\sendMail;
 use App\Models\Resort;
+use App\Models\Tour;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\App;
@@ -139,12 +140,21 @@ class PagesController extends Controller
     }
 
     public function hotel($hotelSlug){
-        $hotel=str_replace('-And-','-&-',$hotelSlug);
-        $hotel=str_replace('-',' ',$hotel);
-        $hotel=Resort::where('name',$hotel)->firstOrFail();
-        $coverImg=$hotel->images->where('category','cover')->first();
-        $gallery=$hotel->images->where('category',null);
-        return view('pages.hotel',compact('hotel','coverImg','gallery'));
+        $record=str_replace('-And-','-&-',$hotelSlug);
+        $record=str_replace('-',' ',$record);
+        $record=Resort::where('name',$record)->firstOrFail();
+        $coverImg=$record->images->where('category','cover')->first();
+        $gallery=$record->images->where('category',null);
+        return view('pages.hotel',compact('record','coverImg','gallery'));
+    }
+
+    public function tour($tourSlug){
+        $record=str_replace('-And-','-&-',$tourSlug);
+        $record=str_replace('-',' ',$record);
+        $record=Tour::where('name',$record)->firstOrFail();
+        $coverImg=$record->images->where('category','cover')->first();
+        $gallery=$record->images->where('category',null);
+        return view('pages.tour',compact('record','coverImg','gallery'));
     }
 
     public function restaurant($restaurantSlug){

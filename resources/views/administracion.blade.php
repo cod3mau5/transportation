@@ -25,20 +25,7 @@
                     </div>
                 </div>
             </a>
-            <!-- USUARIOS -->
-            {{-- <a href="{{ route('user.index') }}">
-                <div class="col-lg-2">
-                    <div class="panel panel-primary">
-                        <div class="panel-heading text-center">
-                            <i class="fa fa-user fa-5x"></i>
-                        </div>
-                        <div class="panel-footer">
-                            <span class="pull-left">Usuarios</span>
-                            <div class="clearfix"></div>
-                        </div>
-                    </div>
-                </div>
-            </a> --}}
+
             {{-- ZONAS --}}
             <a href="{{ route('zonas.index') }}">
                 <div class="col-lg-2">
@@ -53,6 +40,37 @@
                     </div>
                 </div>
             </a>
+            {{-- TOURS --}}
+            <a href="{{ route('tours.index') }}">
+                <div class="col-lg-2">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading text-center">
+                            <i class="fa fa-bus fa-5x" aria-hidden="true"></i>
+                        </div>
+                        <div class="panel-footer">
+                            <span class="pull-left">Tours</span>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <!-- USUARIOS -->
+            {{-- <a href="{{ route('user.index') }}">
+                <div class="col-lg-2">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading text-center">
+                            <i class="fa fa-user fa-5x"></i>
+                        </div>
+                        <div class="panel-footer">
+                            <span class="pull-left">Usuarios</span>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+            </a> --}}
+
+
         </div>
     </div><!-- /.box-body -->
 </div>

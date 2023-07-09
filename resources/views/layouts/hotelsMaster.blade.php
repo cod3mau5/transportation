@@ -5,14 +5,14 @@
         <meta charset='utf-8'>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="description" content="{{$hotel->meta_description}}">
+        <meta name="description" content="{{$record->meta_description}}">
 
         <!-- Font Awesome -->
         <link rel="stylesheet" href="{{ asset('vendor/font-awesome/css/font-awesome.min.css') }}">
         <!-- Bootstrap 5 Css -->
         <link href="{{ asset('assets/css/bootstrap.min.css') }}" id="bootstrap-style" rel="stylesheet" type="text/css"/>
 
-        <title>{{$hotel->name}} Transportation | {{ config('app.name') }}</title>
+        <title>{{$record->name}} Transportation | {{ config('app.name') }}</title>
         <link rel="stylesheet" href="{{ asset('assets/css/fonts.css') }}">
         <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
         <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>

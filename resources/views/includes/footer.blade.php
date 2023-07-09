@@ -32,9 +32,9 @@
                 <hr class="line">
                 <nav class="footer-nav">
                     <ul class="s2-color">
-                        <li><a href="/foreign/Los-Cabos">Los Cabos City Tour</a></li>
-                        <li><a href="/foreign/Todos-Santos">Todos Santos City Tour</a></li>
-                        <li><a href="/foreign/La-Paz">La Paz City Tour</a></li>
+                        <li><a href="/tour/Los-Cabos-City-Tour">Los Cabos City Tour</a></li>
+                        <li><a href="/tour/Todos-Santos">Todos Santos City Tour</a></li>
+                        <li><a href="/tour/La-Paz">La Paz City Tour</a></li>
                     </ul>
                 </nav>
            </div>

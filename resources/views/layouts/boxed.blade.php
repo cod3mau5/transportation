@@ -107,10 +107,9 @@
                   <i class="fa fa-cog"></i>&nbsp;&nbsp;ADMINISTRACIÓN <span class="caret"></span>
               </a>
               <ul class="dropdown-menu">
-                  <li><a href="{{ route('administracion') }}">Administracion</a></li>
-                  <li role="separator" class="divider"></li>
                   <li><a href="{{ route('hotel.index') }}">Hoteles</a></li>
                   <li><a href="{{ route('zonas.index') }}">Zonas</a></li>
+                  <li><a href="{{ route('tours.index') }}">Tours</a></li>
                   {{-- <li><a href="/user">Usuarios</a></li> --}}
               </ul>
           </li>
@@ -207,7 +206,7 @@
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MENU PRINCIPAL</li>
         <li>
-          <a href="/">
+          <a  href="{{ route('administracion') }}">
            <i class="fa fa-dashboard"></i> <span>Inicio</span>
           </a>
         </li>
@@ -255,8 +254,9 @@
           </a>
 
           <ul class="treeview-menu">
-            <li><a href="{{ route('administracion') }}"><i class="fa fa-circle"></i> Administración</a></li>
-            <li><a href="{{ route('hotel.index') }}"><i class="fa fa-circle"></i> Hoteles</a></li>
+            <li><a href="{{ route('hotel.index') }}"><i class="fa fa-circle"></i>Hoteles</a></li>
+            <li><a href="{{ route('zonas.index') }}"><i class="fa fa-circle"></i>Zonas</a></li>
+            <li><a href="{{ route('tours.index') }}"><i class="fa fa-circle"></i>Tours</a></li>
             {{-- <li><a href="/user"><i class="fa fa-circle"></i> Usuarios</a></li> --}}
           </ul>
         </li>

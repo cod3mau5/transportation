@@ -19,6 +19,7 @@ Route::get('/book-now', [Controllers\PagesController::class,'booking'])->name('b
 Route::get('/contact-us',[Controllers\PagesController::class,'contactUs'])->name('contact-us');
 Route::get('/privacy-policy',[Controllers\PagesController::class,'privacy'])->name('privacy');
 Route::get('/hotel/{hotelSlug}',[Controllers\PagesController::class,'hotel'])->name('hotel');
+Route::get('/tour/{tourSlug}',[Controllers\PagesController::class,'tour'])->name('tour');
 Route::get('/restaurant/{restaurantSlug}',[Controllers\PagesController::class,'restaurant'])->name('restaurant');
 Route::get('/foreign/{foreignSlug}',[Controllers\PagesController::class,'foreign'])->name('foreign');
 
@@ -41,7 +42,7 @@ Route::get('/reservation/{voucher}/show', [Controllers\ReservationsController::c
 /** ############## PANEL ############## */
 Route::get('/env', [Controllers\HomeController::class, 'env'])->name('app.env');
 Route::get('/reservacion/data', [Controllers\ReservacionController::class, 'anyData'])->name('reservacion.data');
-Route::get('/reservacion/{reservacion}/voucher', 'ReservacionController@voucher')->name('reservacion.voucher');
+Route::get('/reservacion/{reservacion}/voucher',  [Controllers\ReservacionController::class, 'voucher'])->name('reservacion.voucher');
 Route::resource('/reservacion', Controllers\ReservacionController::class);
 
 Route::get('/user/data',[Controllers\UserController::class, 'anyData'])->name('user.data');
@@ -74,6 +75,7 @@ Route::prefix('/administracion')->group(function() {
     //datatable data source
     Route::get('zonas/data', [Controllers\ZonaController::class, 'anyData'])->name('zonas.data');
     Route::get('hotel/data', [Controllers\HotelController::class, 'anyData'])->name('hotel.data');
+    Route::get('tours/data', [Controllers\ToursController::class, 'anyData'])->name('tours.data');
     Route::get('clase/data', [Controllers\ClaseServicioController::class, 'anyData'])->name('clase.data');
     Route::get('tipo/data',  [Controllers\TipoServicioController::class, 'anyData'])->name('tipo.data');
     Route::get('formas/data', [Controllers\FormasPagoController::class, 'anyData'])->name('formas.data');
@@ -83,6 +85,7 @@ Route::prefix('/administracion')->group(function() {
     //controllers
     Route::resource('zonas',    Controllers\ZonaController::class);
     Route::resource('hotel',    Controllers\HotelController::class);
+    Route::resource('tours',    Controllers\ToursController::class);
     Route::resource('clase',    Controllers\ClaseServicioController::class);
     Route::resource('tipo',     Controllers\TipoServicioController::class);
     Route::resource('formas',   Controllers\FormasPagoController::class);
