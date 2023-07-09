@@ -8,13 +8,13 @@
                     "li" => "San José del Cabo, Baja California Sur, México."
                 ],
                 [
-                    "li" => "Office 624-110-41-29"
+                    "li" => "Office 624-110-41-85"
                 ],
                 [
-                    "li" => "Cell 624-100-89-85"
+                    "li" => "Cell 624-157-80-43"
                 ],
                 [
-                    "li" => "Office 664-190-85-40"
+                    "li" => "Office 624-161-15-48"
                 ]
             ],
             "social_links" => [

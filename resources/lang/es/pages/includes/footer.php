@@ -10,10 +10,13 @@
                     "li" => "San José del Cabo, Baja California Sur, México."
                 ],
                 [
-                    "li" => "Oficina 624-110-41-85"
+                    "li" => "Office 624-110-41-85"
                 ],
                 [
-                    "li" => "Móvil 624-161-15-48 / 624-157-80-43"
+                    "li" => "Cell 624-157-80-43"
+                ],
+                [
+                    "li" => "Office 624-161-15-48"
                 ],
                 [
                     "li" => "reservations@cabodrivers.com"
