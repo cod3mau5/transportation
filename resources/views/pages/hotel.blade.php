@@ -196,13 +196,13 @@
             <div class="container-fluid">
                 <div class="row cover-container">
                     <div class="col-md-12 text-center" id="cover-image">
-                        <h1 class="text-center cover-title">{{$hotel->name}} <br> Transportation</h1>
+                        <h1 class="text-center cover-title">{{$record->name}} <br> Transportation</h1>
                     </div>
                 </div>
             </div>
 
             <div class="container description py-4">
-                {!! $hotel->description !!}
+                {!! $record->description !!}
             </div>
 
             @if(count($gallery) >= 3)
@@ -226,7 +226,7 @@
     @if(count($gallery) >= 3)
         <script>
             $(document).ready(function(){
-                const hotel="{{$hotel->name}}";
+                const hotel="{{$record->name}}";
                 buttons=document.querySelectorAll("input[type='button']");
                 buttons.forEach(button => {
                     var link = document.createElement('a');

@@ -158,19 +158,19 @@ class PagesController extends Controller
     }
 
     public function restaurant($restaurantSlug){
-        $hotel=str_replace('-And-','-&-',$restaurantSlug);
-        $hotel=str_replace('-',' ',$hotel);
-        $hotel=Resort::where('name',$hotel)->firstOrFail();
-        $coverImg=$hotel->images->where('category','cover')->first();
-        $gallery=$hotel->images->where('category',null);
-        return view('pages.hotel',compact('hotel','coverImg','gallery'));
+        $record=str_replace('-And-','-&-',$restaurantSlug);
+        $record=str_replace('-',' ',$record);
+        $record=Resort::where('name',$record)->firstOrFail();
+        $coverImg=$record->images->where('category','cover')->first();
+        $gallery=$record->images->where('category',null);
+        return view('pages.hotel',compact('record','coverImg','gallery'));
     }
     public function foreign($foreignSlug){
-        $hotel=str_replace('-',' ',$foreignSlug);
-        $hotel=Resort::where('name',$hotel)->firstOrFail();
-        $coverImg=$hotel->images->where('category','cover')->first();
-        $gallery=$hotel->images->where('category',null);
-        return view('pages.hotel',compact('hotel','coverImg','gallery'));
+        $record=str_replace('-',' ',$foreignSlug);
+        $record=Resort::where('name',$record)->firstOrFail();
+        $coverImg=$record->images->where('category','cover')->first();
+        $gallery=$record->images->where('category',null);
+        return view('pages.hotel',compact('record','coverImg','gallery'));
     }
 
     /** for testing: */
