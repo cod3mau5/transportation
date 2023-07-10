@@ -36,15 +36,15 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr id="1" role="row" class="odd">
-                                @foreach ($visits as $visit )
+                            @foreach ($visits as $visit )
+                                <tr id="1" role="row" class="odd">
                                     <td>{{$visit->device}}</td>
                                     <td>{{$visit->location}}</td>
                                     <td>{{$visit->browser}}</td>
                                     <td>{{$visit->referer}}</td>
                                     <td>{{$visit->updated_at}}</td>
-                                @endforeach
-                            </tr>
+                                </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
