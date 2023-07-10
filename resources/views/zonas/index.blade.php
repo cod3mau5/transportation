@@ -2,41 +2,42 @@
 
 @section ('content')
 
-<ol class="breadcrumb">
-    <li class="breadcrumb-item">
-        <a href="/administracion">Administración</a>
-    </li>
-    <li class="breadcrumb-item active">Zonas</li>
-</ol>
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a href="/administracion">Administración</a>
+        </li>
+        <li class="breadcrumb-item active">Zonas</li>
+    </ol>
 
-<div class="box box-primary">
-    <div class="box-header with-border">
-        <h3 class="box-title"><strong>ZONAS</strong></h3>
-        <button type="button" class="btn btn-primary pull-right" id="abrir_modal"
-            data-toggle="collapse" href="#agregar" aria-expanded="false"
-            aria-controls="agregar"
-        >
-            Nuevo
-        </button>
-    </div>
-    <div class="box-body">
-        <div class="collapse" id="agregar">
-            @include('zonas.form')
+    <div class="box box-primary">
+        <div class="box-header with-border">
+            <h3 class="box-title"><strong>ZONAS</strong></h3>
+            <button type="button" class="btn btn-primary pull-right" id="abrir_modal"
+                data-toggle="collapse" href="#agregar" aria-expanded="false"
+                aria-controls="agregar"
+            >
+                Nuevo
+            </button>
         </div>
-        <div class="row">
-            <div class="col-md-12">
-                <table class="table table-bordered" id="datatable">
-                    <thead>
-                        <tr>
-                            <th>Nombre de la zona</th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                </table>
+        <div class="box-body">
+            <div class="collapse" id="agregar">
+                @include('zonas.form')
             </div>
-        </div>
-    </div><!-- /.box-body -->
-</div>
+            <div class="row">
+                <div class="col-md-12">
+                    <table class="table table-bordered" id="datatable">
+                        <thead>
+                            <tr>
+                                <th>Nombre de la zona</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+        </div><!-- /.box-body -->
+    </div>
+
 @endsection
 
 

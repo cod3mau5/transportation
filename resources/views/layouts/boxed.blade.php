@@ -76,53 +76,63 @@
 
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
-          <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                  <i class="fa fa-calendar"></i>&nbsp;&nbsp;RESERVACIONES <span class="caret"></span>
-              </a>
-              <ul class="dropdown-menu">
-                  <li><a href="{{ route('reservacion.index') }}">Reservaciones</a></li>
-                  <li><a href="{{ route('reservacion.create') }}">Crear nueva</a></li>
-                 {{--  @if (!Auth::user()->hasRole('representante'))
-                  <li><a href="{{route('facturacion.index')}}">Facturación</a></li>
-                  @endif --}}
-              </ul>
-          </li>
-          @if (!Auth::user()->hasRole('representante'))
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                    <i class="fa fa-book"></i>&nbsp;&nbsp;REPORTES <span class="caret"></span>
+                    <i class="fa fa-calendar"></i>&nbsp;&nbsp;RESERVACIONES <span class="caret"></span>
                 </a>
                 <ul class="dropdown-menu">
-                    {{-- <li><a href="#">Imprimir voucher</a></li>
-                    <li role="separator" class="divider"></li> --}}
-                    <li><a href="{{route('reporte.llegadas')}}">Llegadas diarias</a></li>
-                    <li><a href="{{route('reporte.salidas')}}">Salidas diarias</a></li>
+                    <li><a href="{{ route('reservacion.index') }}">Reservaciones</a></li>
+                    <li><a href="{{ route('reservacion.create') }}">Crear nueva</a></li>
+                    {{--  @if (!Auth::user()->hasRole('representante'))
+                    <li><a href="{{route('facturacion.index')}}">Facturación</a></li>
+                    @endif --}}
                 </ul>
             </li>
+            @if (!Auth::user()->hasRole('representante'))
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                        <i class="fa fa-book"></i>&nbsp;&nbsp;REPORTES <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        {{-- <li><a href="#">Imprimir voucher</a></li>
+                        <li role="separator" class="divider"></li> --}}
+                        <li><a href="{{route('reporte.llegadas')}}">Llegadas diarias</a></li>
+                        <li><a href="{{route('reporte.salidas')}}">Salidas diarias</a></li>
+                    </ul>
+                </li>
             @endif
-          {{-- @if (Auth::user()->hasRole('admin') || Auth::user()->hasRole('superadmin')) --}}
-          <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                  <i class="fa fa-cog"></i>&nbsp;&nbsp;ADMINISTRACIÓN <span class="caret"></span>
-              </a>
-              <ul class="dropdown-menu">
-                  <li><a href="{{ route('hotel.index') }}">Hoteles</a></li>
-                  <li><a href="{{ route('zonas.index') }}">Zonas</a></li>
-                  <li><a href="{{ route('tours.index') }}">Tours</a></li>
-                  {{-- <li><a href="/user">Usuarios</a></li> --}}
-              </ul>
-          </li>
-          {{-- @endif --}}
-          <li>
+            {{-- @if (Auth::user()->hasRole('admin') || Auth::user()->hasRole('superadmin')) --}}
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                    <i class="fa fa-cog"></i>&nbsp;&nbsp;ADMINISTRACIÓN <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a href="{{ route('hotel.index') }}">Hoteles</a></li>
+                    <li><a href="{{ route('zonas.index') }}">Zonas</a></li>
+                    <li><a href="{{ route('tours.index') }}">Tours</a></li>
+                    {{-- <li><a href="/user">Usuarios</a></li> --}}
+                </ul>
+            </li>
+            {{-- @endif --}}
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                    <i class="fa fa-cog"></i>&nbsp;&nbsp;VISITAS <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a href="{{ route('visits.index') }}">Todas</a></li>
+                    <li><a href="#">Hoy</a></li>
+                    <li><a href="#">Este mes</a></li>
+                    <li><a href="#">Fecha especifica</a></li>
+                </ul>
+            </li>
+            <li>
+                <a style="cursor: pointer" onclick="$('#logout').click()"><i class="fa fa-sign-out"></i>&nbsp;&nbsp;SALIR</a>
 
-              <a style="cursor: pointer" onclick="$('#logout').click()"><i class="fa fa-sign-out"></i>&nbsp;&nbsp;SALIR</a>
-
-            <form action="{{ route('logout') }}" method="POST" style="display: none">
-              @csrf
-              <button id="logout"></button>
-            </form>
-          </li>
+                <form action="{{ route('logout') }}" method="POST" style="display: none">
+                @csrf
+                <button id="logout"></button>
+                </form>
+            </li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <!-- User Account: style can be found in dropdown.less -->
@@ -228,19 +238,19 @@
           </ul>
         </li>
         @if (!Auth::user()->hasRole('representante'))
-         <li class="treeview">
-          <a href="#">
-            <i class="fa fa-book"></i>
-            <span>Reportes</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="{{route('reporte.llegadas')}}"><i class="fa fa-circle"></i> Llegadas diarias</a></li>
-            <li><a href="{{route('reporte.salidas')}}"><i class="fa fa-circle"></i> Salidas diarias</a></li>
-          </ul>
-        </li>
+            <li class="treeview">
+            <a href="#">
+                <i class="fa fa-book"></i>
+                <span>Reportes</span>
+                <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+                </span>
+            </a>
+            <ul class="treeview-menu">
+                <li><a href="{{route('reporte.llegadas')}}"><i class="fa fa-circle"></i> Llegadas diarias</a></li>
+                <li><a href="{{route('reporte.salidas')}}"><i class="fa fa-circle"></i> Salidas diarias</a></li>
+            </ul>
+            </li>
         @endif
 
         {{-- @if (Auth::user()->hasRole('admin') || Auth::user()->hasRole('superadmin')) --}}
@@ -261,6 +271,23 @@
           </ul>
         </li>
         {{-- @endif --}}
+
+        <li class="treeview">
+            <a href="#">
+              <i class="fa fa-cog"></i>
+              <span>Visitas</span>
+              <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+            </a>
+
+            <ul class="treeview-menu">
+              <li><a href="{{ route('visits.index') }}"><i class="fa fa-circle"></i>Todas</a></li>
+              <li><a href="#"><i class="fa fa-circle"></i>Este mes</a></li>
+              <li><a href="#"><i class="fa fa-circle"></i>Hoy</a></li>
+              <li><a href="#"><i class="fa fa-circle"></i> Fecha especifica</a></li>
+            </ul>
+        </li>
        <!--  <li class="header">LABELS</li>
         <li><a href="#"><i class="fa fa-circle-o text-red"></i> <span>Important</span></a></li>
         <li><a href="#"><i class="fa fa-circle-o text-yellow"></i> <span>Warning</span></a></li>

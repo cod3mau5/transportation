@@ -34,4 +34,8 @@ class VisitController extends Controller
 
         return response()->json(['success' => true]);
     }
+    public function show(){
+        $visits = Visit::all();
+        return view('visits.index', ['visits' => $visits]);
+    }
 }

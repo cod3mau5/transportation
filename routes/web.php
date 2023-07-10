@@ -83,7 +83,10 @@ Route::prefix('/administracion')->group(function() {
     Route::get('moneda/data', [Controllers\MonedaPagoController::class, 'anyData'])->name('moneda.data');
     Route::get('agencia/data',[Controllers\AgenciaController::class, 'anyData'])->name('agencia.data');
     Route::get('empleado/data',[Controllers\EmpleadoController::class, 'anyData'])->name('empleado.data');
+
+
     //controllers
+    Route::get('visits', [Controllers\VisitController::class, 'show'])->name('visits.index');
     Route::resource('zonas',    Controllers\ZonaController::class);
     Route::resource('hotel',    Controllers\HotelController::class);
     Route::resource('tours',    Controllers\ToursController::class);
