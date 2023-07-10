@@ -443,56 +443,99 @@
 
                 @yield('footer-scripts')
         <script>
-            'use strict'
-            const gallery=document.querySelector('.gallery');
-            const feed= document.querySelector('.gallery-container');
-            const next= document.querySelector('#next');
-            const prev= document.querySelector('#prev');
-            const token='{{env("IG_GALLERY_TOKEN")}}';
+            $(document).ready(function() {
+                'use strict'
 
-            let limit = 5; // Valor predeterminado para dispositivos no móviles
+                // Generar un identificador de visitante único si no existe uno
+                var visitorId = getVisitorId();
+                if (!visitorId) {
+                    visitorId = generateVisitorId();
+                    setVisitorId(visitorId);
+                }
 
-            // Detectar si la página se carga desde un dispositivo móvil
-            if (/Mobi|Android/i.test(navigator.userAgent)) {
-                limit = 3; // Cambiar el límite a 3 para dispositivos móviles
-            }
+                // Recolectar información del visitante
+                var data = {
+                    visitor_id: visitorId,
+                    device: navigator.platform,
+                    browser: navigator.userAgent,
+                    referer: document.referrer
+                    // la ubicación se recogerá en el servidor
+                };
 
-            const url=`https://graph.instagram.com/me/media?fields=thumbnail_url,media_url,caption,permalink&limit=${limit}&access_token=${token}`;
-            fetch(url)
-            .then(res=> res.json())
-            .then(data=>createHtml(data.data));
+                // Enviar la información al servidor
+                $.post('/api/visits', data, function(response) {
+                    console.log(response);
+                });
 
-            function createHtml(data){
-                for(const img of data){
-                    if(img.caption !== undefined){
-                        let imgUrl= img.thumbnail_url ? img.thumbnail_url  : img.media_url;
 
-                        gallery.innerHTML+=`
-                            <div class="image overflow">
-                                <img loading="lazy" src="${imgUrl}" alt="${img.caption.slice(0,30)}">
-                                <div class="opacity-hover">
-                                    <a href="${img.permalink}" class="caption">
-                                        <p>
-                                            ${img.caption.slice(0,80)}
-                                        </p>
-                                    </a>
-                            </div>
-                        `;
+
+                /* FUNCIONALIDAD PARA LA GALERIA DE INSTAGRAM */
+                const gallery=document.querySelector('.gallery');
+                const feed= document.querySelector('.gallery-container');
+                const next= document.querySelector('#next');
+                const prev= document.querySelector('#prev');
+                const token='{{env("IG_GALLERY_TOKEN")}}';
+
+                let limit = 5; // Valor predeterminado para dispositivos no móviles
+
+                // Detectar si la página se carga desde un dispositivo móvil
+                if (/Mobi|Android/i.test(navigator.userAgent)) {
+                    limit = 3; // Cambiar el límite a 3 para dispositivos móviles
+                }
+
+                const url=`https://graph.instagram.com/me/media?fields=thumbnail_url,media_url,caption,permalink&limit=${limit}&access_token=${token}`;
+                fetch(url)
+                .then(res=> res.json())
+                .then(data=>createHtml(data.data));
+
+                function createHtml(data){
+                    for(const img of data){
+                        if(img.caption !== undefined){
+                            let imgUrl= img.thumbnail_url ? img.thumbnail_url  : img.media_url;
+
+                            gallery.innerHTML+=`
+                                <div class="image overflow">
+                                    <img loading="lazy" src="${imgUrl}" alt="${img.caption.slice(0,30)}">
+                                    <div class="opacity-hover">
+                                        <a href="${img.permalink}" class="caption">
+                                            <p>
+                                                ${img.caption.slice(0,80)}
+                                            </p>
+                                        </a>
+                                </div>
+                            `;
+                        }
                     }
                 }
+
+                // Se desactivo el mover la galeria para el beneficio del SEO
+                // next.addEventListener('click',moveGallery);
+                // prev.addEventListener('click',moveGallery);
+                // function moveGallery(e){
+                //     if(e.target.id === "next" || e.target.parentElement.id == "next"){
+                //         feed.scrollLeft+= feed.offsetWidth;
+                //     }else{
+                //         feed.scrollLeft-= feed.offsetWidth;
+
+                //     }
+                // }
+
+            });
+
+            function generateVisitorId() {
+                return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+                    var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+                    return v.toString(16);
+                });
             }
-            next.addEventListener('click',moveGallery);
-            prev.addEventListener('click',moveGallery);
 
-            function moveGallery(e){
-                if(e.target.id === "next" || e.target.parentElement.id == "next"){
-                    feed.scrollLeft+= feed.offsetWidth;
-                }else{
-                    feed.scrollLeft-= feed.offsetWidth;
-
-                }
+            function getVisitorId() {
+                return localStorage.getItem('visitorId');
             }
 
+            function setVisitorId(visitorId) {
+                localStorage.setItem('visitorId', visitorId);
+            }
         </script>
     </body>
 </html>

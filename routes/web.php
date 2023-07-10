@@ -24,6 +24,7 @@ Route::get('/restaurant/{restaurantSlug}',[Controllers\PagesController::class,'r
 Route::get('/foreign/{foreignSlug}',[Controllers\PagesController::class,'foreign'])->name('foreign');
 
 
+
 # Languages
 Route::get('/lang/{lang}', function ($lang) {
     session(['applocale' => $lang]);
