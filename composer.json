@@ -6,6 +6,7 @@
     "license": "MIT",
     "require": {
         "php": "^8.1.0",
+        "beyondcode/laravel-websockets": "^1.14",
         "doctrine/dbal": "^3.2",
         "guzzlehttp/guzzle": "^7.2",
         "laravel/framework": "^10.0",
@@ -15,7 +16,8 @@
         "laravelcollective/html": "^6.2",
         "simplesoftwareio/simple-qrcode": "^4.2",
         "stevebauman/location": "^7.0",
-        "yajra/laravel-datatables-oracle": "^10.0"
+        "yajra/laravel-datatables-oracle": "^10.0",
+        "psr/log": "^1.0 || ^3.0"
     },
     "require-dev": {
         "spatie/laravel-ignition": "^2.0",
