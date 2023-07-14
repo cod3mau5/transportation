@@ -378,5 +378,26 @@
 
 @yield("footer-scripts");
 
+<script>
+    // Inicializar una nueva instancia de WebSocket
+    const socket = new WebSocket('ws://cabodrivers.local:6001');
+
+    // Conexión abierta
+    socket.addEventListener('open', function (event) {
+        socket.send('Conexión establecida');
+    });
+
+    // Escuchar mensajes
+    socket.addEventListener('message', function (event) {
+        console.log('Mensaje del servidor: ', event.data);
+        // Aquí puedes añadir lógica para mostrar los datos en tu panel de administración.
+    });
+
+    // Escuchar cierre
+    socket.addEventListener('close', function (event) {
+        console.log('Desconectado del servidor');
+    });
+</script>
+
 </body>
 </html>

@@ -80,4 +80,11 @@ class User extends Authenticatable
         }
         return false;
     }
+
+    public function chats(){
+        return $this->belongsToMany('App\Models\Chat');
+    }
+    public function messages(){
+        return $this->hasMany('App\Models\Message');
+    }
 }

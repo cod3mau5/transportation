@@ -24,6 +24,12 @@ Route::get('/restaurant/{restaurantSlug}',[Controllers\PagesController::class,'r
 Route::get('/foreign/{foreignSlug}',[Controllers\PagesController::class,'foreign'])->name('foreign');
 
 
+Route::get('/test-broadcast', function () {
+    event(new \App\Events\TestEvent('Hola, mundo!'));
+    return 'Evento emitido';
+});
+
+
 
 # Languages
 Route::get('/lang/{lang}', function ($lang) {
@@ -55,6 +61,23 @@ Route::post('/facturacion/procesar', [Controllers\FacturacionController::class, 
 
 Route::post('/reportes/guardarAsig', [Controllers\ReportesController::class, 'guardarAsig'])->name('reportes.guardar-asig');
 
+
+Route::get('auth/user',function(){
+    if(auth()->check()){
+        return response()->json([
+            'authUser' => auth()->user()
+        ]);
+        return null;
+    }
+});
+
+Route::get('/chat/{chat}', [Controllers\ChatController::class,'room'])->name('chat.room');
+Route::get('/chat/with/{user}', [Controllers\ChatController::class,'chat_with'])->name('chat.with');
+Route::get('/chat/{chat}/get_users',[Controllers\ChatController::class,'getUsers'])->name('chat.get_users');
+Route::get('/chat/{chat}/get_messages',[Controllers\ChatController::class,'getMessages'])->name('chat.get_messages');
+Route::post('/message/sent', [Controllers\MessageController::class,'sent'])->name('message.sent');
+
+
 Route::prefix('/reportes')->group(function() {
     Route::get('/', [Controllers\ReportesController::class, 'index'])->name('reporte.index');
     Route::get('llegadas', [Controllers\ReportesController::class, 'llegadas'])->name('reporte.llegadas');
@@ -71,6 +94,7 @@ Route::prefix('/reportes')->group(function() {
     Route::get('reservas-facturadas', [Controllers\ReportesController::class, 'reservasFacturadas'])->name('reporte.reservas-facturadas');
 
 });
+
 Route::prefix('/administracion')->group(function() {
     Route::get('/', [Controllers\PanelController::class,'administracion'])->name('administracion');
     //datatable data source
@@ -98,6 +122,7 @@ Route::prefix('/administracion')->group(function() {
     Route::resource('empleado', Controllers\EmpleadoController::class);
 
 });
+
 
 
 # For test

@@ -14,10 +14,11 @@
         "laravel/tinker": "^2.7",
         "laravel/ui": "^4.0",
         "laravelcollective/html": "^6.2",
+        "psr/log": "^1.0 || ^3.0",
+        "pusher/pusher-php-server": "^7.2",
         "simplesoftwareio/simple-qrcode": "^4.2",
         "stevebauman/location": "^7.0",
-        "yajra/laravel-datatables-oracle": "^10.0",
-        "psr/log": "^1.0 || ^3.0"
+        "yajra/laravel-datatables-oracle": "^10.0"
     },
     "require-dev": {
         "spatie/laravel-ignition": "^2.0",
