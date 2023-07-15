@@ -129,8 +129,8 @@
                 <a style="cursor: pointer" onclick="$('#logout').click()"><i class="fa fa-sign-out"></i>&nbsp;&nbsp;SALIR</a>
 
                 <form action="{{ route('logout') }}" method="POST" style="display: none">
-                @csrf
-                <button id="logout"></button>
+                    @csrf
+                    <button id="logout"></button>
                 </form>
             </li>
         </ul>
@@ -170,9 +170,14 @@
                 <!-- <div class="pull-left">
                   <a href="#" class="btn btn-default btn-flat">Perfil</a>
                 </div> -->
-                <div class="pull-right">
-                  <a href="/logout" class="btn btn-default btn-flat">Salir</a>
-                </div>
+                <form action="{{ route('logout') }}" method="POST" >
+                    <div class="pull-right">
+                        @csrf
+                        <button id="logout" class="btn btn-default btn-flat" type="submit">
+                            Salir
+                        </button>
+                    </div>
+                </form>
               </li>
             </ul>
           </li>
