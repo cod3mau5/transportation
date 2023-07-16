@@ -421,14 +421,28 @@
                         Route::current()->getName() == 'homepage' ||
                         Route::current()->getName() == 'gallery'
                     )
-                        <div id="whatsapp-btn" class="whatsapp-btn">
+                        {{-- <div id="whatsapp-btn" class="whatsapp-btn">
                             <a
                                 href="https://api.whatsapp.com/send?phone=5216241104185&text=%F0%9F%91%8B%20hello%2C%20I%20come%20from%20the%20page%20and%20I%20want%20information%20about..."
                                 target="_BLANK">
                                 <i class="fa fa-whatsapp"></i>
                             </a>
                             <span>We are on WhatsApp</span>
-                        </div>
+                        </div> --}}
+
+                        <!--Start of Tawk.to Script-->
+<script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+    s1.async=true;
+    s1.src='https://embed.tawk.to/64b36e90cc26a871b028a9a2/1h5eefp4o';
+    s1.charset='UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1,s0);
+    })();
+    </script>
+    <!--End of Tawk.to Script-->
                     @endif
                 </section>
             @include('includes.footer')
