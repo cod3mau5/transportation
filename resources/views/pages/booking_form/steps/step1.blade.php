@@ -166,6 +166,7 @@
                             <option value="" disabled selected="selected" style="display:none"> @{{ text.book_now.form.step_trip.trip1.arrival_airline+' '+ text.book_now.form.step_trip.trip1.arrival }}</option>
                             <option value="AAL American Airlines">AAL American Airlines</option>
                             <option value="AMX Aeromexico">AMX Aeromexico</option>
+                            <option value="VIV Viva Aerobus">VIV Viva Aerobus</option>
                             <option value="ACA Air Canadá">ACA Air Canadá</option>
                             <option value="DL Delta">DL Delta</option>
                             <option value="AIJ Interjet">AIJ Interjet</option>
@@ -263,6 +264,7 @@
                             </option>
                             <option value="AAL American Airlines">AAL American Airlines</option>
                             <option value="AMX Aeromexico">AMX Aeromexico</option>
+                            <option value="VIV Viva Aerobus">VIV Viva Aerobus</option>
                             <option value="ACA Air Canadá">ACA Air Canadá</option>
                             <option value="DL Delta">DL Delta</option>
                             <option value="AIJ Interjet">AIJ Interjet</option>
