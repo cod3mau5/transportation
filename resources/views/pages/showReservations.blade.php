@@ -423,7 +423,7 @@
                     <p class='invoice-info-title'>
                         <b>WE WILL WAITING FOR YOU AT THE UMBRELLA #3</b> <br>
                         <span>
-                            Our airport representative will be waiting for you with a sign with your name on it and
+                            We will wait for you with a sign with your name on it and
                             with a palette with the name and the logo of Cabo Driver Services.
                         </span>
                     </p>
