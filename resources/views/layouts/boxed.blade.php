@@ -385,7 +385,7 @@
 
 <script>
     // Inicializar una nueva instancia de WebSocket
-    const socket = new WebSocket('ws://cabodrivers.local:6001');
+    const socket = new WebSocket('ws://cabodrivers.local:5000');
 
     // Conexión abierta
     socket.addEventListener('open', function (event) {

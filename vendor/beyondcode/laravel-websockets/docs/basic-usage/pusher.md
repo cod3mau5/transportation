@@ -39,7 +39,7 @@ To do this, you should add the `host` and `port` configuration key to your `conf
         'cluster' => env('PUSHER_APP_CLUSTER'),
         'encrypted' => true,
         'host' => '127.0.0.1',
-        'port' => 6001,
+        'port' => 5000,
         'scheme' => 'http'
     ],
 ],
@@ -110,7 +110,7 @@ window.Echo = new Echo({
     broadcaster: 'pusher',
     key: 'your-pusher-key',
     wsHost: window.location.hostname,
-    wsPort: 6001,
+    wsPort: 5000,
     forceTLS: false,
     disableStats: true,
 });
