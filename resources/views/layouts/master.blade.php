@@ -430,19 +430,20 @@
                             <span>We are on WhatsApp</span>
                         </div> --}}
 
-                        <!--Start of Tawk.to Script-->
-<script type="text/javascript">
-    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-    (function(){
-    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-    s1.async=true;
-    s1.src='https://embed.tawk.to/64b36e90cc26a871b028a9a2/1h5eefp4o';
-    s1.charset='UTF-8';
-    s1.setAttribute('crossorigin','*');
-    s0.parentNode.insertBefore(s1,s0);
-    })();
-    </script>
-    <!--End of Tawk.to Script-->
+                    <!--Start of Tawk.to Script-->
+                    <script type="text/javascript">
+                        var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+                        (function(){
+                        var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+                        s1.async=true;
+                        s1.src='https://embed.tawk.to/64b36e90cc26a871b028a9a2/1h5eefp4o';
+                        s1.charset='UTF-8';
+                        s1.setAttribute('crossorigin','*');
+                        s0.parentNode.insertBefore(s1,s0);
+                        })();
+
+                    </script>
+                    <!--End of Tawk.to Script-->
                     @endif
                 </section>
             @include('includes.footer')
@@ -455,7 +456,7 @@
         <script src="{{asset('assets/libs/vue/vue.min.js')}}"></script>
         <script src="{{asset('assets/libs/axios/axios.min.js')}}"></script>
 
-                @yield('footer-scripts')
+        @yield('footer-scripts')
         <script>
             $(document).ready(function() {
                 'use strict'
@@ -550,6 +551,30 @@
             function setVisitorId(visitorId) {
                 localStorage.setItem('visitorId', visitorId);
             }
+        </script>
+
+        <script>
+
+            //here's all you need
+            Tawk_API.onLoad = function() {
+            setTimeout(function() {
+                // Tawk_API.minimize();
+                // Tawk_API.login({
+                //     hash : 'safdsdgfsdhfsdrewfdzfsdghsf',    // required
+                //     userId : '1234',            // required
+                //     id : 'A1234',
+                //     store : 'Midvalley',
+                // }, function(error) {
+                //     alert('algo fallo');
+                // });
+                window.Tawk_API.onChatStarted = function(){
+                    alert('un cliente inicio sesion');
+                };
+                }, 1);
+
+            };
+
+
         </script>
     </body>
 </html>

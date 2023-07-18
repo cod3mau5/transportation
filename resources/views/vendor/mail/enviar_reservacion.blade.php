@@ -57,11 +57,16 @@
         | <b>Metodo de pago:</b>    | <span style="color: #ec7728; font-weight: bold;">Efectivo a la llegada</span>|{{-- $reservation->payment_type --}}
     @endcomponent
     @component('mail::table')
-        | DEPARTURE NOTICE      |                                                                        |
+        | INFORMACION DE SALIDA      |                                                                   |
         | --------------------- |:----------------------------------------------------------------------:|
         | <b>Hotel:</b>         | {{$reservation->resort->name}}                                         |
         | <b>Vuelo de salida:</b>| {{$reservation->departureFlight}}                                     |
-        | <b>Fecha del vuelo:</b>  | {{$reservation->departureDate}}                                     |
+        | <b>Fecha y Hora del vuelo:</b>  | {{$reservation->departureDate}}                              |
+        @if ($reservation->departure_stop_time)                                                          |
+        | <b>Hora de la parada previa a la salida:</b>| {{$reservation->departure_stop_time}}            |
+        | <b>Lugar de la parada previa a la salida:</b>| {{$reservation->departure_stop_place}}          |
+        @endif
+        | <b style="color: #ff6219">Hora de la recogida:</b>|<b style="color: #ff6219">{{$reservation->departure_pickup_time}}</b>|
     @endcomponent
     <p style="text-align: center; color: #005899; font-size: 11.5px;"><b>Nota:</b> Esté preparado en el vestíbulo principal 5 minutos antes de la hora de recogida.
     </p>

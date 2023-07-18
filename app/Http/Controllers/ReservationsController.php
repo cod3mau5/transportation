@@ -10,11 +10,11 @@ use App\Mail\SendReservation;
 use Illuminate\Support\Facades\Mail;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
 use Illuminate\Support\Facades\Storage;
+use Carbon\Carbon;
 
 class ReservationsController extends Controller
 {
     public function sendReservation(Request $request){
-
         $resort_id = $request['_location_start'] > 0 ? $request['_location_start'] : $request['_location_end'];
         $trip_type = $request['_trip_type'] == 'o' ? 'oneway' : 'roundtrip';
         $message_t = $request['_trip_type'] == 'o' ? 'ARRIVAL' : 'ROUND-TRIP';
@@ -52,8 +52,34 @@ class ReservationsController extends Controller
             $request['_departure_time'] = null;
         }
 
+        if (!empty($request['_departure_stop_time'])) {
+            $request['_departure_stop_time'] = date('H:i:s', strtotime($request['_departure_stop_time']));
+        } else {
+            $request['_departure_stop_time'] = null;
+        }
+
         $fullname = $request['_contact_firstname'] . " " . $request['_contact_lastname'];
 
+        // dd($request->all());
+        if(!empty($request['_departure_stop_time']) && $request['_departure_previous_stop']=='true'){
+            $departure_pickup_time = Carbon::createFromFormat('H:i:s', $request['_departure_stop_time'])
+            ->subHours(2)
+            ->subMinutes(40)
+            ->format('H:i:s');
+        }elseif(!empty($request['_departure_time'])){
+            $request['_departure_stop_time']=null;
+            $request['_departure_stop_place']=null;
+            $departure_pickup_time = Carbon::createFromFormat('H:i:s', $request['_departure_time'])
+            ->subHours(2)
+            ->subMinutes(40)
+            ->format('H:i:s');
+        }else{
+            $request['_departure_stop_time']=null;
+            $request['_departure_stop_place']=null;
+            $departure_pickup_time = null;
+        }
+
+        // dd($departure_pickup_time,env('APP_ENV'));
         // $wpdb now is $reservation
 
         // Generar el QR code y guardarlo en el directorio qrcodes
@@ -65,44 +91,46 @@ class ReservationsController extends Controller
         $imagePath = "https://cabodrivers.com/qrcodes/{$voucher}.png";
 
         $reservation=Reservation::create([
-                "resort_id"          => $resort_id,
-                "unit_id"            => $request['_unit'],
-                "location_start"     => $request['_location_start'],
-                "location_end"       => $request['_location_end'],
-                "qr_image"           => $imagePath,
-                "voucher"            => $voucher,
-                "fullname"           => $fullname,
-                "email"              => $request['_contact_email'],
-                "type"               => $trip_type,
-                "phone"              => $request['_contact_phone'],
-                "passengers"         => $request['_passengers'],
-                "children"           => $request['_children'],
-                "booster_seat"       => $request['_booster_seat'] == 'true' ? true : false,
-                "car_seat"           => $request['_car_seat'] == 'true' ? true : false,
-                "shopping_stop"      => $request['_shopping_stop'] == 'true' ? true : false,
-                "total_travelers"    => $request['_children'] + $request['_passengers'],
-                "arrival_date"       => $request['_arrival_date'],
-                "arrival_time"       => $request['_arrival_time'],
-                "arrival_airline"    => $request['_arrival_company'],
-                "arrival_flight"     => $request['_arrival_flight'],
-                "arrival_stop_time"  => $request['_arrival_stop_time'],
-                "arrival_stop_place"  => $request['_arrival_stop_place'],
-                "departure_date"     => $request['_departure_date'],
-                "departure_time"     => $request['_departure_time'],
-                "departure_airline"  => $request['_departure_company'],
-                "departure_flight"   => $request['_departure_flight'],
-                "departure_stop_time"  => $request['_departure_stop_time'],
+                "resort_id"             => $resort_id,
+                "unit_id"               => $request['_unit'],
+                "location_start"        => $request['_location_start'],
+                "location_end"          => $request['_location_end'],
+                "qr_image"              => $imagePath,
+                "voucher"               => $voucher,
+                "fullname"              => $fullname,
+                "email"                 => $request['_contact_email'],
+                "type"                  => $trip_type,
+                "phone"                 => $request['_contact_phone'],
+                "passengers"            => $request['_passengers'],
+                "children"              => $request['_children'],
+                "booster_seat"          => $request['_booster_seat'] == 'true' ? true : false,
+                "car_seat"              => $request['_car_seat'] == 'true' ? true : false,
+                "shopping_stop"         => $request['_shopping_stop'] == 'true' ? true : false,
+                "total_travelers"       => $request['_children'] + $request['_passengers'],
+                "arrival_date"          => $request['_arrival_date'],
+                "arrival_time"          => $request['_arrival_time'],
+                "arrival_airline"       => $request['_arrival_company'],
+                "arrival_flight"        => $request['_arrival_flight'],
+                "arrival_stop_time"     => $request['_arrival_stop_time'],
+                "arrival_stop_place"    => $request['_arrival_stop_place'],
+                "departure_date"        => $request['_departure_date'],
+                "departure_time"        => $request['_departure_time'],
+                "departure_airline"     => $request['_departure_company'],
+                "departure_flight"      => $request['_departure_flight'],
+                "departure_stop_time"   => $request['_departure_stop_time'],
                 "departure_stop_place"  => $request['_departure_stop_place'],
-                "comments"           => $request['_contact_request'],
-                "payment_type"       => $request['pay_method'],
-                "subtotal"           => !empty($request['_subtotal']) ? $request['_subtotal'] : 0,
-                "total"              => !empty($request['_total']) ? $request['_total'] : 0,
-                "source"             => 'web',
-                "created_at"         => date('Y-m-d H:m:i'),
-                "updated_at"         => date('Y-m-d H:m:i')
+                "departure_pickup_time" => $departure_pickup_time,
+                "comments"              => $request['_contact_request'],
+                "payment_type"          => $request['pay_method'],
+                "subtotal"              => !empty($request['_subtotal']) ? $request['_subtotal'] : 0,
+                "total"                 => !empty($request['_total']) ? $request['_total'] : 0,
+                "source"                => 'web',
+                "created_at"            => date('Y-m-d H:m:i'),
+                "updated_at"            => date('Y-m-d H:m:i')
         ]);
 
         $reservation->language = $request['language'];
+        // dd($reservation->language);
         $reservation->message_t=$message_t;
         $reservation->resort=$resort;
         $reservation->unit=$unit;

@@ -408,10 +408,14 @@ jQuery(document).ready(function($) {
                     $('.info_departure_time').html(departure_date+" "+departure_time);
 
                     if(app.departure_previous_stop){
+                        document.getElementById('_departure_previous_stop').value=true;
                         $('.departure_previous_stop').show();
                         $('.info_departure_stop_time').html(departure_stop_time);
                         $('.info_departure_stop_place').html(departure_stop_place);
+                    }else{
+                        document.getElementById('_departure_previous_stop').value=false;
                     }
+                    console.log('el departure stop es: '+document.getElementById('_departure_previous_stop').value);
                     $('.info_end_location').html(end_location);
 
                     $('#nav-step2 a').attr('href', '#step2');

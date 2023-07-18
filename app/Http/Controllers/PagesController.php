@@ -27,6 +27,7 @@ class PagesController extends Controller
         return view('pages.contact');
     }
     public function booking($language='en'){
+
         $resort_options = '';
         $unit_options   = '';
         $vehicles = array();

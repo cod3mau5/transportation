@@ -73,11 +73,12 @@
             | --------------------- |:----------------------------------------------------------------------:|
             | <b>Hotel:</b>         | {{$reservation->resort->name}}                                         |
             | <b>Departure Flight:</b>| {{$reservation->departureFlight}}                                    |
-            | <b>Flight Date:</b>  | {{$reservation->departureDate}}                                         |
+            | <b>Flight Date and Time:</b>  | {{$reservation->departureDate}}                                |
             @if ($reservation->departure_stop_time)
             | <b>Departure Stop Time:</b>| {{$reservation->departure_stop_time}}                             |
             | <b>Departure Stop Place:</b>| {{$reservation->departure_stop_place}}                           |
             @endif
+            | <b style="color: #ff6219">Departure pickup time:</b>|<b style="color: #ff6219">{{$reservation->departure_pickup_time}}</b>|
         @endcomponent
     @endif
     <p style="text-align: center; color: #005899; font-size: 11.5px;"><b>IMPORTANT! SHOW THIS QR CODE TO YOUR DRIVER BEFORE BOARDING</b></p>

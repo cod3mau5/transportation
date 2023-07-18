@@ -29,6 +29,7 @@
                         <input type="hidden" name="_departure_time" id="_departure_time" value="">
                         <input type="hidden" name="_departure_stop_time" id="_departure_stop_time" value="">
                         <input type="hidden" name="_departure_stop_place" id="_departure_stop_place" value="">
+                        <input type="hidden" name="_departure_previous_stop" id="_departure_previous_stop" value="">
                         <input type="hidden" name="_departure_company" id="_departure_company" value="">
                         <input type="hidden" name="_departure_flight" id="_departure_flight" value="">
                         <input type="hidden" name="_contact_firstname" id="_contact_firstname" value="">
