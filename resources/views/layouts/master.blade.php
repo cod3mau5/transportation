@@ -192,7 +192,7 @@
             }
 
             #ig_container {
-                margin: 5rem 0;
+                margin: 0;
                 width: 100%;
             }
 

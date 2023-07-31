@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts.king')
 @section('styles')
     <style>
         @import url(https://fonts.googleapis.com/css?family=Poiret+One);
@@ -96,7 +96,7 @@
     @include('includes.google-header-global')
 @endsection
 @section('content')
-
+@include('includes.new.booking_bar',['register'=>''])
 <main id="PAGES_CONTAINER">
 
     <div class="container-fluid">

@@ -14,6 +14,9 @@
 
         <title>{{$record->name}} Transportation | {{ config('app.name') }}</title>
         <link rel="stylesheet" href="{{ asset('assets/css/fonts.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/css/king.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/css/theme.css') }}">
+
         <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
         <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
         {{-- <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/> --}}
@@ -236,26 +239,12 @@
             @hasSection('header')
                 @yield('header')
             @else
-                @include('includes.header')
+                @include('includes.new.header')
             @endif
 
                 @yield('content')
 
 
-                    @if(
-                        Route::current()->getName() == 'inicio' ||
-                        Route::current()->getName() == 'homepage' ||
-                        Route::current()->getName() == 'gallery'
-                    )
-                        <div id="whatsapp-btn" class="whatsapp-btn">
-                            <a
-                                href="https://api.whatsapp.com/send?phone=5216241104185&text=%F0%9F%91%8B%20hello%2C%20I%20come%20from%20the%20page%20and%20I%20want%20information%20about..."
-                                target="_BLANK">
-                                <i class="fa fa-whatsapp"></i>
-                            </a>
-                            <span>We are on WhatsApp</span>
-                        </div>
-                    @endif
                 </section>
             @include('includes.footer')
         </div>

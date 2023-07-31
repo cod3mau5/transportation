@@ -1,104 +1,106 @@
-@extends('layouts.master')
+@extends('layouts.king')
 @section('styles')
-<style>
-    .slider-for img{
-        margin:0 auto;
-        object-fit: cover;
-        width: 100%;
-    }
-    .slider-nav .slick-track{
-        height: 200px;
-        margin-top: 1rem;
-    }
-    .slider-nav .slick-list.draggable{
-        width: 100%;
-        margin: 0 auto;
-    }
-    .slider-nav .slick-track img{
-        height: 100px;
-        width: 100%;
-        object-fit: cover;
-        padding: 0 4px;
-    }
-
-    .slick-prev, .slick-next{
-        top:-36%;
-    }
-    .slick-next{
-        right: 10%;
-    }
-    .slick-prev{
-        left: 10%;
-    }
-    .slick-prev,.slick-next svg{
-        filter: drop-shadow(0 1px 0.15px #B2B2B2);
-        color: white;
-    }
-
-    @media (min-width: 992px) { 
+    <style>
         .slider-for img{
-                object-fit: unset;
-                width: auto;
+            margin:0 auto;
+            object-fit: cover;
+            width: 100%;
+        }
+        .slider-nav .slick-track{
+            height: 200px;
+            margin-top: 1rem;
         }
         .slider-nav .slick-list.draggable{
-            width: 75%;
+            width: 100%;
             margin: 0 auto;
         }
         .slider-nav .slick-track img{
-            height: 70%;
-            width: 170px;
+            height: 100px;
+            width: 100%;
             object-fit: cover;
+            padding: 0 4px;
         }
+
         .slick-prev, .slick-next{
-            top:-92%!important;
+            top:-36%;
         }
         .slick-next{
-            right: 15%;
+            right: 10%;
         }
         .slick-prev{
-            left: 15%;
+            left: 10%;
         }
-    }
+        .slick-prev,.slick-next svg{
+            filter: drop-shadow(0 1px 0.15px #B2B2B2);
+            color: white;
+        }
+
+        @media (min-width: 992px) {
+            .slider-for img{
+                    object-fit: unset;
+                    width: auto;
+            }
+            .slider-nav .slick-list.draggable{
+                width: 75%;
+                margin: 0 auto;
+            }
+            .slider-nav .slick-track img{
+                height: 70%;
+                width: 170px;
+                object-fit: cover;
+            }
+            .slick-prev, .slick-next{
+                top:-92%!important;
+            }
+            .slick-next{
+                right: 15%;
+            }
+            .slick-prev{
+                left: 15%;
+            }
+        }
 
 
-    .slick-next:before {
-        content: '';
-        background-color: white;
-    }
-    .slick-prev:before {
-        content: '';
-        background-color: white;
-    }
-    .slideshow-arrow {
-        --arrowsColor: #FFFFFF;
-        fill: rgb(255, 255, 255);
-    }
-    .slick-dots{
-        bottom:20px;
-    }
-    .slick-dots li button:before{
-        font-size: 14px;
-    }
-</style>
+        .slick-next:before {
+            content: '';
+            background-color: white;
+        }
+        .slick-prev:before {
+            content: '';
+            background-color: white;
+        }
+        .slideshow-arrow {
+            --arrowsColor: #FFFFFF;
+            fill: rgb(255, 255, 255);
+        }
+        .slick-dots{
+            bottom:20px;
+        }
+        .slick-dots li button:before{
+            font-size: 14px;
+        }
+    </style>
 @endsection
 @section('global-header')
     @include('includes.google-header-global')
 @endsection
 @section('content')
 
+    @include('includes.new.booking_bar',['register'=>''])
+
     <main id="PAGES_CONTAINER">
         @if(session('notification'))
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-12">
-                        
+
                         <div class="card-body">
                             <div class="alert alert-warning alert-dismissible fade show" role="alert">
                                 {{session('notification')}}
                                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                               </div>
                         </div>
-                    
+
                     </div>
                 </div>
             </div>
@@ -134,6 +136,7 @@
             </div>
         </div>
     </main>
+
 @endsection
 @section('footer-scripts')
     <script>

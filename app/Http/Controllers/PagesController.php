@@ -13,7 +13,8 @@ use Illuminate\Support\Facades\App;
 class PagesController extends Controller
 {
     public function homepage(){
-        return view('pages.home');
+        // return view('pages.home');
+        return view('pages.new.home');
     }
     public function contactUs(){
 
