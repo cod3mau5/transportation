@@ -80,6 +80,15 @@
         .box.is-full img{
             max-width: 100%;
         }
+        .gallery-btn{
+            color: var(--white);
+            background-color: var(--dark_main_blue);
+            border-radius: 4px;
+            padding: 10px 10px 5px;
+            border: 1px solid transparent;
+            text-align: center;
+            line-height: 2.1;
+        }
     </style>
 @endsection
 @section('global-header')
@@ -139,6 +148,7 @@
                 </div>
             </div>
         </div>
+
         <div class="container-fluid bg-arch">
             <div class="row">
                 <div class="mask">
@@ -170,50 +180,57 @@
             <div class="row index-services bg_dark_main_blue">
                 <div class="text-white px-5">
                     <h2 class="text-primary"><b>LOS CABOS TRANSPORTATION SERVICES</b></h2>
-                    <p>At Cancun Airport Transportation ® we have really nice and comfortable vehicles to provide you with your airport transfers from Cancun Airport, you can automatically reserve all of these services on our website. Services we provide, like we said above can be from the Cancun Airport to your Hotel Airbnb or Condo and these can be private transportation on a van for up to 8 people, Group transportation on a Crafter Van for up to 16 people or Luxury transportation provided with SUV vehicles like Suburbans.</p>
-                    <p>Apart from the Airport Transportation services, we can also take you anywhere. We have a wide range of service to transfer you around Cancun and the Riviera Maya:</p>
+                    <p>
+                        At Cabo Airport Transportation, we take pride in offering top-notch transportation services with a touch of luxury and comfort. Our fleet comprises elegant and comfortable vehicles to cater to all your airport transfer needs from Cabo San Lucas Airport. Booking your rides is effortless and can be done seamlessly through our user-friendly website.
+
+                        Whether you're headed to your hotel, Airbnb, or condo, our private van service can accommodate up to 8 people, ensuring a personalized and smooth experience. For larger groups of up to 16 people, our Group transportation is an ideal choice. And for those seeking a touch of extravagance, our Luxury transportation featuring SUV vehicles like Suburbans is at your disposal.
+
+                        But our services extend beyond airport transfers. Explore the captivating beauty of Cabo and detinations like La paz, and Todo Santos with our wide range of transfer options. Whether it's an excursion to a nearby attraction or a leisurely journey through the picturesque landscapes, we have you covered.
+                    </p>
+                    <p>Discover the ease and luxury of travel with Cabo Airport Transportation. Let us be your reliable partner in exploring the wonders of Cabo San Lucas and beyond. Book now and elevate your travel experience to new heights!</p>
 
                     <div class="item-service">
                         <i class="fa fa-plane title-icon text-white" aria-hidden="true"></i>
                         <strong class="text-white">Airport to <span>Hotel</span></strong>
                         <div class="clr"></div>
-                        <p class="text-primary">You have come to enjoy the Caribbean and surely you need transportation to your Hotel or Airport, this service is the ideal for you.</p>
+                        <p class="text-primary">Arriving in Los Cabos to experience the stunning beauty of the region? Let us take care of your transportation from the airport to your hotel, ensuring a seamless and comfortable start to your Cabo adventure.</p>
                         <!-- <a  class="link">Book an Airport to Hotel service now <i class="fa fa-long-arrow-right"></i></a> -->
                     </div>
                     <div class="item-service">
                         <i class="fa fa-building title-icon text-white" aria-hidden="true"></i>
                         <strong class="text-white">Hotel to <span>Hotel</span></strong>
                         <div class="clr"></div>
-                        <p class="text-primary">Need to change from one hotel to another while in Cancun? We help you with this transportation hotel-to-hotel.</p>
+                        <p class="text-primary">Need to move from one fabulous hotel to another during your stay in Los Cabos? Our hotel-to-hotel transfer service will assist you in making the transition smoothly and conveniently, so you can focus on enjoying every moment of your luxurious journey.</p>
                         <!-- <a  class="link">Book an Hotel to Hotel service now <i class="fa fa-long-arrow-right"></i></a> -->
                     </div>
                     <div class="item-service">
                         <i class="fa fa-cutlery title-icon text-white" aria-hidden="true"></i>
                         <strong class="text-white">Hotel to <span>Restaurant</span></strong>
                         <div class="clr"></div>
-                        <p class="text-primary">When you relax on your vacation, probably the least you want to do is drive and even more if you plan to drink! We can take you to your restaurant and return to your hotel.</p>
+                        <p class="text-primary">Indulge in the culinary delights of Los Cabos without worrying about driving. Our hotel-to-restaurant transportation service ensures you savor every exquisite dish and beverage at your chosen dining spot, and return to your hotel safely.</p>
                         <!-- <a  class="link">Book an Hotel to Restaurant service now <i class="fa fa-long-arrow-right"></i></a> -->
                     </div>
                     <div class="item-service">
                         <i class="fa fa-life-buoy title-icon text-white" aria-hidden="true"></i>
                         <strong class="text-white">Hotel to <span>Specific Destination</span></strong>
                         <div class="clr"></div>
-                        <p class="text-primary">Are you visiting Xcaret or Xel Ha? Or probably Xoximilco or the Mayan Museum in Cancun. At Cancun Airport Transportation we can take you to any of these parks.</p>
+                        <p class="text-primary">Venture into the magic of Los Cabos' iconic attractions! Whether it's The Arch of Cabo San Lucas, Lover's Beach, Todos Santos, or the artistic San Jose del Cabo Art District, our transportation service will take you to your desired destination with ease and style.
+                        </p>
                         <!-- <a  class="link">Book an Hotel to Park service now <i class="fa fa-long-arrow-right"></i></a> -->
                     </div>
                     <div class="item-service">
                         <i class="fa fa-institution title-icon text-white" aria-hidden="true"></i>
                         <strong class="text-white">City <span>Tour</span></strong>
                         <div class="clr"></div>
-                        <p class="text-primary">One of the best things you can do in Cancun is to visit a Mayan Site like Chichen Itza or Tulum or Coba and get to know all about this millennial culture, so let us take you there!</p>
+                        <p class="text-primary">Uncover the fascinating history and heritage of Los Cabos on an enthralling city tour. Immerse yourself in the ancient wonders of Cabo San Lucas's Pirámide de Tule or San Jose del Cabo's Wirikuta Garden. Let us be your guide as we unveil the captivating stories of this millennia-old culture.</p>
                         <!-- <a  class="link">Book an Hotel to Archeological service now <i class="fa fa-long-arrow-right"></i></a> -->
                     </div>
-                    <div class="clr"></div>
+
                 </div>
             </div>
         </div>
 
-        <section id="box-services" >
+        <section class="container-fluid" id="box-services" >
             <div class="container-fluid px-5 my-4">
                 <div class="row mb-0">
                     <div class="col-md-3 px-3">
@@ -343,7 +360,8 @@
         --}}
 
 
-        {{-- <div class="container-fluid py-5 s-bg">
+        {{--
+        <div class="container-fluid py-5 s-bg">
             <div class="row">
                 <div class="col-md-4 offset-md-2">
                     <h1 class="mb-5" style="color:#002e5d">{{ __('pages/home.about_us.title2.title') }}</h1>
@@ -368,89 +386,106 @@
                     </div>
                 </div>
             </div>
-        </div> --}}
+        </div>
+        --}}
 
-        <div class="isPopular py-5 s-bg">
+        <div class="container-fluid isPopular py-5 s-bg px-5">
             <h3><a href="destinations" title="Private Los Cabos Airport Transportation to San Lucas and San Jose del Cabo">LOS CABOS AIRPORT TRANSPORTATION´ S</a></h3>
             <h4>POPULAR DESTINATIONS</h4>
-            <div class="container">
-                <div class="columns four item">
+            <div class="row">
+                <div class="col-md-3 columns four item">
                     <a href="#" title="San Jose del Cabo Airport Airport Transportation to San Jose del Cabo">
                         <img loading="lazy" width="268" height="168" src="{{ asset('assets/images/home/zones/san_jose_del_cabo.jpeg')}}" alt="San Jose del Cabo Airport Airport Transportation to San Jose del Cabo" title="San Jose del Cabo Airport Transportation to San Jose del Cabo">
                     </a>
                     <a href="#" title="San Jose del Cabo Airport Airport Transportation to San Jose del Cabo" class="text-primary">San Jose del Cabo</a>
-                    <p class="text-secondary">Cabo is known worldwide. Transportation to San Jose Del Cabo from San Jose Airport is about 30 minutes or less.</p>
+                    <p class="text-secondary">Cabo is known worldwide. Transportation to San Jose Del Cabo from San Jose Airport is approximately 15 - 20 Minutes.</p>
                 </div>
-                <div class="columns four item">
+                <div class="col-md-3 columns four item">
                     <a href="#" title="San Jose del Cabo Airport Transportation to Puerto Los Cabos & Corredor">
                         <img loading="lazy" width="268" height="168" src="{{ asset('assets/images/home/zones/puerto_los_cabos.jpg')}}" alt="San Jose del Cabo Airport Transportation Puerto Los Cabos & Corredor" title="San Jose del Cabo Airport Transportation Puerto Los Cabos & Corredor">
                     </a>
                     <a href="#" title="San Jose del Cabo Airport Transportation to Puerto Los Cabos & Corredor" class="text-primary">Puerto Los Cabos & Corredor</a>
-                    <p class="text-secondary">Puerto Los Cabos & Corredor is a new trendy  destination. Transportation Puerto Los Cabos & Corredor from Cancun Airport is about 45 minutes.</p>
+                    <p class="text-secondary">Puerto Los Cabos & Corredor is a new trendy  destination. Transportation Puerto Los Cabos & Corredor is approximately 25 - 35 Minutes.</p>
                 </div>
-                <div class="columns four item">
+                <div class="col-md-3 columns four item">
                     <a href="#" title="San Jose del Cabo Airport Transportation to Cabo San Lucas">
                         <img loading="lazy" width="268" height="168" src="{{ asset('assets/images/home/zones/csl.jpg')}}" alt="San Jose del Cabo Airport Transportation to Cabo San Lucas" title="San Jose del Cabo Airport Transportation to Cabo San Lucas">
                     </a>
                     <a href="#" title="San Jose del Cabo Airport Transportation to Cabo San Lucas" class="text-primary">Cabo San Lucas</a>
-                    <p class="text-secondary">Cabo San Lucas is a really  city in . Transportation to Cabo San Lucas from Cancun Airport is about 55 minutes.</p>
+                    <p class="text-secondary">Cabo San Lucas is a really  city in . Transportation to Cabo San Lucas from Cancun Airport 15 - 25 Minutes</p>
                 </div>
-                <div class="columns four item">
+                <div class="col-md-3 columns four item">
                     <a href="#" title="San Jose del Cabo Airport Transportation to Pacific Side">
                         <img loading="lazy" width="268" height="168" src="{{ asset('assets/images/home/zones/pacific_side.webp')}}" alt="San Jose del Cabo Airport Transportation to Pacific Side" title="Cabo Airport Transportation to Pacific Side">
                     </a>
                     <a href="#" title="San Jose del Cabo Airport Transportation to Pacific Side" class="text-primary">Pacific Side</a>
-                    <p class="text-secondary">Pacific Side is the hottest of all destinations where you'll enjoy eco chic services. Transportation to Pacific Side from San Jose del Cabo Airport is about 1:45 hrs.</p>
+                    <p class="text-secondary">Pacific Side is the hottest of all destination. Transportation to Pacific Side from San Jose del Cabo Airport is about 1 Hour 10 Minutes.</p>
                 </div>
             </div>
         </div>
 
-        <div class="row boxReasonHome">
-			<div class="col-md-5">
-				<img title="Los Cabos Airport Transportation" alt="los cabos airport transportation" src="{{ asset('assets/images/units/hiace_blanco.png') }}" class="reasonsImage">
-			</div>
-			<div class="col-md-7">
-				<h2 class="ta-center">WHY OUR CLIENTS PREFER US</h2>
-				<ul class="listReasons">
-					<li>
-						<i class="fa fa-check-circle-o"></i>
-						100% <strong>Private transfers</strong> <small>(shared services not available)</small>.
-					</li>
-					<li>
-						<i class="fa fa-check-circle-o"></i>
-						Non-stop service <small>(unless asked by the customer)</small>.
-					</li>
-					<li>
-						<i class="fa fa-check-circle-o"></i>
-						Available for any number of passengers.
-					</li>
-					<li>
-						<i class="fa fa-check-circle-o"></i>
-						Get the best prices. If you see any better price, we'll match it.
-					</li>
-					<li>
-						<i class="fa fa-check-circle-o"></i>
-						Insured and authorized vehicles.
-					</li>
-					<li>
-						<i class="fa fa-check-circle-o"></i>
-						Flight tracking.
-					</li>
-					<li>
-						<i class="fa fa-check-circle-o"></i>
-						Airport meet and greet.
-					</li>
-					<li>
-						<i class="fa fa-check-circle-o"></i>
-						Secure PayPal payment method option.
-					</li>
-					<li>
-						<i class="fa fa-check-circle-o"></i>
-						Pre-book and free from worries.
-					</li>
-				</ul>
-			</div>
-		</div>
+        <div class="container-fluid">
+            <div class="row boxReasonHome py-4 mt-3">
+                <div class="col-md-5 offset-md-1">
+                    <img title="Los Cabos Airport Transportation" alt="los cabos airport transportation" src="{{ asset('assets/images/units/hiace_blanco.png') }}" class="reasonsImage">
+                </div>
+                <div class="col-md-5 offset-md-1">
+                    <h2 class="">WHY OUR CLIENTS PREFER US</h2>
+                    <ul class="listReasons">
+                        <li>
+                            <i class="fa fa-check-circle-o"></i>
+                            100% <strong>Private transfers</strong>
+                        <li>
+                            <i class="fa fa-check-circle-o"></i>
+                            Non-stop service <small>(unless asked by the customer)</small>.
+                        </li>
+                        <li>
+                            <i class="fa fa-check-circle-o"></i>
+                            Available for any number of passengers.
+                        </li>
+                        {{-- <li>
+                            <i class="fa fa-check-circle-o"></i>
+                            Get the best prices. If you see any better price, we'll match it.
+                        </li> --}}
+                        <li>
+                            <i class="fa fa-check-circle-o"></i>
+                            Insured and authorized vehicles.
+                        </li>
+                        <li>
+                            <i class="fa fa-check-circle-o"></i>
+                            Flight tracking.
+                        </li>
+                        <li>
+                            <i class="fa fa-check-circle-o"></i>
+                            Airport meet and greet.
+                        </li>
+                        <li>
+                            <i class="fa fa-check-circle-o"></i>
+                            Secure Pay on Arrival payment method option.
+                        </li>
+                        <li>
+                            <i class="fa fa-check-circle-o"></i>
+                            Pre-book and free from worries.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid">
+            <div class="row boxReasonHome bg-main-green py-0 mt-3">
+                <div class="col-md-5 p-0 pr-5 ig-images">
+                    {{-- <img title="Los Cabos Airport Transportation" alt="los cabos airport transportation" src="{{ asset('assets/images/units/hiace_blanco.png') }}" class="reasonsImage"> --}}
+                </div>
+                <div class="col-md-6 p-5 text-center">
+                    <h2 class="ta-center text-secondary" style="text-transform:capitalize">Discover Extraordinary Cabo Shuttle Experiences!</h2>
+                    <p class="listReasons text-secondary fs-5">
+                        Welcome to Cabo Drivers, where we go beyond simple taxi rides to provide an extraordinary shuttle service in Cabo San Lucas. Our commitment to quality, safety, and comfort ensures that each journey with us becomes a cherished memory. Explore our constantly updated gallery to witness the joy and excitement shared by our satisfied passengers. Let us redefine your travel experience and create unforgettable moments together. Book your ride now and embark on a seamless adventure with us!
+                    </p>
+                    <a class="gallery-btn" href="/gallery">VIEW GALLERY</a>
+                </div>
+            </div>
+        </div>
 
     </main>
 @endsection

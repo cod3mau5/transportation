@@ -139,23 +139,46 @@
 
 
                 /* FUNCIONALIDAD PARA LA GALERIA DE INSTAGRAM */
-                const gallery=document.querySelector('.gallery');
+                const gallery=document.querySelector('.ig-images');
                 const feed= document.querySelector('.gallery-container');
                 const next= document.querySelector('#next');
                 const prev= document.querySelector('#prev');
                 const token='{{env("IG_GALLERY_TOKEN")}}';
-
-                let limit = 5; // Valor predeterminado para dispositivos no móviles
+                // alert(token);
+                let limit = 3; // Valor predeterminado para dispositivos no móviles
 
                 // Detectar si la página se carga desde un dispositivo móvil
                 if (/Mobi|Android/i.test(navigator.userAgent)) {
-                    limit = 3; // Cambiar el límite a 3 para dispositivos móviles
+                    limit = 2; // Cambiar el límite a 3 para dispositivos móviles
                 }
 
                 const url=`https://graph.instagram.com/me/media?fields=thumbnail_url,media_url,caption,permalink&limit=${limit}&access_token=${token}`;
                 fetch(url)
                 .then(res=> res.json())
-                .then(data=>createHtml(data.data));
+                .then(data=>createHtml(data.data))
+                .then( setTimeout(function(){$('.ig-images').slick({infinite: true,autoplay:true,autoplaySpeed:2555,arrows:false,speed: 2000,fade: true, cssEase: 'linear'});}, 555) );
+
+                // function createHtml(data){
+                //     for(const img of data){
+                //         if(img.caption !== undefined){
+                //             let imgUrl= img.thumbnail_url ? img.thumbnail_url  : img.media_url;
+
+                //             gallery.innerHTML+=`
+                //                 <div>
+                //                     <div class="image overflow">
+                //                         <img loading="lazy" src="${imgUrl}" alt="${img.caption.slice(0,30)}">
+                //                         <div class="opacity-hover">
+                //                             <a href="${img.permalink}" class="caption">
+                //                                 <p>
+                //                                     ${img.caption.slice(0,80)}
+                //                                 </p>
+                //                             </a>
+                //                     </div>
+                //                 </div>
+                //             `;
+                //         }
+                //     }
+                // }
 
                 function createHtml(data){
                     for(const img of data){
@@ -163,14 +186,11 @@
                             let imgUrl= img.thumbnail_url ? img.thumbnail_url  : img.media_url;
 
                             gallery.innerHTML+=`
-                                <div class="image overflow">
-                                    <img loading="lazy" src="${imgUrl}" alt="${img.caption.slice(0,30)}">
-                                    <div class="opacity-hover">
-                                        <a href="${img.permalink}" class="caption">
-                                            <p>
-                                                ${img.caption.slice(0,80)}
-                                            </p>
-                                        </a>
+                                <div>
+
+                                        <img loading="lazy" src="${imgUrl}" alt="${img.caption.slice(0,30)}">
+
+
                                 </div>
                             `;
                         }
@@ -188,6 +208,7 @@
 
                 //     }
                 // }
+
 
             });
 

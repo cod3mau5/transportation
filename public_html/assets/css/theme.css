@@ -6,6 +6,9 @@
     --main_green: #0BB197;
     --white:#FFF;
 }
+.bg-main-green{
+    background-color: var(--main_green);
+}
 .bg-second-blue{
     background-color: var(--dark_second_blue);
 }
@@ -20,6 +23,9 @@
 }
 .text-secondary{
     color: var(--dark_main_blue)!important;
+}
+.text-light-blue{
+    color: var(--dark_second_blue)!important;
 }
 .ui-helper-hidden {
     display: none;

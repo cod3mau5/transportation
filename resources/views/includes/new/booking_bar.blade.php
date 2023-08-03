@@ -9,8 +9,8 @@
 	<form autocomplete="off" name="bookWidget" id="bookWidget" action="reservacion-transporte-cancun" method="post">
 		<fieldset class="hotelOption">
 			<label for="wid-hotel"><i class="fa fa-building" aria-hidden="true"></i></label>
-			<input type="text" name="wid-hotel" id="wid-hotel" placeholder="Destino / Resort / Hotel / Condo / Airbnb">
-			<input type="hidden" name="wid-hotelb" id="wid-hotelb" placeholder="Desde: Destino / Resort / Hotel / Condo / Airbnb">
+			<input type="text" name="wid-hotel" id="wid-hotel" placeholder="Destino / Resort / Hotel / Condo ">
+			<input type="hidden" name="wid-hotelb" id="wid-hotelb" placeholder="Desde: Destino / Resort / Hotel / Condo ">
 			<ul class="boxShow-hotels" style="display: none;"></ul>
 		</fieldset>
 		<fieldset class="transferOption">
