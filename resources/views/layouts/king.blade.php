@@ -144,7 +144,7 @@
                 const next= document.querySelector('#next');
                 const prev= document.querySelector('#prev');
                 const token='{{env("IG_GALLERY_TOKEN")}}';
-                // alert(token);
+                console.log(token);
                 let limit = 3; // Valor predeterminado para dispositivos no móviles
 
                 // Detectar si la página se carga desde un dispositivo móvil
