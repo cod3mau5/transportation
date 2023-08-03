@@ -412,7 +412,7 @@
                         <img loading="lazy" width="268" height="168" src="{{ asset('assets/images/home/zones/csl.jpg')}}" alt="San Jose del Cabo Airport Transportation to Cabo San Lucas" title="San Jose del Cabo Airport Transportation to Cabo San Lucas">
                     </a>
                     <a href="#" title="San Jose del Cabo Airport Transportation to Cabo San Lucas" class="text-primary">Cabo San Lucas</a>
-                    <p class="text-secondary">Cabo San Lucas is a really  city in . Transportation to Cabo San Lucas from Cancun Airport 15 - 25 Minutes</p>
+                    <p class="text-secondary">Cabo San Lucas is a really  city in . Transportation to Cabo San Lucas from San Jose Airport 15 - 25 Minutes</p>
                 </div>
                 <div class="col-md-3 columns four item">
                     <a href="#" title="San Jose del Cabo Airport Transportation to Pacific Side">
