@@ -276,6 +276,12 @@
                     <td><b>Departure Date:</b></td>
                     <td>{{$reservation->arrival_date . ' ' . $reservation->arrival_time}}</td>
                 </tr>
+                @if ($reservation->departure_pickup_time)
+                    <tr>
+                        <td><b>Departure pickup time:</b></td>
+                        <td><b style="color: #ff6219">{{$reservation->departure_pickup_time}}</b></td>
+                    </tr>
+                @endif
                 @if ($reservation->arrival_stop_time)
                     <tr>
                         <td><b>Departure Stop Time:</b></td>
@@ -340,7 +346,16 @@
                     <td>{{$reservation->arrival_date . ' ' . $reservation->arrival_time}}</td>
                     <td class="left_line"><b>Departure Date:</b></td>
                     <td>{{$reservation->departure_date ." ". $reservation->departure_time}}</td>
+                    <b style="color: #ff6219">Departure pickup time:</b>|<b style="color: #ff6219">{{$reservation->departure_pickup_time}}</b>
                 </tr>
+                @if ($reservation->departure_pickup_time)
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td class="left_line"><b>Departure pickup time:</b></td>
+                        <td><b style="color: #ff6219">{{$reservation->departure_pickup_time}}</b></td>
+                    </tr>
+                @endif
                 @if ($reservation->arrival_stop_time || $reservation->departure_stop_time)
                     <tr>
                         @if ($reservation->arrival_stop_time)
