@@ -346,16 +346,8 @@
                     <td>{{$reservation->arrival_date . ' ' . $reservation->arrival_time}}</td>
                     <td class="left_line"><b>Departure Date:</b></td>
                     <td>{{$reservation->departure_date ." ". $reservation->departure_time}}</td>
-                    <b style="color: #ff6219">Departure pickup time:</b>|<b style="color: #ff6219">{{$reservation->departure_pickup_time}}</b>
                 </tr>
-                @if ($reservation->departure_pickup_time)
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td class="left_line"><b>Departure pickup time:</b></td>
-                        <td><b style="color: #ff6219">{{$reservation->departure_pickup_time}}</b></td>
-                    </tr>
-                @endif
+
                 @if ($reservation->arrival_stop_time || $reservation->departure_stop_time)
                     <tr>
                         @if ($reservation->arrival_stop_time)
@@ -390,23 +382,29 @@
                         @endif
                     </tr>
                 @endif
+
                 <tr>
-                    <td><b>Passengers:</b></td>
-                    <td>{{$reservation->total_travelers}}</td>
+                    <td><b>Destination:</b></td>
+                    <td>{{$reservation->resort->name}}</td>
                     <td class="left_line"><b>Passengers:</b></td>
                     <td>{{$reservation->passengers}}</td>
                 </tr>
                 <tr>
-                    <td><b>Destination:</b></td>
-                    <td>{{$reservation->resort->name}}</td>
+                    <td><b>Booster seat:</b></td>
+                    <td>@if($reservation->booster_seat) YES @else NO @endif</td>
                     <td class="left_line"><b>Grocery Stop:</b></td>
                     <td>@if($reservation->shopping_stop) YES @else NO @endif</td>
                 </tr>
                 <tr>
-                    <td><b>Booster seat:</b></td>
-                    <td>@if($reservation->booster_seat) YES @else NO @endif</td>
-                    <td class="left_line"><b>Car seat:</b></td>
+                    <td><b>Car seat:</b></td>
                     <td>@if($reservation->car_seat) YES @else NO @endif</td>
+                    @if ($reservation->departure_pickup_time)
+                        <td class="left_line"><b>Departure pickup time:</b></td>
+                        <td><b style="color: #ff6219">{{$reservation->departure_pickup_time}}</b></td>
+                    @else
+                        <td></td>
+                        <td></td>
+                    @endif
                 </tr>
                 <tr>
                     <td></td>
