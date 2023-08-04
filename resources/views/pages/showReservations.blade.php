@@ -20,6 +20,9 @@
             justify-content: center;
             padding: 15px;
         }
+        .pt-2{
+            padding-top: 2rem!important;
+        }
 
         .invoice {
             width: min(900px, 90vw);
@@ -90,6 +93,10 @@
         }
         .invoice-info-footer span{
             font-size: .7rem;
+        }
+        .invoice-info-footer small{
+            display: flex;
+            align-items: center;
         }
         .invoice-info:nth-of-type(5) {
             margin-top: 1.5rem;
@@ -420,17 +427,35 @@
         <div class='invoice-wrapper'>
             <div class='invoice-billing'>
                 <div class='invoice-info-footer'>
-                    <p class='invoice-info-title'>
-                        <b>WE WILL WAITING FOR YOU AT THE UMBRELLA #3</b> <br>
-                        <span>
-                            We will wait for you with a sign with your name on it and
-                            with a palette with the name and the logo of Cabo Driver Services.
-                        </span>
-                    </p>
-                    <span class='invoice-info'>
-                        <p style="text-align: center"><img src="{{ $reservation->qr_image }}" style="margin:0 auto;max-width:50%" alt="QR Code" /></p>
-                    </span>
+                    <div class="invoice-info-footer">
+
+                        <p>
+                            <b>IF YOU ARRIVE AT TERMINAL #1</b> <br>
+                        </p>
+                        <small>
+                            <b style="color:#ec7728">WE WILL WAITING FOR YOU AT THE GROUP DEPARTURE</b> <br>
+                        </small>
+
+
+                        <p>
+                            <b>IF YOU ARRIVE AT TERMINAL #2</b> <br>
+                        </p>
+                        <small>
+                            <b style="color:#ec7728">WE WILL WAITING FOR YOU AT THE UMBRELLA #3</b> <br>
+                        </small>
+
+                    </div>
+                    <p style="text-align: center"><img src="{{ $reservation->qr_image }}" style="margin:0 auto;max-width:50%" alt="QR Code" /></p>
                 </div>
+                <div class="invoice-info-title pt-2">
+                    <span>
+                        We will wait for you with a sign with your name on it and
+                        with a palette with the name and the logo of Cabo Driver Services.
+                    </span>
+
+                </div>
+
+
             </div>
         </div>
 

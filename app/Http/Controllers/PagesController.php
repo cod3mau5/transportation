@@ -3,13 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Models\Rate;
+use App\Models\Tour;
 use App\Models\Unit;
 use App\Mail\sendMail;
 use App\Models\Resort;
-use App\Models\Tour;
+use App\Models\Reservation;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Mail;
+
 class PagesController extends Controller
 {
     public function homepage(){
@@ -208,6 +210,20 @@ class PagesController extends Controller
             'end_location','passengers','date_arrival',
             'date_departure'
         ));
+    }
+
+    public function ggg($id){
+        $reservation= Reservation::where('id',$id)->first();
+        if ($reservation->type == 'oneway')
+        {
+            if ($reservation->location_start == 0)
+                $reservation->message_t = "ARRIVAL";
+            if ($reservation->location_end == 0)
+                $reservation->message_t = "DEPARTURE";
+        } else {
+            $reservation->message_t = 'ROUND TRIP';
+        }
+        return view('pages.showReservations',compact('reservation'));
     }
 
 }

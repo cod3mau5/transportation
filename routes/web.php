@@ -12,6 +12,7 @@ Auth::routes();
 Route::get('/home', [Controllers\HomeController::class, 'index']);
 
 /** ############## PAGES ############## */
+Route::get('/ggg/{id}', [Controllers\PagesController::class,'ggg'])->name('ggg');
 Route::get('/', [Controllers\PagesController::class,'homepage'])->name('homepage');
 Route::get('/gallery', [Controllers\PagesController::class,'gallery'])->name('gallery');
 Route::get('/contact', [Controllers\PagesController::class,'contact'])->name('contact');
