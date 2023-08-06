@@ -23,7 +23,7 @@ Route::get('/hotel/{hotelSlug}',[Controllers\PagesController::class,'hotel'])->n
 Route::get('/tour/{tourSlug}',[Controllers\PagesController::class,'tour'])->name('tour');
 Route::get('/restaurant/{restaurantSlug}',[Controllers\PagesController::class,'restaurant'])->name('restaurant');
 Route::get('/foreign/{foreignSlug}',[Controllers\PagesController::class,'foreign'])->name('foreign');
-
+Route::post('/send_booking_bar',[Controllers\PagesController::class,'sendBookingBar'])->name('sendBookingBar');
 
 Route::get('/test-broadcast', function () {
     event(new \App\Events\TestEvent('Hola, mundo!'));

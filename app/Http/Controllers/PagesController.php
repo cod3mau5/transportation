@@ -226,4 +226,8 @@ class PagesController extends Controller
         return view('pages.showReservations',compact('reservation'));
     }
 
+    public function sendBookingBar(Request $request){
+        dd($request->all());
+    }
+
 }

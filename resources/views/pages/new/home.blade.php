@@ -115,7 +115,7 @@
                     <p>
                         We take pride in offering <strong>private</strong>, <strong>secure</strong>, and dependable
                         transportation from the Cabo San Lucas Airport to your hotel, hostel, or accommodation in various
-                        locations within Cabo, including [hyperlinks to different area pages].
+                        locations within Cabo, including <a href="/hotel/Pueblo-Bonito-Sunset"><b>Pueblo Bonito</b></a>, <a href="/hotel/RIU-Palace"><b>RIU</b></a>, <a href="/hotel/Sheraton-Hacienda-del-Mar"><b>Sheraton</b></a>, <a href="/hotel/Diamante"><b>Diamante</b></a> and many more.
                     </p>
 
                     <p>
@@ -181,13 +181,15 @@
                 <div class="text-white px-5">
                     <h2 class="text-primary"><b>LOS CABOS TRANSPORTATION SERVICES</b></h2>
                     <p>
-                        At Cabo Airport Transportation, we take pride in offering top-notch transportation services with a touch of luxury and comfort. Our fleet comprises elegant and comfortable vehicles to cater to all your airport transfer needs from Cabo San Lucas Airport. Booking your rides is effortless and can be done seamlessly through our user-friendly website.
+                        At Cabo Drivers Services, we take pride in offering top-notch transportation services with a touch of luxury and comfort. Our fleet comprises elegant and comfortable vehicles to cater to all your airport transfer needs from Cabo San Lucas Airport. Booking your rides is effortless and can be done seamlessly through our user-friendly website.
 
                         Whether you're headed to your hotel, Airbnb, or condo, our private van service can accommodate up to 8 people, ensuring a personalized and smooth experience. For larger groups of up to 16 people, our Group transportation is an ideal choice. And for those seeking a touch of extravagance, our Luxury transportation featuring SUV vehicles like Suburbans is at your disposal.
 
                         But our services extend beyond airport transfers. Explore the captivating beauty of Cabo and detinations like La paz, and Todo Santos with our wide range of transfer options. Whether it's an excursion to a nearby attraction or a leisurely journey through the picturesque landscapes, we have you covered.
                     </p>
-                    <p>Discover the ease and luxury of travel with Cabo Airport Transportation. Let us be your reliable partner in exploring the wonders of Cabo San Lucas and beyond. Book now and elevate your travel experience to new heights!</p>
+                    <p>
+                        Discover the ease and luxury of travel with Cabo Drivers Services. Let us be your reliable partner in exploring the wonders of Cabo San Lucas and beyond. Book now and elevate your travel experience to new heights!
+                    </p>
 
                     <div class="item-service">
                         <i class="fa fa-plane title-icon text-white" aria-hidden="true"></i>
@@ -394,10 +396,10 @@
             <h4>POPULAR DESTINATIONS</h4>
             <div class="row">
                 <div class="col-md-3 columns four item">
-                    <a href="#" title="San Jose del Cabo Airport Airport Transportation to San Jose del Cabo">
-                        <img loading="lazy" width="268" height="168" src="{{ asset('assets/images/home/zones/san_jose_del_cabo.jpeg')}}" alt="San Jose del Cabo Airport Airport Transportation to San Jose del Cabo" title="San Jose del Cabo Airport Transportation to San Jose del Cabo">
+                    <a href="#" title="San Jose del Cabo Airport Transportation to San Jose del Cabo">
+                        <img loading="lazy" width="268" height="168" src="{{ asset('assets/images/home/zones/san_jose_del_cabo.jpeg')}}" alt="San Jose del Cabo Airport Transportation to San Jose del Cabo" title="San Jose del Cabo Airport Transportation to San Jose del Cabo">
                     </a>
-                    <a href="#" title="San Jose del Cabo Airport Airport Transportation to San Jose del Cabo" class="text-primary">San Jose del Cabo</a>
+                    <a href="#" title="San Jose del Cabo Airport Transportation to San Jose del Cabo" class="text-primary">San Jose del Cabo</a>
                     <p class="text-secondary">Cabo is known worldwide. Transportation to San Jose Del Cabo from San Jose Airport is approximately 15 - 20 Minutes.</p>
                 </div>
                 <div class="col-md-3 columns four item">

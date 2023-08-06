@@ -6,7 +6,7 @@
         </div>
     @endif
 
-	<form autocomplete="off" name="bookWidget" id="bookWidget" action="reservacion-transporte-cancun" method="post">
+	<form autocomplete="off" name="bookWidget" id="bookWidget" action="/send_booking_bar" method="post">
 		<fieldset class="hotelOption">
 			<label for="wid-hotel"><i class="fa fa-building" aria-hidden="true"></i></label>
 			<input type="text" name="wid-hotel" id="wid-hotel" placeholder="Destino / Resort / Hotel / Condo ">
@@ -55,5 +55,6 @@
 			<input type="hidden" name="wid-engine" id="wid-engine" value="classic">
 		</fieldset>
 		<div class="clr"></div>
+        @csrf
 	</form>
 </div>
