@@ -8,23 +8,17 @@
                     <label for="trip_type" class="form-label">@{{ text.book_now.form.step_trip.trip_type }}</label>
                         <select id="trip_type" name="trip_type" class="form-control" required=""  v-model="trip_type">
 
-                            <option value="" disabled="" selected="selected" style="display:none">
-                                @{{ text.book_now.form.step_trip.trip_type }}
-                            </option>
+                            @if(empty($trip_type))
+                                <option value="" disabled  selected  style="display:none">
+                                    @{{ text.book_now.form.step_trip.trip_type }}
+                                </option>
+                            @endif
 
-                            <option value="o"
-                                <?php
-                                    if (isset($_GET['trip']) && $_GET['trip']=='o') { echo 'selected="selected"'; }
-                                ?>
-                            >
+                            <option value="o" v-bind:selected="trip_type == 'One Way'">
                                 @{{ text.book_now.form.trip_type.oneway }}
                             </option>
 
-                            <option value="r"
-                                <?php
-                                    if (isset($_GET['trip']) && $_GET['trip']=='r') { echo 'selected="selected"'; }
-                                ?>
-                            >
+                            <option value="r" v-bind:selected="trip_type=='Round Trip'">
                                 @{{ text.book_now.form.trip_type.roundtrip }}
                             </option>
 

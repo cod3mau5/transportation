@@ -8,7 +8,7 @@
         <meta name="description" content="Experience the comfort and convenience of Cabo Drivers Services in Cabo San Lucas. Avoid the headaches and enjoy a worry-free transportation experience with our reliable service. Explore this Mexican paradise without compromising on comfort or quality. Book now and let us take care of your transportation needs while you immerse yourself in the wonders of Cabo San Lucas!">
 
         @yield('global-header')
-
+        <link rel="stylesheet" href="{{ asset('css/normalize8.min.css') }}">
         <!-- Font Awesome -->
         <link rel="stylesheet" href="{{ asset('vendor/font-awesome/css/font-awesome.min.css') }}">
         <!-- Bootstrap 5 Css -->
@@ -20,11 +20,48 @@
         <link rel="stylesheet" href="{{ asset('assets/css/king.css') }}">
         <link rel="stylesheet" href="{{ asset('assets/css/theme.css') }}">
 
+        @yield('styles')
+
         <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
         <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
         {{-- <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/> --}}
 
-        @yield('styles')
+        <!-- Icons Css -->
+        <link href="{{ asset('assets/css/icons.min.css') }}" rel="stylesheet" type="text/css" />
+        <!-- App Css-->
+        <link href="{{ asset('assets/css/app.min.css') }}" id="app-style" rel="stylesheet" type="text/css" />
+        <link href="https://cdn.bootcss.com/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+        <style>
+            .text-primary,.text-primary:hover, .text-primary *{
+                color: #099680!important;
+            }
+            #form_step1 .col-lg-4 .mb-3{
+                display: flex;
+                flex-direction: column;
+            }
+            .select2-container--default .select2-selection--single {
+                background-color: transparent;
+                border: 1px solid  var(--main_green);
+                border-radius: 4px;
+            }
+            .select2-container--default .select2-selection--single .select2-selection__rendered {
+                color: var(--white);
+                margin-left: 10px;
+            }
+            .select2-container--open .select2-dropdown--below {
+                z-index: 10000;
+            }
+            .select2-container--default .select2-selection--single{
+                padding: 1.12rem;
+            }
+            .select2-container--default .select2-selection--single > span{
+                position: relative;
+                bottom: 12px;
+            }
+
+        </style>
+
 
         <style>
             .fade-enter-active, .fade-leave-active {
@@ -115,13 +152,23 @@
         <script src="{{ asset('assets/libs/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
         <script type="text/javascript" src="{{asset('assets/libs/slick/slick.min.js')}}"></script>
 
-        <script src="{{asset('assets/libs/vue/vue.min.js')}}"></script>
+        <script src="{{asset('assets/libs/vue/vue.dev.js')}}"></script>
+        {{-- <script src="{{asset('assets/libs/vue/vue.min.js')}}"></script> --}}
         <script src="{{asset('assets/libs/axios/axios.min.js')}}"></script>
 
         <script src="https://cdn.bootcss.com/moment.js/2.22.1/moment-with-locales.min.js"></script>
         <script src="{{ asset('/assets/bootstrap-datetimepicker.min.js') }}"></script>
+        <script  src="{{asset('/assets/jquery.validate.min.js')}}"></script>
+        <script  src="{{asset('/assets/additional-methods.min.js')}}"></script>
+        <script  src="{{asset('/assets/jquery.blockUI.min.js')}}"></script>
 
         @yield('footer-scripts')
+
+        {{-- <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script> --}}
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+        <script>
+            $('.select2').select2();
+        </script>
 
         <script>
             $(document).ready(function() {
@@ -228,6 +275,12 @@
                         format: 'MM/DD/YYYY',
                         minDate: moment()
                     });
+
+                    $('#departure_date_r').datetimepicker({
+                        format: 'MM/DD/YYYY',
+                        useCurrent: false,
+                    });
+
                     $('#arrival_date_o_a').datetimepicker({
                         format: 'MM/DD/YYYY',
                         useCurrent: false, //Important! See issue #1075
@@ -241,14 +294,16 @@
                     });
 
 
-                    // $("#arrival_date").on("dp.change", function (e) {
-                    //     if ($('#departure_date').length) {
-                    //         $('#departure_date').data("DateTimePicker").minDate(e.date);
-                    //     }
-                    // });
-                    // $("#departure_date").on("dp.change", function (e) {
-                    //     $('#arrival_date').data("DateTimePicker").maxDate(e.date);
-                    // });
+                    $("#arrival_date_r").on("dp.change", function (e) {
+                        if ($('#departure_date_r').length) {
+                            $('#departure_date_r').data("DateTimePicker").minDate(e.date);
+                        }
+                    });
+
+                    $("#departure_date_r").on("dp.change", function (e) {
+                        $('#arrival_date_r').data("DateTimePicker").maxDate(e.date);
+                    });
+
             });
 
             function generateVisitorId() {

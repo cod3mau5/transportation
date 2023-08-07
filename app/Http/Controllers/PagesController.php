@@ -192,13 +192,70 @@ class PagesController extends Controller
         return view('pages.hotel',compact('record','coverImg','gallery'));
     }
 
-    public function sendBookingBar(Request $request){
+    public function sendBookingBar(Request $request,$language='en'){
+        $resort_options = '';
+        $unit_options   = '';
+        $vehicles = array();
         $resorts = Resort::all()->sortBy("name");
         $units   = Unit::all()->sortBy("name");
         # ONLY SUBURBAN
         // $rates   = Rate::where('unit_id','1')->get()->sortBy('zone_id');
         $rates= Rate::all()->sortBy('zone_id');
-        dd($request->all());
+        // dd($request->all());
+
+        $trip_type=$request->trip_type;
+
+
+
+        foreach ($resorts as $row) {
+            $resort_options .=  '<option value="'.$row->id.'" data-zone="'.$row->zone_id.'">'.
+                                    htmlentities($row->name).
+                                '</option>';
+        }
+
+        foreach ($units as $unit) {
+            $vehicles[$unit->id] = ['name'=> $unit->name, 'capacity'=> $unit->capacity];
+            $unit_options .=  '<option value="'.$unit->id.'" data-name="'.$unit->id.'">'.
+                                    htmlentities($unit->name).
+                                '</option>';
+        }
+
+        $start_location = (isset($request->start_location)) ? $request->start_location : '';
+        $end_location   = (isset($_GET['end_location'])) ? $_GET['end_location'] : '';
+        $passengers     = ($request->passengers) ? (int) $request->passengers : '';
+        $date_arrival   = (isset($_GET['arrival'])) ?  $_GET['arrival'] : '';
+        $date_departure = (isset($_GET['departure'])) ? $_GET['departure'] : '';
+
+
+        $options=array(
+            "ssl"=>array(
+                "verify_peer"=>false,
+                "verify_peer_name"=>false,
+            ),
+        );
+        if($language == 1){
+            $language= json_decode(
+                file_get_contents(asset('assets/json/english.json'),
+                false,
+                stream_context_create($options)),
+                 true
+            );
+            $langUpdate=1;
+        }else{
+            $language= json_decode(
+                file_get_contents(asset('assets/json/spanish.json'),
+                false,
+                stream_context_create($options)),
+                 true
+            );
+            $langUpdate=0;
+        }
+        return view('pages.booking',compact(
+            'resort_options','unit_options','vehicles',
+            'resorts','units','rates','start_location',
+            'end_location','passengers','date_arrival',
+            'date_departure','language','langUpdate','trip_type'
+        ));
     }
 
 

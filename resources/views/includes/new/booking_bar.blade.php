@@ -12,7 +12,7 @@
 		<fieldset class="hotelOption">
 			<label for="start_location"><i class="fa fa-building" aria-hidden="true"></i></label>
 			{{-- <input type="text" name="wid-hotel" id="wid-hotel" placeholder="Destination / Hotel / Resort / Condo "> --}}
-            <select id="start_location" name="start_location" class="form-control select2"  placeholder="Destination / Hotel / Resort / Condo ">
+            <select id="start_location" name="start_location" class="form-control select2"  placeholder="Destination / Hotel / Resort / Condo " required>
                 <option value="" disabled="" selected="selected" style="display:none">
                     {{ __('pages/home.book_now.form.booking_bar.hotel_dropdown_placeholder') }}
                 </option>
@@ -43,20 +43,18 @@
         {{-- DATES --}}
             <fieldset class="datesOption" v-show="trip_type== 'r'">
                 <label for="arrival_date_r"><i class="fa fa-calendar" aria-hidden="true"></i></label>
-                <input  type="text" name="arrival_date_r" id="arrival_date_r" placeholder="Arrival" class="hasDatepicker"><span>-</span>
-                <input  type="text" name="departure_date_r" id="departure_date_r" placeholder="Departure" class="hasDatepicker" required>
+                <input  type="text" name="arrival_date_r" id="arrival_date_r" placeholder="Arrival" v-bind:required="trip_type == 'r'"><span>-</span>
+                <input  type="text" name="departure_date_r" id="departure_date_r" placeholder="Departure" v-bind:required="trip_type == 'r'">
             </fieldset>
 
-
-
             <fieldset class="transferOption" v-show="trip_type== 'o_a'">
-                <label for="arrival_date_o_a"><i class="fa fa-calendar" aria-hidden="true"></i></label>
-                <input  type="text" name="arrival_date_o_a" id="arrival_date_o_a" placeholder="Arrival" class="hasDatepicker" required>
+                <label for="arrival_date_o_a"><i class="fa fa-calendar" aria-hidden="true" v-bind:required="trip_type == 'o_a'"></i></label>
+                <input  type="text" name="arrival_date_o_a" id="arrival_date_o_a" placeholder="Arrival" v-bind:required="trip_type == 'o_a'">
             </fieldset>
 
             <fieldset class="transferOption" v-show="trip_type== 'o_d'">
-                <label for="departure_date_o_d"><i class="fa fa-calendar" aria-hidden="true"></i></label>
-                <input  type="text" name="departure_date_o_d" id="departure_date_o_d" placeholder="Departure" class="hasDatepicker" required>
+                <label for="departure_date_o_d"><i class="fa fa-calendar" aria-hidden="true" v-bind:required="trip_type == 'o_d'"></i></label>
+                <input  type="text" name="departure_date_o_d" id="departure_date_o_d" placeholder="Departure" v-bind:required="trip_type == 'o_d'">
             </fieldset>
         {{-- /DATES --}}
 

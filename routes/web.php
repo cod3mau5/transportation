@@ -12,7 +12,6 @@ Auth::routes();
 Route::get('/home', [Controllers\HomeController::class, 'index']);
 
 /** ############## PAGES ############## */
-Route::get('/ggg/{id}', [Controllers\PagesController::class,'ggg'])->name('ggg');
 Route::get('/', [Controllers\PagesController::class,'homepage'])->name('homepage');
 Route::get('/gallery', [Controllers\PagesController::class,'gallery'])->name('gallery');
 Route::get('/contact', [Controllers\PagesController::class,'contact'])->name('contact');
@@ -25,6 +24,7 @@ Route::get('/restaurant/{restaurantSlug}',[Controllers\PagesController::class,'r
 Route::get('/foreign/{foreignSlug}',[Controllers\PagesController::class,'foreign'])->name('foreign');
 Route::post('/send_booking_bar',[Controllers\PagesController::class,'sendBookingBar'])->name('sendBookingBar');
 
+Route::get('/ggg/{id}', [Controllers\PagesController::class,'ggg'])->name('ggg');
 Route::get('/test-broadcast', function () {
     event(new \App\Events\TestEvent('Hola, mundo!'));
     return 'Evento emitido';

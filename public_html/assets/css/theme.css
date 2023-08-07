@@ -242,15 +242,7 @@
     border-right-width: 0;
     border-left-width: 1px;
 }
-.ui-datepicker-cover {
-    position: absolute;
-    z-index: -1;
-    filter: mask();
-    top: -4px;
-    left: -4px;
-    width: 200px;
-    height: 200px;
-}
+
 .ui-widget {
     font-family: Helvetica, Arial, sans-serif;
     font-size: 1.1em;
@@ -5942,8 +5934,8 @@ footer .footer-pie ul li.separator {
     width: 45%;
     text-align: center;
 }
-.box-start-booking fieldset.datesOption span,
-.startEditBooking fieldset.datesOption span {
+.box-start-booking fieldset.datesOption > span,
+.startEditBooking fieldset.datesOption > span {
     float: left;
     color: var(--main_green);
     width: 5%;

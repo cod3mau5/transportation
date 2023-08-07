@@ -12,7 +12,6 @@
     </style>
     <!-- twitter-bootstrap-wizard css -->
     <link rel="stylesheet" href="{{ asset('assets/libs/twitter-bootstrap-wizard/prettify.css') }}">
-
     {{-- <!-- Bootstrap 5 Css -->
     <link href="assets/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css" /> --}}
     <!-- Icons Css -->
@@ -388,7 +387,7 @@
             },
             start_location:'',
             text: @json($language),
-            trip_type:'',
+            trip_type:'{{ ( $trip_type=="o_a" || $trip_type=="o_d" ) ? "o" : "r"}}',
             language:''
         },
         beforeMount(){
@@ -400,6 +399,13 @@
                 $('html, body').animate({
                     scrollTop: $("#about-us").offset().top
                 }, 850);
+            }
+
+            if(this.trip_type=='One Way'){
+                $('#trip_type option[value="o"]');
+            }else{
+                $('#trip_type option[value="r"]');
+                $('#trip_typeoption:eq(1)').attr('selected', 'selected');
             }
         },
         methods:{
@@ -437,7 +443,8 @@
                 });
             }
         }
-    })
+    });
+    // Vue.config.devtools = true;
 </script>
 
     <!-- JAVASCRIPT -->
