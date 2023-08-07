@@ -15,8 +15,22 @@ use Illuminate\Support\Facades\Mail;
 class PagesController extends Controller
 {
     public function homepage(){
-        // return view('pages.home');
-        return view('pages.new.home');
+        $resorts = Resort::all()->sortBy("name");
+        $units   = Unit::all()->sortBy("name");
+        $rates= Rate::all()->sortBy('zone_id');
+
+        $start_location = (isset($_GET['start_location'])) ? $_GET['start_location'] : '';
+        $end_location   = (isset($_GET['end_location'])) ? $_GET['end_location'] : '';
+        $passengers     = (isset($_GET['passengers'])) ? (int) $_GET['passengers'] : '';
+        $date_arrival   = (isset($_GET['arrival'])) ?  $_GET['arrival'] : '';
+        $date_departure = (isset($_GET['departure'])) ? $_GET['departure'] : '';
+// dd($resorts);
+        return view('pages.new.home',compact(
+            'resorts','units','rates',
+            'start_location','end_location',
+            'passengers','date_arrival',
+            'date_departure'
+        ));
     }
     public function contactUs(){
 
@@ -41,8 +55,8 @@ class PagesController extends Controller
         $units   = Unit::all()->sortBy("name");
         # ONLY SUBURBAN
         // $rates   = Rate::where('unit_id','1')->get()->sortBy('zone_id');
-        #ALL UNTIS ENABLED
         $rates= Rate::all()->sortBy('zone_id');
+
         foreach ($resorts as $row) {
             $resort_options .=  '<option value="'.$row->id.'" data-zone="'.$row->zone_id.'">'.
                                     htmlentities($row->name).
@@ -169,6 +183,7 @@ class PagesController extends Controller
         $gallery=$record->images->where('category',null);
         return view('pages.hotel',compact('record','coverImg','gallery'));
     }
+
     public function foreign($foreignSlug){
         $record=str_replace('-',' ',$foreignSlug);
         $record=Resort::where('name',$record)->firstOrFail();
@@ -176,6 +191,16 @@ class PagesController extends Controller
         $gallery=$record->images->where('category',null);
         return view('pages.hotel',compact('record','coverImg','gallery'));
     }
+
+    public function sendBookingBar(Request $request){
+        $resorts = Resort::all()->sortBy("name");
+        $units   = Unit::all()->sortBy("name");
+        # ONLY SUBURBAN
+        // $rates   = Rate::where('unit_id','1')->get()->sortBy('zone_id');
+        $rates= Rate::all()->sortBy('zone_id');
+        dd($request->all());
+    }
+
 
     /** for testing: */
     public function form(){
@@ -226,8 +251,6 @@ class PagesController extends Controller
         return view('pages.showReservations',compact('reservation'));
     }
 
-    public function sendBookingBar(Request $request){
-        dd($request->all());
-    }
+
 
 }

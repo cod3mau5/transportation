@@ -26,6 +26,15 @@
 
         @yield('styles')
 
+        <style>
+            .fade-enter-active, .fade-leave-active {
+                transition: opacity .5s
+            }
+            .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+                opacity: 0
+            }
+        </style>
+
     </head>
     <body>
 
@@ -108,6 +117,9 @@
 
         <script src="{{asset('assets/libs/vue/vue.min.js')}}"></script>
         <script src="{{asset('assets/libs/axios/axios.min.js')}}"></script>
+
+        <script src="https://cdn.bootcss.com/moment.js/2.22.1/moment-with-locales.min.js"></script>
+        <script src="{{ asset('/assets/bootstrap-datetimepicker.min.js') }}"></script>
 
         @yield('footer-scripts')
 
@@ -210,6 +222,33 @@
                 // }
 
 
+
+                    //date & time picker
+                    $('#arrival_date_r').datetimepicker({
+                        format: 'MM/DD/YYYY',
+                        minDate: moment()
+                    });
+                    $('#arrival_date_o_a').datetimepicker({
+                        format: 'MM/DD/YYYY',
+                        useCurrent: false, //Important! See issue #1075
+                        minDate: moment()
+                    });
+
+                    $('#departure_date_o_d').datetimepicker({
+                        format: 'MM/DD/YYYY',
+                        useCurrent: false, //Important! See issue #1075
+                        minDate: moment()
+                    });
+
+
+                    // $("#arrival_date").on("dp.change", function (e) {
+                    //     if ($('#departure_date').length) {
+                    //         $('#departure_date').data("DateTimePicker").minDate(e.date);
+                    //     }
+                    // });
+                    // $("#departure_date").on("dp.change", function (e) {
+                    //     $('#arrival_date').data("DateTimePicker").maxDate(e.date);
+                    // });
             });
 
             function generateVisitorId() {
@@ -226,6 +265,8 @@
             function setVisitorId(visitorId) {
                 localStorage.setItem('visitorId', visitorId);
             }
+
+
         </script>
 
         <script>

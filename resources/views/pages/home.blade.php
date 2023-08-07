@@ -160,7 +160,7 @@
             beforeMount(){
             },
             mounted() {
-
+                // alert();
             },
             methods:{
                 changeLanguage: function(){

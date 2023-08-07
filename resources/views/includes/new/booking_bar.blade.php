@@ -1,3 +1,4 @@
+
 <div class="box-start-booking is-bookhome is-relative">
     @if ($register!=='')
         <div class="register">
@@ -7,30 +8,62 @@
     @endif
 
 	<form autocomplete="off" name="bookWidget" id="bookWidget" action="/send_booking_bar" method="post">
+
 		<fieldset class="hotelOption">
-			<label for="wid-hotel"><i class="fa fa-building" aria-hidden="true"></i></label>
-			<input type="text" name="wid-hotel" id="wid-hotel" placeholder="Destino / Resort / Hotel / Condo ">
-			<input type="hidden" name="wid-hotelb" id="wid-hotelb" placeholder="Desde: Destino / Resort / Hotel / Condo ">
-			<ul class="boxShow-hotels" style="display: none;"></ul>
+			<label for="start_location"><i class="fa fa-building" aria-hidden="true"></i></label>
+			{{-- <input type="text" name="wid-hotel" id="wid-hotel" placeholder="Destination / Hotel / Resort / Condo "> --}}
+            <select id="start_location" name="start_location" class="form-control select2"  placeholder="Destination / Hotel / Resort / Condo ">
+                <option value="" disabled="" selected="selected" style="display:none">
+                    {{ __('pages/home.book_now.form.booking_bar.hotel_dropdown_placeholder') }}
+                </option>
+                <option value="0"
+                        {{ !empty($start_location) ? 'selected' : '' }}
+                >Los Cabos Int. Airport
+                </option>
+                @foreach ($resorts as $row)
+                    <option
+                        value="{{ $row->id }}"
+                        {{ $row->id == $start_location ? 'selected="selected"' : '' }}
+                        data-zone="{{ $row->zone_id }}">
+                        {{ $row->name }}
+                    </option>
+                @endforeach
+            </select>
 		</fieldset>
+
 		<fieldset class="transferOption">
-			<label for="wid-transfer"><i class="fa fa-road" aria-hidden="true"></i></label>
-			<select name="wid-transfer" id="wid-transfer">
-				<option value="ROUND">Round trip</option>
-				<option value="ONEWAH">Oneway - Airport to Hotel</option>
-				<option value="ONEWHA">Oneway - Hotel to Airport</option>
-				<option value="ROUNDH">Round trip - Hotel to Hotel</option>
-				<option value="ONEWHH">Oneway - Hotel to Hotel</option>
+			<label for="trip_type"><i class="fa fa-road" aria-hidden="true"></i></label>
+			<select name="trip_type" v-model="trip_type" id="trip_type">
+				<option value="r" class="trip_type_option">Round trip</option>
+				<option value="o_a" class="trip_type_option">Oneway - Arrival <small>(Airport to Hotel)</small></option>
+				<option value="o_d" class="trip_type_option">Oneway - Departure <small>(Hotel to Airport)</small></option>
 			</select>
 		</fieldset>
-		<fieldset class="datesOption">
-			<label for="wid-datein"><i class="fa fa-calendar" aria-hidden="true"></i></label>
-			<input type="text" name="wid-datein" id="wid-datein" placeholder="Arrival" class="hasDatepicker"><span>-</span>
-			<input type="text" name="wid-dateout" id="wid-dateout" placeholder="Departure" class="hasDatepicker">
-		</fieldset>
+
+        {{-- DATES --}}
+            <fieldset class="datesOption" v-show="trip_type== 'r'">
+                <label for="arrival_date_r"><i class="fa fa-calendar" aria-hidden="true"></i></label>
+                <input  type="text" name="arrival_date_r" id="arrival_date_r" placeholder="Arrival" class="hasDatepicker"><span>-</span>
+                <input  type="text" name="departure_date_r" id="departure_date_r" placeholder="Departure" class="hasDatepicker" required>
+            </fieldset>
+
+
+
+            <fieldset class="transferOption" v-show="trip_type== 'o_a'">
+                <label for="arrival_date_o_a"><i class="fa fa-calendar" aria-hidden="true"></i></label>
+                <input  type="text" name="arrival_date_o_a" id="arrival_date_o_a" placeholder="Arrival" class="hasDatepicker" required>
+            </fieldset>
+
+            <fieldset class="transferOption" v-show="trip_type== 'o_d'">
+                <label for="departure_date_o_d"><i class="fa fa-calendar" aria-hidden="true"></i></label>
+                <input  type="text" name="departure_date_o_d" id="departure_date_o_d" placeholder="Departure" class="hasDatepicker" required>
+            </fieldset>
+        {{-- /DATES --}}
+
+
 		<fieldset class="paxesOption">
-			<label for="wid-passenger"><i class="fa fa-user" aria-hidden="true"></i></label>
-			<select name="wid-passenger" id="wid-passenger">
+			<label for="passengers"><i class="fa fa-user" aria-hidden="true"></i></label>
+			<select name="psassengers" id="passengers">
 				<option value="1">1 Passenger</option>
 				<option value="2" selected="selected">2 Passengers</option>
 				<option value="3">3 Passengers</option>
@@ -49,12 +82,14 @@
 				<option value="16">16 Passengers</option>
 			</select>
 		</fieldset>
+
 		<fieldset class="buttonOption">
-			<input type="submit" name="wid-firstPreBook" id="wid-firstPreBook" value="CONTINUE">
-			<input type="hidden" name="wid-enviroment" id="wid-enviroment" value="loaded">
-			<input type="hidden" name="wid-engine" id="wid-engine" value="classic">
+			<input type="submit" name="booking-bar" id="booking-bar">
 		</fieldset>
-		<div class="clr"></div>
+
+        <div class="clr"></div>
+
         @csrf
+
 	</form>
 </div>

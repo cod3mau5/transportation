@@ -48,7 +48,31 @@ return [
                     "number" => "3"
                 ]
             ],
-            // ... more keys from book_now.form
+            "step_trip"=>[
+                "trip_type"=>"Trip Type",
+                "start_location"=>"Start Location",
+                "end_location"=>"End Location",
+                "number_travelers"=>"Number of travelers",
+                "children"=>"Number of children",
+                "trip_location_title"=>["name"=>"Trip","to"=>"TO"],
+                "trip1"=>[
+                    "arrival"=>"",
+                    "arrival_date"=>"Arrival Date",
+                    "arrival_airline"=>"Arrival Airline Company",
+                    "arrival_flight_time"=>"Arrival Flight Time",
+                    "arrival_flight_number"=>"Arrival Flight Number"
+                ],
+                "trip2"=>[
+                    "departure"=>"",
+                    "departure_date"=>"Departure Date",
+                    "departure_airline"=>"Departure Airline Company",
+                    "departure_flight_time"=>"Departure Flight Time",
+                    "departure_flight_number"=>"Departure Flight Number"
+                ]
+            ],
+            "booking_bar"=>[
+                "hotel_dropdown_placeholder"=>"Destination / Resort / Hotel / Condo "
+            ],
         ],
         "summary" => [
             "title" => "Summary",

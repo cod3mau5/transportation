@@ -7,6 +7,7 @@
                     <input type="text" class="form-control" id="basicpill-firstname-input"> --}}
                     <label for="trip_type" class="form-label">@{{ text.book_now.form.step_trip.trip_type }}</label>
                         <select id="trip_type" name="trip_type" class="form-control" required=""  v-model="trip_type">
+
                             <option value="" disabled="" selected="selected" style="display:none">
                                 @{{ text.book_now.form.step_trip.trip_type }}
                             </option>
@@ -16,7 +17,7 @@
                                     if (isset($_GET['trip']) && $_GET['trip']=='o') { echo 'selected="selected"'; }
                                 ?>
                             >
-                            @{{ text.book_now.form.trip_type.oneway }}
+                                @{{ text.book_now.form.trip_type.oneway }}
                             </option>
 
                             <option value="r"
@@ -24,8 +25,9 @@
                                     if (isset($_GET['trip']) && $_GET['trip']=='r') { echo 'selected="selected"'; }
                                 ?>
                             >
-                            @{{ text.book_now.form.trip_type.roundtrip }}
-                        </option>
+                                @{{ text.book_now.form.trip_type.roundtrip }}
+                            </option>
+
                         </select>
                 </div>
             </div>

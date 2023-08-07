@@ -508,10 +508,11 @@
             el: '#app',
             data: {
                 lang: '{{ app()->getLocale() }}',
+                trip_type:'r'
             },
             beforeMount() {},
             mounted() {
-
+                // alert();
             },
             methods: {
                 changeLanguage: function() {

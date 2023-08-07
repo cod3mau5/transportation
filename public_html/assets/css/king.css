@@ -148,6 +148,20 @@ body {
     font-size: 2rem;
     color: var(--secondary_color) !important;
 }
+
+/* BOOKING BAR */
+
+.trip_type_option{
+    background-color: var(--dark_main_blue);
+    color: var(--white);
+}
+select#start_location{
+    background-color: transparent!important;
+    color: #fff;
+}
+select#start_location option{
+    background-color: var(--dark_main_blue);
+}
 /*HOME*/
 .bg-img {
     background-color: #ffffffc6;
