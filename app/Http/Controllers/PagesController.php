@@ -99,11 +99,13 @@ class PagesController extends Controller
             );
             $langUpdate=0;
         }
+
+        $trip_type=null;
         return view('pages.booking',compact(
             'resort_options','unit_options','vehicles',
             'resorts','units','rates','start_location',
             'end_location','passengers','date_arrival',
-            'date_departure','language','langUpdate'
+            'date_departure','language','langUpdate','trip_type'
         ));
     }
     public function sendMail(Request $request){
@@ -220,12 +222,17 @@ class PagesController extends Controller
                                 '</option>';
         }
 
-        $start_location = (isset($request->start_location)) ? $request->start_location : '';
-        $end_location   = (isset($_GET['end_location'])) ? $_GET['end_location'] : '';
-        $passengers     = ($request->passengers) ? (int) $request->passengers : '';
+        if($request->trip_type == 'o_a' || $request->trip_type == 'r'){
+            $start_location=null;
+            $end_location   = (isset($request->start_location)) ? $request->start_location : '';
+        }else{
+            $start_location = (isset($request->start_location)) ? $request->start_location : '';
+            $end_location   = null;
+        }
+
+        $passengers     = (int) $request->passengers;
         $date_arrival   = (isset($_GET['arrival'])) ?  $_GET['arrival'] : '';
         $date_departure = (isset($_GET['departure'])) ? $_GET['departure'] : '';
-
 
         $options=array(
             "ssl"=>array(
@@ -250,11 +257,15 @@ class PagesController extends Controller
             );
             $langUpdate=0;
         }
+
+        $arrival_date_r=$request->arrival_date_r;
+        $departure_date_r=$request->departure_date_r;
         return view('pages.booking',compact(
             'resort_options','unit_options','vehicles',
             'resorts','units','rates','start_location',
             'end_location','passengers','date_arrival',
-            'date_departure','language','langUpdate','trip_type'
+            'date_departure','language','langUpdate','trip_type',
+            'arrival_date_r','departure_date_r'
         ));
     }
 

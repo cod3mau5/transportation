@@ -11,15 +11,11 @@
 
 		<fieldset class="hotelOption">
 			<label for="start_location"><i class="fa fa-building" aria-hidden="true"></i></label>
-			{{-- <input type="text" name="wid-hotel" id="wid-hotel" placeholder="Destination / Hotel / Resort / Condo "> --}}
-            <select id="start_location" name="start_location" class="form-control select2"  placeholder="Destination / Hotel / Resort / Condo " required>
+            <select id="start_location" name="start_location" class="form-control select2"  placeholder="Destination / Hotel / Resort / Condo" required>
                 <option value="" disabled="" selected="selected" style="display:none">
                     {{ __('pages/home.book_now.form.booking_bar.hotel_dropdown_placeholder') }}
                 </option>
-                <option value="0"
-                        {{ !empty($start_location) ? 'selected' : '' }}
-                >Los Cabos Int. Airport
-                </option>
+                {{-- <option value="0">Los Cabos Int. Airport</option> --}}
                 @foreach ($resorts as $row)
                     <option
                         value="{{ $row->id }}"
@@ -61,7 +57,7 @@
 
 		<fieldset class="paxesOption">
 			<label for="passengers"><i class="fa fa-user" aria-hidden="true"></i></label>
-			<select name="psassengers" id="passengers">
+			<select name="passengers" id="passengers">
 				<option value="1">1 Passenger</option>
 				<option value="2" selected="selected">2 Passengers</option>
 				<option value="3">3 Passengers</option>

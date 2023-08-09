@@ -3,8 +3,7 @@
         <div class="row">
             <div class="col-lg-4">
                 <div class="mb-3">
-                    {{-- <label class="form-label" for="basicpill-firstname-input">First name</label>
-                    <input type="text" class="form-control" id="basicpill-firstname-input"> --}}
+
                     <label for="trip_type" class="form-label">@{{ text.book_now.form.step_trip.trip_type }}</label>
                         <select id="trip_type" name="trip_type" class="form-control" required=""  v-model="trip_type">
 
@@ -22,6 +21,83 @@
                                 @{{ text.book_now.form.trip_type.roundtrip }}
                             </option>
 
+                        </select>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="mb-3">
+                    <label for="start_location" class="form-label">
+                        @{{ text.book_now.form.step_trip.start_location }}
+                    </label>
+                    <select id="start_location" name="start_location" class="form-control select2" required="">
+                        <option value="" disabled="" selected="selected" style="display:none">
+                            @{{ text.book_now.form.step_trip.start_location }}
+                        </option>
+                        <option value="0"
+                                {{ empty($start_location) && !empty($trip_type)? 'selected' : '' }}
+                        >Los Cabos Int. Airport
+                        </option>
+                        @foreach ($resorts as $row)
+                            <option
+                                value="{{ $row->id }}"
+                                {{ $row->id == $start_location ? 'selected="selected"' : '' }}
+                                data-zone="{{ $row->zone_id }}">
+                                {{ $row->name }}
+                            </option>
+                        @endforeach
+                    </select>
+
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="mb-3">
+                    <label for="end_location" class="form-label">
+                        @{{ text.book_now.form.step_trip.end_location }}
+                    </label>
+                    <select id="end_location"
+                            name="end_location"
+                            class="form-control select2"
+                            required=""
+                    >
+                        <option value="" disabled="" selected="selected" style="display:none">@{{ text.book_now.form.step_trip.end_location }}</option>
+                        <option value="0" {{ empty($end_location) && !empty($trip_type) ? 'selected="selected"' : '' }}>Los Cabos Int. Airport</option>
+                        @foreach ($resorts as $row)
+                            <option
+                                value="{{ $row->id }}"
+                                {{ $row->id == $end_location ? 'selected="selected"' : '' }}
+                                data-zone="{{ $row->zone_id }}">
+                                {{ $row->name }}
+                            </option>
+                        @endforeach
+                    </select>
+                </div>
+            </div>
+
+
+            {{-- <div class="col-lg-4">
+                <div class="mb-3">
+                    <label for="trip_type" class="form-label">@{{ text.book_now.form.step_trip.trip_type }}</label>
+                        <select id="trip_type" name="trip_type" class="form-control" required=""  v-model="trip_type">
+                            <option value="" disabled="" selected="selected" style="display:none">
+                                @{{ text.book_now.form.step_trip.trip_type }}
+                            </option>
+
+                            <option value="o"
+                                <?php
+                                    if (isset($_GET['trip']) && $_GET['trip']=='o') { echo 'selected="selected"'; }
+                                ?>
+                            >
+                            @{{ text.book_now.form.trip_type.oneway }}
+                            </option>
+
+                            <option value="r"
+                                <?php
+                                    if (isset($_GET['trip']) && $_GET['trip']=='r') { echo 'selected="selected"'; }
+                                ?>
+                            >
+                            @{{ text.book_now.form.trip_type.roundtrip }}
+                        </option>
                         </select>
                 </div>
             </div>
@@ -48,28 +124,8 @@
                         @endforeach
                     </select>
                 </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="mb-3">
-                    <label for="end_location" class="form-label">@{{ text.book_now.form.step_trip.end_location }}</label>
-                        <select id="end_location"
-                                name="end_location"
-                                class="form-control select2"
-                                required=""
-                        >
-                            <option value="" disabled="" selected="selected" style="display:none">@{{ text.book_now.form.step_trip.end_location }}</option>
-                            <option value="0" {{ $end_location!='' ? 'selected="selected"' : '' }}>Los Cabos Int. Airport</option>
-                            @foreach ($resorts as $row)
-                                <option
-                                    value="{{ $row->id }}"
-                                    {{ $row->id == $end_location ? 'selected="selected"' : '' }}
-                                    data-zone="{{ $row->zone_id }}">
-                                    {{ $row->name }}
-                                </option>
-                            @endforeach
-                        </select>
-                </div>
-            </div>
+            </div> --}}
+
         </div>
 
         <div class="row">
@@ -83,7 +139,7 @@
                             @{{ text.book_now.form.step_trip.number_travelers }}
                         </option>
                         @for ($x = 1; $x<=10; $x++)
-                            <option value="{{$x}}" {{ $x == $passengers ? 'selected="selected"' : '' }}>
+                            <option value="{{$x}}" {{ $x == $passengers ? 'selected' : '' }}>
                                 {{ $x }}
                             </option>
                         @endfor
@@ -100,7 +156,7 @@
                            @{{ text.book_now.form.step_trip.children }}
                         </option>
                         @for ($x = 0; $x<=6; $x++)
-                            <option value="{{$x}}" {{ $x == $passengers ? 'selected="selected"' : '' }}>
+                            <option value="{{$x}}">
                                 {{ $x }}
                             </option>
                         @endfor

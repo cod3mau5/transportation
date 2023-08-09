@@ -25,3 +25,11 @@ function solution($a)
 
         return $people;
 }
+
+    if($trip_type=="o_a" || $trip_type=="o_d"){
+     echo "o";
+    }elseif($trip_type=="o_d"){
+       echo "r";
+    }else{
+        echo "";
+    }

@@ -1,4 +1,5 @@
 jQuery(document).ready(function($) {
+
     localStorage.setItem('step','null');
     var start = $('#start_location option:selected').text();
     var end   = $('#end_location option:selected').text();
@@ -142,10 +143,26 @@ jQuery(document).ready(function($) {
     // });
 
     //date & time picker
-    $('#arrival_date').datetimepicker({
-        format: 'MM/DD/YYYY',
-        minDate: moment()
-    });
+    // alert(app.arrival_date);
+    if(app.arrival_date != ''){
+
+        function convertToDate(dateString) {
+            var parts = dateString.split('/');
+            return new Date(parts[2], parts[1] - 1, parts[0]);
+        }
+        var arrival_date = convertToDate(app.arrival_date);
+        $('#arrival_date').datetimepicker({
+            format: 'MM/DD/YYYY',
+            minDate: moment(),
+            defaultDate: arrival_date
+        });
+    }else{
+        $('#arrival_date').datetimepicker({
+            format: 'MM/DD/YYYY',
+            minDate: moment()
+        });
+    }
+
     $('#departure_date').datetimepicker({
         format: 'MM/DD/YYYY',
         useCurrent: false //Important! See issue #1075
