@@ -143,18 +143,28 @@ jQuery(document).ready(function($) {
     // });
 
     //date & time picker
-    // alert(app.arrival_date);
-    if(app.arrival_date != ''){
+    // alert(app.type);
 
-        function convertToDate(dateString) {
-            var parts = dateString.split('/');
-            return new Date(parts[2], parts[1] - 1, parts[0]);
-        }
+
+
+
+    if(app.type == 'o_d'){
+        app.arrival_date=app.departure_date;
+        app.departure_date=null;
+    }
+
+    function convertToDate(dateString) {
+        var parts = dateString.split('/');
+        return new Date(parts[2], parts[0] - 1, parts[1]);
+    }
+
+    if(app.arrival_date != null){
+
         var arrival_date = convertToDate(app.arrival_date);
+        // alert( arrival_date);
         $('#arrival_date').datetimepicker({
+            defaultDate: app.arrival_date,
             format: 'MM/DD/YYYY',
-            minDate: moment(),
-            defaultDate: arrival_date
         });
     }else{
         $('#arrival_date').datetimepicker({
@@ -163,10 +173,30 @@ jQuery(document).ready(function($) {
         });
     }
 
-    $('#departure_date').datetimepicker({
-        format: 'MM/DD/YYYY',
-        useCurrent: false //Important! See issue #1075
-    });
+
+    if(app.departure_date != null){
+        var departure_date = convertToDate(app.departure_date);
+        // alert( departure_date);
+        $('#departure_date').datetimepicker({
+            defaultDate: app.departure_date,
+            format: 'MM/DD/YYYY',
+            useCurrent: false
+        });
+    }else{
+        $('#departure_date').datetimepicker({
+            format: 'MM/DD/YYYY',
+            useCurrent: false //Important! See issue #1075
+        });
+    }
+
+
+    $('#arrival_date').minDate( moment());
+    $('#departure_date').minDate( moment());
+
+    // $('#departure_date').datetimepicker({
+    //     format: 'MM/DD/YYYY',
+    //     useCurrent: false //Important! See issue #1075
+    // });
     $("#arrival_date").on("dp.change", function (e) {
         if ($('#departure_date').length) {
             $('#departure_date').data("DateTimePicker").minDate(e.date);
@@ -218,7 +248,7 @@ jQuery(document).ready(function($) {
 
 
         } else if(app.addedShoppingStop) { // si ninguna casilla está marcada y los 25 ya se añadieron, los resta
-            console.log('el price baja');
+            // console.log('el price baja');
             price = price - shoppingStop;
             app.addedShoppingStop = false; // recuerda que ya restamos los 25
         }

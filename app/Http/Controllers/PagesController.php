@@ -258,14 +258,20 @@ class PagesController extends Controller
             $langUpdate=0;
         }
 
-        $arrival_date_r=$request->arrival_date_r;
-        $departure_date_r=$request->departure_date_r;
+        $arrival_date=$request->arrival_date_r;
+        $departure_date=$request->departure_date_r;
+
+        if($arrival_date == null && $departure_date == null){
+            $arrival_date=$request->arrival_date_o_a;
+            $departure_date=$request->departure_date_o_d;
+        }
+
         return view('pages.booking',compact(
             'resort_options','unit_options','vehicles',
             'resorts','units','rates','start_location',
             'end_location','passengers','date_arrival',
             'date_departure','language','langUpdate','trip_type',
-            'arrival_date_r','departure_date_r'
+            'arrival_date','departure_date'
         ));
     }
 

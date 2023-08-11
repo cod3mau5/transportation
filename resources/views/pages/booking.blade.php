@@ -387,10 +387,11 @@
             },
             start_location:'',
             text: @json($language),
+            type: '{{$trip_type}}',
             trip_type:'{{ ($trip_type == "o_a" || $trip_type == "o_d") ? "o" : ($trip_type == "r" ? "r" : "") }}',
             language:'',
-            arrival_date:"{{ !empty($arrival_date_r) ? $arrival_date_r : ' '}}",
-            departure_date:"{{ !empty($departure_date_r) ? $departure_date_r : '' }}"
+            arrival_date:"{{ !empty($arrival_date) ? $arrival_date : '' }}",
+            departure_date:"{{ !empty($departure_date) ? $departure_date : '' }}"
         },
         beforeMount(){
         },
@@ -469,10 +470,6 @@
         var units = @json($vehicles);
         var rates = @json($rates);
         var resort_options= '<?php echo $resort_options ?>';
-        // var pre_arrival_date="{{ !empty($arrival_date_r) ? $arrival_date_r : '' }}";
-        // var pre_departure_date="{{ !empty($departure_date_r) ? $departure_date_r : '' }}";
-        // alert(pre_arrival_date);
-
     </script>
     <script src="{{ asset('/assets/form_wizzard.js') }}"></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
