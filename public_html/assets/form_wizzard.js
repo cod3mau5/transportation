@@ -190,8 +190,8 @@ jQuery(document).ready(function($) {
     }
 
 
-    $('#arrival_date').minDate( moment());
-    $('#departure_date').minDate( moment());
+    $('#arrival_date').data("DateTimePicker").minDate( moment());
+    $('#departure_date').data("DateTimePicker").minDate( moment());
 
     // $('#departure_date').datetimepicker({
     //     format: 'MM/DD/YYYY',
@@ -205,10 +205,11 @@ jQuery(document).ready(function($) {
     $("#departure_date").on("dp.change", function (e) {
         $('#arrival_date').data("DateTimePicker").maxDate(e.date);
     });
-    $('#departure_time').datetimepicker({
+
+    $('#arrival_time').datetimepicker({
         format: 'LT'
     });
-    $('#arrival_time').datetimepicker({
+    $('#departure_time').datetimepicker({
         format: 'LT'
     });
     $('#arrival_stop_time').datetimepicker({
