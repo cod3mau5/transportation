@@ -179,4 +179,22 @@
            $('.slick-prev').html('<svg width="23" height="39" viewBox="0 0 23 39" style="transform: scale(1);"><path class="slideshow-arrow" d="M154.994,259.522L153.477,261l-18.471-18,18.473-18,1.519,1.48L138.044,243Z" transform="translate(-133 -225)"></path></svg>');
         });
     </script>
+        <script>
+            var app = new Vue({
+                el: '#app',
+                data: {
+                    lang: '{{ app()->getLocale() }}',
+                    trip_type:'r'
+                },
+                beforeMount() {},
+                mounted() {
+                    // alert();
+                },
+                methods: {
+                    changeLanguage: function() {
+                        window.location.href = '/lang/' + this.lang;
+                    }
+                }
+            })
+        </script>
 @endsection

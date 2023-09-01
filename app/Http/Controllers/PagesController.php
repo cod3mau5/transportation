@@ -33,15 +33,55 @@ class PagesController extends Controller
         ));
     }
     public function contactUs(){
+        $resorts = Resort::all()->sortBy("name");
+        $units   = Unit::all()->sortBy("name");
+        $rates= Rate::all()->sortBy('zone_id');
 
-        return view('pages.contact');
+        $start_location = (isset($_GET['start_location'])) ? $_GET['start_location'] : '';
+        $end_location   = (isset($_GET['end_location'])) ? $_GET['end_location'] : '';
+        $passengers     = (isset($_GET['passengers'])) ? (int) $_GET['passengers'] : '';
+        $date_arrival   = (isset($_GET['arrival'])) ?  $_GET['arrival'] : '';
+        $date_departure = (isset($_GET['departure'])) ? $_GET['departure'] : '';
+        return view('pages.contact',compact(
+            'resorts','units','rates',
+            'start_location','end_location',
+            'passengers','date_arrival',
+            'date_departure'
+        ));
     }
     public function gallery(){
-        return view('pages.gallery');
+        $resorts = Resort::all()->sortBy("name");
+        $units   = Unit::all()->sortBy("name");
+        $rates= Rate::all()->sortBy('zone_id');
+
+        $start_location = (isset($_GET['start_location'])) ? $_GET['start_location'] : '';
+        $end_location   = (isset($_GET['end_location'])) ? $_GET['end_location'] : '';
+        $passengers     = (isset($_GET['passengers'])) ? (int) $_GET['passengers'] : '';
+        $date_arrival   = (isset($_GET['arrival'])) ?  $_GET['arrival'] : '';
+        $date_departure = (isset($_GET['departure'])) ? $_GET['departure'] : '';
+        return view('pages.gallery',compact(
+            'resorts','units','rates',
+            'start_location','end_location',
+            'passengers','date_arrival',
+            'date_departure'
+        ));
     }
     public function contact(){
+        $resorts = Resort::all()->sortBy("name");
+        $units   = Unit::all()->sortBy("name");
+        $rates= Rate::all()->sortBy('zone_id');
 
-        return view('pages.contact');
+        $start_location = (isset($_GET['start_location'])) ? $_GET['start_location'] : '';
+        $end_location   = (isset($_GET['end_location'])) ? $_GET['end_location'] : '';
+        $passengers     = (isset($_GET['passengers'])) ? (int) $_GET['passengers'] : '';
+        $date_arrival   = (isset($_GET['arrival'])) ?  $_GET['arrival'] : '';
+        $date_departure = (isset($_GET['departure'])) ? $_GET['departure'] : '';
+        return view('pages.contact',compact(
+            'resorts','units','rates',
+            'start_location','end_location',
+            'passengers','date_arrival',
+            'date_departure'
+        ));
     }
     public function booking($language='en'){
 

@@ -1,4 +1,5 @@
 @extends('layouts.king')
+
 @section('styles')
     <style>
         @import url(https://fonts.googleapis.com/css?family=Poiret+One);
@@ -92,76 +93,100 @@
 
     </style>
 @endsection
+
 @section('global-header')
     @include('includes.google-header-global')
 @endsection
-@section('content')
-@include('includes.new.booking_bar',['register'=>''])
-<main id="PAGES_CONTAINER">
 
-    <div class="container-fluid">
-        <div class="row">
-            <div class="parallax img-uno" id="m">
-                <div class="texto-interior">
-                    <h2 class="m-font text-white text-break">{{ __("pages/contact.contact_us.title") }}</h2>
-                </div>
-            </div><!-- .parallax -->
-        </div>
-    </div>
-    @if(session('notification'))
+@section('content')
+    @include('includes.new.booking_bar',['register'=>''])
+    <main id="PAGES_CONTAINER">
+
         <div class="container-fluid">
             <div class="row">
-                <div class="col-md-12">
-
-                    <div class="card-body">
-                        <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                            {{session('notification')}}
-                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                          </div>
+                <div class="parallax img-uno" id="m">
+                    <div class="texto-interior">
+                        <h2 class="m-font text-white text-break">{{ __("pages/contact.contact_us.title") }}</h2>
                     </div>
+                </div><!-- .parallax -->
+            </div>
+        </div>
+        @if(session('notification'))
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
 
+                        <div class="card-body">
+                            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                {{session('notification')}}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        @endif
+        <div class="container pb-5 mb-3">
+
+            <div class="row my-5 pb-5">
+                <div class="col-md-6">
+                    <h3 class="s-color">{{ __("pages/contact.contact_us.map.title") }}</h3>
+                    <div id="map"></div>
+                    <p>San José del Cabo, Baja California Sur, México </p>
+                </div>
+                <div class="col-md-6">
+                    <form action="{{ route('sendMail') }}" method="POST">
+                        @csrf
+                        <h3 class="s-color">{{ __("pages/contact.contact_us.title") }}</h3>
+                        <div class="mb-3">
+                        <label for="name" class="form-label">{{ __("pages/contact.contact_us.form.name") }}</label>
+                        <input type="text" class="form-control" id="name" name="name">
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">{{ __("pages/contact.contact_us.form.email") }}</label>
+                            <input type="email" class="form-control" id="email" name="email" >
+                        </div>
+                        <div class="mb-3">
+                            <label for="phone" class="form-label">{{ __("pages/contact.contact_us.form.phone") }}</label>
+                            <input type="phone" class="form-control" id="phone" name="phone">
+                        </div>
+                        <div class="mb-3">
+                            <label for="msj" class="form-label">{{ __("pages/contact.contact_us.form.message") }}</label>
+                            <textarea class="form-control mt-2" name="msj" id="msj" cols="30" rows="6"></textarea>
+                        </div>
+                        <button type="submit" class="btn send-btn float-right">{{ __("pages/contact.contact_us.form.send_btn") }}</button>
+                    </form>
                 </div>
             </div>
         </div>
-    @endif
-    <div class="container pb-5 mb-3">
-
-        <div class="row my-5 pb-5">
-            <div class="col-md-6">
-                <h3 class="s-color">{{ __("pages/contact.contact_us.map.title") }}</h3>
-                <div id="map"></div>
-                <p>San José del Cabo, Baja California Sur, México </p>
-            </div>
-            <div class="col-md-6">
-                <form action="{{ route('sendMail') }}" method="POST">
-                    @csrf
-                    <h3 class="s-color">{{ __("pages/contact.contact_us.title") }}</h3>
-                    <div class="mb-3">
-                      <label for="name" class="form-label">{{ __("pages/contact.contact_us.form.name") }}</label>
-                      <input type="text" class="form-control" id="name" name="name">
-                    </div>
-                    <div class="mb-3">
-                        <label for="email" class="form-label">{{ __("pages/contact.contact_us.form.email") }}</label>
-                        <input type="email" class="form-control" id="email" name="email" >
-                    </div>
-                    <div class="mb-3">
-                        <label for="phone" class="form-label">{{ __("pages/contact.contact_us.form.phone") }}</label>
-                        <input type="phone" class="form-control" id="phone" name="phone">
-                    </div>
-                    <div class="mb-3">
-                        <label for="msj" class="form-label">{{ __("pages/contact.contact_us.form.message") }}</label>
-                        <textarea class="form-control mt-2" name="msj" id="msj" cols="30" rows="6"></textarea>
-                    </div>
-                    <button type="submit" class="btn send-btn float-right">{{ __("pages/contact.contact_us.form.send_btn") }}</button>
-                </form>
-            </div>
-        </div>
-    </div>
-</main>
-
-
+    </main>
 @endsection
+
+
+@section('footer-scripts')
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            lang: '{{ app()->getLocale() }}',
+            trip_type:'r'
+        },
+        beforeMount() {},
+        mounted() {
+            // alert();
+        },
+        methods: {
+            changeLanguage: function() {
+                window.location.href = '/lang/' + this.lang;
+            }
+        }
+    })
+</script>
+@endsection
+
 @section('map')
+
 <script  defer>
     // sleep time expects milliseconds
     function sleep (time) {
@@ -193,4 +218,5 @@
         $('#map > div:nth-child(2)').css('display','none');
     });
 </script>
+
 @endsection
