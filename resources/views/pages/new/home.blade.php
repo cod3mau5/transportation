@@ -242,7 +242,7 @@
                                     title="Los Cabos Airport Private Transportation">
                                     <img alt="Los Cabos Airport Private Transportation"
                                         title="Los Cabos Airport Private Transportation"
-                                        src="https://www.loscabosairporttransportation.com/src/los-cabos-airport-transportation-private-van.png">
+                                        src="/assets/images/units/hiace_side.jpg">
                                 </a>
                                 <h3><a href="/los-cabos-private-transportation"
                                         title="Los Cabos Airport Private Transportation">LOS CABOS PRIVATE
@@ -268,7 +268,7 @@
                                 <a href="/los-cabos-luxury-transportation" title="Los Cabos Airport Luxury Transportation">
                                     <img alt="Los Cabos Airport Luxury Transportation"
                                         title="Los Cabos Airport Luxury Transportation"
-                                        src="https://www.loscabosairporttransportation.com/src/los-cabos-airport-transportation-luxury-van.png">
+                                        src="/assets/images/units/suburban_side_basic.png">
                                 </a>
                                 <h3><a href="/los-cabos-luxury-transportation"
                                         title="Los Cabos Airport Luxury Transportation">LOS CABOS LUXURY
@@ -295,7 +295,7 @@
                                     title="Los Cabos Airport Premium Transportation">
                                     <img alt="Los Cabos Airport Premium Transportation"
                                         title="Los Cabos Airport Premium Transportation"
-                                        src="{{ asset('assets/images/units/suv.png') }}"></a>
+                                        src="{{ asset('assets/images/units/suburban_side_premium.png') }}"></a>
                                 <h3><a href="/los-cabos-premium-transportation"
                                         title="Los Cabos Airport Premium Transportation">LOS CABOS PREMIUM
                                         <span>TRANSPORTATION</span></a></h3>
@@ -320,7 +320,7 @@
                                 <a href="/los-cabos-group-transportation" title="Los Cabos Airport Group Transportation">
                                     <img alt="Los Cabos Airport Group Transportation"
                                         title="Los Cabos Airport Group Transportation"
-                                        src="{{ asset('assets/images/units/bus.png') }}">
+                                        src="{{ asset('assets/images/units/bus_side.png') }}">
                                 </a>
                                 <h3><a href="/los-cabos-group-transportation"
                                         title="Los Cabos Airport Group Transportation">LOS CABOS GROUP
