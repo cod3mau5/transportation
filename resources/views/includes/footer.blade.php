@@ -71,7 +71,7 @@
            <div class="col-md-4 offset-md-1 px-4 pb-4 mt-4 footer-form">
 
                 <div class="row">
-                    <div class="col-md-12">
+                    {{-- <div class="col-md-12">
                         <form action="{{ route('sendMail') }}" method="POST">
                             @csrf
                             <div class="ps-md-5">
@@ -91,8 +91,13 @@
                                         </li>
                                     </ul>
                             </div>
-                    </form>
+                        </form>
+                    </div> --}}
+
+                    <div class="col-md-8 offset-md-12">
+                        <div id="TA_selfserveprop953" class="TA_selfserveprop"><ul id="go0FT3dwNaF" class="TA_links lVW2XGPmw"><li id="TWfMsMQ6ez" class="83Ewetpcu1"><a target="_blank" href="https://www.tripadvisor.co.uk/Attraction_Review-g152516-d23359388-Reviews-Cabo_Drivers_Services-San_Jose_del_Cabo_Los_Cabos_Baja_California.html"><img src="https://www.tripadvisor.co.uk/img/cdsi/img2/branding/v2/Tripadvisor_lockup_horizontal_secondary_registered-11900-2.svg" alt="TripAdvisor"/></a></li></ul></div><script async src="https://www.jscache.com/wejs?wtype=selfserveprop&amp;uniq=953&amp;locationId=23359388&amp;lang=en_UK&amp;rating=true&amp;nreviews=2&amp;writereviewlink=true&amp;popIdx=false&amp;iswide=true&amp;border=true&amp;display_version=2" data-loadtrk onload="this.loadtrk=true"></script>
                     </div>
+
                 </div>
                 <div class="row">
                     <div class="col-md-12 px-4 pb-4">
@@ -122,6 +127,7 @@
 
                     </div>
                 </div>
+
             </div>
        </div>
    </div>

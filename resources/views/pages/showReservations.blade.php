@@ -464,6 +464,14 @@
                     <span>
                         We will wait for you with a sign with your name on it and
                         with a palette with the name and the logo of Cabo Driver Services.
+                        The Driver.
+                    </span>
+                    <br>
+                    <span class="text-center">
+                        <b>
+                            IMPORTANT:
+                            The driver is waiting a maximum of 90 minutes after your arrival.
+                        </b>
                     </span>
 
                 </div>

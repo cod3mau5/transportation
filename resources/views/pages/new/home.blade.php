@@ -115,7 +115,9 @@
                     <p>
                         We take pride in offering <strong>private</strong>, <strong>secure</strong>, and dependable
                         transportation from the Cabo San Lucas Airport to your hotel, hostel, or accommodation in various
-                        locations within Cabo, including <a href="/hotel/Pueblo-Bonito-Sunset"><b>Pueblo Bonito</b></a>, <a href="/hotel/RIU-Palace"><b>RIU</b></a>, <a href="/hotel/Sheraton-Hacienda-del-Mar"><b>Sheraton</b></a>, <a href="/hotel/Diamante"><b>Diamante</b></a> and many more.
+                        locations within Cabo, including <a href="/hotel/Pueblo-Bonito-Sunset"><b>Pueblo Bonito</b></a>,
+                        <a href="/hotel/RIU-Palace"><b>RIU</b></a>, <a href="/hotel/Sheraton-Hacienda-del-Mar"><b>Sheraton</b></a>,
+                        <a href="/hotel/Diamante"><b>Diamante</b></a> and many more.
                     </p>
 
                     <p>
@@ -431,7 +433,7 @@
                 <div class="col-md-5 offset-md-1">
                     <img title="Los Cabos Airport Transportation" alt="los cabos airport transportation" src="{{ asset('assets/images/units/hiace_blanco.png') }}" class="reasonsImage">
                 </div>
-                <div class="col-md-5 offset-md-1">
+                <div class="col-md-4">
                     <h2 class="">WHY OUR CLIENTS PREFER US</h2>
                     <ul class="listReasons">
                         <li>
@@ -471,6 +473,9 @@
                         </li>
                     </ul>
                 </div>
+                <div class="col-md-2">
+                    <div id="TA_excellent603" class="TA_excellent"><ul id="XXdxYJgAwuX" class="TA_links gOfw9IAe"><li id="ZP08nBqzMuTB" class="IFWmaCQ"><a target="_blank" href="https://www.tripadvisor.com/Attraction_Review-g152516-d23359388-Reviews-Cabo_Drivers_Services-San_Jose_del_Cabo_Los_Cabos_Baja_California.html"><img src="https://static.tacdn.com/img2/brand_refresh/Tripadvisor_lockup_horizontal_secondary_registered.svg" alt="TripAdvisor" class="widEXCIMG" id="CDSWIDEXCLOGO"/></a></li></ul></div><script async src="https://www.jscache.com/wejs?wtype=excellent&amp;uniq=603&amp;locationId=23359388&amp;lang=en_US&amp;display_version=2" data-loadtrk onload="this.loadtrk=true"></script>
+                </div>
             </div>
         </div>
 
@@ -488,6 +493,14 @@
                 </div>
             </div>
         </div>
+
+        {{-- <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-8 offset-md-4">
+                    <div id="TA_selfserveprop953" class="TA_selfserveprop"><ul id="go0FT3dwNaF" class="TA_links lVW2XGPmw"><li id="TWfMsMQ6ez" class="83Ewetpcu1"><a target="_blank" href="https://www.tripadvisor.co.uk/Attraction_Review-g152516-d23359388-Reviews-Cabo_Drivers_Services-San_Jose_del_Cabo_Los_Cabos_Baja_California.html"><img src="https://www.tripadvisor.co.uk/img/cdsi/img2/branding/v2/Tripadvisor_lockup_horizontal_secondary_registered-11900-2.svg" alt="TripAdvisor"/></a></li></ul></div><script async src="https://www.jscache.com/wejs?wtype=selfserveprop&amp;uniq=953&amp;locationId=23359388&amp;lang=en_UK&amp;rating=true&amp;nreviews=2&amp;writereviewlink=true&amp;popIdx=false&amp;iswide=true&amp;border=true&amp;display_version=2" data-loadtrk onload="this.loadtrk=true"></script>
+                </div>
+            </div>
+        </div> --}}
 
     </main>
 @endsection

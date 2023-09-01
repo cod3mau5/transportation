@@ -24,7 +24,7 @@ class PagesController extends Controller
         $passengers     = (isset($_GET['passengers'])) ? (int) $_GET['passengers'] : '';
         $date_arrival   = (isset($_GET['arrival'])) ?  $_GET['arrival'] : '';
         $date_departure = (isset($_GET['departure'])) ? $_GET['departure'] : '';
-// dd($resorts);
+        // dd($resorts);
         return view('pages.new.home',compact(
             'resorts','units','rates',
             'start_location','end_location',
@@ -275,7 +275,6 @@ class PagesController extends Controller
         ));
     }
 
-
     /** for testing: */
     public function form(){
         $resort_options = '';
@@ -324,7 +323,5 @@ class PagesController extends Controller
         }
         return view('pages.showReservations',compact('reservation'));
     }
-
-
 
 }

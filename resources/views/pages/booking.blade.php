@@ -13,7 +13,7 @@
     <!-- twitter-bootstrap-wizard css -->
     <link rel="stylesheet" href="{{ asset('assets/libs/twitter-bootstrap-wizard/prettify.css') }}">
     {{-- <!-- Bootstrap 5 Css -->
-    <link href="assets/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css" /> --}}
+    <link href="{{ asset('assets/css/bootstrap.min.css') }}" id="bootstrap-style" rel="stylesheet" type="text/css" /> --}}
     <!-- Icons Css -->
     <link href="{{ asset('assets/css/icons.min.css') }}" rel="stylesheet" type="text/css" />
     <!-- App Css-->
@@ -75,7 +75,7 @@
         }
     </style>
     {{-- <link rel="stylesheet" href="{{ asset('css/bootstrap4.min.css') }}"> --}}
-    <link href="https://cdn.bootcss.com/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
+    <link href="{{ asset('assets/css/bootstrap-datetimepicker.min.css') }}" rel="stylesheet">
     <style>
         .text-primary,.text-primary:hover, .text-primary *{
             color: #099680!important;
@@ -461,11 +461,11 @@
 
     <script src="{{ asset('assets/js/app.js') }}"></script>
 
-    <script src="https://cdn.bootcss.com/moment.js/2.22.1/moment-with-locales.min.js"></script>
-    <script src="{{ asset('/assets/bootstrap-datetimepicker.min.js') }}"></script>
-    <script  src="{{asset('/assets/jquery.validate.min.js')}}"></script>
-    <script  src="{{asset('/assets/additional-methods.min.js')}}"></script>
-    <script  src="{{asset('/assets/jquery.blockUI.min.js')}}"></script>
+    <script src="{{ asset('assets/js/moment-with-locales.min.js') }}"></script>
+    <script src="{{ asset('assets/bootstrap-datetimepicker.min.js') }}"></script>
+    <script  src="{{asset('assets/jquery.validate.min.js')}}"></script>
+    <script  src="{{asset('assets/additional-methods.min.js')}}"></script>
+    <script  src="{{asset('assets/jquery.blockUI.min.js')}}"></script>
     <script>
         var units = @json($vehicles);
         var rates = @json($rates);

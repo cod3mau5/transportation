@@ -30,7 +30,7 @@
         <link href="{{ asset('assets/css/icons.min.css') }}" rel="stylesheet" type="text/css" />
         <!-- App Css-->
         <link href="{{ asset('assets/css/app.min.css') }}" id="app-style" rel="stylesheet" type="text/css" />
-        <link href="https://cdn.bootcss.com/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
+        <link href="{{ asset('assets/css/bootstrap-datetimepicker.min.css') }}" rel="stylesheet">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
         <style>
             .text-primary,.text-primary:hover, .text-primary *{
@@ -156,7 +156,7 @@
         {{-- <script src="{{asset('assets/libs/vue/vue.min.js')}}"></script> --}}
         <script src="{{asset('assets/libs/axios/axios.min.js')}}"></script>
 
-        <script src="https://cdn.bootcss.com/moment.js/2.22.1/moment-with-locales.min.js"></script>
+        <script src="{{ asset('assets/js/moment-with-locales.min.js') }}"></script>
         <script src="{{ asset('/assets/bootstrap-datetimepicker.min.js') }}"></script>
         <script  src="{{asset('/assets/jquery.validate.min.js')}}"></script>
         <script  src="{{asset('/assets/additional-methods.min.js')}}"></script>

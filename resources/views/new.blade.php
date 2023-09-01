@@ -6,7 +6,7 @@
         <title>Transportation</title>
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-        <link href="https://cdn.bootcss.com/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
+        <link href="{{ asset('assets/css/bootstrap-datetimepicker.min.css') }}" rel="stylesheet">
         <link rel="stylesheet" href="{{ asset('css/normalize8.min.css') }}">
         <style>
             body {
@@ -14,14 +14,14 @@
             }
         </style>
         <!-- twitter-bootstrap-wizard css -->
-        <link rel="stylesheet" href="assets/libs/twitter-bootstrap-wizard/prettify.css">
+        <link rel="stylesheet" href="{{ asset('assets/libs/twitter-bootstrap-wizard/prettify.css') }}">
 
         <!-- Bootstrap 5 Css -->
-        <link href="assets/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('assets/css/bootstrap.min.css') }}" id="bootstrap-style" rel="stylesheet" type="text/css" />
         <!-- Icons Css -->
-        <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('assets/css/icons.min.css') }}" rel="stylesheet" type="text/css" />
         <!-- App Css-->
-        <link href="assets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('assets/css/app.min.css') }}" id="app-style" rel="stylesheet" type="text/css" />
         <style>
             #departure_flight_details{
                 display: none;
@@ -88,7 +88,6 @@
                     @endauth
                 </div>
             @endif
-
 
             <!-- Reservation form begin -->
             <div class="container reserve-form-container">
@@ -538,7 +537,7 @@
                                 <div class="summary-head">
                                     <div class="summary-head"> <h5 class="summary-title">Unit</h5></div>
                                     <p class="summary-text sm_unit"></p></div>
-                            <hr class="line">
+                                    <hr class="line">
                                     <div class="summary-price">
                                         <div class="summary-head"> <h5 class="summary-title">Trip Type</h5></div>
 
@@ -563,8 +562,6 @@
             </div>
             <!-- Reservation form end -->
 
-
-
         </div>
 
         {{-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -574,7 +571,7 @@
         <!-- JAVASCRIPT -->
         <script src="{{ asset('assets/libs/jquery/jquery.min.js') }}"></script>
         <script src="{{ asset('assets/libs/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-        <script src="assets/libs/metismenu/metisMenu.min.js"></script>
+        <script src="{{ asset('assets/libs/metismenu/metisMenu.min.js') }}"></script>
         {{-- <script src="assets/libs/simplebar/simplebar.min.js"></script>
         <script src="assets/libs/node-waves/waves.min.js"></script> --}}
 
@@ -590,8 +587,8 @@
 
         <script src="{{ asset('assets/js/app.js') }}"></script>
 
-        <script src="https://cdn.bootcss.com/moment.js/2.22.1/moment-with-locales.min.js"></script>
-        <script src="https://cdn.bootcss.com/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
+        <script src="{{asset('assets/js/moment-with-locales.min.js')}}"></script>
+        <script src="{{asset('bootstrap-datetimepicker.min.js')}}"></script>
         <script  src="{{asset('/assets/jquery.validate.min.js')}}"></script>
         <script  src="{{asset('/assets/additional-methods.min.js')}}"></script>
         <script  src="{{asset('/assets/jquery.blockUI.min.js')}}"></script>
