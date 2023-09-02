@@ -315,6 +315,10 @@ class PagesController extends Controller
         ));
     }
 
+    public function rateUs(){
+        return redirect()->to('https://www.tripadvisor.ca/UserReview-g152516-d23359388-Cabo_Drivers_Services-San_Jose_del_Cabo_Los_Cabos_Baja_California-m11900.html');
+    }
+
     /** for testing: */
     public function form(){
         $resort_options = '';

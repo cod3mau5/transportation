@@ -23,6 +23,7 @@ Route::get('/tour/{tourSlug}',[Controllers\PagesController::class,'tour'])->name
 Route::get('/restaurant/{restaurantSlug}',[Controllers\PagesController::class,'restaurant'])->name('restaurant');
 Route::get('/foreign/{foreignSlug}',[Controllers\PagesController::class,'foreign'])->name('foreign');
 Route::post('/send_booking_bar',[Controllers\PagesController::class,'sendBookingBar'])->name('sendBookingBar');
+Route::get('/rate-us',[Controllers\PagesController::class,'rateUs'])->name('rateUs');
 
 Route::get('/ggg/{id}', [Controllers\PagesController::class,'ggg'])->name('ggg');
 Route::get('/test-broadcast', function () {
