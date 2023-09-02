@@ -200,12 +200,29 @@ class PagesController extends Controller
     }
 
     public function hotel($hotelSlug){
+
+        $resorts = Resort::all()->sortBy("name");
+        $units   = Unit::all()->sortBy("name");
+        $rates= Rate::all()->sortBy('zone_id');
+
+        $start_location = (isset($_GET['start_location'])) ? $_GET['start_location'] : '';
+        $end_location   = (isset($_GET['end_location'])) ? $_GET['end_location'] : '';
+        $passengers     = (isset($_GET['passengers'])) ? (int) $_GET['passengers'] : '';
+        $date_arrival   = (isset($_GET['arrival'])) ?  $_GET['arrival'] : '';
+        $date_departure = (isset($_GET['departure'])) ? $_GET['departure'] : '';
+
         $record=str_replace('-And-','-&-',$hotelSlug);
         $record=str_replace('-',' ',$record);
         $record=Resort::where('name',$record)->firstOrFail();
         $coverImg=$record->images->where('category','cover')->first();
         $gallery=$record->images->where('category',null);
-        return view('pages.hotel',compact('record','coverImg','gallery'));
+        return view('pages.hotel',compact(
+            'record','coverImg','gallery',
+            'resorts','units','rates',
+            'start_location','end_location',
+            'passengers','date_arrival',
+            'date_departure'
+        ));
     }
 
     public function tour($tourSlug){
@@ -218,12 +235,29 @@ class PagesController extends Controller
     }
 
     public function restaurant($restaurantSlug){
+
+        $resorts = Resort::all()->sortBy("name");
+        $units   = Unit::all()->sortBy("name");
+        $rates= Rate::all()->sortBy('zone_id');
+
+        $start_location = (isset($_GET['start_location'])) ? $_GET['start_location'] : '';
+        $end_location   = (isset($_GET['end_location'])) ? $_GET['end_location'] : '';
+        $passengers     = (isset($_GET['passengers'])) ? (int) $_GET['passengers'] : '';
+        $date_arrival   = (isset($_GET['arrival'])) ?  $_GET['arrival'] : '';
+        $date_departure = (isset($_GET['departure'])) ? $_GET['departure'] : '';
+
         $record=str_replace('-And-','-&-',$restaurantSlug);
         $record=str_replace('-',' ',$record);
         $record=Resort::where('name',$record)->firstOrFail();
         $coverImg=$record->images->where('category','cover')->first();
         $gallery=$record->images->where('category',null);
-        return view('pages.hotel',compact('record','coverImg','gallery'));
+        return view('pages.hotel',compact(
+            'record','coverImg','gallery',
+            'resorts','units','rates',
+            'start_location','end_location',
+            'passengers','date_arrival',
+            'date_departure'
+        ));
     }
 
     public function foreign($foreignSlug){

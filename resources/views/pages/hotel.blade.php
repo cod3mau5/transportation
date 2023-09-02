@@ -163,7 +163,24 @@
 @endsection
 
 @section('footer-scripts')
-
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            lang: '{{ app()->getLocale() }}',
+            trip_type:'r'
+        },
+        beforeMount() {},
+        mounted() {
+            // alert();
+        },
+        methods: {
+            changeLanguage: function() {
+                window.location.href = '/lang/' + this.lang;
+            }
+        }
+    })
+</script>
     @if(count($gallery) >= 3)
         <script>
             $(document).ready(function(){
@@ -226,3 +243,4 @@
     @endif
 
 @endsection
+
