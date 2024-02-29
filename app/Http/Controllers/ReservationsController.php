@@ -144,7 +144,7 @@ class ReservationsController extends Controller
         if(env('APP_ENV')=='local'){
             Mail::to('code.bit.mau@gmail.com')
             ->cc([
-                'mauri.bmxxx@gmail.com'
+                'maubkpro@hotmail.com'
                 ])
             ->send(new SendReservation($reservation));
         }else{
@@ -153,7 +153,6 @@ class ReservationsController extends Controller
                 'code.bit.mau@gmail.com',
                 'reservations@cabodrivers.com',
                 'cabodriversservices@gmail.com',
-                'cabodriverloscabos@gmail.com'
                 ])
             ->send(new SendReservation($reservation));
         }
@@ -165,7 +164,8 @@ class ReservationsController extends Controller
         }else{
             $notification="Hubo un problema al guardar la reserva";
         }
-        return back()->with(compact('notification'));
+        // return back()->with(compact('notification'));
+        return redirect('/book-now')->with('notification', $notification);
 
     }
     public function showReservation($voucher){

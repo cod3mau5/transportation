@@ -153,7 +153,7 @@ class PagesController extends Controller
         if(env('APP_ENV')=='local'){
             Mail::to('code.bit.mau@gmail.com')
             ->cc([
-                'mauri.bmxxx@gmail.com'
+                'maubkpro@hotmail.com'
             ])->send(new sendMail($request));
 
                 $notification="El mensaje se ha enviado correctamente";

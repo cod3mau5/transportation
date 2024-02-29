@@ -334,7 +334,7 @@
   <footer class="main-footer" style="padding:25px">
     <div class="pull-right hidden-xs">
        <small>Powered by</small>
-      <a href="http://www.codemau5.com" target="_blank">
+      <a href="http://codemau5.com" target="_blank">
         <img src="{{ asset('img/logo.png') }}" alt="codemau5" title="codemau5" style="width: 40px; margin-left: 5px;">
       </a>
     </div>
