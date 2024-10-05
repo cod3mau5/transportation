@@ -161,8 +161,7 @@ class PagesController extends Controller
             Mail::to('reservations@cabodrivers.com')
             ->cc([
                 'code.bit.mau@gmail.com',
-                'cabodriversservices@gmail.com',
-                'cabodriverloscabos@gmail.com'
+                'cabodriversservices@gmail.com'
             ])->send(new sendMail($request));
         }
 
