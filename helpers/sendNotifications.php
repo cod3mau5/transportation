@@ -20,7 +20,12 @@ $changes = isset($argv[1]) ? $argv[1] : '';
 
 // Enviar el correo usando Laravel
 if (!empty($changes)) {
-    Mail::to('code.bit.mau@gmail.com')->send(new SendNotificationMail($changes));
+    Mail::to('code.bit.mau@gmail.com')
+    ->cc([
+        'mauripro@hotmail.com',
+        'cabodriversservices@gmail.com',
+    ])
+    ->send(new SendNotificationMail($changes));
     echo "Correo enviado con éxito.";
 } else {
     echo "No hay cambios para enviar.";
