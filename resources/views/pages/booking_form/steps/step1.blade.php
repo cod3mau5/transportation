@@ -227,8 +227,6 @@
                             <option value="FT Frontier">FT Frontier</option>
                             <option value="CXP Xtra Airways">CXP Xtra Airways</option>
                             <option value="WJA Westjet">WJA Westjet</option>
-                            <option value="SWA Southwest">SWA Southwest</option>
-                            <option value="UAL United Airlines">UAL United Airlines</option>
                             <option value="VOI Volaris">VOI Volaris</option>
                             <option value="Blue net">Blue net</option>
                             <option value="JBU JetBlue">JBU JetBlue</option>
@@ -239,6 +237,8 @@
                             <option value="LXJ Flex Jet">LXJ Flex Jet</option>
                             <option value="Jetlinx">Jetlinx</option>
                             <option value="FBO">FBO</option>
+                            <option value="SWA Southwest">SWA Southwest Airlines</option>
+                            <option value="UAL United Airlines">UAL United Airlines</option>
                         </select>
                     </div>
                 </div>
