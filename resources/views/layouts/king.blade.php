@@ -14,7 +14,7 @@
         <!-- Bootstrap 5 Css -->
         <link href="{{ asset('assets/css/bootstrap.min.css') }}" id="bootstrap-style" rel="stylesheet" type="text/css"/>
 
-        <title>Inicio | {{ config('app.name') }}</title>
+        <title>{{ !empty($pageTitle) ? $pageTitle : 'Inicio | '. config('app.name') }}</title>
         @yield('summary-header')
         <link rel="stylesheet" href="{{ asset('assets/css/fonts.css') }}">
         <link rel="stylesheet" href="{{ asset('assets/css/king.css') }}">
