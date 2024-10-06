@@ -2,26 +2,26 @@
     <div class="touch">
         <strong>OUR PHONES <i class="fa fa-chevron-down showhide" aria-hidden="true"></i></strong>
     </div>
-    <div class="strong">
+    <!-- <div class="strong">
         <a href="tel:18555779836">1 777 755 744</a>
         <small>Toll Free USA / Canada</small>
-    </div>
+    </div> -->
     <div class="item">
         <img loading="lazy" width="28" height="28" src="/src/cancun-airport-transportation-mex-flag.png"
             alt="Mexico flag icon" title="Call Cancun Airport Transportation from Mexico">
         <span>Los Cabos Local:</span>
-        <a href="tel:9984008543">(998) 400 8543</a>
+        <a href="tel:6241104185">(624) 110 4185</a>
     </div>
     <div class="item">
         <i class="fa fa-whatsapp" style="color:#1DA075;" aria-hidden="true"></i>
         <span>Whatsapp:</span>
-        <a href="https://api.whatsapp.com/send?phone=529981954408&amp;text=Hi! I'm coming from Cancun Airport Transportation and I would like to make a reservation"
-            target="_blank" rel="noopener noreferrer nofollow">+52 998 195 4408</a>
+        <a href="https://api.whatsapp.com/send?phone=526241104185&amp;text=Hi! I'm coming from Cancun Airport Transportation and I would like to make a reservation"
+            target="_blank" rel="noopener noreferrer nofollow">+52 624 110 4185</a>
     </div>
     <div class="item">
         <i class="fa fa-globe" aria-hidden="true"></i>
         <span>Rest of the world:</span>
-        <a href="tel:9989803458">(998) 980 3458</a>
+        <a href="tel:6241104185">(624) 110 4185</a>
     </div>
 </div>
 <section class="top-bar">
