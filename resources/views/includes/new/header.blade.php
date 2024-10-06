@@ -8,14 +8,14 @@
     </div> -->
     <div class="item">
         <img loading="lazy" width="28" height="28" src="/src/cancun-airport-transportation-mex-flag.png"
-            alt="Mexico flag icon" title="Call Cancun Airport Transportation from Mexico">
+            alt="Mexico flag icon" title="Call Cabo Drivers from Mexico">
         <span>Los Cabos Local:</span>
         <a href="tel:6241104185">(624) 110 4185</a>
     </div>
     <div class="item">
         <i class="fa fa-whatsapp" style="color:#1DA075;" aria-hidden="true"></i>
         <span>Whatsapp:</span>
-        <a href="https://api.whatsapp.com/send?phone=526241104185&amp;text=Hi! I'm coming from Cancun Airport Transportation and I would like to make a reservation"
+        <a href="https://api.whatsapp.com/send?phone=526241104185&amp;text=Hi! I'm coming from Cabo Drivers and I would like to make a reservation"
             target="_blank" rel="noopener noreferrer nofollow">+52 624 110 4185</a>
     </div>
     <div class="item">
@@ -107,13 +107,13 @@
                 <nav>
                     <ul class="menu">
                         {{-- <li>
-                                <a title="Cancun Airport Transportation" class="current"
+                                <a title="Cabo Drivers" class="current"
                                     href="https://www.cancunairporttransportations.com/es/">
                                     INICIO
                                 </a>
                             </li>
                             <li class="optionJustMobile"><a
-                                    title="Acerca de Nosotros - Cancun Airport Transportation"
+                                    title="Acerca de Nosotros - Cabo Drivers"
                                     href="https://www.cancunairporttransportations.com/es/nosotros">NOSOTROS</a>
                             </li>
                             <li><a title="Servicios de Transportación en Cancún"
