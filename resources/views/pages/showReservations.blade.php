@@ -181,7 +181,7 @@
                 </div>
                 <div class='invoice-info'>
                   <span class='invoice-info-key'>Kind of Vehicle:</span>
-                  <span class='invoice-info-value'><b>{{$reservation->unitname}}</b></span>
+                  <span class='invoice-info-value'><b>{{$reservation->unit}}</b></span>
                 </div>
               {{-- <div class='invoice-info'>
                 <span class='invoice-info-key'>Issue Date:</span>
