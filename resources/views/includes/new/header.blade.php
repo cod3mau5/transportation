@@ -13,7 +13,7 @@
         <a href="tel:6241104185">(624) 110 4185</a>
     </div>
     <div class="item">
-        <i class="fa fa-whatsapp" style="color:#1DA075;" aria-hidden="true"></i>
+        <i class="fa fa-whatsapp" style="color:#1DA075;font-family:'FontAwesome';" aria-hidden="true"></i>
         <span>Whatsapp:</span>
         <a href="https://api.whatsapp.com/send?phone=526241104185&amp;text=Hi! I'm coming from Cabo Drivers and I would like to make a reservation"
             target="_blank" rel="noopener noreferrer nofollow">+52 624 110 4185</a>
@@ -59,7 +59,7 @@
                                 alt="Reserva Cabo Drivers Services por teléfono"
                                 title="Llama a Cabo Drivers Services desde México"> <span>Los cabos Local:</span>
                             <strong>(624) 110 4185</strong></div>
-                        <div class="rowphone"><i class="fa fa-whatsapp" style="color:#1DA075;" aria-hidden="true"></i>
+                        <div class="rowphone"><i class="fa fa-whatsapp" style="color:#1DA075;font-family:'FontAwesome';" aria-hidden="true"></i>
                             <span>Whatsapp:</span> <strong><a
                                     href="https://api.whatsapp.com/send?phone=5216241104185&text=¡Hola! Vengo de Cabo Drivers Services y me gustaría reservar sus servicios"
                                     target="_blank" rel="noopener noreferrer nofollow">(624) 110 4185</a></strong></div>
