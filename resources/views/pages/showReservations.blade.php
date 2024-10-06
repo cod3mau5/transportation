@@ -179,6 +179,10 @@
                   <span class='invoice-info-key'>Trip Type:</span>
                   <span class='invoice-info-value'><b>{{$reservation->message_t}}</b></span>
                 </div>
+                <div class='invoice-info'>
+                  <span class='invoice-info-key'>Kind of Vehicle:</span>
+                  <span class='invoice-info-value'><b>{{$reservation->unitname}}</b></span>
+                </div>
               {{-- <div class='invoice-info'>
                 <span class='invoice-info-key'>Issue Date:</span>
                 <span class='invoice-info-value'>10/05/2033</span>
@@ -437,6 +441,7 @@
                 </tr>
             </table>
         @endif
+
         <div class='invoice-wrapper'>
             <div class='invoice-billing'>
                 <div class='invoice-info-footer'>

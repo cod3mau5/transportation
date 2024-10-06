@@ -134,6 +134,7 @@ class ReservationsController extends Controller
         $reservation->message_t=$message_t;
         $reservation->resort=$resort;
         $reservation->unit=$unit;
+        $reservation->unitname=$unit->name;
         $reservation->arrivalFlight=$request['_arrival_company']." ".$request['_arrival_flight'];
         $reservation->arrivalDate= date('m/d/Y', strtotime($request['_arrival_date'])). " ". date('h:i a', strtotime($request['_arrival_time']));
 
