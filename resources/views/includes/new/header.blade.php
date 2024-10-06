@@ -47,8 +47,8 @@
 
                     <div class="information">
                         <div class="tollfree">
-                            <span>Gratis USA / Canada -</span> <strong>(624) 110 4185</strong>
-                            <div><small>Lun - Dom / 7:00 AM - 11:00 PM (GMT-5)</small></div>
+                            <span>USA / Canada -</span> <strong>(624) 110 4185</strong>
+                            <div><small>Lun - Dom / 7:00 AM - 11:00 PM (GMT-7)</small></div>
                         </div>
                         <div class="emailInfo">
                             <a href="mailto:info@cabodrivers.com"><i class="fa fa-envelope" aria-hidden="true"></i>
