@@ -7,7 +7,7 @@
         <small>Toll Free USA / Canada</small>
     </div> -->
     <div class="item">
-        <img loading="lazy" width="28" height="28" src="/src/cancun-airport-transportation-mex-flag.png"
+        <img loading="lazy" width="28" height="28" src="/assets/images/flags/mex-flag.png"
             alt="Mexico flag icon" title="Call Cabo Drivers from Mexico">
         <span>Los Cabos Local:</span>
         <a href="tel:6241104185">(624) 110 4185</a>
