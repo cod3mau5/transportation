@@ -234,22 +234,18 @@
                     // }
 
                     function createHtml(data){
+                        console.log(data);
                         for(const img of data){
                             if(img.caption !== undefined){
                                 let imgUrl= img.thumbnail_url ? img.thumbnail_url  : img.media_url;
-
-                                gallery_container.innerHTML+=`
+                                let content=`
                                     <div>
                                         <img loading="lazy" src="${imgUrl}" 
                                             alt="${img.caption.slice(0,30)}">
                                     </div>
                                 `;
-                                gallery.innerHTML+=`
-                                    <div>
-                                        <img loading="lazy" src="${imgUrl}" 
-                                            alt="${img.caption.slice(0,30)}">
-                                    </div>
-                                `;
+                                gallery_container.innerHTML+=content;
+                                gallery.innerHTML+=content;
                             }
                         }
                     }
