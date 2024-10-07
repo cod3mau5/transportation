@@ -34,6 +34,7 @@
         }
     </style>
 @endsection
+@section("content")
     <div class="container">
         <h1>Privacy Policy</h1>
         <p>
