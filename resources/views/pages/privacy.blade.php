@@ -51,7 +51,14 @@
     </p>
     <h2>6. Contacto</h2>
     <p>
-        Si tiene alguna pregunta sobre nuestra política de privacidad, por favor póngase en contacto con nosotros en: <a href="mailto:contacto@tupagina.com">contacto@tupagina.com</a>
+        Si tiene alguna pregunta sobre nuestra política de privacidad, por favor póngase en contacto con nosotros en: <a href="mailto:cabodriversservices@gmail.com">cabodriversservices@gmail.com</a>
+    </p>
+    <h2>7. Eliminación de Datos</h2>
+    <p>
+        Si desea que eliminemos toda la información personal que hemos recopilado sobre usted, puede solicitarlo poniéndose en contacto con nosotros. Proporcionaremos un enlace o un método específico para que pueda solicitar la eliminación de sus datos personales de nuestra base de datos.
+    </p>
+    <p>
+        Una vez recibida su solicitud, eliminaremos toda la información personal en un plazo de 30 días hábiles, a menos que existan razones legales para mantener ciertos datos, como el cumplimiento de obligaciones legales o fiscales.
     </p>
 </div>
 @endsection
