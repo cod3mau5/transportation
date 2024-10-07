@@ -1,29 +1,39 @@
-@extends('layouts.king')
-@section('content')
-<style>
-    .container {
-        max-width: 800px;
-        margin: 50px auto;
-        background: #fff;
-        padding: 20px;
-        box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-        background-color: #f4f4f4;
-    }
-    h1 {
-        text-align: center;
-        color: #333;
-    }
-    p {
-        line-height: 1.6;
-        color: #666;
-    }
-    a {
-        color: #3498db;
-    }
-</style>
+@extends("layouts.info")
+@section('styles')
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 50px;
+        }
+
+        h1 {
+            color: #333333;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            color: #444444;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            line-height: 1.6;
+            color: #666666;
+        }
+    </style>
+@endsection
     <div class="container">
         <h1>Privacy Policy</h1>
         <p>
