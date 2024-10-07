@@ -195,7 +195,8 @@ class PagesController extends Controller
     }
 
     public function privacy(){
-        return view("pages.privacy_policy");
+        $pageTitle="Privacy Policy";
+        return views('pages.privacy',compact('pageTitle',$pageTitle));
     }
 
     public function hotel($hotelSlug){
