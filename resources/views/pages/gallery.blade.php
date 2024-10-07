@@ -173,16 +173,6 @@
                     .then(res=> res.json())
                     .then(data=>createHtml(data.data))
                     .then( setTimeout(function(){
-                        $('.ig-images').slick({
-                            infinite: true,
-                            autoplay:true,
-                            autoplaySpeed:2555,
-                            arrows:false,
-                            speed: 2000,
-                            fade: true, 
-                            cssEase: 'linear'
-                        });
-
 
                         $('.ig-images').slick({
                             slidesToShow: 1,
