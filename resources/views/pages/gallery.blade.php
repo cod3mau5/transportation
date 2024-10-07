@@ -2,9 +2,10 @@
 @section('styles')
     <style>
         .ig-images-main img{
-            margin:0 auto;
-            object-fit: cover;
+            margin: 0 auto;
+            object-fit: contain;
             width: 100%;
+            max-height: 450px;
         }
         .ig-images-gallery .slick-track{
             height: 200px;
