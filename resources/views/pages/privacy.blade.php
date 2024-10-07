@@ -24,41 +24,42 @@
         color: #3498db;
     }
 </style>
-<div class="container">
-    <h1>Política de Privacidad</h1>
-    <p>
-        En nuestra página web, valoramos su privacidad y estamos comprometidos a proteger su información personal. Esta política de privacidad describe cómo recopilamos, usamos y compartimos sus datos cuando utiliza nuestros servicios.
-    </p>
-    <h2>1. Información que recopilamos</h2>
-    <p>
-        Recopilamos la información que usted nos proporciona directamente, como su nombre, dirección de correo electrónico, y cualquier otro dato que decida compartir al usar nuestros servicios o contactar con nosotros.
-    </p>
-    <h2>2. Uso de la información</h2>
-    <p>
-        Utilizamos la información que recopilamos para proporcionar, mejorar y personalizar nuestros servicios. También podemos usarla para enviarle comunicaciones importantes relacionadas con su uso de la plataforma.
-    </p>
-    <h2>3. Compartir información con terceros</h2>
-    <p>
-        No compartimos su información personal con terceros, excepto cuando sea necesario para cumplir con nuestras obligaciones legales, proteger nuestros derechos, o si usted da su consentimiento explícito.
-    </p>
-    <h2>4. Seguridad de la información</h2>
-    <p>
-        Adoptamos medidas razonables para proteger su información personal contra pérdida, robo, uso indebido y acceso no autorizado.
-    </p>
-    <h2>5. Derechos de los usuarios</h2>
-    <p>
-        Usted tiene derecho a acceder, corregir o eliminar la información personal que tenemos sobre usted. Si desea ejercer estos derechos, puede ponerse en contacto con nosotros a través del correo electrónico proporcionado abajo.
-    </p>
-    <h2>6. Contacto</h2>
-    <p>
-        Si tiene alguna pregunta sobre nuestra política de privacidad, por favor póngase en contacto con nosotros en: <a href="mailto:cabodriversservices@gmail.com">cabodriversservices@gmail.com</a>
-    </p>
-    <h2>7. Eliminación de Datos</h2>
-    <p>
-        Si desea que eliminemos toda la información personal que hemos recopilado sobre usted, puede solicitarlo poniéndose en contacto con nosotros. Proporcionaremos un enlace o un método específico para que pueda solicitar la eliminación de sus datos personales de nuestra base de datos.
-    </p>
-    <p>
-        Una vez recibida su solicitud, eliminaremos toda la información personal en un plazo de 30 días hábiles, a menos que existan razones legales para mantener ciertos datos, como el cumplimiento de obligaciones legales o fiscales.
-    </p>
+    <div class="container">
+        <h1>Privacy Policy</h1>
+        <p>
+            At our website, we value your privacy and are committed to protecting your personal information. This privacy policy outlines how we collect, use, and share your data when you use our services.
+        </p>
+        <h2>1. Information We Collect</h2>
+        <p>
+            We collect information you provide directly to us, such as your name, email address, and any other information you choose to provide when using our services or contacting us.
+        </p>
+        <h2>2. How We Use Your Information</h2>
+        <p>
+            We use the information we collect to provide, improve, and personalize our services. We may also use it to send you important communications related to your use of the platform.
+        </p>
+        <h2>3. Sharing Information with Third Parties</h2>
+        <p>
+            We do not share your personal information with third parties, except when necessary to comply with legal obligations, protect our rights, or if you give explicit consent.
+        </p>
+        <h2>4. Security of Your Information</h2>
+        <p>
+            We take reasonable measures to protect your personal information from loss, theft, misuse, and unauthorized access.
+        </p>
+        <h2>5. User Rights</h2>
+        <p>
+            You have the right to access, correct, or delete the personal information we hold about you. If you wish to exercise these rights, you can contact us using the email provided below.
+        </p>
+        <h2>6. Data Deletion</h2>
+        <p>
+            If you wish to request the deletion of all personal information we have collected about you, you can contact us via email. We will provide a specific method or link for you to request the deletion of your personal data from our database.
+        </p>
+        <p>
+            Once your request is received, we will delete all personal information within 30 business days, unless there are legal reasons to retain certain data, such as compliance with legal or tax obligations.
+        </p>
+        <h2>7. Contact</h2>
+        <p>
+            If you have any questions about our privacy policy, please contact us at: <a href="mailto:cabodriversservices@gmail.com">cabodriversservices@gmail.com</a>
+        </p>
+    </div>
 </div>
 @endsection
