@@ -1,4 +1,4 @@
-
+Online chatOnline chatOnline chat
 <!DOCTYPE html>
 <html lang="{{app()->getLocale()}}">
     <head>

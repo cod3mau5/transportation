@@ -48,7 +48,7 @@
                     <div class="information">
                         <div class="tollfree">
                             <span>USA / Canada -</span> <strong>(624) 110 4185</strong>
-                            <div><small>Lun - Dom / 7:00 AM - 11:00 PM (GMT-7)</small></div>
+                            <div><small>Mon - Sun / 7:00 AM - 11:00 PM (GMT-7)</small></div>
                         </div>
                         <div class="emailInfo">
                             <a href="mailto:cabodriversservices@gmail.com"><i class="fa fa-envelope" aria-hidden="true"></i>
@@ -69,8 +69,8 @@
                             <strong>(000) 000 0000</strong>
                         </div> -->
                         <div class="chatheader">
-                            <i class="fa fa-comments" aria-hidden="true"></i> <span>Chat en linea</span>
-                            <div>Lunes - Domingo / 7:00 AM - 11:00 PM </div>
+                            <i class="fa fa-comments" aria-hidden="true"></i> <span>Online chat</span>
+                            <div>Monday - Sunday / 7:00 AM - 11:00 PM </div>
                             <a href="#" id="buttonTriggerChat">CHAT</a>
                         </div>
                     </div>
