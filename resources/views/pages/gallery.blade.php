@@ -236,7 +236,7 @@
                     function createHtml(data){
                         console.log(data);
                         for(const img of data){
-                            if(img.caption !== undefined){
+                            if(img.caption !== undefined && !img.thumbnail_url){
                                 let imgUrl= img.thumbnail_url ? img.thumbnail_url  : img.media_url;
                                 let content=`
                                     <div>
