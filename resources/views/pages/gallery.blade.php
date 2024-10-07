@@ -1,20 +1,20 @@
 @extends('layouts.king')
 @section('styles')
     <style>
-        .ig-images img{
+        .ig-images-main img{
             margin:0 auto;
             object-fit: cover;
             width: 100%;
         }
-        .ig-images-nav .slick-track{
+        .ig-images-gallery .slick-track{
             height: 200px;
             margin-top: 1rem;
         }
-        .ig-images-nav .slick-list.draggable{
+        .ig-images-gallery .slick-list.draggable{
             width: 100%;
             margin: 0 auto;
         }
-        .ig-images-nav .slick-track img{
+        .ig-images-gallery .slick-track img{
             height: 100px;
             width: 100%;
             object-fit: cover;
@@ -40,11 +40,11 @@
                     object-fit: unset;
                     width: auto;
             }
-            .ig-images-nav .slick-list.draggable{
+            .ig-images-gallery .slick-list.draggable{
                 width: 75%;
                 margin: 0 auto;
             }
-            .ig-images-nav .slick-track img{
+            .ig-images-gallery .slick-track img{
                 height: 70%;
                 width: 170px;
                 object-fit: cover;
@@ -108,7 +108,7 @@
         <div class="container my-4">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="ig-images">
+                    <div class="ig-images-main">
                         <!-- <div><img src="{{ asset('assets/images/gallery/pic1.webp') }}" alt=""></div>
                         <div><img src="{{ asset('assets/images/gallery/pic2.webp') }}" alt=""></div>
                         <div><img src="{{ asset('assets/images/gallery/pic3.webp') }}" alt=""></div>
@@ -120,7 +120,7 @@
                         <div><img src="{{ asset('assets/images/gallery/pic9.webp') }}" alt=""></div>
                         <div><img src="{{ asset('assets/images/gallery/pic10.webp') }}" alt=""></div> -->
                     </div>
-                    <div class="ig-images-nav">
+                    <div class="ig-images-gallery">
                         <!-- <div><img src="{{ asset('assets/images/gallery/pic1.webp') }}" alt=""></div>
                         <div><img src="{{ asset('assets/images/gallery/pic2.webp') }}" alt=""></div>
                         <div><img src="{{ asset('assets/images/gallery/pic3.webp') }}" alt=""></div>
@@ -155,8 +155,8 @@
                 mounted() {
 
                     /* FUNCIONALIDAD PARA LA GALERIA DE INSTAGRAM */
-                    const gallery=document.querySelector('.ig-images');
-                    const gallery=document.querySelector('.ig-images-nav');
+                    const gallery=document.querySelector('.ig-images-main');
+                    const gallery=document.querySelector('.ig-images-gallery');
                     const feed= document.querySelector('.gallery-container');
                     const next= document.querySelector('#next');
                     const prev= document.querySelector('#prev');
@@ -174,19 +174,19 @@
                     .then(data=>createHtml(data.data))
                     .then( setTimeout(function(){
 
-                        $('.ig-images').slick({
+                        $('.ig-images-main').slick({
                             slidesToShow: 1,
                             slidesToScroll: 1,
                             arrows: false,
                             fade: true,
                             autoplay: true,
                             autoplaySpeed: 2000,
-                            asNavFor: '.ig-images-nav'
+                            asNavFor: '.ig-images-gallery'
                         });
-                        $('.ig-images-nav').slick({
+                        $('.ig-images-gallery').slick({
                             slidesToShow: 5,
                             slidesToScroll: 1,
-                            asNavFor: '.ig-images',
+                            asNavFor: '.ig-images-main',
                             dots: true,
                             centerMode: true,
                             focusOnSelect: true,
