@@ -155,7 +155,7 @@
                 mounted() {
 
                     /* FUNCIONALIDAD PARA LA GALERIA DE INSTAGRAM */
-                    const gallery=document.querySelector('.ig-images-main');
+                    const gallery_container=document.querySelector('.ig-images-main');
                     const gallery=document.querySelector('.ig-images-gallery');
                     const feed= document.querySelector('.gallery-container');
                     const next= document.querySelector('#next');
@@ -237,7 +237,7 @@
                             if(img.caption !== undefined){
                                 let imgUrl= img.thumbnail_url ? img.thumbnail_url  : img.media_url;
 
-                                gallery.innerHTML+=`
+                                gallery_container.innerHTML+=`
                                     <div>
 
                                             <img loading="lazy" src="${imgUrl}" alt="${img.caption.slice(0,30)}">
