@@ -133,8 +133,8 @@
             <div class="row row-nomrg">
 
                 <div class="columns six navigationTopBar">
-                    <a href="/#about-us" title="Acerca de Nosotros - Cabo San Lucas Airport Transportation">Nosotros</a> -
-                    <a href="/gallery" title="Galería - Transportación Privada en Cabo">Galería</a> -
+                    <a href="/#about-us" title="About Us - Cabo San Lucas Airport Transportation">About Us</a> -
+                    <a href="/gallery" title="Gallery - Private transportation in Cabo">Gallery</a> -
                     <a href="/blog" title="Blog - Cabo Airport Transportation">Blog</a>
                 </div>
 
