@@ -95,7 +95,7 @@
     @include('includes.google-header-global')
 @endsection
 @section('content')
-    @include('includes.new.booking_bar', ['register' => 'CABODRIVERS'])
+    @include('includes.new.booking_bar', ['register' => 'CABO DRIVERS SERVICES'])
     <main id="PAGES_CONTAINER" tabindex="-1">
         @if (session('notification'))
             <!-- Tus notificaciones -->
