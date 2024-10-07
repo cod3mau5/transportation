@@ -245,21 +245,29 @@
 
                                     </div>
                                 `;
+                                gallery.innerHTML+=`
+                                    <div>
+
+                                            <img loading="lazy" src="${imgUrl}" alt="${img.caption.slice(0,30)}">
+
+
+                                    </div>
+                                `;
                             }
                         }
                     }
 
                     // Se desactivo el mover la galeria para el beneficio del SEO
-                    // next.addEventListener('click',moveGallery);
-                    // prev.addEventListener('click',moveGallery);
-                    // function moveGallery(e){
-                    //     if(e.target.id === "next" || e.target.parentElement.id == "next"){
-                    //         feed.scrollLeft+= feed.offsetWidth;
-                    //     }else{
-                    //         feed.scrollLeft-= feed.offsetWidth;
+                    next.addEventListener('click',moveGallery);
+                    prev.addEventListener('click',moveGallery);
+                    function moveGallery(e){
+                        if(e.target.id === "next" || e.target.parentElement.id == "next"){
+                            feed.scrollLeft+= feed.offsetWidth;
+                        }else{
+                            feed.scrollLeft-= feed.offsetWidth;
 
-                    //     }
-                    // }
+                        }
+                    }
 
                     $('.slick-next').html('<svg width="23" height="39" viewBox="0 0 23 39" style="transform: scale(1);"><path class="slideshow-arrow" d="M857.005,231.479L858.5,230l18.124,18-18.127,18-1.49-1.48L873.638,248Z" transform="translate(-855 -230)"></path></svg>');
                     $('.slick-prev').html('<svg width="23" height="39" viewBox="0 0 23 39" style="transform: scale(1);"><path class="slideshow-arrow" d="M154.994,259.522L153.477,261l-18.471-18,18.473-18,1.519,1.48L138.044,243Z" transform="translate(-133 -225)"></path></svg>');
