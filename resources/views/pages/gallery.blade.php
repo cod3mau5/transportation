@@ -36,7 +36,7 @@
         }
 
         @media (min-width: 992px) {
-            .ig-images img{
+            .ig-images-main img{
                     object-fit: unset;
                     width: auto;
             }
@@ -139,11 +139,11 @@
 
 @endsection
 @section('footer-scripts')
-    <script>
+    <!-- <script>
         $(document).ready(function(){
 
         });
-    </script>
+    </script> -->
         <script>
             var app = new Vue({
                 el: '#app',
@@ -239,18 +239,14 @@
 
                                 gallery_container.innerHTML+=`
                                     <div>
-
-                                            <img loading="lazy" src="${imgUrl}" alt="${img.caption.slice(0,30)}">
-
-
+                                        <img loading="lazy" src="${imgUrl}" 
+                                            alt="${img.caption.slice(0,30)}">
                                     </div>
                                 `;
                                 gallery.innerHTML+=`
                                     <div>
-
-                                            <img loading="lazy" src="${imgUrl}" alt="${img.caption.slice(0,30)}">
-
-
+                                        <img loading="lazy" src="${imgUrl}" 
+                                            alt="${img.caption.slice(0,30)}">
                                     </div>
                                 `;
                             }
