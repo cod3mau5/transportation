@@ -153,8 +153,10 @@
                                 <div><small>Lun - Dom / 7:00 AM - 11:00 PM (GMT-7)</small></div>
                             </div>
                             <div class="emailInfo">
-                                <a href="mailto:info@cabodrivers.com"><i class="fa fa-envelope" aria-hidden="true"></i>
-                                    info@cabodrivers.com</a>
+                                <a href="mailto:cabodriversservices@gmail.com">
+                                    <i class="fa fa-envelope" aria-hidden="true"></i>
+                                    cabodriversservices@gmail.com
+                                </a>
                             </div>
                             <div class="rowphone"><img
                                     src="/assets/images/flags/mex-flag.png"
