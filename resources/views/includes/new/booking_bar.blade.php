@@ -98,7 +98,7 @@
             <ol>
                 <li>Select the hotel closest to your Airbnb from the drop-down menu.</li>
                 <li>Enter your rental address or Airbnb profile link in the "Special Request" field.</li>
-                <li>Provide your shuttle details and choose your preferred payment method.</li>
+                <li>Provide your shuttle details and wait for our confirmation response.</li>
             </ol>
         </div>
     </transition>
