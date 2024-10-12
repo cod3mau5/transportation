@@ -1,5 +1,9 @@
 @extends('layouts.king')
 @section('styles')
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <style>
         .bg-welcome img {
             /* background-image: url('assets/images/home/suburban_service.jpeg');
@@ -88,6 +92,80 @@
             border: 1px solid transparent;
             text-align: center;
             line-height: 2.1;
+        }
+        select option{
+                    color: #444;
+        }
+        .airbnb-tab {
+            margin-top: 0;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .airbnb-tab-header {
+            background-color: #ff5a5f;
+            padding: 5px 15px 0px 15px;
+            border-radius: 0 0 15px 15px;
+            display: flex;
+            align-items: center;
+            position: relative;
+            top: -1px;
+            z-index: 1;
+            width: fit-content;
+            margin: 0 auto;
+        }
+
+        .airbnb-tab-header img {
+            height: 30px;
+            margin-right: 10px;
+        }
+
+        .airbnb-tab-header span {
+            color: #fff;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .airbnb-info {
+            background-color: #ff5a5f;
+            border: 1px solid #ff5a5f;
+            padding: 20px;
+            border-radius: 0 0 15px 15px;
+            color: #fff;
+            font-family: 'Poppins', sans-serif;
+            text-shadow: 1px 2px 11px rgba(0,0,0,0.63);
+        }
+
+        .slide-down-enter-active, .slide-down-leave-active {
+            transition: max-height 0.35s cubic-bezier(0.33, 0.66, 0.33, 0.66);
+        }
+
+        .slide-down-enter, .slide-down-leave-to {
+            max-height: 0;
+            overflow: hidden;
+        }
+
+        .slide-down-enter-to, .slide-down-leave {
+            max-height: 600px;
+        }
+        .poppins-extralight {
+            font-family: "Poppins", sans-serif;
+            font-weight: 200;
+            font-style: normal;
+        }
+        .poppins-thin {
+            font-family: "Poppins", sans-serif;
+            font-weight: 100;
+            font-style: normal;
+        }
+        .nunito {
+            font-family: "Nunito", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 300!important;
+            font-style: normal;
+        }
+        #PAGES_CONTAINER {
+            margin-top: -50px;
         }
     </style>
 @endsection
@@ -474,7 +552,7 @@
                     </ul>
                 </div>
                 <div class="col-md-2">
-                    <div id="TA_excellent603" class="TA_excellent"><ul id="XXdxYJgAwuX" class="TA_links gOfw9IAe"><li id="ZP08nBqzMuTB" class="IFWmaCQ"><a target="_blank" href="https://www.tripadvisor.com/Attraction_Review-g152516-d23359388-Reviews-Cabo_Drivers_Services-San_Jose_del_Cabo_Los_Cabos_Baja_California.html"><img src="https://static.tacdn.com/img2/brand_refresh/Tripadvisor_lockup_horizontal_secondary_registered.svg" alt="TripAdvisor" class="widEXCIMG" id="CDSWIDEXCLOGO"/></a></li></ul></div><script async src="https://www.jscache.com/wejs?wtype=excellent&amp;uniq=603&amp;locationId=23359388&amp;lang=en_US&amp;display_version=2" data-loadtrk onload="this.loadtrk=true"></script>
+                    <div id="TA_excellent603" class="TA_excellent"><ul id="XXdxYJgAwuX" class="TA_links gOfw9IAe"><li id="ZP08nBqzMuTB" class="IFWmaCQ"><a target="_blank" href="https://www.tripadvisor.com/Attraction_Review-g152516-d23359388-Reviews-Cabo_Drivers_Services-San_Jose_del_Cabo_Los_Cabos_Baja_California.html"><img src="https://static.tacdn.com/img2/brand_refresh/Tripadvisor_lockup_horizontal_secondary_registered.svg" alt="TripAdvisor" class="widEXCIMG" id="CDSWIDEXCLOGO"/></a></li></ul></div>
                 </div>
             </div>
         </div>
@@ -505,6 +583,7 @@
     </main>
 @endsection
 @section('footer-scripts')
+    <script async src="https://www.jscache.com/wejs?wtype=excellent&amp;uniq=603&amp;locationId=23359388&amp;lang=en_US&amp;display_version=2" data-loadtrk onload="this.loadtrk=true"></script>
     <script>
         $(document).ready(function() {
             $('.single-item-rtl').slick({
@@ -521,7 +600,8 @@
             el: '#app',
             data: {
                 lang: '{{ app()->getLocale() }}',
-                trip_type:'r'
+                trip_type:'r',
+                showAirbnbInfo: false
             },
             beforeMount() {},
             mounted() {
@@ -530,8 +610,11 @@
             methods: {
                 changeLanguage: function() {
                     window.location.href = '/lang/' + this.lang;
+                },
+                toggleAirbnbInfo() {
+                    this.showAirbnbInfo = !this.showAirbnbInfo;
                 }
             }
-        })
+        });
     </script>
 @endsection

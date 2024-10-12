@@ -1,15 +1,17 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers;
-use App\Http\Controllers\Controller;
 use App\Models\Role;
-use Illuminate\Support\Facades\Session;
+use App\Http\Controllers;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Session;
 
 /** LOGIN */
 Auth::routes();
 Route::get('/home', [Controllers\HomeController::class, 'index']);
+Route::get('/map', [Controllers\PagesController::class,'map']);
 
 /** ############## PAGES ############## */
 Route::get('/', [Controllers\PagesController::class,'homepage'])->name('homepage');

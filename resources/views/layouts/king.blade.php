@@ -126,6 +126,14 @@
                         <span>We are on WhatsApp</span>
                     </div> --}}
 
+
+                @endif
+            </section>
+            @include('includes.footer')
+        </div>
+        <script async src="https://www.jscache.com/wejs?wtype=selfserveprop&amp;uniq=192&amp;locationId=23359388&amp;lang=en_CA&amp;rating=true&amp;nreviews=2&amp;writereviewlink=true&amp;popIdx=false&amp;iswide=false&amp;border=true&amp;display_version=2" data-loadtrk onload="this.loadtrk=true"></script>
+
+        @yield('map')
                     <!--Start of Tawk.to Script-->
                     <script type="text/javascript">
                         var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
@@ -140,13 +148,6 @@
 
                     </script>
                     <!--End of Tawk.to Script-->
-                @endif
-            </section>
-            @include('includes.footer')
-        </div>
-
-        @yield('map')
-
         <script src="{{ asset('assets/libs/jquery/jquery.min.js') }}"></script>
         <script type="text/javascript" src="{{ asset('assets/js/king.js') }}" defer></script>
         <script src="{{ asset('assets/libs/bootstrap/js/bootstrap.bundle.min.js') }}"></script>

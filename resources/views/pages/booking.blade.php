@@ -165,7 +165,7 @@
                                 <strong>(624) 110 4185</strong></div>
                             <div class="rowphone">
                                 <i class="fa fa-whatsapp" style="color:#1DA075;font-family:'FontAwesome';" aria-hidden="true"></i>
-                                <span>Whatsapp:</span> 
+                                <span>Whatsapp:</span>
                                 <strong>
                                     <a
                                         href="https://api.whatsapp.com/send?phone=5216241104185&text=¡Hola! Vengo de la pagina de Cabo Drivers Services y me gustaría reservar sus servicios"
@@ -173,8 +173,8 @@
                                     </strong>
                             </div>
                             <!-- <div class="rowphone">
-                                <i class="fa fa-globe" aria-hidden="true"></i> 
-                                <span>Resto del Mundo:</span> 
+                                <i class="fa fa-globe" aria-hidden="true"></i>
+                                <span>Resto del Mundo:</span>
                                 <strong>(000) 000 0000</strong>
                             </div> -->
                             <div class="chatheader">

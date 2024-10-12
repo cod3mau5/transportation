@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PropertyController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers;
@@ -15,6 +16,7 @@ use App\Http\Controllers;
 |
 */
 
+Route::get('/properties/search', [PropertyController::class, 'search']);
 Route::post('/visits', [Controllers\VisitController::class,'store']);
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {

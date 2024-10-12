@@ -32,6 +32,23 @@ class PagesController extends Controller
             'date_departure'
         ));
     }
+    public function map(){
+        $resorts = Resort::all()->sortBy("name");
+        $units   = Unit::all()->sortBy("name");
+        $rates= Rate::all()->sortBy('zone_id');
+
+        $start_location = (isset($_GET['start_location'])) ? $_GET['start_location'] : '';
+        $end_location   = (isset($_GET['end_location'])) ? $_GET['end_location'] : '';
+        $passengers     = (isset($_GET['passengers'])) ? (int) $_GET['passengers'] : '';
+        $date_arrival   = (isset($_GET['arrival'])) ?  $_GET['arrival'] : '';
+        $date_departure = (isset($_GET['departure'])) ? $_GET['departure'] : '';
+        return view('pages.map',compact(
+            'resorts','units','rates',
+            'start_location','end_location',
+            'passengers','date_arrival',
+            'date_departure'
+        ));
+    }
     public function contactUs(){
         $resorts = Resort::all()->sortBy("name");
         $units   = Unit::all()->sortBy("name");
