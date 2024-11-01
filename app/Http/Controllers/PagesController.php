@@ -24,12 +24,14 @@ class PagesController extends Controller
         $passengers     = (isset($_GET['passengers'])) ? (int) $_GET['passengers'] : '';
         $date_arrival   = (isset($_GET['arrival'])) ?  $_GET['arrival'] : '';
         $date_departure = (isset($_GET['departure'])) ? $_GET['departure'] : '';
+        $pageTitle = "Affordable Cabo Airport Transportation |  Private Transfers & Shuttle Options";
+  
         // dd($resorts);
         return view('pages.new.home',compact(
             'resorts','units','rates',
             'start_location','end_location',
             'passengers','date_arrival',
-            'date_departure'
+            'date_departure','pageTitle'
         ));
     }
     public function map(){

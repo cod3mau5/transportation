@@ -2,7 +2,7 @@
 <div class="box-start-booking is-bookhome is-relative">
     @if ($register!=='')
         <div class="register">
-            <h1 title="Los Cabos Airport Transportation">{{$register}}</h1>
+            <span title="Los Cabos Airport Transportation" class="title-bar">{{$register}}</span>
             <span>®</span>
         </div>
     @endif

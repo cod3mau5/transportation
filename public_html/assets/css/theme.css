@@ -5972,7 +5972,8 @@ footer .footer-pie ul li.separator {
     text-align: center;
     margin: 0 auto;
 }
-.is-bookhome .register h1 {
+.is-bookhome .register .title-bar {
+    font-family: "Francois One", Helvetica, Arial;
     margin: 0;
     font-size: 2em;
     display: inline-block;
@@ -16394,7 +16395,7 @@ footer.affiliates p {
     }
 }
 @media only screen and (min-width: 320px) and (max-width: 480px) {
-    .is-bookhome .register h1 {
+    .is-bookhome .register .title-bar {
         display: inline;
     }
     .bx-withbg {
