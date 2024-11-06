@@ -42,6 +42,7 @@
             markers: [],
             latitude: 0,
             longitude: 0,
+            showAirbnbInfo: false
             };
         },
         methods: {

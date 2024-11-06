@@ -87,7 +87,7 @@
 @endsection
 @section('content')
 
-    @include('includes.new.booking_bar',['register'=>''])
+    @include('includes.new.booking_bar',['register'=>'','airbnb'=>false])
 
     <main id="PAGES_CONTAINER">
         @if(session('notification'))
@@ -150,7 +150,8 @@
                 el: '#app',
                 data: {
                     lang: '{{ app()->getLocale() }}',
-                    trip_type:'r'
+                    trip_type:'r',
+                    showAirbnbInfo: false
                 },
                 beforeMount() {},
                 mounted() {
@@ -240,7 +241,7 @@
                                 let imgUrl= img.thumbnail_url ? img.thumbnail_url  : img.media_url;
                                 let content=`
                                     <div>
-                                        <img loading="lazy" src="${imgUrl}" 
+                                        <img loading="lazy" src="${imgUrl}"
                                             alt="${img.caption.slice(0,30)}">
                                     </div>
                                 `;

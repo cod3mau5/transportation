@@ -44,7 +44,7 @@
     @include('includes.google-header-global')
 @endsection
 @section('content')
-    @include('includes.new.booking_bar',['register'=>'CABODRIVERS SERVICES'])
+    @include('includes.new.booking_bar',['register'=>'CABODRIVERS SERVICES','airbnb'=>true])
     <main id="PAGES_CONTAINER" tabindex="-1">
         @if(session('notification'))
             <!-- Tus notificaciones -->
@@ -156,6 +156,7 @@
             el: '#app',
             data: {
                 lang:'{{app()->getLocale()}}',
+                showAirbnbInfo: false
             },
             beforeMount(){
             },

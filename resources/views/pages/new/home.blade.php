@@ -173,7 +173,7 @@
     @include('includes.google-header-global')
 @endsection
 @section('content')
-    @include('includes.new.booking_bar', ['register' => 'CABO DRIVERS SERVICES'])
+    @include('includes.new.booking_bar', ['register' => 'CABO DRIVERS SERVICES','airbnb' => true])
     <main id="PAGES_CONTAINER" tabindex="-1">
         @if (session('notification'))
             <!-- Tus notificaciones -->
