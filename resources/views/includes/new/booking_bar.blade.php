@@ -87,26 +87,28 @@
 
 	</form>
 </div>
-<!-- Airbnb Information Tab -->
-<div class="airbnb-tab">
-    <transition name="slide-down">
-        <div class="airbnb-info" v-show="showAirbnbInfo">
-            <p>
-                Airport shuttle services are available for Airbnb rentals and homes in the Los Cabos area.
-                To book, choose the hotel nearest to your rental from the list provided and provide the detailed address or the Airbnb link in the comments field. Alternatively, you may email us the details or share them directly with your driver upon arrival.
+@if($airbnb)
+    <!-- Airbnb Information Tab -->
+    <div class="airbnb-tab">
+        <transition name="slide-down">
+            <div class="airbnb-info" v-show="showAirbnbInfo">
+                <p>
+                    Airport shuttle services are available for Airbnb rentals and homes in the Los Cabos area.
+                    To book, choose the hotel nearest to your rental from the list provided and provide the detailed address or the Airbnb link in the comments field. Alternatively, you may email us the details or share them directly with your driver upon arrival.
+                </p>
+                <ol>
+                    <li>Select the hotel closest to your Airbnb from the drop-down menu.</li>
+                    <li>Enter your rental address or Airbnb profile link in the "Special Request" field.</li>
+                    <li>Provide your shuttle details and wait for our confirmation response.</li>
+                </ol>
+            </div>
+        </transition>
+        <div class="airbnb-tab-header d-flex justify-content-center" @click="toggleAirbnbInfo">
+            <p class="text-center m-0">
+                <span class="nunito" style="font-size:1.4rem"><i class="fab fa-airbnb" style="color: #fff;font-size:1.4rem;"></i>re you going to an <i class="fab fa-airbnb" style="color: #fff;font-size:1.4rem;"></i>irbnb?</span><br>
+                <small class="nunito" style="color: #fff;margin-top:5px;position: relative;top:-3px;line-height:0"><b>click here!</b></small>
             </p>
-            <ol>
-                <li>Select the hotel closest to your Airbnb from the drop-down menu.</li>
-                <li>Enter your rental address or Airbnb profile link in the "Special Request" field.</li>
-                <li>Provide your shuttle details and wait for our confirmation response.</li>
-            </ol>
         </div>
-    </transition>
-    <div class="airbnb-tab-header d-flex justify-content-center" @click="toggleAirbnbInfo">
-        <p class="text-center m-0">
-            <span class="nunito" style="font-size:1.4rem"><i class="fab fa-airbnb" style="color: #fff;font-size:1.4rem;"></i>re you going to an <i class="fab fa-airbnb" style="color: #fff;font-size:1.4rem;"></i>irbnb?</span><br>
-            <small class="nunito" style="color: #fff;margin-top:5px;position: relative;top:-3px;line-height:0"><b>click here!</b></small>
-        </p>
     </div>
-</div>
+@endif
 

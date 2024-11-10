@@ -119,7 +119,7 @@
 @endsection
 
 @section('content')
-@include('includes.new.booking_bar',['register'=>''])
+@include('includes.new.booking_bar',['register'=>'','airbnb'=>false])
     <main id="hotel">
 
             @if ($errors->any())
@@ -168,7 +168,8 @@
         el: '#app',
         data: {
             lang: '{{ app()->getLocale() }}',
-            trip_type:'r'
+            trip_type:'r',
+            showAirbnbInfo: false
         },
         beforeMount() {},
         mounted() {
@@ -177,10 +178,13 @@
         methods: {
             changeLanguage: function() {
                 window.location.href = '/lang/' + this.lang;
-            }
+            },
+            toggleAirbnbInfo() {
+                    this.showAirbnbInfo = !this.showAirbnbInfo;
+                }
         }
     })
-</script>
+</script>;
     @if(count($gallery) >= 3)
         <script>
             $(document).ready(function(){
@@ -237,7 +241,7 @@
                         }
                     });
                 }
-        });
+            });
 
         </script>
     @endif

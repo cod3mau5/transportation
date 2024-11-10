@@ -99,7 +99,7 @@
 @endsection
 
 @section('content')
-    @include('includes.new.booking_bar',['register'=>''])
+    @include('includes.new.booking_bar',['register'=>'','airbnb'=>false])
     <main id="PAGES_CONTAINER">
 
         <div class="container-fluid">
@@ -170,7 +170,8 @@
         el: '#app',
         data: {
             lang: '{{ app()->getLocale() }}',
-            trip_type:'r'
+            trip_type:'r',
+            showAirbnbInfo: false
         },
         beforeMount() {},
         mounted() {
