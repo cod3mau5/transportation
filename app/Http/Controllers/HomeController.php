@@ -26,7 +26,7 @@ class HomeController extends Controller
     {
         return view('administracion');
     }
-    public function version()
+    public function env()
     {
         return view('pages.test.myEnv');
     }
