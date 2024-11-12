@@ -56,7 +56,7 @@ Route::post('/send-mail', [Controllers\PagesController::class,'sendMail'])->name
 Route::get('/reservation/{voucher}/show', [Controllers\ReservationsController::class,'showReservation']);
 
 /** ############## PANEL ############## */
-Route::get('/env', [Controllers\HomeController::class, 'env'])->name('app.env');
+Route::get('/env', [Controllers\HomeController::class, 'version'])->name('app.env');
 Route::get('/reservacion/data', [Controllers\ReservacionController::class, 'anyData'])->name('reservacion.data');
 Route::get('/reservacion/{reservacion}/voucher',  [Controllers\ReservacionController::class, 'voucher'])->name('reservacion.voucher');
 Route::resource('/reservacion', Controllers\ReservacionController::class);
