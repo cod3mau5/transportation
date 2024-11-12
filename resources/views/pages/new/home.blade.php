@@ -318,13 +318,13 @@
                     <div class="col-md-3 px-3">
                         <div class="item">
                             <article class="box is-full">
-                                <a href="/los-cabos-private-transportation"
+                                <a href="/services/los-cabos-private-transportation"
                                     title="Los Cabos Airport Private Transportation">
                                     <img alt="Los Cabos Airport Private Transportation"
                                         title="Los Cabos Airport Private Transportation"
                                         src="/assets/images/units/hiace_side.jpg">
                                 </a>
-                                <h3><a href="/los-cabos-private-transportation"
+                                <h3><a href="/services/los-cabos-private-transportation"
                                         title="Los Cabos Airport Private Transportation">LOS CABOS PRIVATE
                                         <span>TRANSPORTATION</span></a></h3>
                                 <div class="body">
@@ -335,7 +335,7 @@
                                         <strong>79<small>USD</small></strong>
                                         <span>FROM</span>
                                     </div>
-                                    <a href="/los-cabos-private-transportation"
+                                    <a href="/services/los-cabos-private-transportation"
                                         title="Los Cabos Airport Private Transportation">Details <i
                                             class="fa fa-long-arrow-right"></i></a>
                                 </div>
@@ -345,12 +345,12 @@
                     <div class="col-md-3 px-3">
                         <div class="item">
                             <article class="box is-full">
-                                <a href="/los-cabos-luxury-transportation" title="Los Cabos Airport Luxury Transportation">
+                                <a href="/services/los-cabos-luxury-transportation" title="Los Cabos Airport Luxury Transportation">
                                     <img alt="Los Cabos Airport Luxury Transportation"
                                         title="Los Cabos Airport Luxury Transportation"
                                         src="/assets/images/units/suburban_side_basic.png">
                                 </a>
-                                <h3><a href="/los-cabos-luxury-transportation"
+                                <h3><a href="/services/los-cabos-luxury-transportation"
                                         title="Los Cabos Airport Luxury Transportation">LOS CABOS LUXURY
                                         <span>TRANSPORTATION</span></a></h3>
                                 <div class="body">
@@ -361,7 +361,7 @@
                                         <strong>88<small>USD</small></strong>
                                         <span>FROM</span>
                                     </div>
-                                    <a href="/los-cabos-luxury-transportation"
+                                    <a href="/services/los-cabos-luxury-transportation"
                                         title="Los Cabos Airport Luxury Transportation">Details <i
                                             class="fa fa-long-arrow-right"></i></a>
                                 </div>
@@ -371,14 +371,19 @@
                     <div class="col-md-3 px-3">
                         <div class="item">
                             <article class="box is-full">
-                                <a href="/los-cabos-premium-transportation"
+                                <a href="/services/los-cabos-premium-transportation"
                                     title="Los Cabos Airport Premium Transportation">
                                     <img alt="Los Cabos Airport Premium Transportation"
                                         title="Los Cabos Airport Premium Transportation"
-                                        src="{{ asset('assets/images/units/suburban_side_premium.png') }}"></a>
-                                <h3><a href="/los-cabos-premium-transportation"
-                                        title="Los Cabos Airport Premium Transportation">LOS CABOS PREMIUM
-                                        <span>TRANSPORTATION</span></a></h3>
+                                        src="{{ asset('assets/images/units/suburban_side_premium.png') }}">
+                                </a>
+                                <h3>
+                                    <a href="/services/los-cabos-premium-transportation"
+                                        title="Los Cabos Airport Premium Transportation">
+                                        LOS CABOS PREMIUM
+                                        <span>TRANSPORTATION</span>
+                                    </a>
+                                </h3>
                                 <div class="body">
                                     <p>This Transportation is available for all our destinations, service is provided in a
                                         Escalade or Similar for up to 5 passengers <small>(Kids/Infants are considered as
@@ -387,9 +392,10 @@
                                         <strong>105<small>USD</small></strong>
                                         <span>FROM</span>
                                     </div>
-                                    <a href="/los-cabos-premium-transportation"
-                                        title="Los Cabos Airport Premium Transportation">Details <i
-                                            class="fa fa-long-arrow-right"></i></a>
+                                    <a href="/services/los-cabos-premium-transportation"
+                                        title="Los Cabos Airport Premium Transportation">
+                                        Details <i class="fa fa-long-arrow-right"></i>
+                                    </a>
                                 </div>
                             </article>
                         </div>
@@ -397,12 +403,12 @@
                     <div class="col-md-3 px-3">
                         <div class="item">
                             <article class="box is-full">
-                                <a href="/los-cabos-group-transportation" title="Los Cabos Airport Group Transportation">
+                                <a href="/services/los-cabos-group-transportation" title="Los Cabos Airport Group Transportation">
                                     <img alt="Los Cabos Airport Group Transportation"
                                         title="Los Cabos Airport Group Transportation"
                                         src="{{ asset('assets/images/units/bus_side.png') }}">
                                 </a>
-                                <h3><a href="/los-cabos-group-transportation"
+                                <h3><a href="/services/los-cabos-group-transportation"
                                         title="Los Cabos Airport Group Transportation">LOS CABOS GROUP
                                         <span>TRANSPORTATION</span></a></h3>
                                 <div class="body">
@@ -413,7 +419,7 @@
                                         <strong>132<small>USD</small></strong>
                                         <span>FROM</span>
                                     </div>
-                                    <a href="/los-cabos-group-transportation"
+                                    <a href="/services/los-cabos-group-transportation"
                                         title="Los Cabos Airport Group Transportation">Details <i
                                             class="fa fa-long-arrow-right"></i></a>
                                 </div>

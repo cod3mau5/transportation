@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\WordpressPost;
 
 use App\Models\Rate;
 use App\Models\Tour;
@@ -25,7 +26,7 @@ class PagesController extends Controller
         $date_arrival   = (isset($_GET['arrival'])) ?  $_GET['arrival'] : '';
         $date_departure = (isset($_GET['departure'])) ? $_GET['departure'] : '';
         $pageTitle = "Cabo Airport Transportation |  Private Transfers & Shuttle Options";
-  
+
         // dd($resorts);
         return view('pages.new.home',compact(
             'resorts','units','rates',
@@ -421,4 +422,16 @@ class PagesController extends Controller
         return view('pages.showReservations',compact('reservation'));
     }
 
+    public function services($slug){
+        $post = WordpressPost::private()
+        ->where('post_name', $slug)
+        ->where('post_type', 'post')
+        ->firstOrFail();
+
+        return view('pages.articles', [
+            'post' => $post,
+            'excerpt' => $post->excerpt,
+            'meta_description' => $post->meta_description,
+        ]);
+    }
 }

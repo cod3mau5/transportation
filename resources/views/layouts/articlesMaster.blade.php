@@ -5,14 +5,14 @@
         <meta charset='utf-8'>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="description" content="{{!empty($record->meta_description)?$record->meta_description:''}}">
+        <meta name="description" content="{{!empty($post->post_title )?$post->post_title :''}}">
 
         <!-- Font Awesome -->
         <link rel="stylesheet" href="{{ asset('vendor/font-awesome/css/font-awesome.min.css') }}">
         <!-- Bootstrap 5 Css -->
         <link href="{{ asset('assets/css/bootstrap.min.css') }}" id="bootstrap-style" rel="stylesheet" type="text/css"/>
 
-        <title>{{!empty($record->name)?$record->name:''}} Transportation | {{ config('app.name') }}</title>
+        <title>{{!empty($post->post_title )?$post->post_title :''}} Transportation | {{ config('app.name') }}</title>
         <link rel="stylesheet" href="{{ asset('assets/css/fonts.css') }}">
         <link rel="stylesheet" href="{{ asset('assets/css/king.css') }}">
         <link rel="stylesheet" href="{{ asset('assets/css/theme.css') }}">
@@ -234,18 +234,16 @@
     <body>
         @yield('header-scripts')
 
+        @hasSection('header')
+            @yield('header')
+        @else
+            @include('includes.new.header')
+        @endif
 
         <div id="app">
-            @hasSection('header')
-                @yield('header')
-            @else
-                @include('includes.new.header')
-            @endif
 
-                @yield('content')
+            @yield('content')
 
-
-                </section>
             @include('includes.footer')
         </div>
 @yield('map')

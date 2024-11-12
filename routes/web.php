@@ -28,6 +28,11 @@ Route::post('/send_booking_bar',[Controllers\PagesController::class,'sendBooking
 Route::get('/rate-us',[Controllers\PagesController::class,'rateUs'])->name('rateUs');
 
 Route::get('/ggg/{id}', [Controllers\PagesController::class,'ggg'])->name('ggg');
+
+// SERVICES OF TRANSPORTATION
+Route::get('/services/{slug}', [Controllers\PagesController::class, 'services'])->name('services');;
+
+
 Route::get('/test-broadcast', function () {
     event(new \App\Events\TestEvent('Hola, mundo!'));
     return 'Evento emitido';

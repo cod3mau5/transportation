@@ -35,6 +35,20 @@ return [
 
     'connections' => [
 
+        'wordpress' => [
+            'driver' => 'mysql',
+            'host' => env('WP_DB_HOST', '127.0.0.1'),
+            'port' => env('WP_DB_PORT', '3306'),
+            'database' => env('WP_DB_DATABASE', 'u606769855_cabodrivers_bl'),
+            'username' => env('WP_DB_USERNAME', 'u606769855_cabodrivers_bl'),
+            'password' => env('WP_DB_PASSWORD', 'Wifislaxutf-8'),
+            'charset' => 'utf8mb4',
+            'collation' => 'utf8mb4_unicode_ci',
+            'prefix' => 'CDBLOG_', // Prefijo típico de WordPress
+            'strict' => false,
+            'engine' => null,
+        ],
+
         'sqlite' => [
             'driver' => 'sqlite',
             'url' => env('DATABASE_URL'),
