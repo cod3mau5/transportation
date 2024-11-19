@@ -478,7 +478,12 @@
         --}}
 
         <div class="container-fluid isPopular py-5 s-bg px-5">
-            <h3><a href="destinations" title="Private Los Cabos Airport Transportation to San Lucas and San Jose del Cabo">LOS CABOS AIRPORT TRANSPORTATION´ S</a></h3>
+            <h3>
+                <a href="#" 
+                title="Private Los Cabos Airport Transportation to San Lucas and San Jose del Cabo">
+                    LOS CABOS AIRPORT TRANSPORTATION´ S
+                </a>
+            </h3>
             <h4>POPULAR DESTINATIONS</h4>
             <div class="row">
                 <div class="col-md-3 columns four item">
