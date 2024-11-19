@@ -141,7 +141,7 @@
                 <div class="columns ten">
 
                     <a href="/" class="languageOption">EN</a>
-                    <a href="/es" class="languageOption">ES</a>
+                    <a href="#" class="languageOption">ES</a>
 
                     <div class="boxPhones">
                         <i class="fa fa-phone" aria-hidden="true"></i> <strong>(624) 110 4185</strong> <i
@@ -281,13 +281,13 @@
 
                         <div class="optionJustMobile mobileLanguageOptions" style="display: none;">
                             <div class="langOption">
-                                <a href="/es">
+                                <a href="#">
                                     <img src="/assets/images/flags/mexico.png">
                                     <span>ES</span>
                                 </a>
                             </div>
                             <div class="langOption">
-                                <a href="/eng">
+                                <a href="#">
                                     <img src="/assets/images/flags/estados-unidos.png">
                                     <span>ENG</span>
                                 </a>
