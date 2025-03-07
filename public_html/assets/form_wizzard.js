@@ -303,6 +303,7 @@ jQuery(document).ready(function($) {
         {
             if (rates[i] != undefined && rates[i].zone_id == zone)
             {
+                console.log(rates[i])
                 var unit_id  = rates[i].unit_id;
                 var capacity = Number(units[unit_id].capacity);
                 var unitName = units[unit_id].name;
