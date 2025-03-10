@@ -20,6 +20,7 @@ it('it can process fluent response', function () {
         'zip' => '55555',
         'lat' => '50',
         'lon' => '50',
+        'currency' => 'USD',
         'timezone' => 'America/Toronto',
     ]);
 
@@ -45,8 +46,9 @@ it('it can process fluent response', function () {
         'latitude' => '50',
         'longitude' => '50',
         'metroCode' => null,
-        'areaCode' => 'CA',
+        'areaCode' => null,
         'ip' => '66.102.0.0',
+        'currencyCode' => 'USD',
         'timezone' => 'America/Toronto',
         'driver' => get_class($driver),
     ]);

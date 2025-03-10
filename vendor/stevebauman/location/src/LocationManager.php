@@ -2,11 +2,14 @@
 
 namespace Stevebauman\Location;
 
+use Illuminate\Support\Traits\Macroable;
 use Stevebauman\Location\Drivers\Driver;
 use Stevebauman\Location\Exceptions\DriverDoesNotExistException;
 
 class LocationManager
 {
+    use Macroable;
+
     /**
      * The current driver.
      */
@@ -67,7 +70,7 @@ class LocationManager
     /**
      * Attempt to retrieve the location of the user.
      */
-    public function get(string $ip = null): Position|bool
+    public function get(?string $ip = null): Position|bool
     {
         if ($location = $this->driver->get($this->request()->setIp($ip))) {
             return $location;

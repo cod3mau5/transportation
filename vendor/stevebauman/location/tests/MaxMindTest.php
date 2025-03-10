@@ -2,6 +2,7 @@
 
 namespace Stevebauman\Location\Tests;
 
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Fluent;
 use Mockery as m;
 use Stevebauman\Location\Commands\Update;
@@ -10,7 +11,18 @@ use Stevebauman\Location\Facades\Location;
 use Stevebauman\Location\Position;
 
 it('can update database', function () {
+    config([
+        'location.maxmind.license_key' => '123',
+        'location.maxmind.local.url' => 'http://example.com',
+    ]);
+
+    Http::fake([
+        'http://example.com' => Http::response(file_get_contents(__DIR__.'/fixtures/maxmind.tar.gz')),
+    ]);
+
     $this->artisan(Update::class)->assertSuccessful();
+
+    expect(database_path('maxmind/GeoLite2-City.mmdb'))->toBeFile();
 });
 
 it('can process fluent response', function () {
@@ -20,11 +32,11 @@ it('can process fluent response', function () {
         'country' => 'United States',
         'country_code' => 'US',
         'city' => 'Long Beach',
-        'postal' => '55555',
+        'postal' => 'W7W5L1',
         'metro_code' => '5555',
         'latitude' => '50',
         'longitude' => '50',
-        'time_zone' => 'America/Toronto',
+        'timezone' => 'America/Toronto',
     ];
 
     $driver
@@ -46,7 +58,7 @@ it('can process fluent response', function () {
         'cityName' => 'Long Beach',
         'zipCode' => null,
         'isoCode' => 'US',
-        'postalCode' => '55555',
+        'postalCode' => 'W7W5L1',
         'latitude' => '50',
         'longitude' => '50',
         'metroCode' => '5555',
@@ -81,7 +93,7 @@ it('can use city database', function () {
         'longitude' => '-1.25',
         'metroCode' => '',
         'areaCode' => null,
-        'timezone' => null,
+        'timezone' => 'Europe/London',
         'driver' => "Stevebauman\Location\Drivers\MaxMind",
     ]);
 });

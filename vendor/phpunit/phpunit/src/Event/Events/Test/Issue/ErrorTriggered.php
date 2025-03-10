@@ -24,11 +24,28 @@ final class ErrorTriggered implements Event
 {
     private readonly Telemetry\Info $telemetryInfo;
     private readonly Test $test;
+
+    /**
+     * @psalm-var non-empty-string
+     */
     private readonly string $message;
+
+    /**
+     * @psalm-var non-empty-string
+     */
     private readonly string $file;
+
+    /**
+     * @psalm-var positive-int
+     */
     private readonly int $line;
     private readonly bool $suppressed;
 
+    /**
+     * @psalm-param non-empty-string $message
+     * @psalm-param non-empty-string $file
+     * @psalm-param positive-int $line
+     */
     public function __construct(Telemetry\Info $telemetryInfo, Test $test, string $message, string $file, int $line, bool $suppressed)
     {
         $this->telemetryInfo = $telemetryInfo;
@@ -49,16 +66,25 @@ final class ErrorTriggered implements Event
         return $this->test;
     }
 
+    /**
+     * @psalm-return non-empty-string
+     */
     public function message(): string
     {
         return $this->message;
     }
 
+    /**
+     * @psalm-return non-empty-string
+     */
     public function file(): string
     {
         return $this->file;
     }
 
+    /**
+     * @psalm-return positive-int
+     */
     public function line(): int
     {
         return $this->line;
@@ -78,9 +104,11 @@ final class ErrorTriggered implements Event
         }
 
         return sprintf(
-            'Test Triggered %sError (%s)%s',
+            'Test Triggered %sError (%s) in %s:%d%s',
             $this->wasSuppressed() ? 'Suppressed ' : '',
             $this->test->id(),
+            $this->file,
+            $this->line,
             $message,
         );
     }

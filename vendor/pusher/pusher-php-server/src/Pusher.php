@@ -19,7 +19,7 @@ class Pusher implements LoggerAwareInterface, PusherInterface
     /**
      * @var string Version
      */
-    public static $VERSION = '7.2.3';
+    public static $VERSION = '7.2.6';
 
     /**
      * @var null|PusherCrypto
@@ -60,15 +60,9 @@ class Pusher implements LoggerAwareInterface, PusherInterface
      *
      * @throws PusherException Throws exception if any required dependencies are missing
      */
-    public function __construct(string $auth_key, string $secret, string $app_id, array $options = [], ClientInterface $client = null)
+    public function __construct(string $auth_key, string $secret, string $app_id, array $options = [], ?ClientInterface $client = null)
     {
         $this->check_compatibility();
-
-        if (!is_null($client)) {
-            $this->client = $client;
-        } else {
-            $this->client = new \GuzzleHttp\Client();
-        }
 
         $useTLS = true;
         if (isset($options['useTLS'])) {
@@ -118,6 +112,13 @@ class Pusher implements LoggerAwareInterface, PusherInterface
                 $options['encryption_master_key_base64']
             );
             $this->crypto = new PusherCrypto($parsedKey);
+        }
+
+
+        if (!is_null($client)) {
+            $this->client = $client;
+        } else {
+            $this->client = new \GuzzleHttp\Client(['timeout'  => $this->settings['timeout'],]);
         }
     }
 
@@ -286,7 +287,7 @@ class Pusher implements LoggerAwareInterface, PusherInterface
         string $request_path,
         array $query_params = [],
         string $auth_version = '1.0',
-        string $auth_timestamp = null
+        ?string $auth_timestamp = null
     ): array {
         $params = [];
         $params['auth_key'] = $auth_key;
@@ -724,7 +725,8 @@ class Pusher implements LoggerAwareInterface, PusherInterface
             'query' => $signature,
             'http_errors' => false,
             'headers' => $headers,
-            'base_uri' => $this->channels_url_prefix()
+            'base_uri' => $this->channels_url_prefix(),
+            'timeout' => $this->settings['timeout']
         ]);
 
         $status = $response->getStatusCode();
@@ -776,7 +778,8 @@ class Pusher implements LoggerAwareInterface, PusherInterface
                 'body' => $body,
                 'http_errors' => false,
                 'headers' => $headers,
-                'base_uri' => $this->channels_url_prefix()
+                'base_uri' => $this->channels_url_prefix(),
+                'timeout' => $this->settings['timeout']
             ]);
         } catch (ConnectException $e) {
             throw new ApiErrorException($e->getMessage());
@@ -826,7 +829,8 @@ class Pusher implements LoggerAwareInterface, PusherInterface
             'body' => $body,
             'http_errors' => false,
             'headers' => $headers,
-            'base_uri' => $this->channels_url_prefix()
+            'base_uri' => $this->channels_url_prefix(),
+            'timeout' => $this->settings['timeout'],
         ])->then(function ($response) {
             $status = $response->getStatusCode();
 
@@ -880,7 +884,7 @@ class Pusher implements LoggerAwareInterface, PusherInterface
      * @return string Json encoded authentication string.
      * @throws PusherException Throws exception if $channel is invalid or above or $socket_id is invalid
      */
-    public function authorizeChannel(string $channel, string $socket_id, string $custom_data = null): string
+    public function authorizeChannel(string $channel, string $socket_id, ?string $custom_data = null): string
     {
         $this->validate_channel($channel);
         $this->validate_socket_id($socket_id);
@@ -945,7 +949,7 @@ class Pusher implements LoggerAwareInterface, PusherInterface
     /**
      * @deprecated in favour of authorizeChannel
      */
-    public function socketAuth(string $channel, string $socket_id, string $custom_data = null): string
+    public function socketAuth(string $channel, string $socket_id, ?string $custom_data = null): string
     {
         return $this->authorizeChannel($channel, $socket_id, $custom_data);
     }
@@ -953,7 +957,7 @@ class Pusher implements LoggerAwareInterface, PusherInterface
     /**
      * @deprecated in favour of authorizeChannel
      */
-    public function socket_auth(string $channel, string $socket_id, string $custom_data = null): string
+    public function socket_auth(string $channel, string $socket_id, ?string $custom_data = null): string
     {
         return $this->authorizeChannel($channel, $socket_id, $custom_data);
     }

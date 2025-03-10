@@ -33,9 +33,15 @@ abstract class HttpDriver extends Driver
      */
     public function process(Request $request): Fluent|false
     {
-        return rescue(fn () => new Fluent(
-            $this->http()->get($this->url($request->getIp()))->json()
-        ), false);
+        return rescue(function () use ($request) {
+            $response = $this->http()->acceptJson()->get(
+                $this->url($request->getIp())
+            );
+
+            throw_if($response->failed());
+
+            return new Fluent($response->json());
+        }, false, false);
     }
 
     /**
@@ -45,6 +51,11 @@ abstract class HttpDriver extends Driver
     {
         $callback = static::$httpResolver ?: fn ($http) => $http;
 
-        return value($callback, Http::timeout(2)->connectTimeout(2));
+        return value($callback, Http::withOptions(
+            config('location.http', [
+                'timeout' => 3,
+                'connect_timeout' => 3,
+            ])
+        ));
     }
 }

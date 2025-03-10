@@ -254,7 +254,7 @@
                 </tr>
                 <tr>
                     <td><b>Total (MXN):</b></td>
-                    <td><b>${{$reservation->total * 19 }} MXN</b></td>
+                    <td><b>${{$reservation->total * 20 }} MXN</b></td>
                 </tr>
                 <tr>
                     <td><b>Pay Method:</b></td>
@@ -318,7 +318,7 @@
                 </tr>
                 <tr>
                     <td><b>Total (MXN):</b></td>
-                    <td><b>${{$reservation->total * 19 }} MXN</b></td>
+                    <td><b>${{$reservation->total * 20 }} MXN</b></td>
                 </tr>
                 {{-- <tr>
                     <td><b>Pay Method:</b></td>
@@ -420,7 +420,7 @@
                     <td></td>
                     <td></td>
                     <td class="left_line"><b>Total (MXN):</b></td>
-                    <td><b>${{$reservation->total * 19 }} MXN</b></td>
+                    <td><b>${{$reservation->total * 20 }} MXN</b></td>
                 </tr>
                 {{-- <tr>
                     <td></td>

@@ -1,12 +1,9 @@
 <?php
 
-use App\Models\Role;
 use App\Http\Controllers;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
-use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Auth;
 
 /** LOGIN */
 Auth::routes();

@@ -38,6 +38,13 @@ class Event
     public $expression = '* * * * *';
 
     /**
+     * How often to repeat the event during a minute.
+     *
+     * @var int|null
+     */
+    public $repeatSeconds = null;
+
+    /**
      * The timezone the date should be evaluated on.
      *
      * @var \DateTimeZone|string
@@ -157,6 +164,15 @@ class Event
     public $mutexNameResolver;
 
     /**
+     * The last time the event was checked for eligibility to run.
+     *
+     * Utilized by sub-minute repeated events.
+     *
+     * @var \Illuminate\Support\Carbon|null
+     */
+    protected $lastChecked;
+
+    /**
      * The exit status code of the command.
      *
      * @var int|null
@@ -222,6 +238,27 @@ class Event
     }
 
     /**
+     * Determine if the event has been configured to repeat multiple times per minute.
+     *
+     * @return bool
+     */
+    public function isRepeatable()
+    {
+        return ! is_null($this->repeatSeconds);
+    }
+
+    /**
+     * Determine if the event is ready to repeat.
+     *
+     * @return bool
+     */
+    public function shouldRepeatNow()
+    {
+        return $this->isRepeatable()
+            && $this->lastChecked?->diffInSeconds() >= $this->repeatSeconds;
+    }
+
+    /**
      * Run the command process.
      *
      * @param  \Illuminate\Contracts\Container\Container  $container
@@ -252,7 +289,11 @@ class Event
     {
         return Process::fromShellCommandline(
             $this->buildCommand(), base_path(), null, null, null
-        )->run();
+        )->run(
+            laravel_cloud()
+                ? fn ($type, $line) => fwrite($type === 'out' ? STDOUT : STDERR, $line)
+                : fn () => true
+        );
     }
 
     /**
@@ -370,6 +411,8 @@ class Event
      */
     public function filtersPass($app)
     {
+        $this->lastChecked = Date::now();
+
         foreach ($this->filters as $callback) {
             if (! $app->call($callback)) {
                 return false;

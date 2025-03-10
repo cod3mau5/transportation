@@ -1,30 +1,21 @@
 <h1 align="center">Location</h1>
 
 <p align="center">
-Retrieve a visitor's location from their IP address using various services.
+Retrieve a visitor's location from their IP address using various services (online & local).
 </p>
 
 <p align="center">
-<a href="https://github.com/stevebauman/location/actions">
-<img src="https://img.shields.io/github/actions/workflow/status/stevebauman/location/run-tests.yml?branch=master&style=flat-square">
-</a>
-
-<a href="https://scrutinizer-ci.com/g/stevebauman/location/?branch=master">
-<img src="https://img.shields.io/scrutinizer/g/stevebauman/location.svg?style=flat-square">
-</a>
-
-<a href="https://packagist.org/packages/stevebauman/location">
-<img src="https://img.shields.io/packagist/dt/stevebauman/location.svg?style=flat-square">
-</a>
-
-<a href="https://packagist.org/packages/stevebauman/location">
-<img src="https://img.shields.io/packagist/l/stevebauman/location.svg?style=flat-square">
-</a>
+<a href="https://github.com/stevebauman/location/actions"><img src="https://img.shields.io/github/actions/workflow/status/stevebauman/location/run-tests.yml?branch=master&style=flat-square"></a>
+<a href="https://packagist.org/packages/stevebauman/location"><img src="https://img.shields.io/packagist/dt/stevebauman/location.svg?style=flat-square"></a>
+<a href="https://packagist.org/packages/stevebauman/location"><img src="https://img.shields.io/packagist/l/stevebauman/location.svg?style=flat-square"></a>
 </p>
+
+## Index
 
 - [Requirements](#requirements)
 - [Installation](#installation)
 - [Usage](#usage)
+- [Testing](#testing)
 - [Drivers](#drivers)
 - [Upgrading from v6](#upgrading-from-v6)
 - [Versioning](#versioning)
@@ -73,6 +64,83 @@ if ($position = Location::get()) {
 $position = Location::get('192.168.1.1');
 ```
 
+## Testing
+
+You may call `Location::fake` with an array of IP address patterns and their expected positions to fake the location of an IP address:
+
+```php
+use Stevebauman\Location\Position;
+use Stevebauman\Location\Facades\Location;
+
+Location::fake([
+    '127.0.0.1' => Position::make([
+        'countryName' => 'United States',
+        'countryCode' => 'US',
+        // ...
+    ])
+]);
+
+// Somewhere in your application...
+
+$position = Location::get('127.0.0.1'); // Position
+```
+
+If you prefer, you may use an asterisk to return the same position for any IP address that is given: 
+
+```php
+Location::fake([
+    '*' => Position::make([
+        'countryName' => 'United States',
+        'countryCode' => 'US',
+        // ...
+    ])
+]);
+
+$position = Location::get($anyIpAddress); // Position
+```
+
+If no expectations are given, or an expectation is not matched, `Location::get` will return `false`:
+
+```php
+Location::fake();
+
+Location::get($anyIpAddress); // false
+```
+
+If your application attempts to retrieve the location's of multiple IP addresses, you may provide multiple IP address expectation patterns:
+
+```php
+Location::fake([
+    '127.0.0.1' => Position::make([
+        'countryName' => 'United States',
+        'countryCode' => 'US',
+        // ...
+    ]),
+    '192.168.1.1' => Position::make([
+        'countryName' => 'Canada',
+        'countryCode' => 'CA',
+        // ...
+    ]),
+]);
+```
+
+You may also use an asterisk to fake several IP patterns:
+
+```php
+Location::fake([
+    '192.123.*.*' => Position::make([
+        'countryName' => 'United States',
+        'countryCode' => 'US',
+        // ...
+    ]),
+    '192.456.*.*' => Position::make([
+        'countryName' => 'Canada',
+        'countryCode' => 'CA',
+        // ...
+    ]),
+]);
+```
+
 ## Drivers
 
 ### Available Drivers
@@ -87,11 +155,13 @@ Available drivers:
 - [GeoPlugin](http://www.geoplugin.com)
 - [MaxMind](https://www.maxmind.com/en/home)
 - [Cloudflare](https://support.cloudflare.com/hc/en-us/articles/200168236-Configuring-IP-geolocation)
+- [IP2Location.io](https://www.ip2location.io/)
 
 #### Setting up MaxMind with a self-hosted database (optional)
 
-We encourage setting up MaxMind as a fallback driver using a local database, as it allows
-you to bypass any throttling that could occur from using external web services.
+It is encouraged to set up MaxMind as a fallback driver using a local database 
+so that some location information is returned in the event of hitting
+a rate limit from the external web services.
 
 To set up MaxMind to retrieve the user's location from your own server, you must:
 
@@ -151,7 +221,7 @@ Then, insert your driver class name into the configuration file:
 ```php
 // config/location.php
 
-'driver' => App\Locations\MyDriver::class,
+'driver' => App\Location\Drivers\MyDriver::class,
 ```
 
 ## Upgrading from v6
@@ -180,7 +250,7 @@ return [
         'local' => [
             // ...
             
-+            'url' => sprintf('https://download.maxmind.com/app/geoip_download?edition_id=GeoLite2-City&license_key=%s&suffix=tar.gz', env('MAXMIND_LICENSE_KEY')),
++            'url' => sprintf('https://download.maxmind.com/app/geoip_download_by_token?edition_id=GeoLite2-City&license_key=%s&suffix=tar.gz', env('MAXMIND_LICENSE_KEY')),
         ],
     ],
 ];

@@ -51,7 +51,7 @@ class OracleSchemaManager extends AbstractSchemaManager
      */
     public function listTableDetails($name)
     {
-        Deprecation::trigger(
+        Deprecation::triggerIfCalledFromOutside(
             'doctrine/dbal',
             'https://github.com/doctrine/dbal/pull/5595',
             '%s is deprecated. Use introspectTable() instead.',
@@ -107,8 +107,6 @@ class OracleSchemaManager extends AbstractSchemaManager
 
     /**
      * {@inheritDoc}
-     *
-     * @link http://ezcomponents.org/docs/api/trunk/DatabaseSchema/ezcDbSchemaPgsqlReader.html
      */
     protected function _getPortableTableIndexesList($tableIndexes, $tableName = null)
     {

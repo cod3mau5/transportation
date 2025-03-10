@@ -8,11 +8,14 @@ use GeoIp2\Model\City;
 use GeoIp2\Model\Country;
 use GeoIp2\WebService\Client;
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Fluent;
 use Illuminate\Support\Str;
 use PharData;
 use PharFileInfo;
+use RecursiveIteratorIterator;
+use RuntimeException;
 use Stevebauman\Location\Position;
 use Stevebauman\Location\Request;
 
@@ -23,35 +26,45 @@ class MaxMind extends Driver implements Updatable
      */
     public function update(Command $command): void
     {
+        @mkdir(
+            $root = Str::of($this->getDatabasePath())->dirname()
+        );
+
         $storage = Storage::build([
             'driver' => 'local',
-            'root' => sys_get_temp_dir(),
+            'root' => $root,
         ]);
 
-        $storage->put(
-            $tar = 'maxmind.tar.gz',
-            fopen($this->getDatabaseUrl(), 'r')
+        $tarFilePath = $storage->path(
+            $tarFileName = 'maxmind.tar.gz'
         );
 
-        $file = $this->discoverDatabaseFile(
-            $archive = new PharData($storage->path($tar))
+        $response = Http::withOptions(['sink' => $tarFilePath])->get(
+            $this->getDatabaseUrl()
         );
 
-        $relativePath = implode('/', [
-            Str::afterLast($file->getPath(), DIRECTORY_SEPARATOR),
-            $file->getFilename(),
-        ]);
+        throw_if(
+            $response->failed(),
+            new RuntimeException('Failed to download MaxMind database. Response: '.$response->body())
+        );
+
+        $archive = new PharData($tarFilePath);
+
+        $file = $this->discoverDatabaseFile($archive);
+
+        $directory = Str::of($file->getPath())->basename();
+
+        $relativePath = implode('/', [$directory, $file->getFilename()]);
 
         $archive->extractTo($storage->path('/'), $relativePath, true);
-
-        @mkdir(
-            Str::beforeLast($this->getDatabasePath(), DIRECTORY_SEPARATOR)
-        );
 
         file_put_contents(
             $this->getDatabasePath(),
             fopen($storage->path($relativePath), 'r')
         );
+
+        $storage->delete($tarFileName);
+        $storage->deleteDirectory($directory);
     }
 
     /**
@@ -61,14 +74,7 @@ class MaxMind extends Driver implements Updatable
      */
     protected function discoverDatabaseFile(PharData $archive): PharFileInfo
     {
-        /** @var \FilesystemIterator $file */
-        foreach ($archive as $file) {
-            if ($file->isDir()) {
-                return $this->discoverDatabaseFile(
-                    new PharData($file->getPathName())
-                );
-            }
-
+        foreach (new RecursiveIteratorIterator($archive) as $file) {
             if (pathinfo($file, PATHINFO_EXTENSION) === 'mmdb') {
                 return $file;
             }
@@ -90,7 +96,7 @@ class MaxMind extends Driver implements Updatable
         $position->cityName = $location->city;
         $position->postalCode = $location->postal;
         $position->metroCode = $location->metro_code;
-        $position->timezone = $location->time_zone;
+        $position->timezone = $location->timezone;
         $position->latitude = $location->latitude;
         $position->longitude = $location->longitude;
 
@@ -103,28 +109,28 @@ class MaxMind extends Driver implements Updatable
     protected function process(Request $request): Fluent|false
     {
         return rescue(function () use ($request) {
-            $record = $this->fetchLocation($request->getIp());
+            $location = $this->fetchLocation($request->getIp());
 
-            if ($record instanceof City) {
+            if ($location instanceof City) {
                 return new Fluent([
-                    'country' => $record->country->name,
-                    'country_code' => $record->country->isoCode,
-                    'city' => $record->city->name,
-                    'regionCode' => $record->mostSpecificSubdivision->isoCode,
-                    'regionName' => $record->mostSpecificSubdivision->name,
-                    'postal' => $record->postal->code,
-                    'timezone' => $record->location->timeZone,
-                    'latitude' => (string) $record->location->latitude,
-                    'longitude' => (string) $record->location->longitude,
-                    'metro_code' => (string) $record->location->metroCode,
+                    'country' => $location->country->name,
+                    'country_code' => $location->country->isoCode,
+                    'city' => $location->city->name,
+                    'regionCode' => $location->mostSpecificSubdivision->isoCode,
+                    'regionName' => $location->mostSpecificSubdivision->name,
+                    'postal' => $location->postal->code,
+                    'timezone' => $location->location->timeZone,
+                    'latitude' => (string) $location->location->latitude,
+                    'longitude' => (string) $location->location->longitude,
+                    'metro_code' => (string) $location->location->metroCode,
                 ]);
             }
 
             return new Fluent([
-                'country' => $record->country->name,
-                'country_code' => $record->country->isoCode,
+                'country' => $location->country->name,
+                'country_code' => $location->country->isoCode,
             ]);
-        }, false);
+        }, false, false);
     }
 
     /**
@@ -182,7 +188,7 @@ class MaxMind extends Driver implements Updatable
      */
     protected function getLicenseKey(): string
     {
-        return config('location.maxmind.web.license_key');
+        return config('location.maxmind.license_key', config('location.maxmind.web.license_key'));
     }
 
     /**
@@ -208,7 +214,7 @@ class MaxMind extends Driver implements Updatable
     {
         return config(
             'location.maxmind.local.url',
-            sprintf('https://download.maxmind.com/app/geoip_download?edition_id=GeoLite2-City&license_key=%s&suffix=tar.gz', $this->getLicenseKey()),
+            sprintf('https://download.maxmind.com/app/geoip_download_by_token?edition_id=GeoLite2-City&license_key=%s&suffix=tar.gz', $this->getLicenseKey()),
         );
     }
 

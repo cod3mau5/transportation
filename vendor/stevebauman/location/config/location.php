@@ -26,6 +26,7 @@ return [
     */
 
     'fallbacks' => [
+        Stevebauman\Location\Drivers\Ip2locationio::class,
         Stevebauman\Location\Drivers\IpInfo::class,
         Stevebauman\Location\Drivers\GeoPlugin::class,
         Stevebauman\Location\Drivers\MaxMind::class,
@@ -43,6 +44,22 @@ return [
     */
 
     'position' => Stevebauman\Location\Position::class,
+
+    /*
+    |--------------------------------------------------------------------------
+    | HTTP Client Options
+    |--------------------------------------------------------------------------
+    |
+    | Here you may configure the options used by the underlying
+    | Laravel HTTP client. This will be used in drivers that
+    | request info via HTTP requests through API services.
+    |
+    */
+
+    'http' => [
+        'timeout' => 3,
+        'connect_timeout' => 3,
+    ],
 
     /*
     |--------------------------------------------------------------------------
@@ -76,17 +93,18 @@ return [
     */
 
     'maxmind' => [
+        'license_key' => env('MAXMIND_LICENSE_KEY'),
+
         'web' => [
             'enabled' => false,
             'user_id' => env('MAXMIND_USER_ID'),
-            'license_key' => env('MAXMIND_LICENSE_KEY'),
             'options' => ['host' => 'geoip.maxmind.com'],
         ],
 
         'local' => [
             'type' => 'city',
             'path' => database_path('maxmind/GeoLite2-City.mmdb'),
-            'url' => sprintf('https://download.maxmind.com/app/geoip_download?edition_id=GeoLite2-City&license_key=%s&suffix=tar.gz', env('MAXMIND_LICENSE_KEY')),
+            'url' => sprintf('https://download.maxmind.com/app/geoip_download_by_token?edition_id=GeoLite2-City&license_key=%s&suffix=tar.gz', env('MAXMIND_LICENSE_KEY')),
         ],
     ],
 
@@ -100,6 +118,10 @@ return [
 
     'ipdata' => [
         'token' => env('IPDATA_TOKEN'),
+    ],
+
+    'ip2locationio' => [
+        'token' => env('IP2LOCATIONIO_TOKEN'),
     ],
 
     /*

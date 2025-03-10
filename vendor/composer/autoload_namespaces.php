@@ -6,5 +6,5 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
-    'Evenement' => array($vendorDir . '/evenement/evenement/src'),
+    'Barryvdh' => array($vendorDir . '/barryvdh/reflection-docblock/src'),
 );

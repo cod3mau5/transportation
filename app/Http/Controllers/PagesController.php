@@ -10,7 +10,6 @@ use App\Mail\sendMail;
 use App\Models\Resort;
 use App\Models\Reservation;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Mail;
 
 class PagesController extends Controller

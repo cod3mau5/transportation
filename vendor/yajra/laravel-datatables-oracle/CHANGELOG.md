@@ -8,6 +8,48 @@
 
 ### [Unreleased]
 
+### [v10.11.4] - 2024-02-28
+
+- fix: EloquentDataTable return type typo #3123
+
+### [v10.11.3] - 2023-12-27
+
+- fix: Update composer.json to use Larastan Org #3107
+
+### [v10.11.2] - 2023-12-12
+
+- fix: scout search with smart search #3105
+
+### [v10.11.1] - 2023-11-25
+
+- fix: Prevent error when PHP extension iconv not enabled. #3098
+
+### [v10.11.0] - 2023-11-04
+
+- feat: Scout Search Implementation #3082
+- feat: Add scout fixed ordering for pgsql and oracle #3090
+
+### [v10.10.0] - 2023-10-04
+
+- feat: allow closure on formatColumn #3073
+
+### [v10.9.0] - 2023-09-29
+
+- feat: Ability to pass static data to a blade render #3067
+
+### [v10.8.0] - 2023-08-12
+
+- feat: convert prepareQuery from protected to public #3045
+
+### [v10.7.0] - 2023-07-31
+
+- feat: add ability to disable eloquent getter mutator #3009
+- feat: Ability to use deep relations for searching #3035
+
+### [v10.6.2] - 2023-07-15
+
+- fix: #3010 - convert expressions to strings #3029
+
 ### [v10.6.1] - 2023-07-05
 
 - fix: #3025 #3026
@@ -148,7 +190,16 @@
 - Drop support for `ApiResourceDataTable`
 - PHP8 syntax / method signature changed
 
-[Unreleased]: https://github.com/yajra/laravel-datatables/compare/v10.6.1...10.x
+[Unreleased]: https://github.com/yajra/laravel-datatables/compare/v10.11.3...10.x
+[v10.11.3]: https://github.com/yajra/laravel-datatables/compare/v10.11.3...v10.11.2
+[v10.11.2]: https://github.com/yajra/laravel-datatables/compare/v10.11.2...v10.11.1
+[v10.11.1]: https://github.com/yajra/laravel-datatables/compare/v10.11.1...v10.11.0
+[v10.11.0]: https://github.com/yajra/laravel-datatables/compare/v10.11.0...v10.10.0
+[v10.10.0]: https://github.com/yajra/laravel-datatables/compare/v10.10.0...v10.9.0
+[v10.9.0]: https://github.com/yajra/laravel-datatables/compare/v10.9.0...v10.8.0
+[v10.8.0]: https://github.com/yajra/laravel-datatables/compare/v10.8.0...v10.7.0
+[v10.7.0]: https://github.com/yajra/laravel-datatables/compare/v10.7.0...v10.6.2
+[v10.6.2]: https://github.com/yajra/laravel-datatables/compare/v10.6.2...v10.6.1
 [v10.6.1]: https://github.com/yajra/laravel-datatables/compare/v10.6.1...v10.6.0
 [v10.6.0]: https://github.com/yajra/laravel-datatables/compare/v10.6.0...v10.5.0
 [v10.5.0]: https://github.com/yajra/laravel-datatables/compare/v10.5.0...v10.4.4
