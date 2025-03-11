@@ -161,13 +161,14 @@
             beforeMount(){
             },
             mounted() {
-                // alert();
+
             },
             methods:{
+
                 changeLanguage: function(){
                     window.location.href = '/lang/' + this.lang;
                 }
             }
-        })
+        });
     </script>
 @endsection

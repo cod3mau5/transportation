@@ -479,7 +479,7 @@
 
         <div class="container-fluid isPopular py-5 s-bg px-5">
             <h3>
-                <a href="#" 
+                <a href="#"
                 title="Private Los Cabos Airport Transportation to San Lucas and San Jose del Cabo">
                     LOS CABOS AIRPORT TRANSPORTATION´ S
                 </a>
@@ -616,7 +616,129 @@
             },
             beforeMount() {},
             mounted() {
-                // alert();
+
+                function generateVisitorId() {
+                    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+                        var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+                        return v.toString(16);
+                    });
+                }
+
+                function getVisitorId() {
+                    return localStorage.getItem('visitorId');
+                }
+
+                function setVisitorId(visitorId) {
+                    localStorage.setItem('visitorId', visitorId);
+                }
+                'use strict'
+
+                // Generar un identificador de visitante único si no existe uno
+                var visitorId = getVisitorId();
+                if (!visitorId) {
+                    visitorId = generateVisitorId();
+                    setVisitorId(visitorId);
+                }
+
+                // Recolectar información del visitante
+                var data = {
+                    visitor_id: visitorId,
+                    device: navigator.platform,
+                    browser: navigator.userAgent,
+                    referer: document.referrer
+                    // la ubicación se recogerá en el servidor
+                };
+
+                // Enviar la información al servidor
+                $.post('/api/visits', data, function(response) {
+                    console.log(response);
+                });
+
+
+
+                /* FUNCIONALIDAD PARA LA GALERIA DE INSTAGRAM */
+                const gallery=document.querySelector('.ig-images');
+                const feed= document.querySelector('.gallery-container');
+                const next= document.querySelector('#next');
+                const prev= document.querySelector('#prev');
+                const token='{{env("IG_GALLERY_TOKEN")}}';
+                let limit = 3; // Valor predeterminado para dispositivos no móviles
+
+                // Detectar si la página se carga desde un dispositivo móvil
+                if (/Mobi|Android/i.test(navigator.userAgent)) {
+                    limit = 2; // Cambiar el límite a 3 para dispositivos móviles
+                }
+
+                const url=`https://graph.instagram.com/me/media?fields=thumbnail_url,media_url,caption,permalink&limit=${limit}&access_token=${token}`;
+                fetch(url)
+                .then(res=> res.json())
+                .then(data=>createHtml(data.data))
+                .then( setTimeout(function(){$('.ig-images').slick({infinite: true,autoplay:true,autoplaySpeed:2555,arrows:false,speed: 2000,fade: true, cssEase: 'linear'});}, 1444) );
+
+                function createHtml(data){
+                    for(const img of data){
+                        if(img.caption !== undefined){
+                            let imgUrl= img.thumbnail_url ? img.thumbnail_url  : img.media_url;
+
+                            document.querySelector('.ig-images').innerHTML+=`
+                                <div>
+
+                                        <img loading="lazy" src="${imgUrl}" alt="${img.caption.slice(0,30)}">
+
+
+                                </div>
+                            `;
+                        }
+                    }
+                }
+
+                // Se desactivo el mover la galeria para el beneficio del SEO
+                // next.addEventListener('click',moveGallery);
+                // prev.addEventListener('click',moveGallery);
+                // function moveGallery(e){
+                //     if(e.target.id === "next" || e.target.parentElement.id == "next"){
+                //         feed.scrollLeft+= feed.offsetWidth;
+                //     }else{
+                //         feed.scrollLeft-= feed.offsetWidth;
+
+                //     }
+                // }
+
+
+
+                    //date & time picker
+                    $('#arrival_date_r').datetimepicker({
+                        format: 'MM/DD/YYYY',
+                        minDate: moment()
+                    });
+
+                    $('#departure_date_r').datetimepicker({
+                        format: 'MM/DD/YYYY',
+                        useCurrent: false,
+                    });
+
+                    $('#arrival_date_o_a').datetimepicker({
+                        format: 'MM/DD/YYYY',
+                        useCurrent: false, //Important! See issue #1075
+                        minDate: moment()
+                    });
+
+                    $('#departure_date_o_d').datetimepicker({
+                        format: 'MM/DD/YYYY',
+                        useCurrent: false, //Important! See issue #1075
+                        minDate: moment()
+                    });
+
+
+                    $("#arrival_date_r").on("dp.change", function (e) {
+                        if ($('#departure_date_r').length) {
+                            $('#departure_date_r').data("DateTimePicker").minDate(e.date);
+                        }
+                    });
+
+                    $("#departure_date_r").on("dp.change", function (e) {
+                        $('#arrival_date_r').data("DateTimePicker").maxDate(e.date);
+                    });
             },
             methods: {
                 changeLanguage: function() {

@@ -170,7 +170,8 @@
                         limit = 10; // Cambiar el límite a 3 para dispositivos móviles
                     }
 
-                    const url=`https://graph.instagram.com/me/media?fields=thumbnail_url,media_url,caption,permalink&limit=${limit}&access_token=${token}`;
+
+                    const url=`https://graph.instagram.com/me/media?fields=thumbnail_url,media_url&access_token=${token}`;
                     fetch(url)
                     .then(res=> res.json())
                     .then(data=>createHtml(data.data))
@@ -212,37 +213,16 @@
                         });
                     }, 1444) );
 
-                    // function createHtml(data){
-                    //     for(const img of data){
-                    //         if(img.caption !== undefined){
-                    //             let imgUrl= img.thumbnail_url ? img.thumbnail_url  : img.media_url;
-
-                    //             gallery.innerHTML+=`
-                    //                 <div>
-                    //                     <div class="image overflow">
-                    //                         <img loading="lazy" src="${imgUrl}" alt="${img.caption.slice(0,30)}">
-                    //                         <div class="opacity-hover">
-                    //                             <a href="${img.permalink}" class="caption">
-                    //                                 <p>
-                    //                                     ${img.caption.slice(0,80)}
-                    //                                 </p>
-                    //                             </a>
-                    //                     </div>
-                    //                 </div>
-                    //             `;
-                    //         }
-                    //     }
-                    // }
 
                     function createHtml(data){
                         console.log(data);
                         for(const img of data){
-                            if(img.caption !== undefined && !img.thumbnail_url){
+                            if(img.caption !== undefined || img.thumbnail_url !== undefined || img.media_url !== undefined){
                                 let imgUrl= img.thumbnail_url ? img.thumbnail_url  : img.media_url;
                                 let content=`
                                     <div>
                                         <img loading="lazy" src="${imgUrl}"
-                                            alt="${img.caption.slice(0,30)}">
+                                            alt="${img.caption?.slice(0,30)}">
                                     </div>
                                 `;
                                 gallery_container.innerHTML+=content;
@@ -252,8 +232,8 @@
                     }
 
                     // Se desactivo el mover la galeria para el beneficio del SEO
-                    next.addEventListener('click',moveGallery);
-                    prev.addEventListener('click',moveGallery);
+                    // next.addEventListener('click',moveGallery);
+                    // prev.addEventListener('click',moveGallery);
                     function moveGallery(e){
                         if(e.target.id === "next" || e.target.parentElement.id == "next"){
                             feed.scrollLeft+= feed.offsetWidth;
@@ -271,6 +251,6 @@
                         window.location.href = '/lang/' + this.lang;
                     }
                 }
-            })
+            });
         </script>
 @endsection
