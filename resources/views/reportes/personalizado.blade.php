@@ -15,7 +15,7 @@
             <h3 class="box-title"><strong>REPORTE PERSONALIZADO</strong></h3>
         </div>
         <div class="box-body">
-            {!! Form::open(['route' => 'reporte.personalizado', 'class' => 'form-horizontal', 'method'=>'get']) !!}
+            {!! Html::open(['route' => 'reporte.personalizado', 'class' => 'form-horizontal', 'method'=>'get']) !!}
             <div class="form-group">
                 <div class="col-md-2">
                     <label for="desde" class="control-label">Fecha inicio</label>
@@ -34,13 +34,13 @@
                 </div>
                 <div class="col-md-3">
                     <label for="hotel_id" class="control-label">Hotel</label>
-                    {{ Form::select('hotel_id', $hoteles, null,
+                    {{ Html::select('hotel_id', $hoteles, null,
                         ['class'=>'form-control', 'placeholder'=>'Todos los hoteles'])
                     }}
                 </div>
                 <div class="col-md-3">
                     <label for="agencia" class="control-label">Agencia</label>
-                    {{ Form::select('agencia_id', $agencias, null,
+                    {{ Html::select('agencia_id', $agencias, null,
                         ['class'=>'form-control', 'placeholder'=>'Todas las agencias'])
                     }}
                 </div>
@@ -48,7 +48,7 @@
             <div class="form-group">
                 <div class="col-md-12">
                     <input type="hidden" name="fields" id="fields">
-                    {{ Form::submit('Buscar', ['class'=>'btn btn-primary']) }}
+                    {{ Html::submit('Buscar', ['class'=>'btn btn-primary']) }}
                 </div>
             </div>
             <div class="form-group">
@@ -84,7 +84,7 @@
                     </ul>
                 </div>
             </div>
-            {!! Form::close() !!}
+            {!! Html::close() !!}
         </div>
     </div>
 @endif

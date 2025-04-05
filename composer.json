@@ -16,6 +16,7 @@
         "psr/log": "^1.0 || ^3.0",
         "pusher/pusher-php-server": "^7.2",
         "simplesoftwareio/simple-qrcode": "^4.2",
+        "spatie/laravel-html": "^3.12",
         "stevebauman/location": "^7.0",
         "yajra/laravel-datatables-oracle": "^10.0"
     },

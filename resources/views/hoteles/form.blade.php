@@ -1,56 +1,51 @@
-@isset ($record)
-    {!! Form::model($record,
-        ['route'=> ['hotel.update', $record->id], 'method'=>'put', 'class'=>'form-horizontal', 'enctype'=>'multipart/form-data'])
-    !!}
+@isset($record)
+    {!! Html::form('PUT', route('hotel.update', $record->id))->class('form-horizontal')->attribute('enctype', 'multipart/form-data')->open() !!}
 @else
-    {!! Form::open(['route' => 'hotel.store', 'class' => 'form-horizontal', 'enctype'=>'multipart/form-data']) !!}
+    {!! Html::form('POST', route('hotel.store'))->class('form-horizontal')->attribute('enctype', 'multipart/form-data')->open() !!}
 @endisset
 
 <div class="row">
     <div class="col-md-2">
-        <label for="name" class="control-label">Nombre del hotel:</label>
+        {!! Html::label('name', 'Nombre del hotel:')->class('control-label') !!}
     </div>
     <div class="col-md-3">
-        {{ Form::text('name', null, ['class'=>'form-control', 'required'=>'required']) }}
+        {!! Html::text('name', $record->name ?? null)->class('form-control')->required() !!}
     </div>
     <div class="col-md-2">
-        <label for="zone_id" class="control-label">Zona:</label>
+        {!! Html::label('zone_id', 'Zona:')->class('control-label') !!}
     </div>
     <div class="col-md-3">
-        {{ Form::select('zone_id', $zonas, null,
-            ['id'=>'zona_id', 'class'=>'form-control', 'placeholder'=>'Seleccione una zona', 'required'=>'required']
-        )}}
+        {!! Html::select('zone_id', $zonas, $record->zone_id ?? null)->id('zona_id')->class('form-control')->placeholder('Seleccione una zona')->required() !!}
     </div>
     <div class="col-md-2">
         @isset($record)
-        {{ Form::button('Cancelar', ['class'=>'btn-cancelar btn btn-default btn-block']) }}
-        <input type="hidden" name="id" value="{{$record->id}}">
+            {!! Html::button('Cancelar')->class('btn-cancelar btn btn-default btn-block') !!}
+            {!! Html::hidden('id', $record->id) !!}
         @endisset
-        {{ Form::submit($submit_label, ['class'=>'btn btn-primary btn-block']) }}
+        {!! Html::submit($submit_label)->class('btn btn-primary btn-block') !!}
     </div>
 </div>
 
 <div class="row" style="margin-bottom: 2rem">
     <div class="col-md-12">
-        <label for="meta_description" class="control-label">Meta Description (para Google):</label>
-        {{ Form::textarea('meta_description', null, ['id' => 'meta_description', 'class' => 'form-control', 'rows'=> '2']) }}
+        {!! Html::label('meta_description', 'Meta Description (para Google):')->class('control-label') !!}
+        {!! Html::textarea('meta_description', $record->meta_description ?? null)->id('meta_description')->class('form-control')->rows(2) !!}
     </div>
 </div>
 
-
 <div class="row" style="margin-bottom: 2rem">
     <div class="col-md-12">
-        <label for="description" class="control-label">Texto del hotel:</label>
-        {{ Form::textarea('description', null, ['id' => 'description', 'class' => 'form-control']) }}
+        {!! Html::label('description', 'Texto del hotel:')->class('control-label') !!}
+        {!! Html::textarea('description', $record->description ?? null)->id('description')->class('form-control') !!}
     </div>
 </div>
 
 <div class="row">
     <div class="col-md-2">
-        <label for="images" class="control-label">Imágenes:</label>
+        {!! Html::label('images', 'Imágenes:')->class('control-label') !!}
     </div>
     <div class="col-md-3">
-        {{ Form::file('images[]', ['class' => 'form-control-file', 'multiple' => true]) }}
+        {!! Html::file('images[]')->class('form-control-file')->attribute('multiple', true) !!}
     </div>
 </div>
 
@@ -67,7 +62,7 @@
                         <input type="checkbox" name="eliminar[]" value="{{ $imagen->id }}"> Eliminar
                     </label>
                     <div class="form-check">
-                        {{ Form::radio('cover', $imagen->id, $imagen->category === 'cover', ['class' => 'form-check-input']) }}
+                        {!! Html::radio('cover', $imagen->id, $imagen->category === 'cover')->class('form-check-input') !!}
                         <label class="form-check-label" for="cover">Establecer como portada</label>
                     </div>
                 </div>
@@ -76,11 +71,11 @@
     @endif
 @endisset
 
-{!! Form::close() !!}
+</form>
 
 <script src="https://cdn.ckeditor.com/4.16.0/full-all/ckeditor.js"></script>
 <script>
-    CKEDITOR.replace( 'description', {
+    CKEDITOR.replace('description', {
         removePlugins: 'image',
         filebrowserImageBrowseUrl: '{{base_path("public_html/assets/images/resort_images/")}}',
     });

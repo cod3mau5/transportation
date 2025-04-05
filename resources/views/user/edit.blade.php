@@ -8,13 +8,13 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Editar usuario</div>
                 <div class="panel-body">
-                    {!! Form::model($user, ['route'=>['user.update', $user->id], 'method'=>'put', 'class'=>'form-horizontal']) !!}
+                    {!! Html::model($user, ['route'=>['user.update', $user->id], 'method'=>'put', 'class'=>'form-horizontal']) !!}
 
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                             <label for="name" class="col-md-4 control-label">Nombre</label>
 
                             <div class="col-md-6">
-                                {{ Form::text('name', null, ['id'=>'name','class'=>'form-control', 'required'=>'required', 'autofocus'])}}
+                                {{ Html::text('name', null, ['id'=>'name','class'=>'form-control', 'required'=>'required', 'autofocus'])}}
 
                                 @if ($errors->has('name'))
                                     <span class="help-block">
@@ -28,7 +28,7 @@
                             <label for="username" class="col-md-4 control-label">Usuario</label>
 
                             <div class="col-md-6">
-                                {{ Form::text('username', null, ['id'=>'username', 'class'=>'form-control', 'required'=>'required', 'autofocus'])}}
+                                {{ Html::text('username', null, ['id'=>'username', 'class'=>'form-control', 'required'=>'required', 'autofocus'])}}
 
                                 @if ($errors->has('username'))
                                     <span class="help-block">
@@ -42,7 +42,7 @@
                             <label for="email" class="col-md-4 control-label">Correo electrónico</label>
 
                             <div class="col-md-6">
-                                {{ Form::text('email', null, ['id'=>'email', 'class'=>'form-control', 'required'=>'required', 'autofocus']) }}
+                                {{ Html::text('email', null, ['id'=>'email', 'class'=>'form-control', 'required'=>'required', 'autofocus']) }}
 
                                 @if ($errors->has('email'))
                                     <span class="help-block">
@@ -56,7 +56,7 @@
                             <label for="password" class="col-md-4 control-label">Contraseña</label>
 
                             <div class="col-md-6">
-                                {{ Form::password('password', ['id'=>'password', 'class'=>'form-control', 'autofocus']) }}
+                                {{ Html::password('password', ['id'=>'password', 'class'=>'form-control', 'autofocus']) }}
 
                                 @if ($errors->has('password'))
                                     <span class="help-block">
@@ -89,7 +89,7 @@
                                 <button type="submit" class="btn btn-primary">Actualizar</button>
                             </div>
                         </div>
-                    {!! Form::close() !!}
+                    {!! Html::close() !!}
                 </div>
             </div>
         </div>

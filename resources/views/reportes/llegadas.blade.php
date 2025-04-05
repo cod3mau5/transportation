@@ -20,7 +20,7 @@
         <h3 class="box-title"><strong>REPORTE DE LLEGADAS</strong></h3>
     </div>
     <div class="box-body">
-        {!! Form::open(['route' => 'reporte.llegadas', 'class' => 'form-horizontal', 'method'=>'get']) !!}
+        {!! Html::open(['route' => 'reporte.llegadas', 'class' => 'form-horizontal', 'method'=>'get']) !!}
         <div class="form-group">
             <div class="col-md-4">
                 <label for="desde">Fecha</label>
@@ -28,22 +28,22 @@
             </div>
             <div class="col-md-4">
                 <label for="hotel_id" class="control-label">Hotel</label>
-                {{ Form::select('hotel_id', $hoteles, null,
+                {{ Html::select('hotel_id', $hoteles, null,
                     ['class'=>'form-control', 'placeholder'=>'Todos los hoteles'])
                 }}
             </div>
         </div>
         <div class="form-group">
             <div class="col-md-12">
-                {{ Form::submit('Buscar', ['class'=>'btn btn-primary']) }}
+                {{ Html::submit('Buscar', ['class'=>'btn btn-primary']) }}
             </div>
         </div>
-        {!! Form::close() !!}
+        {!! Html::close() !!}
     </div>
 </div>
 
 @isset($reservas)
-{!! Form::open(['route' => 'reportes.guardar-asig', 'class' => 'form-asig', 'target'=>'_blank', 'id'=>'cambiar_asig', 'method'=>'post']) !!}
+{!! Html::open(['route' => 'reportes.guardar-asig', 'class' => 'form-asig', 'target'=>'_blank', 'id'=>'cambiar_asig', 'method'=>'post']) !!}
 <div class="box box-primary">
     <div class="box-header with-border">
         <h3 class="box-title"><strong>RESULTADOS DEL DIA: <span style="margin-left:1rem">{{ $fecha }}</span></strong></h3>
@@ -73,7 +73,7 @@
                             <td>{{$row->passengers}}</td>
                             <td>{{strtoupper($row->arrival_airline)}} {{$row->arrival_flight}}</td>
                             <td>{{$row->arrival_date}} {{date('H:m A', strtotime($row->arrival_time))}}</td>
-                            @if (!empty($row->resort->name))  
+                            @if (!empty($row->resort->name))
                                 <td>{{strtoupper($row->resort->name)}}</td>
                                 @else
                                 <td>
@@ -94,7 +94,7 @@
 </div>
 <input type="hidden" name="querystring" value="<?php echo $_SERVER['QUERY_STRING']; ?>">
 <input type="hidden" name="tipo_reporte" value="llegadas">
-{!! Form::close() !!}
+{!! Html::close() !!}
 @endisset
 
 @endsection

@@ -8,7 +8,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Agregar usuario</div>
                 <div class="panel-body">
-                    {!! Form::open(['route' => 'user.store', 'class' => 'form-horizontal']) !!}
+                    {!! Html::open(['route' => 'user.store', 'class' => 'form-horizontal']) !!}
 
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                             <label for="name" class="col-md-4 control-label">Nombre</label>
@@ -91,7 +91,7 @@
                                 <button type="button" class="btn btn-default btn-cancelar">Cancelar</button>
                             </div>
                         </div>
-                    {!! Form::close() !!}
+                    {!! Html::close() !!}
                 </div>
             </div>
         </div>
