@@ -391,7 +391,7 @@
                     <td><b>Destination:</b></td>
                     <td>{{$reservation->resort->name}}</td>
                     <td class="left_line"><b>Passengers:</b></td>
-                    <td>{{$reservation->passengers}}</td>
+                    <td>{{$reservation->total_travelers}}</td>
                 </tr>
                 <tr>
                     <td><b>Booster seat:</b></td>
