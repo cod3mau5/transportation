@@ -8,7 +8,8 @@
     </div>
     <div class="box-body">
         <div class="row">
-            {{-- ZONAS Y PRECIOS --}}
+
+            {{-- ZONAS Y PRECIOS--}}
             <a href="{{ route('zonas.index') }}">
                 <div class="col-lg-3">
                     <div class="panel panel-primary">
@@ -26,6 +27,24 @@
                     </div>
                 </div>
             </a>
+            <!-- HOTELES -->
+            <a href="{{ route('hotel.index') }}">
+                <div class="col-lg-2">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading text-center">
+                            <i class="fas fa-hotel fa-5x"></i>
+                        </div>
+                        <div class="panel-footer">
+                            <span class="pull-left">Hoteles</span>
+                            <span class="pull-right">
+                                <i class="fa fa-arrow-circle-right"></i>
+                            </span>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
             {{-- TOURS --}}
             <a href="{{ route('tours.index') }}">
                 <div class="col-lg-2">
