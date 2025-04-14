@@ -11,4 +11,9 @@ class Unit extends Model
     use HasFactory;
     use SoftDeletes;
     protected $guarded = ['id'];
+
+    public function rates()
+    {
+        return $this->hasMany('App\Models\Rate');
+    }
 }

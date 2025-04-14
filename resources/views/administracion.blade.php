@@ -8,33 +8,19 @@
     </div>
     <div class="box-body">
         <div class="row">
-            <!-- HOTELES -->
-            <a href="{{ route('hotel.index') }}">
-                <div class="col-lg-2">
+            {{-- ZONAS Y PRECIOS --}}
+            <a href="{{ route('zonas.index') }}">
+                <div class="col-lg-3">
                     <div class="panel panel-primary">
-                        <div class="panel-heading text-center">
-                            <i class="fa fa-building fa-5x"></i>
+                        <div class="panel-heading text-center" style="display: inline-flex;width: 100%;justify-content: center;">
+                            <i class="fas fa-map-marked-alt fa-5x" style="margin-right:10px"></i>
+                            <i class="fas fa-money-check-alt fa-5x"></i>
                         </div>
                         <div class="panel-footer">
-                            <span class="pull-left">Hoteles</span>
+                            <span class="pull-left">Zonas y Precios</span>
                             <span class="pull-right">
                                 <i class="fa fa-arrow-circle-right"></i>
                             </span>
-                            <div class="clearfix"></div>
-                        </div>
-                    </div>
-                </div>
-            </a>
-
-            {{-- ZONAS --}}
-            <a href="{{ route('zonas.index') }}">
-                <div class="col-lg-2">
-                    <div class="panel panel-primary">
-                        <div class="panel-heading text-center">
-                            <i class="fa fa-bullseye fa-5x"></i>
-                        </div>
-                        <div class="panel-footer">
-                            <span class="pull-left">Zonas</span>
                             <div class="clearfix"></div>
                         </div>
                     </div>
@@ -45,17 +31,38 @@
                 <div class="col-lg-2">
                     <div class="panel panel-primary">
                         <div class="panel-heading text-center">
-                            <i class="fa fa-bus fa-5x" aria-hidden="true"></i>
+                            <i class="fa fa-church fa-5x" aria-hidden="true"></i>
                         </div>
                         <div class="panel-footer">
                             <span class="pull-left">Tours</span>
+                            <span class="pull-right">
+                                <i class="fa fa-arrow-circle-right"></i>
+                            </span>
                             <div class="clearfix"></div>
                         </div>
                     </div>
                 </div>
             </a>
 
-            <!-- USUARIOS -->
+            {{-- UNIDADES --}}
+            <a href="{{  route('units.index')}}">
+                <div class="col-lg-2">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading text-center">
+                            <i class="fa fa-shuttle-van fa-5x"></i>
+                        </div>
+                        <div class="panel-footer">
+                            <span class="pull-left">Unidades</span>
+                            <span class="pull-right">
+                                <i class="fa fa-arrow-circle-right"></i>
+                            </span>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            {{-- USUARIOS --}}
             {{-- <a href="{{ route('user.index') }}">
                 <div class="col-lg-2">
                     <div class="panel panel-primary">

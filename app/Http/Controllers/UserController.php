@@ -174,7 +174,7 @@ class UserController extends Controller
                 {
                     if ($user->hasRole('superadmin')) return '';
 
-                    $html  = "<form class='delete-form' action='/user/{$user->id}' method='post'>" . csrf_field() . method_field('DELETE');
+                    $html  = "<form class='delete-form text-right' action='/user/{$user->id}' method='post'>" . csrf_field() . method_field('DELETE');
                     $html .= "<a href='/user/{$user->id}/edit' class='btn btn-xs btn-primary actions'>
                                 <i class='glyphicon glyphicon-edit'></i> Editar
                               </a>";

@@ -183,13 +183,13 @@ class ReservacionController extends Controller
         return Datatables::eloquent($model)
             ->addColumn('action', function ($row)
             {
-                $html  = "<form class='delete-form' action=".route('reservacion.destroy',$row->id)." method='post'>";
+                $html  = "<form class='delete-form text-center' action=".route('reservacion.destroy',$row->id)." method='post'>";
                 $html .= csrf_field() . method_field('DELETE');
-                $html .= "<a href='".route('reservacion.edit',$row->id)."' title='Editar reservación' class='btn btn-xs btn-primary actions'>";
-                $html .= "<i class='fa fa-edit'></i></a>";
+                $html .= "<a href='".route('reservacion.edit',$row->id)."' title='Editar reservación' class='btn btn-xs btn-primary actions' style='padding:1px 5px!important;'>";
+                $html .= "<i class='glyphicon glyphicon-edit'></i> Editar</a>";
                 if (!Auth::user()->hasRole('representante')) {
-                    $html .= "<button class='btn btn-xs btn-danger actions' type='button' title='Eliminar'>";
-                    $html .= "<i class='fa fa-times'></i></button>";
+                    $html .= "<button class='btn btn-xs btn-danger actions' style='margin:5px;padding:1px 5px!important;' type='button'>";
+                    $html .= "<i class='glyphicon glyphicon-remove'></i> Borrar</button></form>";
                 }
                 $html .= '</form>';
 

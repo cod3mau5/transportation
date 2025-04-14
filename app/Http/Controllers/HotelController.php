@@ -126,9 +126,9 @@ class HotelController extends Controller
         return Datatables::of(Resort::query())
             ->addColumn('action', function ($row)
             {
-                $html  = "<form class='delete-form' action='".route('hotel.destroy',$row->id)."' method='POST'>";
+                $html  = "<form class='delete-form text-right' action='".route('hotel.destroy',$row->id)."' method='POST'>";
                 $html .= csrf_field() . method_field('DELETE');
-                $html .= "<a href='".route('hotel.edit',$row->id)."' class='btn btn-xs btn-primary actions' title='Editar'>";
+                $html .= "<a href='".route('hotel.edit',$row->id)."' class='btn btn-xs btn-primary actions' style='padding:1px 5px!important;' title='Editar'>";
                 $html .= "<i class='glyphicon glyphicon-edit'></i></a>";
                 $html .= "<button class='btn btn-xs btn-danger actions' type='button' title='Eliminar'>";
                 $html .= "<i class='glyphicon glyphicon-remove'></i></button></form>";

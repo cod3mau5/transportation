@@ -107,6 +107,8 @@ Route::prefix('/administracion')->group(function() {
     Route::get('zonas/data', [Controllers\ZonaController::class, 'anyData'])->name('zonas.data');
     Route::get('hotel/data', [Controllers\HotelController::class, 'anyData'])->name('hotel.data');
     Route::get('tours/data', [Controllers\ToursController::class, 'anyData'])->name('tours.data');
+    Route::get('units/data', [Controllers\UnitsController::class, 'anyData'])->name('units.data');
+
     Route::get('clase/data', [Controllers\ClaseServicioController::class, 'anyData'])->name('clase.data');
     Route::get('tipo/data',  [Controllers\TipoServicioController::class, 'anyData'])->name('tipo.data');
     Route::get('formas/data', [Controllers\FormasPagoController::class, 'anyData'])->name('formas.data');
@@ -120,6 +122,8 @@ Route::prefix('/administracion')->group(function() {
     Route::resource('zonas',    Controllers\ZonaController::class);
     Route::resource('hotel',    Controllers\HotelController::class);
     Route::resource('tours',    Controllers\ToursController::class);
+    Route::resource('units',    Controllers\UnitsController::class);
+
     Route::resource('clase',    Controllers\ClaseServicioController::class);
     Route::resource('tipo',     Controllers\TipoServicioController::class);
     Route::resource('formas',   Controllers\FormasPagoController::class);

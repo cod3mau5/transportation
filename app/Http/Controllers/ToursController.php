@@ -102,12 +102,12 @@ class ToursController extends Controller
         return Datatables::of(Tour::query())
             ->addColumn('action', function ($row)
             {
-                $html  = "<form class='delete-form' action='".route('tours.destroy',$row->id)."' method='POST'>";
+                $html  = "<form class='delete-form text-right' action='".route('tours.destroy',$row->id)."' method='POST'>";
                 $html .= csrf_field() . method_field('DELETE');
-                $html .= "<a href='".route('tours.edit',$row->id)."' class='btn btn-xs btn-primary actions' title='Editar'>";
-                $html .= "<i class='glyphicon glyphicon-edit'></i></a>";
-                $html .= "<button class='btn btn-xs btn-danger actions' type='button' title='Eliminar'>";
-                $html .= "<i class='glyphicon glyphicon-remove'></i></button></form>";
+                $html .= "<a href='".route('tours.edit',$row->id)."' class='btn btn-xs btn-primary actions' style='padding:1px 5px!important;' title='Editar'>";
+                $html .= "<i class='glyphicon glyphicon-edit'></i> Editar</a>";
+                $html .= "<button class='btn btn-xs btn-danger actions' style='margin:5px;padding:1px 5px!important;' type='button'>";
+                $html .= "<i class='glyphicon glyphicon-remove'></i> Borrar</button></form>";
                 return $html;
             })
             ->editColumn('name', function ($row) {

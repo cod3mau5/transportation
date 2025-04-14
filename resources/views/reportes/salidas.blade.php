@@ -19,30 +19,28 @@
         <h3 class="box-title"><strong>REPORTE DE SALIDAS</strong></h3>
     </div>
     <div class="box-body">
-        {!! Html::open(['route' => 'reporte.salidas', 'class' => 'form-horizontal', 'method'=>'get']) !!}
+        {!! Html::form('GET', route('reporte.salidas'))->class('form-horizontal')->open() !!}
         <div class="form-group">
             <div class="col-md-4">
-                <label for="desde">Fecha</label>
+                {!! Html::label('Fecha', 'desde') !!}
                 <input type="text" class="form-control" name="desde" id="desde" required="required" autocomplete="off">
             </div>
             <div class="col-md-4">
-                <label for="hotel_id" class="control-label">Hotel</label>
-                {{ Html::select('resort_id', $hoteles, null,
-                    ['class'=>'form-control', 'placeholder'=>'Todos los hoteles'])
-                }}
+                {!! Html::label('Hotel', 'resort_id')->class('control-label') !!}
+                {!! Html::select('resort_id', $hoteles, null)->class('form-control')->placeholder('Todos los hoteles') !!}
             </div>
         </div>
         <div class="form-group">
             <div class="col-md-12">
-                {{ Html::submit('Buscar', ['class'=>'btn btn-primary']) }}
+                {!! Html::submit('Buscar')->class('btn btn-primary') !!}
             </div>
         </div>
-        {!! Html::close() !!}
+        </form>
     </div>
 </div>
 
 @isset($reservas)
-{!! Html::open(['route' => 'reportes.guardar-asig', 'class' => 'form-asig', 'target'=>'_blank', 'id'=>'cambiar_asig', 'method'=>'post']) !!}
+{!! Html::form('POST', route('reportes.guardar-asig'))->class('form-asig')->id('cambiar_asig')->attribute('target', '_blank')->open() !!}
 <div class="box box-primary">
     <div class="box-header with-border">
         <h3 class="box-title"><strong>RESULTADOS DEL DIA: <span style="margin-left:1rem">{{ $fecha }}</span></strong></h3>
@@ -83,9 +81,9 @@
         @endif
     </div>
 </div>
-<input type="hidden" name="querystring" value="<?php echo $_SERVER['QUERY_STRING']; ?>">
-<input type="hidden" name="tipo_reporte" value="salidas">
-{!! Html::close() !!}
+{!! Html::hidden('querystring', $_SERVER['QUERY_STRING']) !!}
+{!! Html::hidden('tipo_reporte', 'salidas') !!}
+</form>
 @endisset
 
 @endsection

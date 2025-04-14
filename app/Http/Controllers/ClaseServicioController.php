@@ -117,11 +117,11 @@ class ClaseServicioController extends Controller
         return Datatables::of(ClaseServicio::query())
             ->addColumn('action', function ($row)
             {
-                $html  = "<form class='delete-form' action='/administracion/clase/{$row->id}' method='post'>";
+                $html  = "<form class='delete-form text-right' action='/administracion/clase/{$row->id}' method='post'>";
                 $html .= csrf_field() . method_field('DELETE');
                 $html .= "<a href='/administracion/clase/{$row->id}/edit' class='btn btn-xs btn-primary actions'>";
                 $html .= "<i class='glyphicon glyphicon-edit'></i> Editar</a>";
-                $html .= "<button class='btn btn-xs btn-danger actions' type='button'>";
+                $html .= "<button class='btn btn-xs btn-danger actions' style='margin:5px;padding:1px 5px!important;' type='button'>";
                 $html .= "<i class='glyphicon glyphicon-remove'></i> Borrar</button></form>";
                 return $html;
             })

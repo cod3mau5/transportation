@@ -1,37 +1,29 @@
-@isset ($record->created_at)
-    {!! Html::model($record,
-        ['route'=> ['reservacion.update', $record->id], 'method'=>'put', 'class'=>'form-horizontal'])
-    !!}
+@isset($record->created_at)
+    {!! Html::form('PUT', route('reservacion.update', $record->id))->class('form-horizontal')->open() !!}
 @else
-    {!! Html::open(['route' => 'reservacion.store', 'class' => 'form-horizontal']) !!}
+    {!! Html::form('POST', route('reservacion.store'))->class('form-horizontal')->open() !!}
 @endisset
 
 @if ($record->created_at)
 <div class="row">
     <div class="col-md-3">
-        <label  for="created_at" class="control-label">Fecha y hora de captura</label>
-        <input  type="text" class="form-control" disabled="disabled"
-                value="{{$record->created_at->timezone('America/Mazatlan')->toDateTimeString()}}"
-                name="created_at"
-        >
-    </div>
-    <div class="col-md-3">
-        <label for="user_id" class="control-label">Capturada por</label>
-        {{ Html::select('user_id', $usuarios, $record->user_id, ['class'=>'form-control', 'disabled'=>'disabled']) }}
-    </div>
-    <div class="col-md-3">
-        <label  for="updated_at" class="control-label">Última modificación</label>
-        <input  type="text" class="form-control" disabled="disabled"
-                value="{{$record->updated_at->timezone('America/Mazatlan')->toDateTimeString()}}"
-                name="updated_at"
-        >
-    </div>
-    <div class="col-md-3">
-        <label for="updated_at" class="control-label">Origen</label>
+        {!! Html::label('created_at', 'Fecha y hora de captura')->class('control-label') !!}
         <input type="text" class="form-control" disabled="disabled"
-               value="{{$record->source}}"
-               name="updated_at"
-        >
+               value="{{$record->created_at->timezone('America/Mazatlan')->toDateTimeString()}}" name="created_at">
+    </div>
+    <div class="col-md-3">
+        {!! Html::label('user_id', 'Capturada por')->class('control-label') !!}
+        {!! Html::select('user_id', $usuarios, $record->user_id)->class('form-control')->attribute('disabled', true) !!}
+    </div>
+    <div class="col-md-3">
+        {!! Html::label('updated_at', 'Última modificación')->class('control-label') !!}
+        <input type="text" class="form-control" disabled="disabled"
+               value="{{$record->updated_at->timezone('America/Mazatlan')->toDateTimeString()}}" name="updated_at">
+    </div>
+    <div class="col-md-3">
+        {!! Html::label('source', 'Origen')->class('control-label') !!}
+        <input type="text" class="form-control" disabled="disabled"
+               value="{{$record->source}}" name="updated_at">
     </div>
     <hr>
 </div>
@@ -39,135 +31,147 @@
 
 <div class="row">
     <div class="col-md-3">
-        <label for="voucher" class="control-label">No. de voucher</label>
-        {{ Html::text('voucher', null, ['class'=>'form-control', 'id'=>'voucher']) }}
+        {!! Html::label('voucher', 'No. de voucher')->class('control-label') !!}
+        {!! Html::text('voucher', $record->voucher ?? null)->id('voucher')->class('form-control') !!}
     </div>
     <div class="col-md-3">
-        <label for="fullname" class="control-label">Nombre</label>
-        {{ Html::text('fullname', null, ['class'=>'form-control', 'required'=>'required']) }}
+        {!! Html::label('fullname', 'Nombre')->class('control-label') !!}
+        {!! Html::text('fullname', $record->fullname ?? null)->class('form-control')->required() !!}
     </div>
     <div class="col-md-3">
-        <label for="email" class="control-label">Correo electrónico</label>
-        {{ Html::text('email', null, ['class'=>'form-control']) }}
+        {!! Html::label('email', 'Correo electrónico')->class('control-label') !!}
+        {!! Html::text('email', $record->email ?? null)->class('form-control') !!}
     </div>
     <div class="col-md-3">
-        <label for="phone" class="control-label">Teléfono</label>
-        {{ Html::text('phone', null, ['class'=>'form-control']) }}
+        {!! Html::label('phone', 'Teléfono')->class('control-label') !!}
+        {!! Html::text('phone', $record->phone ?? null)->class('form-control') !!}
     </div>
 </div>
 
 <div class="row">
     <div class="col-md-4">
-        <label for="unit" class="control-label">Tipo de servicio</label>
-        {{ Html::select('type', $tipos, $record->type, ['class'=>'form-control', 'id'=>'tipo_servicio']) }}
+        {!! Html::label('type', 'Tipo de servicio')->class('control-label') !!}
+        {!! Html::select('type', $tipos, $record->type ?? null)->id('tipo_servicio')->class('form-control') !!}
     </div>
     <div class="col-md-4">
-        <label for="unit" class="control-label">Origen</label>
-        {{ Html::select('location_start', $resorts, $record->location_start, ['class'=>'form-control', 'id'=>'location_start']) }}
+        {!! Html::label('location_start', 'Origen')->class('control-label') !!}
+        {!! Html::select('location_start', $resorts, $record->location_start ?? null)->id('location_start')->class('form-control') !!}
     </div>
     <div class="col-md-4">
-        <label for="unit" class="control-label">Destino</label>
-        {{ Html::select('location_end', $resorts, $record->location_end, ['class'=>'form-control', 'id'=>'location_end']) }}
+        {!! Html::label('location_end', 'Destino')->class('control-label') !!}
+        {!! Html::select('location_end', $resorts, $record->location_end ?? null)->id('location_end')->class('form-control') !!}
     </div>
 </div>
 
 <div class="row">
     <div class="col-md-4">
-        <label for="total_travelers" class="control-label">Total de pasajeros</label>
-        {{ Html::number('total_travelers', null, ['class'=>'form-control', 'id'=>'total_travelers','disabled'=>'disabled', 'placeholder'=>'Total de pasajeros']) }}
+        {!! Html::label('total_travelers', 'Total de pasajeros')->class('control-label') !!}
+        {!! Html::number('total_travelers', $record->total_travelers ?? null)->id('total_travelers')->class('form-control')->attribute('disabled', true)->placeholder('Total de pasajeros') !!}
     </div>
     <div class="col-md-4">
-        <label for="passengers" class="control-label">Número de adultos</label>
-        {{ Html::selectRange('passengers', 1, 20, null, ['class'=>'form-control', 'id' => 'passengers','placeholder'=>'Número de adultos', 'required'=>'required']) }}
+        {!! Html::label('passengers', 'Número de adultos')->class('control-label') !!}
+        <select name="passengers" id="passengers" class="form-control" required>
+            <option value="">Número de adultos</option>
+            @for ($i = 1; $i <= 20; $i++)
+                <option value="{{ $i }}" {{ isset($record->passengers) && $record->passengers == $i ? 'selected' : '' }}>{{ $i }}</option>
+            @endfor
+        </select>
     </div>
     <div class="col-md-4">
-        <label for="children" class="control-label">Número de niños</label>
-        {{ Html::selectRange('children', 1, 20, null, ['class'=>'form-control', 'id'=> 'children' ,'placeholder'=>'Número de niños', 'required'=>'required']) }}
+        {!! Html::label('children', 'Número de niños')->class('control-label') !!}
+        <select name="children" id="children" class="form-control" required>
+            <option value="">Número de niños</option>
+            @for ($i = 1; $i <= 20; $i++)
+                <option value="{{ $i }}" {{ isset($record->children) && $record->children == $i ? 'selected' : '' }}>{{ $i }}</option>
+            @endfor
+        </select>
     </div>
 </div>
 
 <div class="row">
     <div class="col-md-3">
-        <label for="unit" class="control-label">Vehículo</label>
-        {{ Html::select('unit_id', $units, $record->unit_id, ['class'=>'form-control']) }}
+        {!! Html::label('unit_id', 'Vehículo')->class('control-label') !!}
+        {!! Html::select('unit_id', $units, $record->unit_id ?? null)->class('form-control') !!}
     </div>
     <div class="col-md-3">
-        <label for="pickup_time" class="control-label">Pick up time</label>
-        {{ Html::text('pickup_time', null, ['class'=>'form-control', 'id'=>'pickup_time']) }}
+        {!! Html::label('pickup_time', 'Pick up time')->class('control-label') !!}
+        {!! Html::text('pickup_time', $record->pickup_time ?? null)->id('pickup_time')->class('form-control') !!}
     </div>
     <div class="col-md-3">
-        <label for="total" class="control-label">Total</label>
-        {{ Html::text('total', null, ['class'=>'form-control', 'id'=>'total', 'required'=>'required']) }}
+        {!! Html::label('total', 'Total')->class('control-label') !!}
+        {!! Html::text('total', $record->total ?? null)->id('total')->class('form-control')->required() !!}
     </div>
     <div class="col-md-3">
-        <label for="unit" class="control-label">Tipo de pago</label>
-        {{ Html::select('payment_type', $pagos, $record->payment_type, ['class'=>'form-control']) }}
+        {!! Html::label('payment_type', 'Tipo de pago')->class('control-label') !!}
+        {!! Html::select('payment_type', $pagos, $record->payment_type ?? null)->class('form-control') !!}
     </div>
 </div>
+
 <div class="row">
     <div class="col-md-12"><hr></div>
 </div>
+
 <div class="row">
     <div class="col-md-3">
-        <label for="arrival_date" class="control-label">Fecha de llegada</label>
-        {{ Html::text('arrival_date', null, ['class'=>'form-control', 'required'=>'required', 'id'=>'arrival_date']) }}
+        {!! Html::label('arrival_date', 'Fecha de llegada')->class('control-label') !!}
+        {!! Html::text('arrival_date', $record->arrival_date ?? null)->id('arrival_date')->class('form-control')->required() !!}
     </div>
     <div class="col-md-3">
-        <label for="arrival_airline" class="control-label">Aerolínea llegada</label>
-        {{ Html::text('arrival_airline', null, ['class'=>'form-control', 'required'=>'required', 'id'=>'arrival_airline']) }}
+        {!! Html::label('arrival_airline', 'Aerolínea llegada')->class('control-label') !!}
+        {!! Html::text('arrival_airline', $record->arrival_airline ?? null)->id('arrival_airline')->class('form-control')->required() !!}
     </div>
     <div class="col-md-3">
-        <label for="arrival_flight" class="control-label">Vuelo de llegada</label>
-        {{ Html::text('arrival_flight', null, ['class'=>'form-control', 'required'=>'required', 'id'=>'arrival_flight']) }}
+        {!! Html::label('arrival_flight', 'Vuelo de llegada')->class('control-label') !!}
+        {!! Html::text('arrival_flight', $record->arrival_flight ?? null)->id('arrival_flight')->class('form-control')->required() !!}
     </div>
     <div class="col-md-3">
-        <label for="arrival_time" class="control-label">Hora de llegada</label>
-        {{ Html::text('arrival_time', null, ['class'=>'form-control', 'required'=>'required', 'id'=>'arrival_time']) }}
+        {!! Html::label('arrival_time', 'Hora de llegada')->class('control-label') !!}
+        {!! Html::text('arrival_time', $record->arrival_time ?? null)->id('arrival_time')->class('form-control')->required() !!}
     </div>
 </div>
+
 <div class="departureFields row">
     <div class="col-md-3">
-        <label for="departure_date" class="control-label">Fecha de salida</label>
-        {{ Html::text('departure_date', null, ['class'=>'form-control', 'id'=>'departure_date']) }}
+        {!! Html::label('departure_date', 'Fecha de salida')->class('control-label') !!}
+        {!! Html::text('departure_date', $record->departure_date ?? null)->id('departure_date')->class('form-control') !!}
     </div>
     <div class="col-md-3">
-        <label for="departure_airline" class="control-label">Aerolínea salida</label>
-        {{ Html::text('departure_airline', null, ['class'=>'form-control', 'required'=>'required', 'id'=>'departure_airline']) }}
+        {!! Html::label('departure_airline', 'Aerolínea salida')->class('control-label') !!}
+        {!! Html::text('departure_airline', $record->departure_airline ?? null)->id('departure_airline')->class('form-control')->required() !!}
     </div>
     <div class="col-md-3" id="departure_flight_container">
-        <label for="departure_flight" class="control-label">Vuelo de salida</label>
-        {{ Html::text('departure_flight', null, ['class'=>'form-control', 'id'=>'departure_flight']) }}
+        {!! Html::label('departure_flight', 'Vuelo de salida')->class('control-label') !!}
+        {!! Html::text('departure_flight', $record->departure_flight ?? null)->id('departure_flight')->class('form-control') !!}
     </div>
     <div class="col-md-3">
-        <label for="departure_time" class="control-label">Hora de salida</label>
-        {{ Html::text('departure_time', null, ['class'=>'form-control', 'id'=>'departure_time']) }}
+        {!! Html::label('departure_time', 'Hora de salida')->class('control-label') !!}
+        {!! Html::text('departure_time', $record->departure_time ?? null)->id('departure_time')->class('form-control') !!}
     </div>
 </div>
+
 <div class="row">
     <div class="col-md-12"><hr></div>
 </div>
-<div class="row">
 
-</div>
 <div class="row">
     <div class="col-md-12">
-        <label for="comments" class="control-label">Comentarios</label>
-        {{ Html::textarea('comments', null, ['class'=>'form-control', 'id'=>'comments']) }}
+        {!! Html::label('comments', 'Comentarios')->class('control-label') !!}
+        {!! Html::textarea('comments', $record->comments ?? null)->id('comments')->class('form-control') !!}
     </div>
 </div>
 
 <div class="row">
     <div class="col-md-12 text-right submit">
         @if ($record->created_at)
-            <input type="hidden" name="id" value="{{$record->id}}">
+            {!! Html::hidden('id', $record->id) !!}
         @else
-            <input type="hidden" name="resort_id" id="resort_id" value="">
-            <input type="hidden" name="source" value="panel">
+            {!! Html::hidden('resort_id', null)->id('resort_id') !!}
+            {!! Html::hidden('source', 'panel') !!}
         @endif
-        <input type="hidden" name="user_id" value="{{Auth::id()}}">
-        {{ Html::button('Cancelar', ['class'=>'btn-cancelar btn btn-default']) }}
-        {{ Html::submit($submit_label, ['class'=>'btn btn-primary']) }}
+        {!! Html::hidden('user_id', Auth::id()) !!}
+        {!! Html::button('Cancelar')->class('btn-cancelar btn btn-default') !!}
+        {!! Html::submit($submit_label)->class('btn btn-primary') !!}
     </div>
 </div>
 
-{!! Html::close() !!}
+</form>
