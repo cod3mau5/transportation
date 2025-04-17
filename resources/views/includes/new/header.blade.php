@@ -13,13 +13,13 @@
         <a href="tel:6241104185">(624) 110 4185</a>
     </div>
     <div class="item">
-        <i class="fa fa-whatsapp" style="color:#1DA075;font-family:'FontAwesome';" aria-hidden="true"></i>
+        <i class="fab fa-whatsapp" style="color:#1DA075;" aria-hidden="true"></i>
         <span>Whatsapp:</span>
         <a href="https://api.whatsapp.com/send?phone=526241104185&amp;text=Hi! I'm coming from Cabo Drivers and I would like to make a reservation"
             target="_blank" rel="noopener noreferrer nofollow">+52 624 110 4185</a>
     </div>
     <div class="item">
-        <i class="fa fa-globe" aria-hidden="true"></i>
+        <i class="fas fa-globe" aria-hidden="true"></i>
         <span>Rest of the world:</span>
         <a href="tel:6241104185">(624) 110 4185</a>
     </div>
@@ -64,8 +64,8 @@
                                     href="https://api.whatsapp.com/send?phone=5216241104185&text=¡Hola! Vengo de Cabo Drivers Services y me gustaría reservar sus servicios"
                                     target="_blank" rel="noopener noreferrer nofollow">(624) 110 4185</a></strong></div>
                         <!-- <div class="rowphone">
-                            <i class="fa fa-globe" aria-hidden="true"></i> 
-                            <span>Resto del Mundo:</span> 
+                            <i class="fa fa-globe" aria-hidden="true"></i>
+                            <span>Resto del Mundo:</span>
                             <strong>(000) 000 0000</strong>
                         </div> -->
                         <div class="chatheader">
