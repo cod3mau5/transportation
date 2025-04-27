@@ -167,6 +167,28 @@
         #PAGES_CONTAINER {
             margin-top: -50px;
         }
+        @media (min-width: 1200px) {
+            .zone-card{
+                width: 14%;
+            }
+        }
+        @media (max-width: 768px) {
+            .zone-card{
+                width: 32.9%;
+            }
+        }
+        @media (max-width: 576px) {
+            .zone-card{
+                width: 49%;
+            }
+        }
+        @media (max-width: 480px) {
+            .zone-card{
+                width: 100%;
+            }
+        }
+
+
     </style>
 @endsection
 @section('global-header')
@@ -229,6 +251,7 @@
             </div>
         </div>
 
+
         <div class="container-fluid bg-arch">
             <div class="row">
                 <div class="mask">
@@ -255,6 +278,56 @@
                 </div>
             </div>
         </div>
+
+        <section id="zones">
+            <div  class="d-flex flex-wrap justify-content-center w-100 py-5">
+                @foreach ($zones as $zone)
+                    <div class="zone-card d-flex justify-content-center">
+                        <div class="d-flex w-100 flex-column justify-content-between m-2 p-2 border" style="border-color: #0BB197!important;border-width: 1.85px!important;">
+                            <span class="text-center font-bold uppercase ff-francois-one fs-2 mb-2">
+                                {{ "ZONE $zone->zone"  }}</span>
+                            <p class="text-center font-bold text-gray-500">
+                                <span class="text-base">
+                                    AIRPORT (SJD)
+                                    <br>
+                                    {{ $zone->name}}
+                                </span>
+                            </p>
+                            <p class="text-center text-sm text-gray-600 mb-1">starting from</p>
+                            @if($zone->price->roundtrip)
+                                <p class="text-center">
+                                    <span class="font-bold fs-2 text-gray-700">${{ $zone->price->roundtrip }}</span>
+                                    <span class="font-bold fs-3 text-gray-500">USD</span>
+                                </p>
+                                <span class="text-center font-bold mt-0 mb-4 ff-francois-one fs-4">
+                                    ROUND TRIP
+                                </span>
+                            @else
+                                <p class="text-center">
+                                    <span class="font-bold fs-2 text-gray-700">${{ $zone->price->oneway }}</span>
+                                    <span class="font-bold fs-3 text-gray-500">USD</span>
+                                </p>
+                                <span class="text-center font-bold mt-0 mb-4 ff-francois-one fs-4">
+                                    ONE WAY
+                                </span>
+                            @endif
+                            <a class="btn-gradient btn-rounded p-2 font-bold text-center text-white"
+                                aria-label="Book Now" href="/book-now">
+                                BOOK NOW
+                            </a>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+            <div class="row">
+                <div class="my-6 text-center">
+                    <a aria-label="View Zones Map"
+                        class="btn-action uppercase"
+                        href="{{ route('zoneMap') }}"> View Zones Map
+                    </a>
+                </div>
+            </div>
+        </section>
 
         <div class="container-fluid">
             <div class="row index-services bg_dark_main_blue">

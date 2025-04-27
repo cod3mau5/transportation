@@ -11,6 +11,7 @@ use App\Models\Resort;
 use App\Models\Reservation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use App\Models\Zone;
 
 class PagesController extends Controller
 {
@@ -18,6 +19,8 @@ class PagesController extends Controller
         $resorts = Resort::all()->sortBy("name");
         $units   = Unit::all()->sortBy("name");
         $rates= Rate::all()->sortBy('zone_id');
+        $zones = Zone::all()->sortBy('zone');
+        // dd($zones->toArray());
 
         $start_location = (isset($_GET['start_location'])) ? $_GET['start_location'] : '';
         $end_location   = (isset($_GET['end_location'])) ? $_GET['end_location'] : '';
@@ -26,9 +29,8 @@ class PagesController extends Controller
         $date_departure = (isset($_GET['departure'])) ? $_GET['departure'] : '';
         $pageTitle = "Cabo Airport Transportation |  Private Transfers & Shuttle Options";
 
-        // dd($resorts);
         return view('pages.new.home',compact(
-            'resorts','units','rates',
+            'resorts','units','rates','zones',
             'start_location','end_location',
             'passengers','date_arrival',
             'date_departure','pageTitle'
@@ -432,5 +434,18 @@ class PagesController extends Controller
             'excerpt' => $post->excerpt,
             'meta_description' => $post->meta_description,
         ]);
+    }
+
+    public function zoneMap(){
+        $resorts = Resort::all()->sortBy("name");
+        $units   = Unit::all()->sortBy("name");
+        $rates= Rate::all()->sortBy('zone_id');
+        $zones = Zone::all()->sortBy('zone');
+        $start_location = (isset($_GET['start_location'])) ? $_GET['start_location'] : '';
+        $end_location   = (isset($_GET['end_location'])) ? $_GET['end_location'] : '';
+        $passengers     = (isset($_GET['passengers'])) ? (int) $_GET['passengers'] : '';
+        $date_arrival   = (isset($_GET['arrival'])) ?  $_GET['arrival'] : '';
+        $date_departure = (isset($_GET['departure'])) ? $_GET['departure'] : '';
+        return view('pages.new.map',compact('resorts','units','rates','zones','start_location','end_location','passengers','date_arrival','date_departure'));
     }
 }

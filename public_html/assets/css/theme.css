@@ -6,6 +6,33 @@
     --main_green: #0BB197;
     --white:#FFF;
 }
+/* helpers */
+.ff-francois-one{
+    font-family: 'Francois One', sans-serif;
+}
+.font-bold{
+    font-weight: bold;
+}
+.font-medium{
+    font-weight: 500;
+}
+.font-semibold{
+    font-weight: 600;
+}
+.font-normal{
+    font-weight: 400;
+}
+.font-light{
+    font-weight: 300;
+}
+.uppercase{
+    text-transform: uppercase;
+}
+
+
+.bg-main-blue{
+    background-color: var(--main_blue);
+}
 .bg-main-green{
     background-color: var(--main_green);
 }
@@ -5781,9 +5808,35 @@ footer .footer-pie ul li.separator {
     background: linear-gradient(163deg, rgba(1,65,137,1) 16%, rgba(0,90,149,1) 46%, rgba(0,150,197,1) 84%, rgba(61,155,233,1) 100%);
     z-index: 9997;
     min-height: 80px;
-    transition: all 0.3s linear;
     -webkit-transition: all 0.3s linear;
     -moz-transition: all 0.3s linear;
+    transition: all 0.3s linear;
+}
+.btn-action{
+    display: block;
+    margin: 0 auto;
+    width: 280px;
+    padding: 15px 0;
+    text-align: center;
+    background: var(--main_green);
+    color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+    letter-spacing: 2px;
+    -webkit-transition: all 0.3s linear;
+    -moz-transition: all 0.3s linear;
+    transition: all 0.3s linear;
+    font-weight: 900;
+}
+.btn-action:hover{
+    letter-spacing: 5px;
+    color: #fff;
+}
+.btn-gradient{
+     background: rgb(1,65,137);
+    background: linear-gradient(163deg, rgba(1,65,137,1) 16%, rgba(0,90,149,1) 46%, rgba(0,150,197,1) 84%, rgba(61,155,233,1) 100%);
+}
+.btn-rounded{
+    border-radius: 5px;
 }
 .box-start-booking h1,
 .startEditBooking h1 {

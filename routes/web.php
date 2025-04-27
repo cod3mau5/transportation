@@ -23,8 +23,7 @@ Route::get('/restaurant/{restaurantSlug}',[Controllers\PagesController::class,'r
 Route::get('/foreign/{foreignSlug}',[Controllers\PagesController::class,'foreign'])->name('foreign');
 Route::post('/send_booking_bar',[Controllers\PagesController::class,'sendBookingBar'])->name('sendBookingBar');
 Route::get('/rate-us',[Controllers\PagesController::class,'rateUs'])->name('rateUs');
-
-Route::get('/ggg/{id}', [Controllers\PagesController::class,'ggg'])->name('ggg');
+Route::get('/zone-map', [Controllers\PagesController::class,'zoneMap'])->name('zoneMap');
 
 // SERVICES OF TRANSPORTATION
 Route::get('/services/{slug}', [Controllers\PagesController::class, 'services'])->name('services');;

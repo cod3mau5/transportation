@@ -167,14 +167,18 @@ $(document).ready(function () {
                 emtApp.scrollPoint = $(this).scrollTop();
                 var a = $(".box-start-booking");
                 return (
-                    emtApp.scrollPoint >= 150
+                    emtApp.scrollPoint >= 135
                         ? (a.addClass("persistBooking"),
                           a.hasClass("is-bookhome") &&
                               a.hasClass("is-relative") &&
-                              a.removeClass("is-relative"))
+                              a.removeClass("is-relative") &&
+                              // agregaremnos un padding top al body
+                              $("body").css("padding-top", "139.77px")
+                         )
                         : (a.removeClass("persistBooking"),
                           a.hasClass("is-bookhome") &&
-                              a.addClass("is-relative")),
+                              a.addClass("is-relative") &&
+                              $("body").css("padding-top", "0px")),
                     !1
                 );
             }
