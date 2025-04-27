@@ -133,43 +133,43 @@
                       src="/assets/zones/zone1_san_jose_del_cabo.png?123"
                       id="zone1"
                       class="zone-img position-absolute top-0 start-0 w-100 h-100 active"
-                      alt="Zone 1"
+                      alt="Zone 1: San José del Cabo"
                     >
                     <img
                       src="/assets/zones/zone2_puerto_los_cabos_&_tourist_corridor.png?123"
                       id="zone2"
                       class="zone-img position-absolute top-0 start-0 w-100 h-100"
-                      alt="Zone 2"
+                      alt="Zone 2: Puerto Los Cabos & Tourist Corridor"
                     >
                     <img
                       src="/assets/zones/zone3_cabo_san_lucas.png?123"
                       id="zone3"
                       class="zone-img position-absolute top-0 start-0 w-100 h-100"
-                      alt="Zone 3"
+                      alt="Zone 3: Cabo San Lucas"
                     >
                     <img
                       src="/assets/zones/zone4_pacific_side.png?123"
                       id="zone4"
                       class="zone-img position-absolute top-0 start-0 w-100 h-100"
-                      alt="Zone 4"
+                      alt="Zone 4: Pacific Side"
                     >
                     <img
                       src="/assets/zones/zone5_todos_santos.png?123"
                       id="zone5"
                       class="zone-img position-absolute top-0 start-0 w-100 h-100"
-                      alt="Zone 5"
+                      alt="Zone 5: Todos Santos"
                     >
                     <img
                       src="/assets/zones/zone6_los_barriles.png?123"
                       id="zone6"
                       class="zone-img position-absolute top-0 start-0 w-100 h-100"
-                      alt="Zone 6"
+                      alt="Zone 6: Los Barriles"
                     >
                     <img
                       src="/assets/zones/zone7_la_paz.png?123"
                       id="zone7"
                       class="zone-img position-absolute top-0 start-0 w-100 h-100"
-                      alt="Zone 7"
+                      alt="Zone 7: La Paz"
                     >
                   </div>
                 </div>
