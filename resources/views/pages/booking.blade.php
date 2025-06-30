@@ -126,6 +126,7 @@
             <a href="tel:6241104185">(624) 110 4185</a>
         </div>
     </div>
+
     <section class="top-bar">
 
         <div class="container">
@@ -406,7 +407,16 @@
         beforeMount(){
         },
         mounted() {
-            this.changeLanguage('{{ app()->getLocale()}}');
+
+            // aqui vamos a obtener la variable get llamada correo
+            const valores = window.location.search;
+
+            const urlParams = new URLSearchParams(valores);
+
+            const varValue = urlParams.get('correo');
+
+            alert(varValue);
+
             document.getElementById('vid').play();
             if(this.about_us == true){
                 $('html, body').animate({
